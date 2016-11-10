@@ -5,7 +5,7 @@ public class Player : Character {
 	private static Vector3 topRight = Vector3.Normalize (new Vector3 (1, 1, 0));
 
 	public int playerNumber;
-	public float firingRate = 0;
+	public float firingRate = 1;
 	public GameObject projectile;
 
 	private float firingDelay;
@@ -32,7 +32,7 @@ public class Player : Character {
 				deltaPos = Vector3.Normalize (new Vector3 (Mathf.Sign (dx), Mathf.Sign (dy), 0));
 			}
 
-			gameObject.transform.position += (deltaPos * Time.deltaTime * speed);
+			gameObject.transform.Translate (deltaPos * Time.deltaTime * speed);
 		}
 
 		if (Input.GetAxis ("Fire1_P"+playerNumber) > .5f) {
@@ -44,13 +44,7 @@ public class Player : Character {
 		}
 	}
 
-	public string ToString() {
+	public override string ToString() {
 		return "Player_" + playerNumber;
 	}
-	/*
-	void OnCollisionEnter2D (Collision2D coll) {
-		Debug.Log ("Hit");
-		if (coll.gameObject.tag == "Projectile")
-			Debug.Log ("Damage");
-	}//*/
 }

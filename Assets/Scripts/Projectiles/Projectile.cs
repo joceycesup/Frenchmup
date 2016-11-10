@@ -11,8 +11,8 @@ public abstract class Projectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.transform.position = getPosition ();
+		gameObject.transform.Translate (getDeltaPosition ());
 	}
 
-	protected abstract Vector3 getPosition ();
+	protected abstract Vector3 getDeltaPosition ();
 }

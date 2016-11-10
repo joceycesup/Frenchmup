@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LinearProjectile : MonoBehaviour {
+public class LinearProjectile : Projectile {
 
-	// Use this for initialization
-	void Start () {
-	
+	protected override Vector3 getDeltaPosition () {
+		return new Vector3 (0, speed * Time.deltaTime, 0);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void SetDirection (float dx, float dy) {
+		gameObject.transform.rotation = Quaternion.FromToRotation (Vector3.up, new Vector3 (dx, dy, 0));
 	}
 }

@@ -3,9 +3,7 @@ using System.Collections;
 
 public class StraightProjectile : Projectile {
 
-	protected override Vector3 getPosition () {
-		Vector3 res = gameObject.transform.position;
-		res.y += speed * Time.deltaTime;
-		return res;
+	protected override Vector3 getDeltaPosition () {
+		return new Vector3 (0, speed * Time.deltaTime, 0);
 	}
 }
