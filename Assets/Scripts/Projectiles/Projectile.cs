@@ -4,15 +4,22 @@ using System.Collections;
 public abstract class Projectile : MonoBehaviour {
 	public bool isEnemy;
 	public float speed;
+	public float acceleration = 0.0f;
 
-	// Use this for initialization
 	void Start () {
+		transform.parent = ViewportHandler.viewport.transform;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+	/*
+	public virtual void Update () {
+		Debug.Log ("base class");
 		gameObject.transform.Translate (getDeltaPosition ());
-	}
+	}/*/
+	void Update () {
+		speed += Time.deltaTime * acceleration;
+		UpdateProjectile ();
+	}//*/
 
-	protected abstract Vector3 getDeltaPosition ();
+	protected virtual void UpdateProjectile () {
+		gameObject.transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
+	}
 }

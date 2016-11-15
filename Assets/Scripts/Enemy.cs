@@ -20,7 +20,9 @@ public class Enemy : Character {
 			nextShot = Time.time + firingDelay;
 			GameObject pro = (GameObject) Instantiate (projectile, gameObject.transform.position, Quaternion.identity);
 			pro.gameObject.GetComponent<Projectile>().isEnemy = isEnemy;
-			pro.gameObject.GetComponent<LinearProjectile> ().SetDirection (1, -2);
+			//pro.gameObject.GetComponent<CurvedProjectile> ().SetDirection (1, -2);
+			pro.gameObject.GetComponent<CurvedProjectile> ().SetDirection (0, -2);
+			pro.gameObject.GetComponent<CurvedProjectile> ().curveAngle = 10;
 		}
 	}
 

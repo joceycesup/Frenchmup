@@ -88,7 +88,7 @@ MonoBehaviour:
   speed: 0
   health: 1
   firingRate: 0.4
-  projectile: {fileID: 1000012552172074, guid: 9b9bfb3a3c5bf5b44b5f23e7760b858e, type: 2}
+  projectile: {fileID: 1000013694235874, guid: 228f34f8d191b274ab79f5ba93246f63, type: 2}
 --- !u!212 &212000013607709796
 SpriteRenderer:
   m_ObjectHideFlags: 1
