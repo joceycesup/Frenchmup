@@ -20,9 +20,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012079707850}
   - 212: {fileID: 212000012957720038}
-  - 114: {fileID: 114000014176123218}
+  - 114: {fileID: 114000010856679418}
+  - 50: {fileID: 50000012005713242}
   - 61: {fileID: 61000011875883956}
-  m_Layer: 0
+  - 60: {fileID: 60000011554944864}
+  m_Layer: 10
   m_Name: CurvedProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -42,6 +44,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000012005713242
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013694235874}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &60000011554944864
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013694235874}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.1, y: 0.16}
+      - {x: 0.1, y: 0.23}
+      - {x: 0.0036781002, y: 0.55019164}
+      - {x: -0.096, y: 0.23}
+      - {x: -0.096, y: 0.16}
 --- !u!61 &61000011875883956
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -53,10 +91,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0046718456, y: -0.14853919}
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 1.28}
---- !u!114 &114000014176123218
+  m_Size: {x: 0.09279879, y: 0.844285}
+--- !u!114 &114000010856679418
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,13 +102,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013694235874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef57911eabdcc064cbbc8d30d35c96dc, type: 3}
+  m_Script: {fileID: 11500000, guid: db7d644b5e3dcb741a12b8fda262076e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
-  speed: 3
-  acceleration: -0.75
+  speed: 4
+  acceleration: 0
   curveAngle: 0
+  behaviour: 0
+  behaviourTime: 1
+  nextProjectile: {fileID: 0}
+  behaviourArgs:
+  - 0
 --- !u!212 &212000012957720038
 SpriteRenderer:
   m_ObjectHideFlags: 1

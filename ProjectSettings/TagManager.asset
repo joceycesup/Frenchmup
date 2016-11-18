@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Projectile
   - Enemy
+  - CharHitbox
+  - Section
+  - EnemyGroup
   layers:
   - Default
   - TransparentFX
@@ -15,12 +18,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Projectile
+  - CharHitbox
+  - Background
+  - Wall
   - 
   - 
   - 
@@ -54,4 +57,7 @@ TagManager:
     locked: 0
   - name: Players
     uniqueID: 3478893657
+    locked: 0
+  - name: Foreground
+    uniqueID: 3461439309
     locked: 0

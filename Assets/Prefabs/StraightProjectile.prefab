@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010531531192}
   - 212: {fileID: 212000014227358678}
-  - 114: {fileID: 114000012073875314}
+  - 114: {fileID: 114000012515643106}
+  - 50: {fileID: 50000013233614300}
   - 58: {fileID: 58000010824730594}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StraightProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -42,6 +43,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000013233614300
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010819491254}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58000010824730594
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -56,7 +74,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16
---- !u!114 &114000012073875314
+--- !u!114 &114000012515643106
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,11 +82,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010819491254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f503b5c5e1ee3849a3ff687c8db71f8, type: 3}
+  m_Script: {fileID: 11500000, guid: db7d644b5e3dcb741a12b8fda262076e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
-  speed: 6
+  speed: 4
+  acceleration: 0
+  curveAngle: 0
 --- !u!212 &212000014227358678
 SpriteRenderer:
   m_ObjectHideFlags: 1
