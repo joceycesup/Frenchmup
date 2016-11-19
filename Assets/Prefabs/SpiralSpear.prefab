@@ -25,7 +25,7 @@ GameObject:
   - 61: {fileID: 61000013470220346}
   - 60: {fileID: 60000013928159964}
   m_Layer: 10
-  m_Name: StraightProjectile
+  m_Name: SpiralSpear
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,11 +111,19 @@ MonoBehaviour:
   speed: 4
   acceleration: 0
   curveAngle: 0
-  behaviour: 0
+  pattern: 2
+  patternArgs:
+  - 1
+  - 5
+  behaviour: 1
+  behaviourArgs:
+  - -10
+  - -5
+  - 0
+  - 5
+  - 10
   behaviourTime: 1
-  nextProjectile: {fileID: 1000010056730240, guid: 4ee49b45f0cd67a4aadd935a80710f59,
-    type: 2}
-  behaviourArgs: []
+  nextProjectile: {fileID: 0}
 --- !u!212 &212000013419866146
 SpriteRenderer:
   m_ObjectHideFlags: 1

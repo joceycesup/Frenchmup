@@ -9,10 +9,12 @@ public class Magnet : MonoBehaviour {
 		if (other.gameObject == transform.parent.gameObject)
 			return;
 		//Debug.Log (transform.parent.gameObject.ToString () + " got triggered by " + other.gameObject.ToString ());
-		if (other.gameObject.tag == "Projectile") {
+		if (other.gameObject.tag == "Projectile" && other.gameObject.GetComponent<Projectile> ().isEnemy) {
 			float factor = 1.0f - Vector3.Distance (gameObject.transform.position, other.gameObject.transform.position) / gameObject.GetComponent<CircleCollider2D> ().radius;
 			factor *= magnetSpeed * IngameTime.deltaTime;
-			other.gameObject.transform.Translate (Vector3.Normalize (other.gameObject.transform.position - gameObject.transform.position) * factor);
+			if (factor > 0) {
+				other.gameObject.transform.Translate (Vector3.Normalize (other.gameObject.transform.position - gameObject.transform.position) * factor);
+			}
 		}
 	}
 }

@@ -186,7 +186,7 @@ MonoBehaviour:
   invincible: 0
   playerNumber: 1
   state: 1
-  firingRate: 10
+  firingRate: 5
   projectile: {fileID: 1000013353574084, guid: e003444e4247ebc4a99a0d78b89c4967, type: 2}
 --- !u!114 &114000010400518318
 MonoBehaviour:

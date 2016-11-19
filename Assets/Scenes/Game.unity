@@ -103,7 +103,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012200899862, guid: 00b151e5c7943bf43a45c6737cd8f395, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.43
+      value: -5.77
       objectReference: {fileID: 0}
     - target: {fileID: 4000012200899862, guid: 00b151e5c7943bf43a45c6737cd8f395, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1047,6 +1047,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011595219368, guid: 7a6ea09d3bcb7a1438eeb1178511204c,
     type: 2}
   m_PrefabInternal: {fileID: 839267160}
+--- !u!1 &1534805695 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010439203416, guid: 00b151e5c7943bf43a45c6737cd8f395,
+    type: 2}
+  m_PrefabInternal: {fileID: 159518416}
 --- !u!1 &1598006186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,8 +1116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc14da104b9e42e4ca4db805639137ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourLock: {fileID: 0}
-  behaviour: 0
+  behaviourLock: {fileID: 1534805695}
+  behaviour: 1
 --- !u!61 &1635151338
 BoxCollider2D:
   m_ObjectHideFlags: 0
