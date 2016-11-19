@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  health: 2
+  health: 1
   invincibilityTime: 1
   invincible: 0
   isStatic: 0

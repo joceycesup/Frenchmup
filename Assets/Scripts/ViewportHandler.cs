@@ -72,12 +72,17 @@ public class ViewportHandler : MonoBehaviour {
 		if (other.gameObject.tag == "Section") {
 			if (nextSection != null) {
 				SetCurrentSection (nextSection);
+				if (other.gameObject.transform.position.y < currentSection.transform.position.y && other.gameObject.transform.childCount <= 0) {
+					Destroy (other.gameObject);
+				}
 			} else {
 				Destroy (gameObject);
 			}
 			//Debug.Log (gameObject + ", Exit : " + other.gameObject);
 		} else if (other.gameObject.tag == "Projectile") {// || other.gameObject.tag == "Enemy") {
-			Destroy (other.gameObject);
+			Projectile pro = other.gameObject.GetComponent<Projectile> ();
+			pro.desintegrateTime = 0.5f / pro.speed;
+			pro.Disintegrate ();
 		}
 	}//*/
 

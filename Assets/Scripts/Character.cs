@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
-	public float speed;
+	public float maxSpeed;
+	protected float speed;
 	public int health;
 	public float invincibilityTime = 1.0f;
 	private float invincibilityStartTime = float.MaxValue;

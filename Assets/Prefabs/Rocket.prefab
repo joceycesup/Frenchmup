@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010439203416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5355117, y: 0.17561999, z: 0}
+  m_LocalPosition: {x: 0, y: -7.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -124,15 +124,13 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.12, y: 0.57}
-      - {x: 0.24, y: 0.29}
-      - {x: 0.21, y: -0.1}
-      - {x: 0.15, y: -0.5}
-      - {x: -0.15, y: -0.5}
-      - {x: -0.21, y: -0.1}
-      - {x: -0.24, y: 0.29}
-      - {x: -0.12, y: 0.57}
-      - {x: 0, y: 0.6563232}
+    - - {x: 0, y: 0.88}
+      - {x: 0.87, y: 0}
+      - {x: 0.3, y: 0}
+      - {x: 0.3, y: -1.07}
+      - {x: -0.3, y: -1.07}
+      - {x: -0.3, y: 0}
+      - {x: -0.87, y: 0}
 --- !u!60 &60000012817137628
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -147,26 +145,13 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.1525147, y: -0.4652995}
-      - {x: 0.2994907, y: -0.64520955}
-      - {x: 0.3521855, y: -0.6504191}
-      - {x: 0.34697604, y: -0.3551196}
-      - {x: 0.20176649, y: -0.12470047}
-      - {x: 0.23176646, y: 0.15353304}
-      - {x: 0.22655702, y: 0.34958085}
-      - {x: 0.13916183, y: 0.526976}
-      - {x: 0.02655673, y: 0.6478144}
-      - {x: -0.020089865, y: 0.64520943}
-      - {x: -0.15404224, y: 0.5259578}
-      - {x: -0.23176622, y: 0.30823353}
-      - {x: -0.20655727, y: -0.13586797}
-      - {x: -0.25218558, y: -0.19823349}
-      - {x: -0.34176636, y: -0.33479047}
-      - {x: -0.3521855, y: -0.6504191}
-      - {x: -0.29865265, y: -0.6504191}
-      - {x: -0.15604782, y: -0.4652995}
-      - {x: -0.023533106, y: -0.64260477}
-      - {x: 0.024371386, y: -0.64}
+    - - {x: 0, y: 0.88}
+      - {x: -0.87, y: 0}
+      - {x: -0.3, y: 0}
+      - {x: -0.3, y: -1.07}
+      - {x: 0.3, y: -1.07}
+      - {x: 0.3, y: 0}
+      - {x: 0.87, y: 0}
 --- !u!95 &95000010400698010
 Animator:
   serializedVersion: 3
@@ -195,13 +180,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb28e4c2a96cc3459c7ff245ed09112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  maxSpeed: 6
   health: 1
   invincibilityTime: 1
   invincible: 0
   playerNumber: 1
+  state: 1
   firingRate: 10
-  projectile: {fileID: 1000010819491254, guid: 77da31ce5d605a445a047bb3ce3fb16a, type: 2}
+  projectile: {fileID: 1000013353574084, guid: e003444e4247ebc4a99a0d78b89c4967, type: 2}
 --- !u!114 &114000010400518318
 MonoBehaviour:
   m_ObjectHideFlags: 1

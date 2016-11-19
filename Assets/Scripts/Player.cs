@@ -2,19 +2,30 @@
 using System.Collections;
 
 public class Player : Character {
+
+	public enum PlayerState {
+		DPS,
+		Neutral,
+		Support
+	}
+
 	private static Vector3 topRight = Vector3.Normalize (new Vector3 (1, 1, 0));
 
 	public int playerNumber;
+	public PlayerState state = PlayerState.Neutral;
 	public float firingRate = 1;
 	public GameObject projectile;
 
 	private float firingDelay;
 	private float nextShot = 0;
 
+	private GameObject magnet;
+
 	void Awake () {
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
 		firingDelay = 1.0f / firingRate;
 		_isEnemy = false;
+		speed = maxSpeed;
 	}
 
 	protected override void UpdateCharacter () {
@@ -40,20 +51,53 @@ public class Player : Character {
 			gameObject.GetComponent<Animator> ().Play ("idle");
 		}
 
-		if (Input.GetAxis ("Fire1_P"+playerNumber) > .5f) {
+		if (Input.GetButton ("Fire1_P"+playerNumber)) {
 			if (IngameTime.time > nextShot) {
 				nextShot = IngameTime.time + firingDelay;
 				GameObject pro = (GameObject) Instantiate (projectile, gameObject.transform.position, Quaternion.identity);
 				pro.gameObject.GetComponent<Projectile>().isEnemy = _isEnemy;
 			}
 		}
-		if (Input.GetButtonDown("Fire2_P"+playerNumber)) {
-			//NotSoSmartBomb
-			if (IngameTime.time > nextShot) {
-				nextShot = IngameTime.time + firingDelay;
-				GameObject pro = (GameObject) Instantiate (projectile, gameObject.transform.position, Quaternion.identity);
-				pro.gameObject.GetComponent<Projectile>().isEnemy = _isEnemy;
+		if (Input.GetButtonDown ("Fire2_P"+playerNumber)) {
+			if (magnet == null) {
+				magnet = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/Magnet"));
+				magnet.transform.parent = transform;
+				magnet.transform.position = transform.position;
 			}
+		}
+		if (Input.GetButtonUp ("Fire2_P"+playerNumber)) {
+			if (magnet != null) {
+				Destroy (magnet);
+			}
+		}
+		if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
+			GameObject smartBomb = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/SmartBomb"));
+			smartBomb.transform.parent = transform;
+			smartBomb.transform.position = transform.position;
+		}
+		if (Input.GetButtonDown ("DPS_P" + playerNumber)) {
+			ChangeState (PlayerState.DPS);
+		} else if (Input.GetButtonDown ("Support_P" + playerNumber)) {
+			ChangeState (PlayerState.Support);
+		}
+	}
+
+	private void ChangeState (PlayerState newState) {
+		if (state == newState) {
+			state = PlayerState.Neutral;
+		} else {
+			state = newState;
+		}
+		switch (state) {
+		case PlayerState.Neutral:
+			gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+			break;
+		case PlayerState.DPS:
+			gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
+			break;
+		case PlayerState.Support:
+			gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
+			break;
 		}
 	}
 
