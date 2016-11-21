@@ -124,10 +124,26 @@ public class Projectile : MonoBehaviour {
 		gameObject.transform.Translate (new Vector3 (0.0f, speed * IngameTime.deltaTime, 0.0f));
 	}
 
+	public void SetRotation (Quaternion q) {
+		gameObject.transform.rotation = q;
+	}
+
+	public void SetRotation (Vector3 angles) {
+		gameObject.transform.rotation = new Quaternion (angles.x, angles.y, angles.z, 1.0f);
+	}
+
 	public void SetDirection (float dx, float dy) {
 		Quaternion tmpRot = Quaternion.FromToRotation (Vector3.up, new Vector3 (dx, dy, 0.0f));
 		tmpRot = new Quaternion (tmpRot.z, tmpRot.y, tmpRot.x, tmpRot.w);
 		gameObject.transform.rotation = tmpRot;
+	}
+
+	public void SetDirection (Vector3 target) {
+		SetDirection (target.x, target.y);
+	}
+
+	public void SetDirection (GameObject target) {
+		SetDirection (target.transform.position);
 	}
 
 	public void Disintegrate () {
