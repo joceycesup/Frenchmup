@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1000013694235874, guid: 228f34f8d191b274ab79f5ba93246f63, type: 2}
-  behaviour: 0
+  behaviour: 3
   behaviourArgs:
   - 1e+14
   firingRate: 10

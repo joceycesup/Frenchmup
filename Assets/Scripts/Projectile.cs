@@ -16,11 +16,13 @@ public class Projectile : MonoBehaviour {
 		Rotate
 	}
 
+	[Space(10)]
 	public bool isEnemy;
 	public float maxLifeSpan = 10.0f;
 	public float desintegrateTime = 0.3f;
 	private float startTime = 0.0f;
 	public float desintegrateStartTime = 0.0f;
+	[Space(10)]
 	public float speed;
 	public float acceleration = 0.0f;
 	public float curveAngle = 0.0f;/*
@@ -28,9 +30,11 @@ public class Projectile : MonoBehaviour {
 		get { return _curveAngle; }
 		set { _curveAngle = value / speed; }
 	}//*/
+	[Space(10)]
 	public Pattern pattern;
 	public float[] patternArgs = {0.0f};
 	private float[] patternLastValues;
+	[Space(10)]
 	public BehaviourOverTime behaviour;
 	public float[] behaviourArgs = {0.0f};
 	public float behaviourTime = 0.0f;

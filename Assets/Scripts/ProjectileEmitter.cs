@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ProjectileEmitter : MonoBehaviour {
 
+
 	public enum EmitterBehaviour {
 		Static,
 		TargetAdversary,//first arg is max player distance
@@ -12,6 +13,7 @@ public class ProjectileEmitter : MonoBehaviour {
 
 	private bool isEnemy;
 	public GameObject projectile;
+	[Header("Comportement de l'emetteur")]
 	public EmitterBehaviour behaviour;
 	public float[] behaviourArgs = {0.0f};
 	private GameObject target;
