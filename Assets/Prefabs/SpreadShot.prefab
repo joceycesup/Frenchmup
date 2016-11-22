@@ -110,15 +110,15 @@ MonoBehaviour:
   desintegrateTime: 0.3
   desintegrateStartTime: 0
   speed: 4
-  acceleration: 0
+  acceleration: 2
   curveAngle: 0
   pattern: 0
   patternArgs:
   - 0
-  behaviour: 2
+  behaviour: 1
   behaviourArgs:
-  - 9
-  - 60
+  - 5
+  - 30
   - 0
   behaviourTime: 0
   behaviourStartTime: 0
