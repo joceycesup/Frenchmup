@@ -22,7 +22,7 @@ public class EnemyGroup : MonoBehaviour {
 			} else {
 				enemy.enabled = true;
 			}
-			if (enemy.isStatic) {
+			if (enemy.pattern == Enemy.PatternType.StaticOnSection) {
 				++i;
 			} else {
 				transform.GetChild (i).parent = ViewportHandler.viewport.transform;

@@ -30,6 +30,11 @@ public class Character : MonoBehaviour {
 
 	protected virtual void UpdateCharacter () {
 	}
+
+	protected void SetCanShoot (bool b) {
+		if (gameObject.GetComponent<ProjectileEmitter> () != null)
+			gameObject.GetComponent<ProjectileEmitter> ().enabled = b;
+	}
 	/*
 	void OnCollisionEnter2D (Collision2D other) {
 		if (other.gameObject.tag == "CharHitbox")

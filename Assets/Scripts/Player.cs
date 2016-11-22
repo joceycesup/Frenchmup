@@ -16,14 +16,10 @@ public class Player : Character {
 	public float firingRate = 1;
 	public GameObject projectile;
 
-	private float firingDelay;
-	private float nextShot = 0;
-
 	private GameObject magnet;
 
 	void Awake () {
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
-		firingDelay = 1.0f / firingRate;
 		_isEnemy = false;
 		speed = maxSpeed;
 	}
@@ -52,11 +48,10 @@ public class Player : Character {
 		}
 
 		if (Input.GetButton ("Fire1_P"+playerNumber)) {
-			if (IngameTime.time > nextShot) {
-				nextShot = IngameTime.time + firingDelay;
-				GameObject pro = (GameObject) Instantiate (projectile, gameObject.transform.position, Quaternion.identity);
-				pro.gameObject.GetComponent<Projectile>().isEnemy = _isEnemy;
-			}
+			SetCanShoot (true);
+		}
+		if (Input.GetButtonUp ("Fire1_P"+playerNumber)) {
+			SetCanShoot (false);
 		}
 		if (Input.GetButtonDown ("Fire2_P"+playerNumber)) {
 			if (magnet == null) {

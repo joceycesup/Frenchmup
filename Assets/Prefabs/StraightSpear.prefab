@@ -108,7 +108,8 @@ MonoBehaviour:
   isEnemy: 0
   maxLifeSpan: 10
   desintegrateTime: 0.3
-  speed: 4
+  desintegrateStartTime: 0
+  speed: 6
   acceleration: 0
   curveAngle: 0
   pattern: 0
@@ -117,6 +118,7 @@ MonoBehaviour:
   behaviour: 0
   behaviourArgs: []
   behaviourTime: 1
+  behaviourStartTime: 0
   nextProjectile: {fileID: 1000010056730240, guid: 4ee49b45f0cd67a4aadd935a80710f59,
     type: 2}
 --- !u!212 &212000013014548622
