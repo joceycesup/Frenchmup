@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6d9c9fe0cecb348b93ba0cb4a6e8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnetSpeed: 10
+  magnetSpeed: 5
 --- !u!212 &212000013082175788
 SpriteRenderer:
   m_ObjectHideFlags: 1

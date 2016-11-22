@@ -108,18 +108,22 @@ MonoBehaviour:
   isEnemy: 0
   maxLifeSpan: 10
   desintegrateTime: 0.3
+  desintegrateStartTime: 0
   speed: 4
   acceleration: 0
   curveAngle: 0
-  behaviour: 1
-  behaviourTime: 1
-  nextProjectile: {fileID: 1000013278655158, guid: e491b27603a9d1d4fa1c0a4f08e6f738,
-    type: 2}
+  pattern: 0
+  patternArgs:
+  - 0
+  behaviour: 2
   behaviourArgs:
-  - -15
-  - -5
-  - 5
-  - 15
+  - 9
+  - 60
+  - 0
+  behaviourTime: 0
+  behaviourStartTime: 0
+  nextProjectile: {fileID: 1000012064495708, guid: 66cb56c8e133fc34ea77b0ffed45e668,
+    type: 2}
 --- !u!212 &212000012957720038
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -13,8 +13,6 @@ public class Player : Character {
 
 	public int playerNumber;
 	public PlayerState state = PlayerState.Neutral;
-	public float firingRate = 1;
-	public GameObject projectile;
 
 	private GameObject magnet;
 

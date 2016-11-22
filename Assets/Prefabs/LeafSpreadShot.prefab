@@ -120,9 +120,10 @@ MonoBehaviour:
   - 9
   - 100
   - -15
-  behaviourTime: 0.5
+  behaviourTime: 0
   behaviourStartTime: 0
-  nextProjectile: {fileID: 1000013353574084}
+  nextProjectile: {fileID: 1000012064495708, guid: 66cb56c8e133fc34ea77b0ffed45e668,
+    type: 2}
 --- !u!212 &212000013735691306
 SpriteRenderer:
   m_ObjectHideFlags: 1

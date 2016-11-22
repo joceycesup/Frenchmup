@@ -25,6 +25,7 @@ public class Enemy : Character {
 	}
 
 	void Start () {
+		SetCanShoot (true);
 		switch (pattern) {
 		case PatternType.StaticOnSection:
 			break;
@@ -101,13 +102,13 @@ public class Enemy : Character {
 		if (targetPosition.x != float.MaxValue && transform.position != targetPosition) {
 			transform.position = Vector3.Lerp (transform.position, targetPosition, speed * IngameTime.deltaTime / Vector3.Distance (transform.position, targetPosition));
 		}
-
+		/*
 		if (Input.GetButton ("Fire1_P1")) {
 			SetCanShoot (true);
 		}
 		if (Input.GetButtonUp ("Fire1_P1")) {
 			SetCanShoot (false);
-		}
+		}//*/
 	}
 
 	void OnDestroy () {
