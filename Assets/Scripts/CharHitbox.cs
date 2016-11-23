@@ -17,7 +17,7 @@ public class CharHitbox : MonoBehaviour {
 		//Debug.Log (transform.parent.gameObject.ToString () + " got triggered by " + other.gameObject.ToString ());
 		if (other.gameObject.tag == "Projectile" && other.gameObject.GetComponent<Projectile> ().isEnemy != character.isEnemy) {
 			if (character.TakeDamage (1)) {
-				Destroy (other.gameObject);
+				other.gameObject.GetComponent<Projectile> ().Remove ();
 			}
 		}
 	}

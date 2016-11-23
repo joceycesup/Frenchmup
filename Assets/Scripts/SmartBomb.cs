@@ -13,8 +13,13 @@ public class SmartBomb : MonoBehaviour {
 	}
 
 	void Start () {
+	}
+
+	void OnEnable () {
 		startTime = IngameTime.time;
 		desintegrateStartTime = startTime + maxLifeSpan - desintegrateTime;
+		transform.localScale = new Vector3 ();
+		gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
 	}
 
 	void Update () {
@@ -22,7 +27,7 @@ public class SmartBomb : MonoBehaviour {
 		gameObject.transform.localScale = new Vector3 (scaleFactor, scaleFactor, 0);
 		if (IngameTime.time >= desintegrateStartTime) {
 			if (IngameTime.time >= desintegrateStartTime + desintegrateTime) {
-				Destroy (gameObject);
+				gameObject.SetActive (false);
 			} else {
 				Color tmpColor = gameObject.GetComponent<SpriteRenderer> ().color;
 				tmpColor.a = 1.0f - (IngameTime.time - desintegrateStartTime) / desintegrateTime;

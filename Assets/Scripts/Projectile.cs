@@ -42,7 +42,6 @@ public class Projectile : MonoBehaviour {
 	public GameObject nextProjectile;
 
 	void Awake () {
-		transform.parent = ViewportHandler.viewport.transform;
 		switch (pattern) {
 		case Pattern.Sinusoidal:
 			patternLastValues = new float[] { 0.0f };
@@ -54,6 +53,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void Start () {
+		transform.parent = ViewportHandler.viewport.transform;
 		startTime = IngameTime.time;
 		desintegrateStartTime = startTime + maxLifeSpan - desintegrateTime;
 		behaviourStartTime = startTime + behaviourTime;
@@ -126,6 +126,11 @@ public class Projectile : MonoBehaviour {
 		}
 		transform.Rotate (new Vector3 (0.0f, 0.0f, curveAngle * IngameTime.deltaTime * speed));
 		gameObject.transform.Translate (new Vector3 (0.0f, speed * IngameTime.deltaTime, 0.0f));
+	}
+
+	public void Remove () {
+		if (this.enabled)
+			Destroy (gameObject);
 	}
 
 	public void SetRotation (Quaternion q) {

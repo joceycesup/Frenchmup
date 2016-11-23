@@ -15,6 +15,8 @@ public class Player : Character {
 	public PlayerState state = PlayerState.Neutral;
 
 	private GameObject magnet;
+	private GameObject smartBomb;
+	private GameObject laser;
 
 	void Awake () {
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
@@ -45,28 +47,50 @@ public class Player : Character {
 			gameObject.GetComponent<Animator> ().Play ("idle");
 		}
 
-		if (Input.GetButton ("Fire1_P"+playerNumber)) {
-			SetCanShoot (true);
-		}
-		if (Input.GetButtonUp ("Fire1_P"+playerNumber)) {
-			SetCanShoot (false);
-		}
-		if (Input.GetButtonDown ("Fire2_P"+playerNumber)) {
-			if (magnet == null) {
-				magnet = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/Magnet"));
-				magnet.transform.parent = transform;
-				magnet.transform.position = transform.position;
+		switch (state) {
+		case PlayerState.Neutral:
+			gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+			break;
+		case PlayerState.DPS:
+			if (Input.GetButton ("Fire1_P"+playerNumber)) {
+				SetCanShoot (true);
 			}
-		}
-		if (Input.GetButtonUp ("Fire2_P"+playerNumber)) {
-			if (magnet != null) {
-				Destroy (magnet);
+			if (Input.GetButtonUp ("Fire1_P"+playerNumber)) {
+				SetCanShoot (false);
 			}
-		}
-		if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
-			GameObject smartBomb = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/SmartBomb"));
-			smartBomb.transform.parent = transform;
-			smartBomb.transform.position = transform.position;
+			if (Input.GetButtonDown ("Fire2_P"+playerNumber)) {
+				if (laser == null) {
+					laser = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/Laser"));
+					laser.transform.parent = transform;
+					laser.transform.position = transform.position;
+				}
+				laser.SetActive (true);
+			}
+			if (Input.GetButtonUp ("Fire2_P"+playerNumber)) {
+				laser.SetActive (false);
+			}
+			if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
+				if (smartBomb == null) {
+					smartBomb = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/SmartBomb"));
+					smartBomb.transform.parent = transform;
+					smartBomb.transform.position = transform.position;
+				}
+				smartBomb.SetActive (true);
+			}
+			break;
+		case PlayerState.Support:
+			if (Input.GetButtonDown ("Fire2_P"+playerNumber)) {
+				if (magnet == null) {
+					magnet = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/Magnet"));
+					magnet.transform.parent = transform;
+					magnet.transform.position = transform.position;
+				}
+				magnet.SetActive (true);
+			}
+			if (Input.GetButtonUp ("Fire2_P"+playerNumber)) {
+				magnet.SetActive (false);
+			}
+			break;
 		}
 		if (Input.GetButtonDown ("DPS_P" + playerNumber)) {
 			ChangeState (PlayerState.DPS);
