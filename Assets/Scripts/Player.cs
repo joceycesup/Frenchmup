@@ -14,32 +14,51 @@ public class Player : Character {
 	public int playerNumber;
 	public PlayerState state = PlayerState.Neutral;
 
+	public float bulletTimeDuration = 2f;
+	public float bulletTimeFactor = 0.5f;
+	public float bulletTimeCooldown = 1f;
+	private bool bulletTime = false;
+	private float bulletTimeEndTime;
+
+	public float dashDuration = 0.5f;
+	public float dashSpeedFactor = 4f;
+	public float dashCooldown = 0.5f;
+	private bool dash = false;
+	private float dashEndTime;
+	private Vector3 dashVector;
+
 	private GameObject magnet;
 	private GameObject smartBomb;
 	private GameObject laser;
 
-	void Awake () {
+
+
+	protected override void AwakeCharacter () {
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
 		_isEnemy = false;
-		speed = maxSpeed;
 	}
 
 	protected override void UpdateCharacter () {
 		float dx = Input.GetAxis ("Horizontal_P" + playerNumber);
 		float dy = Input.GetAxis ("Vertical_P" + playerNumber);
 
+		Vector3 deltaPos = Vector3.zero;
 		if (dx != 0 || dy != 0) {
-			Vector3 deltaPos = Vector3.Normalize (new Vector3 (Mathf.Abs (dx), Mathf.Abs (dy), 0));
+			if (!dash) {
+				deltaPos = Vector3.Normalize (new Vector3 (Mathf.Abs (dx), Mathf.Abs (dy), 0));
 
-			if (Vector3.Dot (Vector3.up, deltaPos) > Vector3.Dot (topRight, deltaPos)) {
-				deltaPos = new Vector3 (0, Mathf.Sign (dy), 0);
-				gameObject.GetComponent<Animator> ().Play (Mathf.Sign (dy) < 0 ? "down" : "up");
-			} else if (Vector3.Dot (Vector3.right, deltaPos) > Vector3.Dot (topRight, deltaPos)) {
-				deltaPos = new Vector3 (Mathf.Sign (dx), 0, 0);
-				gameObject.GetComponent<Animator> ().Play (Mathf.Sign (dx) < 0 ? "left" : "right");
+				if (Vector3.Dot (Vector3.up, deltaPos) > Vector3.Dot (topRight, deltaPos)) {
+					deltaPos = new Vector3 (0, Mathf.Sign (dy), 0);
+					gameObject.GetComponent<Animator> ().Play (Mathf.Sign (dy) < 0 ? "down" : "up");
+				} else if (Vector3.Dot (Vector3.right, deltaPos) > Vector3.Dot (topRight, deltaPos)) {
+					deltaPos = new Vector3 (Mathf.Sign (dx), 0, 0);
+					gameObject.GetComponent<Animator> ().Play (Mathf.Sign (dx) < 0 ? "left" : "right");
+				} else {
+					deltaPos = Vector3.Normalize (new Vector3 (Mathf.Sign (dx), Mathf.Sign (dy), 0));
+					gameObject.GetComponent<Animator> ().Play ((Mathf.Sign (dy) < 0 ? "down_" : "up_") + (Mathf.Sign (dx) < 0 ? "left" : "right"));
+				}
 			} else {
-				deltaPos = Vector3.Normalize (new Vector3 (Mathf.Sign (dx), Mathf.Sign (dy), 0));
-				gameObject.GetComponent<Animator> ().Play ((Mathf.Sign (dy) < 0 ? "down_" : "up_") + (Mathf.Sign (dx) < 0 ? "left" : "right"));
+				deltaPos = dashVector;
 			}
 
 			gameObject.transform.Translate (deltaPos * IngameTime.deltaTime * speed);
@@ -47,6 +66,29 @@ public class Player : Character {
 			gameObject.GetComponent<Animator> ().Play ("idle");
 		}
 
+		if (bulletTime) {
+			if (IngameTime.time >= bulletTimeEndTime) {
+				bulletTime = false;
+				speed /= dashSpeedFactor;
+			}
+		}
+		if (dash) {
+			if (IngameTime.time >= dashEndTime) {
+				dash = false;
+				IngameTime.MultiplyFactor (1f / dashSpeedFactor);
+			}
+		}
+
+		if (Input.GetButtonDown ("Dash_P"+playerNumber)) {
+			if (!dash) {
+				if (IngameTime.time > dashEndTime + dashCooldown) {
+					dash = true;
+					dashEndTime = IngameTime.time + dashDuration;
+					speed *= dashSpeedFactor;
+					dashVector = deltaPos;
+				}
+			}
+		}
 		switch (state) {
 		case PlayerState.Neutral:
 			gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
@@ -65,8 +107,10 @@ public class Player : Character {
 					laser.transform.position = transform.position;
 				}
 				laser.SetActive (true);
+				laser.GetComponent<Laser> ().Shoot ();
 			}
 			if (Input.GetButtonUp ("Fire2_P"+playerNumber)) {
+				laser.GetComponent<Laser> ().Stop ();
 				laser.SetActive (false);
 			}
 			if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
@@ -89,6 +133,15 @@ public class Player : Character {
 			}
 			if (Input.GetButtonUp ("Fire2_P"+playerNumber)) {
 				magnet.SetActive (false);
+			}
+			if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
+				if (!bulletTime) {
+					if (IngameTime.time > bulletTimeEndTime + bulletTimeCooldown) {
+						bulletTime = true;
+						bulletTimeEndTime = IngameTime.time + bulletTimeDuration;
+						IngameTime.MultiplyFactor (bulletTimeFactor);
+					}
+				}
 			}
 			break;
 		}

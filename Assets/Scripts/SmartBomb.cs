@@ -48,7 +48,8 @@ public class SmartBomb : MonoBehaviour {
 				pro.Disintegrate ();
 			}
 		} else if (other.gameObject.tag == "Enemy") {
-			other.gameObject.GetComponent<Character> ().TakeDamage (damage);
+			if (other.gameObject.GetComponent<Character> () != null)
+				other.gameObject.GetComponent<Character> ().TakeDamage (damage);
 		}
 	}
 }

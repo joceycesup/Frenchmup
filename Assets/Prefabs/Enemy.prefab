@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 4
   health: 1
-  invincibilityTime: 1
+  invincibilityTime: 0.5
   invincible: 0
   pattern: 2
   patternArgsO:

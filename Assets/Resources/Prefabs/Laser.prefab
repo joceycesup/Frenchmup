@@ -68,11 +68,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013226811026}
   - 114: {fileID: 114000012221309040}
-  - 114: {fileID: 114000010086456120}
   - 61: {fileID: 61000010049941526}
   m_Layer: 10
   m_Name: Laser
-  m_TagString: Projectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,31 +145,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 1.5}
   serializedVersion: 2
   m_Size: {x: 0.8, y: 3}
---- !u!114 &114000010086456120
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013323964526}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7d644b5e3dcb741a12b8fda262076e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnemy: 0
-  maxLifeSpan: 10
-  desintegrateTime: 0.3
-  desintegrateStartTime: 0
-  speed: 0
-  acceleration: 0
-  curveAngle: 0
-  pattern: 0
-  patternArgs: []
-  behaviour: 0
-  behaviourArgs: []
-  behaviourTime: 0
-  behaviourStartTime: 0
-  nextProjectile: {fileID: 0}
 --- !u!114 &114000012221309040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +160,7 @@ MonoBehaviour:
   - {fileID: 1000012178033200}
   - {fileID: 1000010950646596}
   - {fileID: 1000012805757252}
+  beamSpeed: 50
 --- !u!212 &212000010165979902
 SpriteRenderer:
   m_ObjectHideFlags: 1

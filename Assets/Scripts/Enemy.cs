@@ -17,9 +17,8 @@ public class Enemy : Character {
 
 	protected EnemyGroup m_group;
 
-	void Awake () {
+	protected override void AwakeCharacter () {
 		_isEnemy = true;
-		speed = maxSpeed;
 		if (transform.parent != null)
 			m_group = transform.parent.gameObject.GetComponent<EnemyGroup> ();
 	}
