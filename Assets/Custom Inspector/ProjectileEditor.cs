@@ -12,20 +12,29 @@ public class ProjectileEditor : Editor {
 
 		switch (myTarget.behaviour) {
 		case Projectile.BehaviourOverTime.DoNothing:
-			EditorGUILayout.HelpBox ("Static on Section" +
-			"\nInfo", MessageType.Info);
 			break;
 		case Projectile.BehaviourOverTime.Leaf:
-			EditorGUILayout.HelpBox ("Static on Section" +
-				"\nInfo", MessageType.Info);
+			EditorGUILayout.HelpBox ("Leaf" +
+				"\nElement 0 : Amplitude" +
+				"\nElement 1 : Frequency", MessageType.Info);
 			break;
 		case Projectile.BehaviourOverTime.Rotate:
-			EditorGUILayout.HelpBox ("Static on Section" +
-				"\nInfo", MessageType.Info);
+			EditorGUILayout.HelpBox ("Rotate" +
+				"\nElement 0 : Angle", MessageType.Info);
 			break;
-		case Projectile.BehaviourOverTime.Split:
-			EditorGUILayout.HelpBox ("Split" +
-				"\nA behaviourTime, le projectile se split en NextProjectile", MessageType.Info);
+		}
+		switch (myTarget.pattern) {
+		case Projectile.Pattern.None:
+			break;
+		case Projectile.Pattern.Sinusoidal:
+			EditorGUILayout.HelpBox ("Sinusoidal" +
+				"\nElement 0 : Amplitude" +
+				"\nElement 1 : Frequency", MessageType.Info);
+			break;
+		case Projectile.Pattern.Spiral:
+			EditorGUILayout.HelpBox ("Spiral" +
+				"\nElement 0 : Amplitude" +
+				"\nElement 1 : Frequency", MessageType.Info);
 			break;
 		}
 	}

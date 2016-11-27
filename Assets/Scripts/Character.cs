@@ -4,7 +4,7 @@ using System.Collections;
 public class Character : MonoBehaviour {
 	public float maxSpeed;
 	protected float speed;
-	public int health;
+	public float health;
 	public float invincibilityTime = float.MaxValue;
 	private float invincibilityStartTime = 0f;
 	public bool invincible = false;
@@ -43,8 +43,12 @@ public class Character : MonoBehaviour {
 	}
 
 	protected void SetCanShoot (bool b) {
-		if (gameObject.GetComponent<ProjectileEmitter> () != null)
-			gameObject.GetComponent<ProjectileEmitter> ().enabled = b;
+		for (int i = 0; i < transform.childCount; ++i) {
+			if (transform.GetChild (i).gameObject.GetComponent<ProjectileEmitter> () != null){
+				transform.GetChild (i).gameObject.GetComponent<ProjectileEmitter> ().enabled = b;
+				transform.GetChild (i).gameObject.GetComponent<ProjectileEmitter> ().isEnemy = _isEnemy;
+			}
+		}
 	}
 	/*
 	void OnCollisionEnter2D (Collision2D other) {
@@ -52,11 +56,13 @@ public class Character : MonoBehaviour {
 			return;
 	}//*/
 
-	public bool TakeDamage (int value) {
+	public virtual bool TakeDamage (float value, bool activeInvincibility = true) {
 		if (invincible)
 			return false;
-		invincibilityStartTime = IngameTime.time;
-		invincible = true;
+		if (activeInvincibility) {
+			invincibilityStartTime = IngameTime.time;
+			invincible = true;
+		}
 		if ((health -= value) <= 0) {
 			Destroy (gameObject);
 		}

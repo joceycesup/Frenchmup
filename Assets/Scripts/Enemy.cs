@@ -7,7 +7,8 @@ public class Enemy : Character {
 		StaticOnSection,
 		Static,
 		Circle, // goes in circles around point : patternArgsO {axis}, patternArgsF {radius, clockwise (positive is clockwise, positive isn't)}
-		Path // follows series of points : patternArgsO {points}, patternArgsF {wait time at each point}
+		Path, // follows series of points : patternArgsO {points}, patternArgsF {wait time at each point}
+		Bezier
 	}
 
 	public PatternType pattern;
@@ -38,6 +39,12 @@ public class Enemy : Character {
 			if (patternArgsO.Length < 1) {
 				Debug.LogWarningFormat("{0} has too few arguments in patternArgsO to follow a path", gameObject);
 				pattern = PatternType.Static;
+			}
+			if (pattern != PatternType.Static) {//*
+				if (patternArgsF.Length < 2)
+					System.Array.Resize (ref patternArgsF, 2);
+				patternArgsF [1] = 1f;//*/
+				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0];
 			}
 			break;
 		case PatternType.Circle:
@@ -79,6 +86,14 @@ public class Enemy : Character {
 		case PatternType.Static:
 			break;
 		case PatternType.Path:
+			if (((int)patternArgsF [1]) < patternArgsO [0].GetComponent<BezierSpline> ().points.Length) {
+				Vector3 p2 = patternArgsO [0].GetComponent<BezierSpline> ().points [(int)patternArgsF [1]];
+				float factor = (speed * IngameTime.deltaTime) / Vector3.Distance (transform.position, p2);
+				transform.position = Vector3.Lerp (transform.position, p2, factor);
+				if (factor >= 1f) {
+					patternArgsF [1]++;
+				}
+			}
 			break;
 		case PatternType.Circle:
 			if (transform.position == targetPosition)

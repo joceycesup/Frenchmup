@@ -11,7 +11,6 @@ public class Projectile : MonoBehaviour {
 
 	public enum BehaviourOverTime {
 		DoNothing,
-		Split,
 		Leaf,//first arg is number, second one is spread angle, third one is gather angle
 		Rotate
 	}
@@ -75,27 +74,18 @@ public class Projectile : MonoBehaviour {
 			}
 		}
 		speed += IngameTime.deltaTime * acceleration;
-		UpdateProjectile ();
-	}//*/
+		if (speed < 0f) {
+			speed = Mathf.Abs (speed);
+			acceleration = Mathf.Abs (acceleration);
+			transform.Rotate (0f, 0f, 180f);
+		}
 
-	protected virtual void UpdateProjectile () {
 		if (behaviour != BehaviourOverTime.DoNothing) {
 			if (IngameTime.time >= behaviourStartTime + behaviourTime) {
 				switch (behaviour) {
 				case BehaviourOverTime.Rotate:
 					behaviour = BehaviourOverTime.DoNothing;
 					transform.Rotate (new Vector3 (0.0f, 0.0f, behaviourArgs[0]));
-					break;
-				case BehaviourOverTime.Split:
-					behaviour = BehaviourOverTime.DoNothing;
-					for (int i = 0; i < behaviourArgs.Length; ++i) {
-						GameObject newProjectile = (GameObject)Instantiate (nextProjectile != null ? nextProjectile : gameObject);
-						newProjectile.transform.localRotation = transform.localRotation;
-						newProjectile.transform.Rotate (new Vector3 (0.0f, 0.0f, behaviourArgs [i]));
-						newProjectile.transform.position = gameObject.transform.position;
-						newProjectile.GetComponent<Projectile> ().isEnemy = isEnemy;
-					}
-					Destroy (gameObject);
 					break;
 				case BehaviourOverTime.Leaf:
 					behaviour = BehaviourOverTime.DoNothing;
@@ -126,7 +116,7 @@ public class Projectile : MonoBehaviour {
 		}
 		transform.Rotate (new Vector3 (0.0f, 0.0f, curveAngle * IngameTime.deltaTime * speed));
 		gameObject.transform.Translate (new Vector3 (0.0f, speed * IngameTime.deltaTime, 0.0f));
-	}
+	}//*/
 
 	public void Remove () {
 		if (this.enabled)

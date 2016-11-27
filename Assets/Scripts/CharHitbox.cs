@@ -12,9 +12,11 @@ public class CharHitbox : MonoBehaviour {
 		if (other.gameObject == transform.parent.gameObject)
 			return;
 		if (other.gameObject.tag == "Projectile" && other.gameObject.GetComponent<Projectile> ().isEnemy != character.isEnemy) {
-			if (character.TakeDamage (1)) {
-				other.gameObject.GetComponent<Projectile> ().Remove ();
+			if (character.gameObject.GetComponent<Player> () != null) {
+				character.gameObject.GetComponent<Player> ().EatBullet ();
 			}
+			character.TakeDamage (1f, false);
+			other.gameObject.GetComponent<Projectile> ().Remove ();
 		}
 	}
 }

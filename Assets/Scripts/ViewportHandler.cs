@@ -5,8 +5,11 @@ public class ViewportHandler : MonoBehaviour {
 	private static GameObject _viewport;
 
 	public float speed = 1.0f;
-	public GameObject currentSection;
-	public GameObject nextSection;
+	public GameObject currentSection {
+		get;
+		private set;
+	}
+	private GameObject nextSection;
 	private GameObject sections;
 
 	public static GameObject viewport {
@@ -17,14 +20,15 @@ public class ViewportHandler : MonoBehaviour {
 		Collider2D c2d = Physics2D.OverlapPoint (transform.position, 1 << LayerMask.NameToLayer ("Background"));
 		//Debug.Log (c2d);
 		gameObject.GetComponent<BoxCollider2D> ().size = new Vector2 (c2d.bounds.extents.x * 2.0f, Camera.main.orthographicSize * 2.0f);
+		float wallThickness = 5.0f;
 		for (int i = 0; i < 4; ++i) {
 			GameObject wall = new GameObject ();
 			wall.layer = LayerMask.NameToLayer ("Wall");
 			wall.AddComponent<BoxCollider2D> ();
-			wall.GetComponent<BoxCollider2D> ().size = new Vector2 ((i % 2) == 1 ? 1.0f : gameObject.GetComponent<BoxCollider2D> ().bounds.extents.x * 2.0f, (i % 2) == 0 ? 1.0f : gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y * 2.0f);
+			wall.GetComponent<BoxCollider2D> ().size = new Vector2 ((i % 2) == 1 ? wallThickness : (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.x + wallThickness) * 2.0f, (i % 2) == 0 ? wallThickness : gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y * 2.0f);
 			wall.transform.position = new Vector3 (
-				transform.position.x + (((i % 2) == 0 ? 0.0f : ((i < 2 ? 1.0f : -1.0f) * (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.x + 0.5f)))),
-				transform.position.y + (((i % 2) == 1 ? 0.0f : ((i < 2 ? 1.0f : -1.0f) * (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y + 0.5f)))));
+				transform.position.x + (((i % 2) == 0 ? 0.0f : ((i < 2 ? 1.0f : -1.0f) * (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.x + wallThickness / 2f)))),
+				transform.position.y + (((i % 2) == 1 ? 0.0f : ((i < 2 ? 1.0f : -1.0f) * (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y + wallThickness / 2f)))));
 			wall.transform.parent = transform;
 		}/*/
 		gameObject.GetComponent<BoxCollider2D> ().size = new Vector2 (Camera.main.orthographicSize * 2.0f * Screen.width / Screen.height, Camera.main.orthographicSize * 2.0f);//*/
@@ -72,7 +76,7 @@ public class ViewportHandler : MonoBehaviour {
 		if (other.gameObject.tag == "Section") {
 			if (nextSection != null) {
 				SetCurrentSection (nextSection);
-				if (other.gameObject.transform.position.y < currentSection.transform.position.y && other.gameObject.transform.childCount <= 0) {
+				if (other.gameObject.transform.position.y < currentSection.transform.position.y) {// && other.gameObject.transform.childCount <= 0) {
 					Destroy (other.gameObject);
 				}
 			} else {

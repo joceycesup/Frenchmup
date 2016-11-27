@@ -3,7 +3,6 @@ using System.Collections;
 
 public class ProjectileEmitter : MonoBehaviour {
 
-
 	public enum EmitterBehaviour {
 		Static,
 		TargetAdversary,//first arg is max player distance
@@ -11,8 +10,16 @@ public class ProjectileEmitter : MonoBehaviour {
 		Shotgun//first arg is number, second one is spread angle, third one is minSpeedFactor
 	}
 
-	private bool isEnemy;
+	public bool isEnemy {
+		get;
+		set;
+	}
 	public GameObject projectile;
+	public int volleyCount = int.MaxValue;
+	public float cooldown = 0f;
+	private int volleyCounter = 0;
+	public float volleyStartTime = 0f;
+
 	[Header("Comportement de l'emetteur")]
 	public EmitterBehaviour behaviour;
 	public float[] behaviourArgs = {0.0f};
@@ -20,6 +27,17 @@ public class ProjectileEmitter : MonoBehaviour {
 	private float firingDelay;
 	private float nextShot = 0;
 	public float firingRate = 1;
+	/*
+	public ProjectileEmitter (ProjectileEmitter other) {
+		this.isEnemy = other.isEnemy;
+		this.projectile = other.projectile;
+		this.volley = other.volley;
+		this.cooldown = other.cooldown;
+		this.behaviour = other.behaviour;
+		this.behaviourArgs = new float[other.behaviourArgs.Length];
+		other.behaviourArgs.CopyTo (this.behaviourArgs, 0);
+		this.firingRate = other.firingRate;
+	}//*/
 
 	void Start () {
 		firingDelay = 1.0f / firingRate;
@@ -29,9 +47,13 @@ public class ProjectileEmitter : MonoBehaviour {
 		if (behaviourArgs.Length >= 1) {
 			behaviourArgs [0] = Mathf.Ceil (behaviourArgs [0]);
 		}
+		volleyStartTime = IngameTime.time + volleyStartTime;
 	}
 
 	void Update () {
+		int tmpVolleyCounter = volleyCounter;
+		if (IngameTime.time < volleyStartTime)
+			return;
 		if (IngameTime.time > nextShot) {
 			if (projectile != null) {
 				switch (behaviour) {
@@ -50,6 +72,7 @@ public class ProjectileEmitter : MonoBehaviour {
 						pro.gameObject.GetComponent<Projectile>().isEnemy = isEnemy;
 						pro.gameObject.GetComponent<Projectile> ().SetTarget (target);
 						nextShot = IngameTime.time + firingDelay;
+						volleyCounter++;
 					}
 					break;
 				case EmitterBehaviour.Static:
@@ -58,6 +81,7 @@ public class ProjectileEmitter : MonoBehaviour {
 						pro.gameObject.GetComponent<Projectile>().isEnemy = isEnemy;
 						pro.gameObject.GetComponent<Projectile> ().SetRotation (isEnemy ? transform.rotation * Quaternion.Euler (Vector3.forward * 180f) : transform.rotation);
 						nextShot = IngameTime.time + firingDelay;
+						volleyCounter++;
 					}
 					break;
 				case EmitterBehaviour.Star:
@@ -68,6 +92,7 @@ public class ProjectileEmitter : MonoBehaviour {
 							pro.gameObject.GetComponent<Projectile> ().SetRotation (transform.rotation * Quaternion.Euler (Vector3.forward * ((360f / behaviourArgs [0]) * i + (isEnemy ? 180f : 0f))));
 						}
 						nextShot = IngameTime.time + firingDelay;
+						volleyCounter++;
 					}
 					break;
 				case EmitterBehaviour.Shotgun:
@@ -80,10 +105,16 @@ public class ProjectileEmitter : MonoBehaviour {
 							pro.gameObject.GetComponent<Projectile> ().speed = pro.gameObject.GetComponent<Projectile> ().speed * ((behaviourArgs [2] - 1f) * (i / (behaviourArgs [0] - 1f)) + 1f);
 						}
 						nextShot = IngameTime.time + firingDelay;
+						volleyCounter++;
 					}
 					break;
 				}
 				//pro.gameObject.GetComponent<Projectile> ().curveAngle = 10;
+			}
+		}
+		if (tmpVolleyCounter != volleyCounter) {
+			if (volleyCounter != (volleyCounter %= volleyCount)) {
+				volleyStartTime = IngameTime.time + cooldown;
 			}
 		}
 	}

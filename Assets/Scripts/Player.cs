@@ -5,14 +5,15 @@ public class Player : Character {
 
 	public enum PlayerState {
 		DPS,
-		Neutral,
 		Support
 	}
 
 	private static Vector3 topRight = Vector3.Normalize (new Vector3 (1, 1, 0));
 
 	public int playerNumber;
-	public PlayerState state = PlayerState.Neutral;
+	public PlayerState state = PlayerState.DPS;
+	public float switchStateCooldown = 0f;
+	private float nextSwitchStateTime = 0f;
 
 	public float bulletTimeDuration = 2f;
 	public float bulletTimeFactor = 0.5f;
@@ -21,17 +22,24 @@ public class Player : Character {
 	private float bulletTimeEndTime;
 
 	public float dashDuration = 0.5f;
-	public float dashSpeedFactor = 4f;
+	public float dashSpeed = 16f;
 	public float dashCooldown = 0.5f;
 	private bool dash = false;
 	private float dashEndTime;
 	private Vector3 dashVector;
 
+	public float supportDamageReduction = 0.25f;
+	public float supportSpeed = 8f;
+	public float dpsSpeed = 4f;
+
+	public float maxLaserLoad = 30f;
+	private float laserLoad = 0f;
+	public float laserSpeed = 2f;
+	public float laserUnloadTime = 5f;
+
 	private GameObject magnet;
 	private GameObject smartBomb;
 	private GameObject laser;
-
-
 
 	protected override void AwakeCharacter () {
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
@@ -67,32 +75,27 @@ public class Player : Character {
 		}
 
 		if (bulletTime) {
-			if (IngameTime.time >= bulletTimeEndTime) {
+			if (Time.time >= bulletTimeEndTime) {
 				bulletTime = false;
-				speed /= dashSpeedFactor;
+				IngameTime.MultiplyFactor (1f / bulletTimeFactor);
 			}
 		}
 		if (dash) {
+			speed = dashSpeed;
 			if (IngameTime.time >= dashEndTime) {
 				dash = false;
-				IngameTime.MultiplyFactor (1f / dashSpeedFactor);
+				speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 			}
 		}
-
-		if (Input.GetButtonDown ("Dash_P"+playerNumber)) {
-			if (!dash) {
-				if (IngameTime.time > dashEndTime + dashCooldown) {
-					dash = true;
-					dashEndTime = IngameTime.time + dashDuration;
-					speed *= dashSpeedFactor;
-					dashVector = deltaPos;
-				}
+		if (laser != null && laser.active) {
+			speed = laserSpeed;
+			if ((laserLoad -= maxLaserLoad * IngameTime.deltaTime / laserUnloadTime) <= 0f) {
+				laserLoad = 0f;
+				laser.GetComponent<Laser> ().Stop ();
+				speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 			}
 		}
 		switch (state) {
-		case PlayerState.Neutral:
-			gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
-			break;
 		case PlayerState.DPS:
 			if (Input.GetButton ("Fire1_P"+playerNumber)) {
 				SetCanShoot (true);
@@ -101,17 +104,22 @@ public class Player : Character {
 				SetCanShoot (false);
 			}
 			if (Input.GetButtonDown ("Fire2_P"+playerNumber)) {
-				if (laser == null) {
-					laser = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/Laser"));
-					laser.transform.parent = transform;
-					laser.transform.position = transform.position;
+				if (laserLoad > 0f) {
+					if (laser == null) {
+						laser = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/Laser"));
+						laser.transform.parent = transform;
+						laser.transform.position = transform.position;
+					}
+					laser.SetActive (true);
+					laser.GetComponent<Laser> ().Shoot ();
 				}
-				laser.SetActive (true);
-				laser.GetComponent<Laser> ().Shoot ();
 			}
 			if (Input.GetButtonUp ("Fire2_P"+playerNumber)) {
-				laser.GetComponent<Laser> ().Stop ();
-				laser.SetActive (false);
+				if (laser != null) {
+					laser.GetComponent<Laser> ().Stop ();
+				}
+				speed = dpsSpeed;
+				//laser.SetActive (false);
 			}
 			if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
 				if (smartBomb == null) {
@@ -123,6 +131,16 @@ public class Player : Character {
 			}
 			break;
 		case PlayerState.Support:
+			if (Input.GetButtonDown ("Fire1_P"+playerNumber)) {
+				if (!dash) {
+					if (IngameTime.time > dashEndTime + dashCooldown) {
+						dash = true;
+						dashEndTime = IngameTime.time + dashDuration;
+						speed = dashSpeed;
+						dashVector = deltaPos;
+					}
+				}
+			}
 			if (Input.GetButtonDown ("Fire2_P"+playerNumber)) {
 				if (magnet == null) {
 					magnet = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/Magnet"));
@@ -136,9 +154,9 @@ public class Player : Character {
 			}
 			if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
 				if (!bulletTime) {
-					if (IngameTime.time > bulletTimeEndTime + bulletTimeCooldown) {
+					if (Time.time > bulletTimeEndTime + bulletTimeCooldown) {
 						bulletTime = true;
-						bulletTimeEndTime = IngameTime.time + bulletTimeDuration;
+						bulletTimeEndTime = Time.time + bulletTimeDuration;
 						IngameTime.MultiplyFactor (bulletTimeFactor);
 					}
 				}
@@ -146,32 +164,44 @@ public class Player : Character {
 			break;
 		}
 		if (Input.GetButtonDown ("DPS_P" + playerNumber)) {
-			ChangeState (PlayerState.DPS);
+			if (Time.time > nextSwitchStateTime) {
+				speed = dpsSpeed;
+				state = PlayerState.DPS;
+				gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
+				nextSwitchStateTime = Time.time + switchStateCooldown;
+			}
 		} else if (Input.GetButtonDown ("Support_P" + playerNumber)) {
-			ChangeState (PlayerState.Support);
+			if (Time.time > nextSwitchStateTime) {
+				if (!dash)
+					speed = supportSpeed;
+				if (laser != null)
+					laser.GetComponent<Laser> ().Stop ();
+				state = PlayerState.Support;
+				gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
+				nextSwitchStateTime = Time.time + switchStateCooldown;
+			}
 		}
 	}
 
-	private void ChangeState (PlayerState newState) {
-		if (state == newState) {
-			state = PlayerState.Neutral;
-		} else {
-			state = newState;
+	public void EatBullet () {
+		if (state == PlayerState.Support) {
+			if (++laserLoad > maxLaserLoad)
+				laserLoad = maxLaserLoad;
 		}
-		switch (state) {
-		case PlayerState.Neutral:
-			gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
-			break;
-		case PlayerState.DPS:
-			gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
-			break;
-		case PlayerState.Support:
-			gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
-			break;
-		}
+	}
+
+	public override bool TakeDamage (float value, bool activeInvincibility = true) {
+		return dash ? false : base.TakeDamage (value * (state == PlayerState.Support ? supportDamageReduction : 1f), activeInvincibility);
 	}
 
 	public override string ToString() {
 		return "Player_" + playerNumber;
+	}
+
+	void OnGUI () {
+		GUIStyle style = new GUIStyle ();
+		style.normal.textColor = Color.white;
+		style.fontSize = 30;
+		GUI.Label (new Rect (10, 10, 200, 30), laserLoad + "/" + maxLaserLoad, style);
 	}
 }

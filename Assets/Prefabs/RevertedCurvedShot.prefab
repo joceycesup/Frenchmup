@@ -110,15 +110,16 @@ MonoBehaviour:
   desintegrateTime: 0.3
   desintegrateStartTime: 0
   speed: 4
-  acceleration: 0
-  curveAngle: 0
+  acceleration: -1.5
+  curveAngle: 5
   pattern: 0
   patternArgs:
   - 0
-  behaviour: 3
+  behaviour: 0
   behaviourArgs:
   - 150
   behaviourTime: 0.5
+  behaviourStartTime: 0
   nextProjectile: {fileID: 0}
 --- !u!212 &212000012785329618
 SpriteRenderer:

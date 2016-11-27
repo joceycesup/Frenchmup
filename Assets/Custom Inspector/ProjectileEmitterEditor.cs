@@ -22,23 +22,29 @@ public class ProjectileEmitterEditor : Editor {
 		 * Et quand on est carrement fout on peut overide l'inspecteur de base pour
 		 * changer le nom qui est affiché pour les behaviour.
 		 */
+		/*
+		if (myTarget.enabled)
+			myTarget.enabled = false;
+		//*/
+		/*
+		if (myTarget.gameObject.GetComponent<Character> () != null) {
+			ProjectileEmitter pe = new ProjectileEmitter (myTarget);
+			pe.gameObject.name = "ProjectileEmitter";
+			pe.transform.parent = myTarget.transform;
+			DestroyImmediate (myTarget);
+		}//*/
 
 		switch (myTarget.behaviour) {
 		case ProjectileEmitter.EmitterBehaviour.Static:
-			EditorGUILayout.HelpBox ("Static" +
-				"\nElement 0 : MaxPlayerDistance", MessageType.Info);
+			EditorGUILayout.HelpBox ("Static", MessageType.Info);
 			break;
 		case ProjectileEmitter.EmitterBehaviour.TargetAdversary:
 			EditorGUILayout.HelpBox ("Target" +
-				"\nElement 0 :" +
-				"\nElement 1 :" +
-				"\nElement 2 :", MessageType.Info);
+				"\nElement 0 : Max adversary distance", MessageType.Info);
 			break;
 		case ProjectileEmitter.EmitterBehaviour.Star:
 			EditorGUILayout.HelpBox ("Star" +
-				"\nElement 0 :" +
-				"\nElement 1 :" +
-				"\nElement 2 :", MessageType.Info);
+				"\nElement 0 : Number", MessageType.Info);
 			break;
 		case ProjectileEmitter.EmitterBehaviour.Shotgun:
 			EditorGUILayout.HelpBox ("Shotgun" +
