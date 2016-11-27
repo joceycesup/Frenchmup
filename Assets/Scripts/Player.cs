@@ -51,14 +51,15 @@ public class Player : Character {
 
 	void Start () {
 		alivePlayer++;
-		if (!GameSettings.tutorial) {
-			laserLoad = maxLaserLoad;
-		}
+		Reset ();
 	}
 
 	private void Reset () {
-		maxHealth = maxHealth;
-		laserLoad = maxLaserLoad;
+		speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
+		health = maxHealth;
+		if (!GameSettings.tutorial) {
+			laserLoad = maxLaserLoad;
+		}
 	}
 
 	protected override void UpdateCharacter () {
@@ -210,23 +211,32 @@ public class Player : Character {
 		} else {
 			StartCoroutine ("RespawnPlayer", this);
 		}
-		gameObject.SetActive (false);
+		gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+		this.enabled = false;
 	}
 
 	IEnumerator RespawnPlayer (Player player) {
 		float respawnTime = IngameTime.globalTime + player.respawnDelay;
 		while (IngameTime.globalTime < respawnTime) {
 			if (alivePlayer <= 0) {
+				//Debug.Log ("alivePlayer <= 0");
 				respawnTime = 0f;
 			} else {
+				//Debug.Log ("time till respawn : " + (respawnTime - IngameTime.time));
 				yield return null;
 			}
 		}
 		if (alivePlayer <= 0) {
 			Destroy (player.gameObject);
 		} else {
-			player.gameObject.SetActive (true);
+			Bounds b = ViewportHandler.viewport.GetComponent<BoxCollider2D> ().bounds;
+			player.gameObject.transform.position = ViewportHandler.viewport.transform.position + new Vector3 ((player.playerNumber % 2 == 0 ? 1f : -1f) * (b.extents.x - 2f * GetComponent<SpriteRenderer> ().bounds.extents.x), -b.extents.y);
+			player.enabled = true;
+			player.Reset ();
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+			player.SetInvincible ();
 			alivePlayer++;
+			//Debug.Log ("respawned!");
 		}
 	}
 

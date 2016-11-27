@@ -36,7 +36,8 @@ public class Laser : MonoBehaviour {
 			parts [0].transform.localPosition = new Vector3 (0f, closestEnemy.transform.position.y - transform.position.y);
 			parts [1].transform.localScale = new Vector3 (1f, (parts [0].transform.localPosition.y - parts [0].GetComponent<SpriteRenderer> ().bounds.extents.y - parts [1].transform.localPosition.y) / beamHeight);
 			SetHeight (closestEnemy.transform.position.y - transform.position.y);
-			closestEnemy.transform.parent.gameObject.GetComponent<Character> ().TakeDamage (dps*IngameTime.deltaTime, false);
+			if (closestEnemy.transform.parent.gameObject.GetComponent<Character> ().isActiveAndEnabled)
+				closestEnemy.transform.parent.gameObject.GetComponent<Character> ().TakeDamage (dps*IngameTime.deltaTime, false);
 		} else {
 			if (parts [0].GetComponent<SpriteRenderer> ().enabled) {
 				parts [0].transform.localPosition = new Vector3 (0f, boxHeight);

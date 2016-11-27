@@ -4,7 +4,7 @@ using System.Collections;
 public class Character : MonoBehaviour {
 	protected float speed;
 	public float maxHealth;
-	private float health;
+	protected float health;
 	public float invincibilityTime = float.MaxValue;
 	private float invincibilityStartTime = 0f;
 	public bool invincible = false;
@@ -64,12 +64,16 @@ public class Character : MonoBehaviour {
 		if (invincible)
 			return false;
 		if (activeInvincibility) {
-			invincibilityStartTime = IngameTime.time;
-			invincible = true;
+			SetInvincible ();
 		}
 		if ((health -= value) <= 0) {
 			Death ();
 		}
 		return true;
+	}
+
+	protected void SetInvincible () {
+		invincibilityStartTime = IngameTime.time;
+		invincible = true;
 	}
 }

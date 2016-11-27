@@ -11,6 +11,8 @@ public class CharHitbox : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.gameObject == transform.parent.gameObject)
 			return;
+		if (!character.isActiveAndEnabled)
+			return;
 		if (other.gameObject.tag == "Projectile" && other.gameObject.GetComponent<Projectile> ().isEnemy != character.isEnemy) {
 			if (character.gameObject.GetComponent<Player> () != null) {
 				character.gameObject.GetComponent<Player> ().EatBullet ();

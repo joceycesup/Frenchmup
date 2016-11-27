@@ -87,9 +87,9 @@ public class ViewportHandler : MonoBehaviour {
 			Projectile pro = other.gameObject.GetComponent<Projectile> ();
 			pro.desintegrateTime = 0.5f / pro.speed;
 			pro.Disintegrate ();
-		} else {//if (other.gameObject.tag == "Enemy") 
-			//Destroy (other.gameObject);
-			Debug.Log(other.gameObject);
+		} else if (other.gameObject.tag == "Enemy") {
+			Destroy (other.gameObject);
+			//Debug.Log(other.gameObject);
 		}
 	}//*/
 
