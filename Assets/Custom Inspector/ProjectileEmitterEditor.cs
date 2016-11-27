@@ -34,6 +34,8 @@ public class ProjectileEmitterEditor : Editor {
 			DestroyImmediate (myTarget);
 		}//*/
 
+		EditorGUILayout.HelpBox ("Fire Rate in frames " + Mathf.RoundToInt( 60f / myTarget.firingRate) + " frames", MessageType.Info);
+
 		switch (myTarget.behaviour) {
 		case ProjectileEmitter.EmitterBehaviour.Static:
 			EditorGUILayout.HelpBox ("Static", MessageType.Info);

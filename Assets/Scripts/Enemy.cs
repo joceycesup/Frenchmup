@@ -45,6 +45,7 @@ public class Enemy : Character {
 					System.Array.Resize (ref patternArgsF, 2);
 				patternArgsF [1] = 1f;//*/
 				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0];
+				patternArgsO [0].transform.parent = ViewportHandler.viewport.transform;
 			}
 			break;
 		case PatternType.Circle:
