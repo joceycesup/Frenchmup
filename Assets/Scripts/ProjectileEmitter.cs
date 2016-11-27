@@ -89,8 +89,10 @@ public class ProjectileEmitter : MonoBehaviour {
 						for (float i = 0; i < behaviourArgs [0]; ++i) {
 							GameObject pro = (GameObject) Instantiate (projectile, gameObject.transform.position, Quaternion.identity);
 							pro.gameObject.GetComponent<Projectile>().isEnemy = isEnemy;
-							pro.gameObject.GetComponent<Projectile> ().SetRotation (transform.rotation * Quaternion.Euler (Vector3.forward * ((360f / behaviourArgs [0]) * i + (isEnemy ? 180f : 0f))));
+							pro.gameObject.GetComponent<Projectile> ().SetRotation (transform.rotation * Quaternion.Euler (Vector3.forward * ((360f / behaviourArgs [0]) * i + behaviourArgs[2] + (isEnemy ? 180f : 0f))));
 						}
+                            //Je rajoute un offset #désopasdéso
+                            behaviourArgs[2] += behaviourArgs[1];
 						nextShot = IngameTime.time + firingDelay;
 						volleyCounter++;
 					}
