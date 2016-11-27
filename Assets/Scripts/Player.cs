@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Player : Character {
+	private static int alivePlayer = 0;
 
 	public enum PlayerState {
 		DPS,
@@ -14,6 +15,8 @@ public class Player : Character {
 	public PlayerState state = PlayerState.DPS;
 	public float switchStateCooldown = 0f;
 	private float nextSwitchStateTime = 0f;
+
+	public float respawnDelay = 10f;
 
 	public float bulletTimeDuration = 2f;
 	public float bulletTimeFactor = 0.5f;
@@ -46,6 +49,18 @@ public class Player : Character {
 		_isEnemy = false;
 	}
 
+	void Start () {
+		alivePlayer++;
+		if (!GameSettings.tutorial) {
+			laserLoad = maxLaserLoad;
+		}
+	}
+
+	private void Reset () {
+		maxHealth = maxHealth;
+		laserLoad = maxLaserLoad;
+	}
+
 	protected override void UpdateCharacter () {
 		float dx = Input.GetAxis ("Horizontal_P" + playerNumber);
 		float dy = Input.GetAxis ("Vertical_P" + playerNumber);
@@ -75,7 +90,7 @@ public class Player : Character {
 		}
 
 		if (bulletTime) {
-			if (Time.time >= bulletTimeEndTime) {
+			if (IngameTime.globalTime >= bulletTimeEndTime) {
 				bulletTime = false;
 				IngameTime.MultiplyFactor (1f / bulletTimeFactor);
 			}
@@ -156,7 +171,7 @@ public class Player : Character {
 				if (!bulletTime) {
 					if (Time.time > bulletTimeEndTime + bulletTimeCooldown) {
 						bulletTime = true;
-						bulletTimeEndTime = Time.time + bulletTimeDuration;
+						bulletTimeEndTime = IngameTime.globalTime + bulletTimeDuration;
 						IngameTime.MultiplyFactor (bulletTimeFactor);
 					}
 				}
@@ -164,21 +179,21 @@ public class Player : Character {
 			break;
 		}
 		if (Input.GetButtonDown ("DPS_P" + playerNumber)) {
-			if (Time.time > nextSwitchStateTime) {
+			if (IngameTime.globalTime > nextSwitchStateTime) {
 				speed = dpsSpeed;
 				state = PlayerState.DPS;
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
-				nextSwitchStateTime = Time.time + switchStateCooldown;
+				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
 			}
 		} else if (Input.GetButtonDown ("Support_P" + playerNumber)) {
-			if (Time.time > nextSwitchStateTime) {
+			if (IngameTime.globalTime > nextSwitchStateTime) {
 				if (!dash)
 					speed = supportSpeed;
 				if (laser != null)
 					laser.GetComponent<Laser> ().Stop ();
 				state = PlayerState.Support;
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
-				nextSwitchStateTime = Time.time + switchStateCooldown;
+				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
 			}
 		}
 	}
@@ -187,6 +202,31 @@ public class Player : Character {
 		if (state == PlayerState.Support) {
 			if (++laserLoad > maxLaserLoad)
 				laserLoad = maxLaserLoad;
+		}
+	}
+
+	protected override void Death () {
+		if (--alivePlayer <= 0) {
+		} else {
+			StartCoroutine ("RespawnPlayer", this);
+		}
+		gameObject.SetActive (false);
+	}
+
+	IEnumerator RespawnPlayer (Player player) {
+		float respawnTime = IngameTime.globalTime + player.respawnDelay;
+		while (IngameTime.globalTime < respawnTime) {
+			if (alivePlayer <= 0) {
+				respawnTime = 0f;
+			} else {
+				yield return null;
+			}
+		}
+		if (alivePlayer <= 0) {
+			Destroy (player.gameObject);
+		} else {
+			player.gameObject.SetActive (true);
+			alivePlayer++;
 		}
 	}
 

@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
-	public float maxSpeed;
 	protected float speed;
-	public float health;
+	public float maxHealth;
+	private float health;
 	public float invincibilityTime = float.MaxValue;
 	private float invincibilityStartTime = 0f;
 	public bool invincible = false;
@@ -16,7 +16,7 @@ public class Character : MonoBehaviour {
 	}
 
 	void Awake () {
-		speed = maxSpeed;
+		health = maxHealth;
 		if (invincible) {
 			invincibilityTime = float.MaxValue;
 		}
@@ -29,7 +29,7 @@ public class Character : MonoBehaviour {
 	void Update () {
 		if (invincible) {
 			if (IngameTime.time >= invincibilityStartTime + invincibilityTime) {
-				invincible = false;/*
+				invincible = false;//*
 				gameObject.GetComponent<SpriteRenderer> ().color = new Color (1f, 1f, 1f);
 			} else {
 				float f = Mathf.Sin ((IngameTime.time - invincibilityStartTime) * 10.0f) / 2.0f + 0.5f;
@@ -56,6 +56,10 @@ public class Character : MonoBehaviour {
 			return;
 	}//*/
 
+	protected virtual void Death () {
+		Destroy (gameObject);
+	}
+
 	public virtual bool TakeDamage (float value, bool activeInvincibility = true) {
 		if (invincible)
 			return false;
@@ -64,7 +68,7 @@ public class Character : MonoBehaviour {
 			invincible = true;
 		}
 		if ((health -= value) <= 0) {
-			Destroy (gameObject);
+			Death ();
 		}
 		return true;
 	}

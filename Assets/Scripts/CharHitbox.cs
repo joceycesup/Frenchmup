@@ -15,7 +15,7 @@ public class CharHitbox : MonoBehaviour {
 			if (character.gameObject.GetComponent<Player> () != null) {
 				character.gameObject.GetComponent<Player> ().EatBullet ();
 			}
-			character.TakeDamage (1f, false);
+			character.TakeDamage (1f, !character.isEnemy);
 			other.gameObject.GetComponent<Projectile> ().Remove ();
 		}
 	}

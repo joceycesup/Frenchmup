@@ -173,6 +173,15 @@ public class BezierSpline : MonoBehaviour {
 		return GetVelocity(t).normalized;
 	}
 
+	public float GetT (float currentT, float distance, int precision) {
+		for (int j = 0; j < precision; ++j) {
+			Vector3 velocity = GetVelocity (currentT);
+			//dCurve += Vector3.Normalize (velocity);
+			currentT += (distance / velocity.magnitude) / precision;
+		}
+		return currentT;
+	}
+
 	public void AddCurve () {
 		Vector3 point = points[points.Length - 1];
 		Array.Resize(ref points, points.Length + 3);

@@ -54,7 +54,7 @@ public class SplineDecorator : MonoBehaviour
 				item.transform.rotation = tmpRot;
 			}
 			item.transform.position = position;
-
+			/*
 			d = extents [i].y;
 			float tmp = t;
 			//Vector3 dCurve = new Vector3 ();
@@ -63,7 +63,8 @@ public class SplineDecorator : MonoBehaviour
 				//dCurve += Vector3.Normalize (velocity);
 				tmp += (d / velocity.magnitude) / precision;
 			}
-			t = tmp;
+			t = tmp;//*/
+			t = spline.GetT (t, extents [i].y, 10);
 
 			n++;
 			i++;

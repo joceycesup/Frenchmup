@@ -25,7 +25,7 @@ GameObject:
   - 61: {fileID: 61000014230260448}
   - 60: {fileID: 60000011950758612}
   m_Layer: 10
-  m_Name: StraightSpear
+  m_Name: Mouche_Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

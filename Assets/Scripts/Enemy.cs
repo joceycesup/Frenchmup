@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 public class Enemy : Character {
@@ -11,6 +12,7 @@ public class Enemy : Character {
 		Bezier
 	}
 
+	public float maxSpeed;
 	public PatternType pattern;
 	public GameObject[] patternArgsO = {};
 	public float[] patternArgsF = {};
@@ -20,6 +22,7 @@ public class Enemy : Character {
 
 	protected override void AwakeCharacter () {
 		_isEnemy = true;
+		speed = maxSpeed;
 		if (transform.parent != null)
 			m_group = transform.parent.gameObject.GetComponent<EnemyGroup> ();
 	}
@@ -30,23 +33,6 @@ public class Enemy : Character {
 		case PatternType.StaticOnSection:
 			break;
 		case PatternType.Static:
-			break;
-		case PatternType.Path:
-			if (patternArgsF.Length < 1) {
-				Debug.LogWarningFormat("{0} has too few arguments in patternArgsF to follow a path", gameObject);
-				pattern = PatternType.Static;
-			}
-			if (patternArgsO.Length < 1) {
-				Debug.LogWarningFormat("{0} has too few arguments in patternArgsO to follow a path", gameObject);
-				pattern = PatternType.Static;
-			}
-			if (pattern != PatternType.Static) {//*
-				if (patternArgsF.Length < 2)
-					System.Array.Resize (ref patternArgsF, 2);
-				patternArgsF [1] = 1f;//*/
-				patternArgsO [0].transform.parent = gameObject.transform.parent;
-				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0] + patternArgsO[0].transform.position;
-			}
 			break;
 		case PatternType.Circle:
 			if (patternArgsF.Length < 2) {
@@ -77,6 +63,40 @@ public class Enemy : Character {
 				targetPosition = Quaternion.Euler (0f, 0f, angle) * targetPositionTmp + patternArgsO [0].transform.position;
 			}
 			break;
+		case PatternType.Path:
+			if (patternArgsF.Length < 1) {
+				Debug.LogWarningFormat("{0} has too few arguments in patternArgsF to follow a path", gameObject);
+				pattern = PatternType.Static;
+			}
+			if (patternArgsO.Length < 1) {
+				Debug.LogWarningFormat("{0} has too few arguments in patternArgsO to follow a path", gameObject);
+				pattern = PatternType.Static;
+			}
+			if (pattern != PatternType.Static) {//*
+				if (patternArgsF.Length < 2)
+					System.Array.Resize (ref patternArgsF, 2);
+				patternArgsF [1] = 1f;//*/
+				patternArgsO [0].transform.parent = gameObject.transform.parent;
+				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0] + patternArgsO[0].transform.position;
+			}
+			break;
+		case PatternType.Bezier:
+			if (patternArgsF.Length < 1) {
+				Debug.LogWarningFormat("{0} has too few arguments in patternArgsF to follow a bezier", gameObject);
+				pattern = PatternType.Static;
+			}
+			if (patternArgsO.Length < 1) {
+				Debug.LogWarningFormat("{0} has too few arguments in patternArgsO to follow a bezier", gameObject);
+				pattern = PatternType.Static;
+			}
+			if (pattern != PatternType.Static) {//*
+				if (patternArgsF.Length < 2)
+					System.Array.Resize (ref patternArgsF, 2);
+				patternArgsF [1] = 0f;//*/
+				patternArgsO [0].transform.parent = gameObject.transform.parent;
+				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0] + patternArgsO[0].transform.position;
+			}
+			break;
 		}
 	}
 
@@ -85,6 +105,14 @@ public class Enemy : Character {
 		case PatternType.StaticOnSection:
 			break;
 		case PatternType.Static:
+			break;
+		case PatternType.Circle:
+			if (transform.position == targetPosition)
+				patternArgsF [2] = 1f;
+			if (targetPosition.x != float.MaxValue && patternArgsF [2] >= 0) {
+				float angle = ((speed * IngameTime.deltaTime) / (patternArgsF [0] * Mathf.PI)) * 180f * patternArgsF [1];
+				targetPosition = Vector3.Normalize (Quaternion.Euler (0f, 0f, -angle) * (transform.position - patternArgsO [0].transform.position)) * patternArgsF [0] + patternArgsO [0].transform.position;
+			}
 			break;
 		case PatternType.Path:
 			if (((int)patternArgsF [1]) < patternArgsO [0].GetComponent<BezierSpline> ().points.Length) {
@@ -96,25 +124,16 @@ public class Enemy : Character {
 				}
 			}
 			break;
-		case PatternType.Circle:
-			if (transform.position == targetPosition)
-				patternArgsF [2] = 1f;
-			if (targetPosition.x != float.MaxValue && patternArgsF [2] >= 0) {
-				float angle = ((speed * IngameTime.deltaTime) / (patternArgsF [0] * Mathf.PI)) * 180f * patternArgsF [1];
-				targetPosition = Vector3.Normalize (Quaternion.Euler (0f, 0f, -angle) * (transform.position - patternArgsO [0].transform.position)) * patternArgsF [0] + patternArgsO [0].transform.position;
+		case PatternType.Bezier:
+			if (patternArgsF [1] < 1f) {
+				patternArgsF [1] = patternArgsO [0].GetComponent<BezierSpline> ().GetT (patternArgsF [1], speed * IngameTime.deltaTime, 10);
+				transform.position = patternArgsO [0].GetComponent<BezierSpline> ().GetPoint (patternArgsF [1]);
 			}
 			break;
 		}
 		if (targetPosition.x != float.MaxValue && transform.position != targetPosition) {
 			transform.position = Vector3.Lerp (transform.position, targetPosition, speed * IngameTime.deltaTime / Vector3.Distance (transform.position, targetPosition));
 		}
-		/*
-		if (Input.GetButton ("Fire1_P1")) {
-			SetCanShoot (true);
-		}
-		if (Input.GetButtonUp ("Fire1_P1")) {
-			SetCanShoot (false);
-		}//*/
 	}
 
 	void OnDestroy () {
@@ -131,5 +150,38 @@ public class Enemy : Character {
 
 	void OnBecameInvisible () {
 		Destroy (gameObject);
+	}
+
+	void OnDrawGizmosSelected () {
+		if (pattern == PatternType.Path) {
+			if (patternArgsO.Length > 0) {
+				BezierSpline spline = patternArgsO [0].GetComponent<BezierSpline> ();
+				if (spline != null) {
+					Gizmos.color = Color.cyan;
+					for (int i = 0; i < spline.points.Length - 1; ++i) {
+						Gizmos.DrawLine (spline.points [i] + patternArgsO [0].transform.position, spline.points [i + 1] + patternArgsO [0].transform.position);
+					}
+				}
+			}
+		} else if (pattern == PatternType.Bezier) {
+			if (patternArgsO.Length > 0) {
+				BezierSpline spline = patternArgsO [0].GetComponent<BezierSpline> ();
+				if (spline != null) {
+					Vector3 p0 = spline.points [0] + patternArgsO [0].transform.position;
+					for (int i = 1; i < spline.ControlPointCount; i += 3) {
+						Vector3 p1 = spline.points [i] + patternArgsO [0].transform.position;
+						Vector3 p2 = spline.points [i + 1] + patternArgsO [0].transform.position;
+						Vector3 p3 = spline.points [i + 2] + patternArgsO [0].transform.position;
+
+						Handles.color = Color.gray;
+						Handles.DrawLine (p0, p1);
+						Handles.DrawLine (p2, p3);
+
+						Handles.DrawBezier (p0, p3, p1, p2, Color.cyan, null, 2f);
+						p0 = p3;
+					}
+				}
+			}
+		}
 	}
 }

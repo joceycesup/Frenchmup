@@ -4,37 +4,49 @@ using System.Collections;
 public class IngameTime : MonoBehaviour {
 	public float maxCutoffFrequency = 5000f;
 
-	private static IngameTime _ingameTime;
+	public static bool pause {
+		get;
+		private set;
+	}
 
 	public static IngameTime ingameTime {
-		get { return _ingameTime; }
+		get;
+		private set;
 	}
 	public static float deltaTime {
-		get { return _ingameTime!=null?_ingameTime._deltaTime:Time.deltaTime; }
+		get { return ingameTime!=null?ingameTime._deltaTime:Time.deltaTime; }
 	}/*
 	public static float factor {
 		get { return _ingameTime!=null?_ingameTime._timeFactor:Time.deltaTime; }
 		private set { if (_ingameTime != null) { _ingameTime._timeFactor = value; } }
 	}//*/
 	public static float time {
-		get { return _ingameTime!=null?_ingameTime._time:Time.time; }
+		get { return ingameTime!=null?ingameTime._time:Time.time; }
+	}
+	public static float globalTime {
+		get { return ingameTime!=null?ingameTime._globalTime:Time.time; }
 	}
 
 	private float _time;
+	private float _globalTime;
 	private float _deltaTime;
 	private float _timeFactor = 1.0f;
 
 	void Awake () {
-		_ingameTime = this;
+		pause = false;
+		ingameTime = this;
 	}
 
 	void Update () {
-		_deltaTime = Time.deltaTime * _timeFactor;
-		_time += _deltaTime;
+		if (!pause) {
+			_deltaTime = Time.deltaTime * _timeFactor;
+			_time += _deltaTime;
+			_globalTime += Time.deltaTime;
+		}
 	}
 
 	public static void MultiplyFactor (float factor) {
-		_ingameTime.MultiplyFactorInstance (factor);
+		ingameTime.MultiplyFactorInstance (factor);
 	}
 
 	private void MultiplyFactorInstance (float factor) {
