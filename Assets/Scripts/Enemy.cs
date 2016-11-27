@@ -44,8 +44,8 @@ public class Enemy : Character {
 				if (patternArgsF.Length < 2)
 					System.Array.Resize (ref patternArgsF, 2);
 				patternArgsF [1] = 1f;//*/
-				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0];
-				patternArgsO [0].transform.parent = ViewportHandler.viewport.transform;
+				patternArgsO [0].transform.parent = gameObject.transform.parent;
+				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0] + patternArgsO[0].transform.position;
 			}
 			break;
 		case PatternType.Circle:
@@ -88,7 +88,7 @@ public class Enemy : Character {
 			break;
 		case PatternType.Path:
 			if (((int)patternArgsF [1]) < patternArgsO [0].GetComponent<BezierSpline> ().points.Length) {
-				Vector3 p2 = patternArgsO [0].GetComponent<BezierSpline> ().points [(int)patternArgsF [1]];
+				Vector3 p2 = patternArgsO [0].GetComponent<BezierSpline> ().points [(int)patternArgsF [1]] + patternArgsO[0].transform.position;
 				float factor = (speed * IngameTime.deltaTime) / Vector3.Distance (transform.position, p2);
 				transform.position = Vector3.Lerp (transform.position, p2, factor);
 				if (factor >= 1f) {

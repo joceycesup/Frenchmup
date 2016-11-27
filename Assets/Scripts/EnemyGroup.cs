@@ -20,13 +20,13 @@ public class EnemyGroup : MonoBehaviour {
 			if (enemy == null) {
 				++i;
 			} else {
+				if (enemy.pattern == Enemy.PatternType.StaticOnSection) {
+					transform.GetChild (i).parent = ViewportHandler.viewport.GetComponent<ViewportHandler> ().currentSection.transform;
+					++i;
+				} else {
+					transform.GetChild (i).parent = ViewportHandler.viewport.transform;
+				}
 				enemy.enabled = true;
-			}
-			if (enemy.pattern == Enemy.PatternType.StaticOnSection) {
-				transform.GetChild (i).parent = ViewportHandler.viewport.GetComponent<ViewportHandler> ().currentSection.transform;
-				++i;
-			} else {
-				transform.GetChild (i).parent = ViewportHandler.viewport.transform;
 			}
 		}
 		transform.parent = null;
