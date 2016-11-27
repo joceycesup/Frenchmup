@@ -4,7 +4,11 @@ using System.Collections;
 public class Character : MonoBehaviour {
 	protected float speed;
 	public float maxHealth;
-	protected float health;
+	public float health
+    {
+        get;
+        protected set;
+    }
 	public float invincibilityTime = float.MaxValue;
 	private float invincibilityStartTime = 0f;
 	public bool invincible = false;
