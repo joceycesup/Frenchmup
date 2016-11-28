@@ -44,6 +44,11 @@ public class Player : Character {
 	private GameObject smartBomb;
 	private GameObject laser;
 
+	/*================Message de KV====================
+	 * 
+	 * Je vais désactiver les animations pour l'instant pour plus de clarté, faudras revoir comment les implémenter pour la gold
+	*/
+
 	protected override void AwakeCharacter () {
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
 		_isEnemy = false;
@@ -73,13 +78,13 @@ public class Player : Character {
 
 				if (Vector3.Dot (Vector3.up, deltaPos) > Vector3.Dot (topRight, deltaPos)) {
 					deltaPos = new Vector3 (0, Mathf.Sign (dy), 0);
-					gameObject.GetComponent<Animator> ().Play (Mathf.Sign (dy) < 0 ? "down" : "up");
+					//gameObject.GetComponent<Animator> ().Play (Mathf.Sign (dy) < 0 ? "down" : "up");
 				} else if (Vector3.Dot (Vector3.right, deltaPos) > Vector3.Dot (topRight, deltaPos)) {
 					deltaPos = new Vector3 (Mathf.Sign (dx), 0, 0);
-					gameObject.GetComponent<Animator> ().Play (Mathf.Sign (dx) < 0 ? "left" : "right");
+					//gameObject.GetComponent<Animator> ().Play (Mathf.Sign (dx) < 0 ? "left" : "right");
 				} else {
 					deltaPos = Vector3.Normalize (new Vector3 (Mathf.Sign (dx), Mathf.Sign (dy), 0));
-					gameObject.GetComponent<Animator> ().Play ((Mathf.Sign (dy) < 0 ? "down_" : "up_") + (Mathf.Sign (dx) < 0 ? "left" : "right"));
+					//gameObject.GetComponent<Animator> ().Play ((Mathf.Sign (dy) < 0 ? "down_" : "up_") + (Mathf.Sign (dx) < 0 ? "left" : "right"));
 				}
 			} else {
 				deltaPos = dashVector;
@@ -87,7 +92,7 @@ public class Player : Character {
 
 			gameObject.transform.Translate (deltaPos * IngameTime.deltaTime * speed);
 		} else {
-			gameObject.GetComponent<Animator> ().Play ("idle");
+			//.GetComponent<Animator> ().Play ("idle");
 		}
 
 		if (bulletTime) {

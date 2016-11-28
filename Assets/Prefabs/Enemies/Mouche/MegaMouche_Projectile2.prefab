@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000012532360286}
   - 114: {fileID: 114000011386873740}
   - 50: {fileID: 50000010309181116}
-  - 60: {fileID: 60000012309095578}
+  - 60: {fileID: 60000011636565942}
   m_Layer: 10
   m_Name: MegaMouche_Projectile2
   m_TagString: Projectile
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012923656038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 26.148375, y: 29.477707, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -60,7 +60,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60000012309095578
+--- !u!60 &60000011636565942
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,11 +74,9 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.1, y: 0.16}
-      - {x: 0.1, y: 0.23}
-      - {x: 0.0036781002, y: 0.55019164}
-      - {x: -0.096, y: 0.23}
-      - {x: -0.096, y: 0.16}
+    - - {x: 0.10804176, y: -0.25616837}
+      - {x: -0.006422043, y: 0.17985344}
+      - {x: -0.108436584, y: -0.26084328}
 --- !u!114 &114000011386873740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,7 +133,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1396505009
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 035b9e2a8630e6c49b6484e9adf94a53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f522f03b69d6cac4b8a8bead597ddb23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

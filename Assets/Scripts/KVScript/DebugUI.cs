@@ -14,7 +14,7 @@ public class DebugUI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        text.text = "Health P1 : " + p1.health;
+       // text.text = "Health P1 : " + p1.health;
 
     }
 }
