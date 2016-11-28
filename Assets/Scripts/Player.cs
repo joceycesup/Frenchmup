@@ -193,6 +193,7 @@ public class Player : Character {
 			}
 		} else if (Input.GetButtonDown ("Support_P" + playerNumber)) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
+				SetCanShoot (false);
 				if (!dash)
 					speed = supportSpeed;
 				if (laser != null)
@@ -257,6 +258,6 @@ public class Player : Character {
 		GUIStyle style = new GUIStyle ();
 		style.normal.textColor = Color.white;
 		style.fontSize = 30;
-		GUI.Label (new Rect (10, 10, 200, 30), laserLoad + "/" + maxLaserLoad, style);
+		GUI.Label (new Rect (10, 10 + (playerNumber-1)*30, 200, 30), laserLoad + "/" + maxLaserLoad, style);
 	}
 }

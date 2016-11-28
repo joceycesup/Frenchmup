@@ -161,6 +161,7 @@ MonoBehaviour:
   - {fileID: 1000010950646596}
   - {fileID: 1000012805757252}
   beamSpeed: 50
+  dps: 60
 --- !u!212 &212000010165979902
 SpriteRenderer:
   m_ObjectHideFlags: 1

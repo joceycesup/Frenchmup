@@ -152,9 +152,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.57, y: -0.84}
+  m_Offset: {x: -0.3, y: -0.48}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.18
 --- !u!58 &58000012611637024
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -164,11 +164,11 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.57, y: -0.84}
+  m_Offset: {x: -0.3, y: -0.48}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.18
 --- !u!82 &82000012462648186
 AudioSource:
   m_ObjectHideFlags: 1
@@ -291,7 +291,7 @@ MonoBehaviour:
   - 1
   - 0
   - 0
-  firingRate: 2
+  firingRate: 6
 --- !u!114 &114000014209025518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb28e4c2a96cc3459c7ff245ed09112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   invincibilityTime: 1
   invincible: 0
   playerNumber: 2
