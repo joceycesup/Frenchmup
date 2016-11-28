@@ -1,0 +1,111 @@
+
+skeleton.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Boss/Crane
+  rotate: false
+  xy: 0, 132
+  size: 269, 379
+  orig: 269, 379
+  offset: 0, 0
+  index: -1
+Boss/Morgenstein
+  rotate: true
+  xy: 0, 12
+  size: 120, 93
+  orig: 120, 93
+  offset: 0, 0
+  index: -1
+Boss/Oeil_Droit
+  rotate: false
+  xy: 375, 13
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Boss/Oeil_Gauche
+  rotate: false
+  xy: 439, 13
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Boss/Oreille_Basse
+  rotate: false
+  xy: 271, 77
+  size: 207, 183
+  orig: 207, 183
+  offset: 0, 0
+  index: -1
+Boss/Oreille_Haute
+  rotate: true
+  xy: 269, 260
+  size: 251, 185
+  orig: 251, 185
+  offset: 0, 0
+  index: -1
+Boss/Paupiere_Fermee
+  rotate: false
+  xy: 172, 40
+  size: 129, 30
+  orig: 129, 30
+  offset: 0, 0
+  index: -1
+Boss/Paupiere_Ouverte
+  rotate: false
+  xy: 93, 0
+  size: 132, 39
+  orig: 132, 39
+  offset: 0, 0
+  index: -1
+Boss/Trompe_1
+  rotate: false
+  xy: 93, 39
+  size: 79, 93
+  orig: 79, 93
+  offset: 0, 0
+  index: -1
+Boss/Trompe_2
+  rotate: false
+  xy: 301, 1
+  size: 74, 76
+  orig: 74, 76
+  offset: 0, 0
+  index: -1
+Boss/Trompe_3
+  rotate: false
+  xy: 454, 447
+  size: 49, 64
+  orig: 49, 64
+  offset: 0, 0
+  index: -1
+Boss/Trompe_4
+  rotate: false
+  xy: 454, 392
+  size: 55, 55
+  orig: 55, 55
+  offset: 0, 0
+  index: -1
+Boss/Trompe_5
+  rotate: true
+  xy: 454, 345
+  size: 47, 55
+  orig: 47, 55
+  offset: 0, 0
+  index: -1
+Boss/Trompe_6
+  rotate: true
+  xy: 454, 298
+  size: 47, 55
+  orig: 47, 55
+  offset: 0, 0
+  index: -1
+Boss/Trompe_7
+  rotate: true
+  xy: 172, 70
+  size: 62, 99
+  orig: 62, 99
+  offset: 0, 0
+  index: -1
