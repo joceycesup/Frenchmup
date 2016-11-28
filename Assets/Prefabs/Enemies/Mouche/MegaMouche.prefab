@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67eedfe36f5086f4ea054b857dc097b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1000012064495708, guid: 4b8d04bb60866b44e823b28d60416204, type: 2}
+  projectile: {fileID: 1000012367919662, guid: 10c6c40d7611a354abddeeec18e81767, type: 2}
   volleyCount: 3
   cooldown: 3
   volleyStartTime: 1
@@ -247,10 +247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
-  health: 2
+  maxHealth: 0
   invincibilityTime: 0
   invincible: 0
+  maxSpeed: 4
   pattern: 1
   patternArgsO:
   - {fileID: 0}
