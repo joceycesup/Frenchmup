@@ -89,7 +89,6 @@ public class ViewportHandler : MonoBehaviour {
 			pro.Disintegrate ();
 		} else if (other.gameObject.tag == "Enemy") {
 			Destroy (other.gameObject);
-			//Debug.Log(other.gameObject);
 		}
 	}//*/
 

@@ -35,7 +35,7 @@ public class SplineDecorator : MonoBehaviour
 		}
 
 		float t = 0.0f;
-		float d = 0.0f;
+		//float d = 0.0f;
 		//Vector3 displacement = new Vector3 ();
 		int i = 0;
 		int n = 0;

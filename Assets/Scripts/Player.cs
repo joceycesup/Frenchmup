@@ -108,7 +108,7 @@ public class Player : Character {
 				speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 			}
 		}
-		if (laser != null && laser.active) {
+		if (laser != null && laser.GetComponent<Laser> ().isActiveAndEnabled) {
 			speed = laserSpeed;
 			if ((laserLoad -= maxLaserLoad * IngameTime.deltaTime / laserUnloadTime) <= 0f) {
 				laserLoad = 0f;

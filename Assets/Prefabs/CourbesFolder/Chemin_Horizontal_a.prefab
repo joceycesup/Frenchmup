@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011985243548}
   - 114: {fileID: 114000014007701988}
   m_Layer: 0
-  m_Name: Chemin_Horizontal
+  m_Name: Chemin_Horizontal_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

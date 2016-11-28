@@ -27,11 +27,12 @@ public class ProjectileEmitter : MonoBehaviour {
 	private float firingDelay;
 	private float nextShot = 0;
 	public float firingRate = 1;
-	/*
-	public ProjectileEmitter (ProjectileEmitter other) {
+	//*
+	public void SetProperties (ProjectileEmitter other) {
 		this.isEnemy = other.isEnemy;
 		this.projectile = other.projectile;
-		this.volley = other.volley;
+		this.volleyCount = other.volleyCount;
+		this.volleyStartTime = other.volleyStartTime;
 		this.cooldown = other.cooldown;
 		this.behaviour = other.behaviour;
 		this.behaviourArgs = new float[other.behaviourArgs.Length];
@@ -41,8 +42,8 @@ public class ProjectileEmitter : MonoBehaviour {
 
 	void Start () {
 		firingDelay = 1.0f / firingRate;
-		if (gameObject.GetComponent<Character> ()) {
-			isEnemy = gameObject.GetComponent<Character> ().isEnemy;
+		if (gameObject.transform.parent.gameObject.GetComponent<Character> ()) {
+			isEnemy = gameObject.transform.parent.gameObject.GetComponent<Character> ().isEnemy;
 		}
 		if (behaviourArgs.Length >= 1) {
 			behaviourArgs [0] = Mathf.Ceil (behaviourArgs [0]);

@@ -12,6 +12,8 @@ public class ProjectileEmitterEditor : Editor {
 	}
 	
 	public override void OnInspectorGUI(){
+		if (Application.isPlaying)
+			return;
 
 		//Voilà pour afficher l'inspecteur par défaut
 		DrawDefaultInspector ();
@@ -26,12 +28,17 @@ public class ProjectileEmitterEditor : Editor {
 		if (myTarget.enabled)
 			myTarget.enabled = false;
 		//*/
-		/*
+		//*
 		if (myTarget.gameObject.GetComponent<Character> () != null) {
-			ProjectileEmitter pe = new ProjectileEmitter (myTarget);
-			pe.gameObject.name = "ProjectileEmitter";
-			pe.transform.parent = myTarget.transform;
+			GameObject child = new GameObject ();
+			child.name = "ProjectileEmitter";
+			child.transform.parent = myTarget.transform;
+			child.transform.localPosition = Vector3.zero;
+			ProjectileEmitter pe = child.AddComponent<ProjectileEmitter> ();
+			pe.SetProperties (myTarget);
 			DestroyImmediate (myTarget);
+		} else {
+			myTarget.enabled = false;
 		}//*/
 
 		EditorGUILayout.HelpBox ("Fire Rate in frames " + Mathf.RoundToInt( 60f / myTarget.firingRate) + " frames", MessageType.Info);

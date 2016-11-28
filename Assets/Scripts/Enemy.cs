@@ -28,11 +28,13 @@ public class Enemy : Character {
 	}
 
 	void Start () {
-		SetCanShoot (true);
+		gameObject.GetComponent<Collider2D> ().enabled = true;
 		switch (pattern) {
 		case PatternType.StaticOnSection:
+			SetCanShoot (true);
 			break;
 		case PatternType.Static:
+			SetCanShoot (true);
 			break;
 		case PatternType.Circle:
 			if (patternArgsF.Length < 2) {
@@ -47,6 +49,7 @@ public class Enemy : Character {
 				pattern = PatternType.Static;
 			}
 			if (pattern != PatternType.Static) {
+				SetCanShoot (true);
 				patternArgsF [1] = Mathf.Sign (patternArgsF [1]);//*
 				if (patternArgsF.Length < 3)
 					System.Array.Resize (ref patternArgsF, 3);
@@ -78,6 +81,7 @@ public class Enemy : Character {
 				patternArgsF [1] = 1f;//*/
 				patternArgsO [0].transform.parent = gameObject.transform.parent;
 				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0] + patternArgsO[0].transform.position;
+				SetCanShoot (true);
 			}
 			break;
 		case PatternType.Bezier:
@@ -95,6 +99,7 @@ public class Enemy : Character {
 				patternArgsF [1] = 0f;//*/
 				patternArgsO [0].transform.parent = gameObject.transform.parent;
 				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0] + patternArgsO[0].transform.position;
+				SetCanShoot (true);
 			}
 			break;
 		}
@@ -148,13 +153,17 @@ public class Enemy : Character {
 		return "Enemy";
 	}
 
-	void OnBecameInvisible () {
-		Destroy (gameObject);
-	}
-
 	void OnDrawGizmosSelected () {
+		if (Application.isPlaying)
+			return;
+		if (this.enabled)
+			return;
+		Debug.Log (Time.time);
+		if (gameObject.GetComponent<Collider2D> ().enabled) {
+			gameObject.GetComponent<Collider2D> ().enabled = false;
+		}
 		if (pattern == PatternType.Path) {
-			if (patternArgsO.Length > 0) {
+			if (patternArgsO.Length > 0 && patternArgsO [0] != null) {
 				BezierSpline spline = patternArgsO [0].GetComponent<BezierSpline> ();
 				if (spline != null) {
 					Gizmos.color = Color.cyan;
