@@ -155,10 +155,11 @@ public class Enemy : Character {
 
 	void OnDrawGizmosSelected () {
 		if (Application.isPlaying)
-			return;
+			return;/*
+		else
+			this.enabled = false;//*/
 		if (this.enabled)
 			return;
-		Debug.Log (Time.time);
 		if (gameObject.GetComponent<Collider2D> ().enabled) {
 			gameObject.GetComponent<Collider2D> ().enabled = false;
 		}

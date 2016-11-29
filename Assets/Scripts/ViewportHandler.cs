@@ -17,8 +17,12 @@ public class ViewportHandler : MonoBehaviour {
 	}
 
 	void Awake () {//*
+		gameObject.GetComponent<BoxCollider2D> ().enabled = true;
 		Collider2D c2d = Physics2D.OverlapPoint (transform.position, 1 << LayerMask.NameToLayer ("Background"));
-		//Debug.Log (c2d);
+		if (c2d.gameObject.GetComponent<LevelSection> ()) {
+			sections = c2d.gameObject.transform.parent.gameObject;
+			SetCurrentSection (c2d.gameObject);
+		}
 		gameObject.GetComponent<BoxCollider2D> ().size = new Vector2 (c2d.bounds.extents.x * 2.0f, Camera.main.orthographicSize * 2.0f);
 		float wallThickness = 5.0f;
 		for (int i = 0; i < 4; ++i) {
@@ -44,6 +48,7 @@ public class ViewportHandler : MonoBehaviour {
 	}//*
 
 	void OnTriggerEnter2D (Collider2D other) {
+		//Debug.Log ("collision enter " + other.gameObject);
 		if (other.gameObject.tag == "Section") {
 			if (currentSection == null) {
 				sections = other.gameObject.transform.parent.gameObject;
@@ -93,6 +98,8 @@ public class ViewportHandler : MonoBehaviour {
 	}//*/
 
 	void SetCurrentSection (GameObject section) {
+		if (currentSection == null)
+			nextSection = section;
 		currentSection = section;
 		section.transform.parent = null;
 		if (currentSection.GetComponent<LevelSection> ().behaviour != LevelSection.LevelBehaviour.Static || currentSection.GetComponent<LevelSection> ().behaviourLock == null) {

@@ -22,10 +22,10 @@ public class EnemyGroup : MonoBehaviour {
 			} else {
 				if (enemy.pattern == Enemy.PatternType.StaticOnSection) {
 					transform.GetChild (i).parent = ViewportHandler.viewport.GetComponent<ViewportHandler> ().currentSection.transform;
-					++i;
 				} else {
 					transform.GetChild (i).parent = ViewportHandler.viewport.transform;
 				}
+				Debug.Log ("unleash " + enemy.gameObject);
 				enemy.enabled = true;
 			}
 		}

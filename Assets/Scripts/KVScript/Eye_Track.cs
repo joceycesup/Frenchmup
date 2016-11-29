@@ -14,6 +14,7 @@ public class Eye_Track : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.position = Anchor.position + (Target.position - Anchor.position).normalized*maxDistance;
+		if (Anchor != null)
+			transform.position = Anchor.position + (Target.position - Anchor.position).normalized*maxDistance;
 	}
 }
