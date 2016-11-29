@@ -231,7 +231,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -281,9 +281,9 @@ MonoBehaviour:
   bulletTimeDuration: 2
   bulletTimeFactor: 0.25
   bulletTimeCooldown: 1
-  dashDuration: 0.2
-  dashSpeed: 16
-  dashCooldown: 0.5
+  dashDuration: 0.1
+  dashSpeed: 32
+  dashCooldown: 0.25
   supportDamageReduction: 0.25
   supportSpeed: 8
   dpsSpeed: 4
