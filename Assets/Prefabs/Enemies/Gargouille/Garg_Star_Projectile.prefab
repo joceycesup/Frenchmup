@@ -97,7 +97,8 @@ MonoBehaviour:
   speed: 3
   maxSpeed: 3
   acceleration: -1.5
-  curveAngle: 5
+  curveAngle: 0
+  waveLenght: 0
   pattern: 0
   patternArgs:
   - 0

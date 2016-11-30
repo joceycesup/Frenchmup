@@ -26,7 +26,10 @@ public class Projectile : MonoBehaviour {
 	public float maxSpeed;
 	//If 0 alors on s'en fout
 	public float acceleration = 0.0f;
-	public float curveAngle = 0.0f;/*
+	public float curveAngle = 0.0f;
+	//Pour inverser l'angle
+	public float waveLenght = 0;
+	float waveTime;/*
 	public float curveAngle {
 		get { return _curveAngle; }
 		set { _curveAngle = value / speed; }
@@ -58,7 +61,7 @@ public class Projectile : MonoBehaviour {
 		startTime = IngameTime.time;
 		desintegrateStartTime = startTime + maxLifeSpan - desintegrateTime;
 		behaviourStartTime = startTime + behaviourTime;
-		gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+		//gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
 	}
 	/*
 	public virtual void Update () {
@@ -72,7 +75,7 @@ public class Projectile : MonoBehaviour {
 			} else {
 				Color tmpColor = gameObject.GetComponent<SpriteRenderer> ().color;
 				tmpColor.a = 1.0f - (IngameTime.time - desintegrateStartTime) / desintegrateTime;
-				gameObject.GetComponent<SpriteRenderer> ().color = tmpColor;
+				//gameObject.GetComponent<SpriteRenderer> ().color = tmpColor;
 			}
 		}
 		speed += IngameTime.deltaTime * acceleration;
@@ -82,6 +85,10 @@ public class Projectile : MonoBehaviour {
 			transform.Rotate (0f, 0f, 180f);
 		} else if (speed >= maxSpeed && maxSpeed != 0) {
 			speed = maxSpeed;
+		}
+		if (curveAngle != 0 && waveLenght!=0 && Time.time >= waveTime + waveLenght) {
+			waveTime = Time.time;
+			curveAngle = -curveAngle;
 		}
 
 		if (behaviour != BehaviourOverTime.DoNothing) {

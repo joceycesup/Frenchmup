@@ -27,6 +27,8 @@ public class ProjectileEmitter : MonoBehaviour {
 	private float firingDelay;
 	private float nextShot = 0;
 	public float firingRate = 1;
+
+	public bool keepTracking;
 	//*
 	public void SetProperties (ProjectileEmitter other) {
 		this.isEnemy = other.isEnemy;

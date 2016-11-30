@@ -98,14 +98,15 @@ MonoBehaviour:
   maxSpeed: 0
   acceleration: 0
   curveAngle: 0
+  waveLenght: 0
   pattern: 0
   patternArgs:
   - 0
   behaviour: 1
   behaviourArgs:
   - 9
-  - 90
-  - -7
+  - 120
+  - 20
   behaviourTime: 0
   behaviourStartTime: 0
   nextProjectile: {fileID: 1000014058353336, guid: a08e262c34b44474fa571ea32142214a,
