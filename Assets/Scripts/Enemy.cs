@@ -76,8 +76,8 @@ public class Enemy : Character {
 				pattern = PatternType.Static;
 			}
 			if (pattern != PatternType.Static) {//*
-				if (patternArgsF.Length < 2)
-					System.Array.Resize (ref patternArgsF, 2);
+				if (patternArgsF.Length < 3)
+					System.Array.Resize (ref patternArgsF, 3);
 				patternArgsF [1] = 1f;//*/
 				patternArgsO [0].transform.parent = gameObject.transform.parent;
 				transform.position = patternArgsO[0].GetComponent<BezierSpline>().points[0] + patternArgsO[0].transform.position;
@@ -120,12 +120,15 @@ public class Enemy : Character {
 			}
 			break;
 		case PatternType.Path:
-			if (((int)patternArgsF [1]) < patternArgsO [0].GetComponent<BezierSpline> ().points.Length) {
-				Vector3 p2 = patternArgsO [0].GetComponent<BezierSpline> ().points [(int)patternArgsF [1]] + patternArgsO[0].transform.position;
-				float factor = (speed * IngameTime.deltaTime) / Vector3.Distance (transform.position, p2);
-				transform.position = Vector3.Lerp (transform.position, p2, factor);
-				if (factor >= 1f) {
-					patternArgsF [1]++;
+			if (IngameTime.time > patternArgsF [2]) {
+				if (((int)patternArgsF [1]) < patternArgsO [0].GetComponent<BezierSpline> ().points.Length) {
+					Vector3 p2 = patternArgsO [0].GetComponent<BezierSpline> ().points [(int)patternArgsF [1]] + patternArgsO[0].transform.position;
+					float factor = (speed * IngameTime.deltaTime) / Vector3.Distance (transform.position, p2);
+					transform.position = Vector3.Lerp (transform.position, p2, factor);
+					if (factor >= 1f) {
+						patternArgsF [2] = patternArgsF [0] + IngameTime.time;
+						patternArgsF [1]++;
+					}
 				}
 			}
 			break;
@@ -146,6 +149,11 @@ public class Enemy : Character {
 			m_group.RemoveEnemy ();
 		} else {
 			Debug.LogWarningFormat("{0} was destroyed but has no group", gameObject);
+		}
+		if (pattern == PatternType.Path || pattern == PatternType.Bezier) {
+			if (patternArgsO.Length > 0 && patternArgsO [0] != null) {
+				Destroy (patternArgsO [0]);
+			}
 		}
 	}
 
