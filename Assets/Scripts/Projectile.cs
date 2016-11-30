@@ -23,6 +23,8 @@ public class Projectile : MonoBehaviour {
 	public float desintegrateStartTime = 0.0f;
 	[Space(10)]
 	public float speed;
+	public float maxSpeed;
+	//If 0 alors on s'en fout
 	public float acceleration = 0.0f;
 	public float curveAngle = 0.0f;/*
 	public float curveAngle {
@@ -78,6 +80,8 @@ public class Projectile : MonoBehaviour {
 			speed = Mathf.Abs (speed);
 			acceleration = Mathf.Abs (acceleration);
 			transform.Rotate (0f, 0f, 180f);
+		} else if (speed >= maxSpeed && maxSpeed != 0) {
+			speed = maxSpeed;
 		}
 
 		if (behaviour != BehaviourOverTime.DoNothing) {

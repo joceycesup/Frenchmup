@@ -105,6 +105,7 @@ public class Player : Character {
 			speed = dashSpeed;
 			if (IngameTime.time >= dashEndTime) {
 				dash = false;
+				transform.GetChild(1).GetComponent<CircleCollider2D> ().radius = 0.18f;
 				speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 			}
 		}
@@ -156,6 +157,7 @@ public class Player : Character {
 				if (!dash) {
 					if (IngameTime.time > dashEndTime + dashCooldown) {
 						dash = true;
+						transform.GetChild(1).GetComponent<CircleCollider2D> ().radius = 2;
 						dashEndTime = IngameTime.time + dashDistance / dashSpeed;
 						speed = dashSpeed;
 						dashVector = deltaPos;
