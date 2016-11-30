@@ -24,7 +24,7 @@ public class Player : Character {
 	private bool bulletTime = false;
 	private float bulletTimeEndTime;
 
-	public float dashDuration = 0.5f;
+	public float dashDistance = 0.5f;
 	public float dashSpeed = 16f;
 	public float dashCooldown = 0.5f;
 	private bool dash = false;
@@ -156,7 +156,7 @@ public class Player : Character {
 				if (!dash) {
 					if (IngameTime.time > dashEndTime + dashCooldown) {
 						dash = true;
-						dashEndTime = IngameTime.time + dashDuration;
+						dashEndTime = IngameTime.time + dashDistance / dashSpeed;
 						speed = dashSpeed;
 						dashVector = deltaPos;
 					}

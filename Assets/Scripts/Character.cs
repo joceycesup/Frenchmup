@@ -8,7 +8,8 @@ public class Character : MonoBehaviour {
     {
         get;
         protected set;
-    }
+	}
+	public float damageTakenOnCollision = 0f;
 	public float invincibilityTime = float.MaxValue;
 	private float invincibilityStartTime = 0f;
 	public bool invincible = false;
@@ -54,10 +55,13 @@ public class Character : MonoBehaviour {
 			}
 		}
 	}
-	/*
+	//*
 	void OnCollisionEnter2D (Collision2D other) {
-		if (other.gameObject.tag == "CharHitbox")
-			return;
+		if (damageTakenOnCollision > 0f) {
+			if (other.gameObject.GetComponent<Character> () != null) {
+				TakeDamage (damageTakenOnCollision);
+			}
+		}
 	}//*/
 
 	protected virtual void Death () {
