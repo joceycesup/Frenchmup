@@ -92,9 +92,11 @@ MonoBehaviour:
   maxLifeSpan: 10
   desintegrateTime: 0.3
   desintegrateStartTime: 0
-  speed: 12
+  speed: 6
+  maxSpeed: 0
   acceleration: 0
   curveAngle: 0
+  waveLenght: 0
   pattern: 0
   patternArgs:
   - 0
