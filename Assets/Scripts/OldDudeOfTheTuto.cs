@@ -10,8 +10,8 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		S_04_BasesDPS = 3,
 		S_05_TueMouches = 4,
 		S_06_ = 5,
-		S_07_ = 6,
-		S_08_ = 7,
+		S_07_GoSupport = 6,
+		S_08_Dash = 7,
 		S_09_ = 8,
 		S_10_ = 9,
 		S_11_ = 10,
@@ -32,6 +32,9 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		S_26_FinTuto = 25
 	}
 
+	public GameObject player1;
+	public GameObject player2;
+	public GameObject grayZone;
 	public State currentState;
 	public string[] sentences = {
 		"Pour commencer, on va apprendre les bases",
@@ -130,26 +133,15 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		}
 		SetState ();
 		GetComponent<Animator> ().Play ("vieux_parle");
+		grayZone.transform.parent = ViewportHandler.viewport.transform;
+		grayZone.transform.localPosition = Vector3.zero;
 	}
 
 	void Update () {
 		if (currentSentence >= sentences.Length) {
+			Destroy (grayZone);
 			Destroy (gameObject);
 			return;
-		}
-		if (conditions != 0) {
-			switch (currentState) {
-			case State.S_01_Deplacement:
-				break;
-			case State.S_02_JaugesVie:
-				break;
-			case State.S_03_Roles:
-				break;
-			case State.S_04_BasesDPS:
-				break;
-			case State.S_05_TueMouches:
-				break;
-			}
 		}
 		if (currentSentenceLength <= sentences [currentSentence].Length) {
 			Debug.ClearDeveloperConsole ();
@@ -161,6 +153,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			if (awaitingAction) {
 				WaitAction ();
 				if (conditions == 0) {
+					ResetState ();
 					awaitingAction = false;
 					currentStateSentence = 0;
 					currentState++;
@@ -177,13 +170,22 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 					currentSentence++;
 					GetComponent<Animator> ().Play ("vieux_parle");
 				}
-			}
+			}/*
+			if (Input.GetKeyDown (KeyCode.Backspace)) {
+				currentSentence = 0;
+				for (int i = 0; i < (int)currentState; ++i) {
+					currentSentence += sentencesPerState [i];
+				}
+				currentSentenceLength = 0;
+				GetComponent<Animator> ().Play ("vieux_parle");
+			}//*/
 		}
 	}
 
 	void WaitAction () {
 		switch (currentState) {
 		case State.S_01_Deplacement:
+			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
 			if (Input.GetAxis ("Horizontal_P1") != 0f || Input.GetAxis ("Vertical_P1") != 0f) {
 				conditions &= ~0x01;
 			}
@@ -199,21 +201,62 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			break;
 		case State.S_05_TueMouches:
 			break;
+		case State.S_06_:
+			break;
+		case State.S_07_GoSupport:
+			if (player1.GetComponent<Player> ().state == Player.PlayerState.Support) {
+				conditions &= ~0x01;
+			}
+			if (player2.GetComponent<Player> ().state == Player.PlayerState.Support) {
+				conditions &= ~0x02;
+			}
+			break;
+		default:
+			break;
 		}
 	}
 
 	void SetState () {
 		switch (currentState) {
 		case State.S_01_Deplacement:
+			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
 			conditions = 0x03;
 			break;
 		case State.S_02_JaugesVie:
+			Debug.Log ("state2");
+			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+			Transform hg1 = player1.GetComponent<Player> ().healthGauge.transform.parent;
+			Transform hg2 = player1.GetComponent<Player> ().healthGauge.transform.parent;
+			for (int i = 0; i < hg1.childCount; ++i) {
+				hg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+				hg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+			}
 			break;
 		case State.S_03_Roles:
 			break;
 		case State.S_04_BasesDPS:
 			break;
 		case State.S_05_TueMouches:
+			break;
+		case State.S_06_:
+			break;
+		case State.S_07_GoSupport:
+			conditions = 0x03;
+			break;
+		default:
+			break;
+		}
+	}
+
+	void ResetState () {
+		switch (currentState) {
+		case State.S_02_JaugesVie:
+			Transform hg1 = player1.GetComponent<Player> ().healthGauge.transform.parent;
+			Transform hg2 = player1.GetComponent<Player> ().healthGauge.transform.parent;
+			for (int i = 0; i < hg1.childCount; ++i) {
+				hg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+				hg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+			}
 			break;
 		default:
 			break;

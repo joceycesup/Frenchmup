@@ -44,6 +44,10 @@ public class Player : Character {
 	private GameObject smartBomb;
 	private GameObject laser;
 
+	public GameObject laserGauge;
+	public GameObject specialGauge;
+	public GameObject healthGauge;
+
 	/*================Message de KV====================
 	 * 
 	 * Je vais désactiver les animations pour l'instant pour plus de clarté, faudras revoir comment les implémenter pour la gold
