@@ -878,7 +878,7 @@ MonoBehaviour:
   player1: {fileID: 374112427}
   player2: {fileID: 374112427}
   grayZone: {fileID: 1871922890}
-  currentState: 0
+  currentState: 6
   sentences:
   - Pour commencer, on va apprendre les bases
   - "D\xE9placez votre destrier en utilisant le stick directionnel gauche"

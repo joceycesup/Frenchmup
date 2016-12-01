@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
   maxSpeed: 4
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67eedfe36f5086f4ea054b857dc097b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1000012066342046, guid: 43ac821c98f04f043a3d82d3dac5922a, type: 2}
+  projectile: {fileID: 1000012392099212, guid: b924f46c421edf34eb49075b6db4c2a8, type: 2}
   volleyCount: 5
   cooldown: 5
   volleyStartTime: 1
@@ -328,6 +329,7 @@ MonoBehaviour:
   - 6
   - 0
   firingRate: 3
+  keepTracking: 0
 --- !u!114 &114000011571576358
 MonoBehaviour:
   m_ObjectHideFlags: 1
