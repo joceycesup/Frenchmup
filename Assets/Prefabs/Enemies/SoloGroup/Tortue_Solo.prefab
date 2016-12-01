@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011730053512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 27.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012804671442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: -6.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -306,10 +306,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
+  damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
   maxSpeed: 1
-  pattern: 4
+  pattern: 0
   patternArgsO:
   - {fileID: 0}
   patternArgsF:
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67eedfe36f5086f4ea054b857dc097b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1000012064495708, guid: 4b8d04bb60866b44e823b28d60416204, type: 2}
+  projectile: {fileID: 0}
   volleyCount: 3
   cooldown: 3
   volleyStartTime: 1
@@ -334,6 +335,7 @@ MonoBehaviour:
   behaviourArgs:
   - 0
   firingRate: 2
+  keepTracking: 0
 --- !u!114 &114000013679593176
 MonoBehaviour:
   m_ObjectHideFlags: 1

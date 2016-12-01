@@ -7352,6 +7352,11 @@ Prefab:
       propertyPath: dashDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: invincible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4655d6dbec804649bd4e82d921e8d49, type: 2}
   m_IsPrefabParent: 0
