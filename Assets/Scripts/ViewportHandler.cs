@@ -5,6 +5,8 @@ public class ViewportHandler : MonoBehaviour {
 	private static GameObject _viewport;
 
 	public float speed = 1.0f;
+	public GameObject startSection;
+	public GameObject tutoSection;
 	public GameObject currentSection {
 		get;
 		private set;
@@ -37,6 +39,19 @@ public class ViewportHandler : MonoBehaviour {
 		}/*/
 		gameObject.GetComponent<BoxCollider2D> ().size = new Vector2 (Camera.main.orthographicSize * 2.0f * Screen.width / Screen.height, Camera.main.orthographicSize * 2.0f);//*/
 		_viewport = gameObject;
+	}
+
+	void Start () {
+		if ((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : true) {
+			if (tutoSection != null) {
+				gameObject.transform.position = new Vector3 (0, tutoSection.transform.position.y + gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y);
+				SetCurrentSection (tutoSection);
+			}
+		} else if (startSection != null) {
+			Destroy (tutoSection);
+			gameObject.transform.position = new Vector3 (0, startSection.transform.position.y + gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y);
+			SetCurrentSection (startSection);
+		}
 	}
 
 	void Update () {
