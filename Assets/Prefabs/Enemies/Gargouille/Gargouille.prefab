@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1000011748525046, guid: f778bf97705d93a44bb5ef2ea696bec0, type: 2}
-  volleyCount: 5
+  volleyCount: 1
   cooldown: 3
   volleyStartTime: 2
   behaviour: 1
@@ -328,7 +328,7 @@ MonoBehaviour:
   - 500
   - 0
   - 0
-  firingRate: 6
+  firingRate: 3
   keepTracking: 0
 --- !u!114 &114000013573467552
 MonoBehaviour:
