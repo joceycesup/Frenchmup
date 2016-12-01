@@ -130,7 +130,7 @@ public class Player : Character {
 			if (IngameTime.time >= dashEndTime) {
 				dash = false;
 				//transform.GetChild(1).GetComponent<CircleCollider2D> ().radius = 0.18f;
-				transform.GetChild(1).localScale = 1f;
+				transform.GetChild(1).localScale = Vector3.one;
 				speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 			}
 		}
@@ -179,7 +179,7 @@ public class Player : Character {
 					if (IngameTime.time > dashEndTime + dashCooldown) {
 						dash = true;
 						//transform.GetChild (1).GetComponent<CircleCollider2D> ().radius = 2;
-						transform.GetChild(1).localScale = 10f;
+						transform.GetChild(1).localScale = Vector3.one * 10f;
 						dashEndTime = IngameTime.time + dashDistance / dashSpeed;
 						speed = dashSpeed;
 						dashVector = deltaPos;
