@@ -45,6 +45,9 @@ public class Projectile : MonoBehaviour {
 	public float behaviourStartTime = 0.0f;
 	public GameObject nextProjectile;
 
+	//FXs
+	public GameObject fx_Cancel;
+
 	void Awake () {
 		switch (pattern) {
 		case Pattern.Sinusoidal:
@@ -130,8 +133,11 @@ public class Projectile : MonoBehaviour {
 	}//*/
 
 	public void Remove () {
+		if(fx_Cancel!=null)
+			Instantiate (fx_Cancel,transform.position-Vector3.forward,Quaternion.identity);
 		if (this.enabled)
 			Destroy (gameObject);
+
 	}
 
 	public void SetRotation (Quaternion q) {
@@ -144,7 +150,7 @@ public class Projectile : MonoBehaviour {
 
 	public void SetDirection (float dx, float dy) {
 		Quaternion tmpRot = Quaternion.FromToRotation (Vector3.up, new Vector3 (dx, dy, 0.0f));
-		Debug.Log (tmpRot);
+		//Debug.Log (tmpRot);
 		gameObject.transform.rotation = tmpRot;
 	}
 

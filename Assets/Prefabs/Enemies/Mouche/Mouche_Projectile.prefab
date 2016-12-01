@@ -93,8 +93,10 @@ MonoBehaviour:
   desintegrateTime: 0.3
   desintegrateStartTime: 0
   speed: 5
+  maxSpeed: 0
   acceleration: 0
   curveAngle: 0
+  waveLenght: 0
   pattern: 0
   patternArgs:
   - 0
@@ -104,6 +106,7 @@ MonoBehaviour:
   behaviourStartTime: 0
   nextProjectile: {fileID: 1000010056730240, guid: 4ee49b45f0cd67a4aadd935a80710f59,
     type: 2}
+  fx_Cancel: {fileID: 1000014027521058, guid: 0e5683504b0eba54c9671f257315c06f, type: 2}
 --- !u!212 &212000013014548622
 SpriteRenderer:
   m_ObjectHideFlags: 1

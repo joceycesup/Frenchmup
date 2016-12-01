@@ -14,9 +14,9 @@ public class GargScript : MonoBehaviour {
 				tmpDist = Vector3.Distance(chars[i].transform.position, transform.position);
 			}
 		}
-		Debug.Log (choice);
+		//Debug.Log (choice);
 		Quaternion tmpRot = Quaternion.FromToRotation (Vector3.down, chars [choice].transform.position - transform.position);
 		transform.rotation = tmpRot;
-		Debug.Log (tmpRot.eulerAngles);
+		//Debug.Log (tmpRot.eulerAngles);
 	}
 }
