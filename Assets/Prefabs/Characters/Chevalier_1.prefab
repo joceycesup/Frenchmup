@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011010620592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.115, y: 1.878, z: 0}
+  m_LocalPosition: {x: 0.22, y: 0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -152,7 +152,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.3, y: -0.48}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.18
 --- !u!58 &58000011266513810
@@ -166,7 +166,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.3, y: -0.48}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.18
 --- !u!82 &82000012964718358
@@ -272,16 +272,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  damageTakenOnCollision: 0
   invincibilityTime: 1
   invincible: 0
-  playerNumber: 1
+  playerNumber: 2
   state: 0
   switchStateCooldown: 0
   respawnDelay: 10
   bulletTimeDuration: 2
   bulletTimeFactor: 0.25
   bulletTimeCooldown: 1
-  dashDuration: 0.1
+  dashDistance: 0.5
   dashSpeed: 32
   dashCooldown: 0.25
   supportDamageReduction: 0.25
@@ -290,6 +291,9 @@ MonoBehaviour:
   maxLaserLoad: 30
   laserSpeed: 2
   laserUnloadTime: 5
+  laserGauge: {fileID: 0}
+  specialGauge: {fileID: 0}
+  healthGauge: {fileID: 0}
 --- !u!114 &114000013352770526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,16 +305,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67eedfe36f5086f4ea054b857dc097b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 53930528, guid: 66cb56c8e133fc34ea77b0ffed45e668, type: 2}
+  projectile: {fileID: 1000012064495708, guid: 31f4e9525eed0b440bda1beb0205c8dc, type: 2}
   volleyCount: 2147483647
   cooldown: 0
   volleyStartTime: 0
-  behaviour: 3
+  behaviour: 0
   behaviourArgs:
   - 10
   - 60
   - 0.4
   firingRate: 2
+  keepTracking: 0
 --- !u!114 &114000013613928874
 MonoBehaviour:
   m_ObjectHideFlags: 1
