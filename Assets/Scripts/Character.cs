@@ -58,7 +58,7 @@ public class Character : MonoBehaviour {
 	//*
 	void OnCollisionEnter2D (Collision2D other) {
 		if (damageTakenOnCollision > 0f) {
-			if (other.gameObject.GetComponent<Character> () != null) {
+			if (other.gameObject.GetComponent<Character> () != null && other.gameObject.GetComponent<Character> ().isEnemy != _isEnemy) {
 				TakeDamage (damageTakenOnCollision);
 			}
 		}
