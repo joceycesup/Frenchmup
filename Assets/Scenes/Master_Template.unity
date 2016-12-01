@@ -1650,6 +1650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  startSection: {fileID: 0}
+  tutoSection: {fileID: 0}
 --- !u!4 &1414768817
 Transform:
   m_ObjectHideFlags: 0
@@ -1676,7 +1678,7 @@ GameObject:
   - 212: {fileID: 1548842020}
   - 61: {fileID: 1548842018}
   m_Layer: 12
-  m_Name: 3
+  m_Name: Prout
   m_TagString: Section
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
