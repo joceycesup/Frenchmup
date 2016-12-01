@@ -1167,48 +1167,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27432e9eddc714b4dac9bd5e25bf6f01, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1138779136
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1900954099}
-    m_Modifications:
-    - target: {fileID: 4000010360496172, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010360496172, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010360496172, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010360496172, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010360496172, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010360496172, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010360496172, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010360496172, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 183bf5c2ad67d064bad243a70efdbb65, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1167936652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1376,11 @@ Prefab:
         type: 2}
       propertyPath: dashCooldown
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: invincible
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4655d6dbec804649bd4e82d921e8d49, type: 2}
@@ -1780,7 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354cbcf29d5991c409a473bd6586d651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2.5
   startSection: {fileID: 0}
   tutoSection: {fileID: 0}
 --- !u!4 &1414768817
