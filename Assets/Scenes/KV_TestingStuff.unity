@@ -147,7 +147,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1737556635}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!61 &78671325
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -208,53 +208,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &307608372
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1737556635}
-    m_Modifications:
-    - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011804652630, guid: 1639e8aa561882f41846f327aafba5bd,
-        type: 2}
-      propertyPath: cooldown
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &355323333
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,11 +467,6 @@ MonoBehaviour:
   scale: 1
   zPosition: 1
   overrideAlpha: 1
---- !u!4 &1057275373 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd,
-    type: 2}
-  m_PrefabInternal: {fileID: 307608372}
 --- !u!1001 &1121650358
 Prefab:
   m_ObjectHideFlags: 0
@@ -1288,7 +1236,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1665792718}
-  - {fileID: 1057275373}
   - {fileID: 78671324}
   - {fileID: 2138697788}
   m_Father: {fileID: 0}
@@ -1745,7 +1692,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1737556635}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!61 &2138697789
 BoxCollider2D:
   m_ObjectHideFlags: 0
