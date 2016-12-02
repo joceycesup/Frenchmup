@@ -4,6 +4,20 @@ using System.Collections;
 public class Player : Character {
 	private static int alivePlayer = 0;
 
+	public enum Ability {
+		Move		 = 0x0001,
+		Shotgun		 = 0x0002,
+		Laser		 = 0x0004,
+		Bomb		 = 0x0008,
+		Dash		 = 0x0010,
+		Magnet		 = 0x0020,
+		BulletTime	 = 0x0040,
+		Chain		 = 0x0080,
+		GoSupport	 = 0x0100,
+		GoDPS		 = 0x0200,
+		All			 = 0x03FF
+	}
+
 	public enum PlayerState {
 		DPS,
 		Support
@@ -27,7 +41,14 @@ public class Player : Character {
 	public float dashDistance = 0.5f;
 	public float dashSpeed = 16f;
 	public float dashCooldown = 0.5f;
-	private bool dash = false;
+	public bool dash {
+		get;
+		private set;
+	}
+	public int projectilesAbsorbed {
+		get;
+		private set;
+	}
 	private float dashEndTime;
 	private Vector3 dashVector;
 
@@ -39,6 +60,8 @@ public class Player : Character {
 	private float laserLoad = 0f;
 	public float laserSpeed = 2f;
 	public float laserUnloadTime = 5f;
+
+	private int abilities;
 
 	private GameObject magnet;
 	private GameObject smartBomb;
@@ -54,6 +77,7 @@ public class Player : Character {
 	*/
 
 	protected override void AwakeCharacter () {
+		dash = false;
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
 		_isEnemy = false;
 		if (laser == null) {
@@ -84,8 +108,9 @@ public class Player : Character {
 	private void Reset () {
 		speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 		health = maxHealth;
-		if (!GameSettings.tutorial) {
+		if (!((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : true)) {
 			laserLoad = maxLaserLoad;
+			SetAbilities (Ability.All, true);
 		}
 		magnet.SetActive (false);
 		SetCanShoot (false);
@@ -96,7 +121,7 @@ public class Player : Character {
 		float dy = Input.GetAxis ("Vertical_P" + playerNumber);
 
 		Vector3 deltaPos = Vector3.zero;
-		if (dx != 0 || dy != 0) {
+		if (CheckAbility (Ability.Move) && (dx != 0 || dy != 0)) {
 			if (!dash) {
 				deltaPos = Vector3.Normalize (new Vector3 (Mathf.Abs (dx), Mathf.Abs (dy), 0));
 
@@ -144,49 +169,49 @@ public class Player : Character {
 		}
 		switch (state) {
 		case PlayerState.DPS:
-			if (Input.GetButtonDown ("Fire1_P"+playerNumber)) {
+			if (Input.GetButtonDown ("Fire1_P" + playerNumber) && CheckAbility (Ability.Laser)) {
 				if (laserLoad > 0f) {
 					laser.SetActive (true);
 					laser.GetComponent<Laser> ().Shoot ();
 				}
 			}
-			if (Input.GetButtonUp ("Fire1_P"+playerNumber)) {
+			if (Input.GetButtonUp ("Fire1_P" + playerNumber)) {
 				if (laser != null) {
 					laser.GetComponent<Laser> ().Stop ();
 				}
 				speed = dpsSpeed;
 				//laser.SetActive (false);
 			}
-			if (Input.GetButton ("Fire2_P"+playerNumber)) {
+			if (Input.GetButton ("Fire2_P" + playerNumber) && CheckAbility (Ability.Shotgun)) {
 				SetCanShoot (true);
 			}
-			if (Input.GetButtonUp ("Fire2_P"+playerNumber)) {
+			if (Input.GetButtonUp ("Fire2_P" + playerNumber)) {
 				SetCanShoot (false);
 			}
-			if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
+			if (Input.GetButtonDown ("Fire3_P" + playerNumber) && CheckAbility (Ability.Bomb)) {
 				smartBomb.SetActive (true);
 			}
 			break;
 		case PlayerState.Support:
-			if (Input.GetButtonDown ("Fire1_P"+playerNumber)) {
+			if (Input.GetButtonDown ("Fire1_P" + playerNumber) && CheckAbility (Ability.Magnet)) {
 				magnet.SetActive (true);
 			}
-			if (Input.GetButtonUp ("Fire1_P"+playerNumber)) {
+			if (Input.GetButtonUp ("Fire1_P" + playerNumber)) {
 				magnet.SetActive (false);
 			}
-			if (Input.GetButtonDown ("Fire2_P"+playerNumber) && Input.GetButton ("Fire1_P"+playerNumber)) {
+			if (Input.GetButtonDown ("Fire2_P" + playerNumber) && Input.GetButton ("Fire1_P" + playerNumber) && CheckAbility (Ability.Dash)) {
 				if (!dash) {
 					if (IngameTime.time > dashEndTime + dashCooldown) {
 						dash = true;
 						//transform.GetChild (1).GetComponent<CircleCollider2D> ().radius = 2;
-						transform.GetChild(1).localScale = Vector3.one * 10f;
+						transform.GetChild (1).localScale = Vector3.one * 10f;
 						dashEndTime = IngameTime.time + dashDistance / dashSpeed;
 						speed = dashSpeed;
 						dashVector = deltaPos;
 					}
 				}
 			}
-			if (Input.GetButtonDown ("Fire3_P"+playerNumber)) {
+			if (Input.GetButtonDown ("Fire3_P" + playerNumber) && CheckAbility (Ability.BulletTime)) {
 				if (!bulletTime) {
 					if (Time.time > bulletTimeEndTime + bulletTimeCooldown) {
 						bulletTime = true;
@@ -197,14 +222,14 @@ public class Player : Character {
 			}
 			break;
 		}
-		if (Input.GetButtonDown ("DPS_P" + playerNumber)) {
+		if (Input.GetButtonDown ("DPS_P" + playerNumber) && CheckAbility (Ability.GoDPS)) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
 				speed = dpsSpeed;
 				state = PlayerState.DPS;
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
 				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
 			}
-		} else if (Input.GetButtonDown ("Support_P" + playerNumber)) {
+		} else if (Input.GetButtonDown ("Support_P" + playerNumber) && CheckAbility (Ability.GoSupport)) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
 				SetCanShoot (false);
 				if (!dash)
@@ -223,6 +248,8 @@ public class Player : Character {
 			if (++laserLoad > maxLaserLoad)
 				laserLoad = maxLaserLoad;
 		}
+		if (dash)
+			projectilesAbsorbed++;
 	}
 
 	protected override void Death () {
@@ -262,6 +289,18 @@ public class Player : Character {
 
 	public override bool TakeDamage (float value, bool activeInvincibility = true) {
 		return dash ? false : base.TakeDamage (value * (state == PlayerState.Support ? supportDamageReduction : 1f), activeInvincibility);
+	}
+
+	public void SetAbilities (Ability ability, bool value) {
+		if (value) {
+			abilities |= (int)ability;
+		} else {
+			abilities &= ~((int)ability);
+		}
+	}
+
+	public bool CheckAbility (Ability ability) {
+		return (abilities & (int)ability) != 0;
 	}
 
 	public override string ToString() {

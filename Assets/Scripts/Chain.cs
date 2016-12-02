@@ -19,14 +19,14 @@ public class Chain : MonoBehaviour {
 		transformObject.transform.parent = gameObject.transform;
 		spline = GetComponent<BezierSpline> ();
 		links.SetActive (false);
-		spline.points [0] = player1.transform.position;
-		spline.points [3] = player2.transform.position;
+		spline.points [0] = player1.transform.position - gameObject.transform.position;
+		spline.points [3] = player2.transform.position - gameObject.transform.position;
 		spline.points [1] = spline.points [2] = (player1.transform.position + player2.transform.position) / 2f;
 		length = Vector3.Distance (player1.transform.position, player2.transform.position) / 2f;
 	}
 
 	void Update () {
-		links.SetActive (player1.GetComponent<Player> ().state != player2.GetComponent<Player> ().state);
+		links.SetActive (player1.GetComponent<Player> ().state != player2.GetComponent<Player> ().state && player1.GetComponent<Player> ().CheckAbility(Player.Ability.Chain) && player2.GetComponent<Player> ().CheckAbility(Player.Ability.Chain));
 		float tmpLength = Vector3.Distance (player1.transform.position, player2.transform.position) / 2f;
 		if (tmpLength > length) {
 			length = tmpLength;
