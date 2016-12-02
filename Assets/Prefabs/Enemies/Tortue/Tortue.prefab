@@ -299,6 +299,7 @@ MonoBehaviour:
   behaviourArgs:
   - 0
   firingRate: 2
+  keepTracking: 0
 --- !u!114 &114000014036526688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,8 +312,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
+  damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
   maxSpeed: 1
   pattern: 4
   patternArgsO:

@@ -4,12 +4,12 @@ using System.Collections;
 
 public class DebugUI : MonoBehaviour {
 
-    Text text;
+    //Text text;
     public Player p1;
 
     void Start()
     {
-        text = GetComponent<Text>();
+        //text = GetComponent<Text>();
     }
 
 	// Update is called once per frame
