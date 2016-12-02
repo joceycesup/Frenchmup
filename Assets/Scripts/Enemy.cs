@@ -16,7 +16,7 @@ public class Enemy : Character {
 	public PatternType pattern;
 	public GameObject[] patternArgsO = {};
 	public float[] patternArgsF = {};
-	private Vector3 targetPosition = new Vector3 (float.MaxValue, 0f);
+	protected Vector3 targetPosition = new Vector3 (float.MaxValue, 0f);
 
 	protected EnemyGroup m_group;
 
@@ -27,7 +27,7 @@ public class Enemy : Character {
 			m_group = transform.parent.gameObject.GetComponent<EnemyGroup> ();
 	}
 
-	void Start () {
+	protected override void StartCharacter () {
 		gameObject.GetComponent<Collider2D> ().enabled = true;
 		switch (pattern) {
 		case PatternType.StaticOnSection:

@@ -33,6 +33,13 @@ public class Character : MonoBehaviour {
 	protected virtual void AwakeCharacter () {
 	}
 
+	void Start () {
+		StartCharacter ();
+	}
+
+	protected virtual void StartCharacter () {
+	}
+
 	void Update () {
 		if (invincible) {
 			if (IngameTime.time >= invincibilityStartTime + invincibilityTime) {

@@ -107,7 +107,7 @@ public class Player : Character {
 		}
 	}
 
-	void Start () {
+	protected override void StartCharacter () {
 		alivePlayer++;
 		Reset ();
 	}
