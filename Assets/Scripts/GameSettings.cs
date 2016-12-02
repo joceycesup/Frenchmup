@@ -11,6 +11,7 @@ public class GameSettings : MonoBehaviour {
 
 	void Awake () {
 		DontDestroyOnLoad (gameObject);
+		tutorial = true;
 	}
 
 	public void LoadGame (bool tuto) {

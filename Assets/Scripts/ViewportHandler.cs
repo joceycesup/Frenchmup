@@ -42,7 +42,7 @@ public class ViewportHandler : MonoBehaviour {
 	}
 
 	void Start () {
-		if ((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : true) {
+		if ((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : false) {
 			if (tutoSection != null) {
 				gameObject.transform.position = new Vector3 (0, tutoSection.transform.position.y + gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y);
 				SetCurrentSection (tutoSection);

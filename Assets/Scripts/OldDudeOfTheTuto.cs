@@ -313,6 +313,8 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			break;
 		case State.S_10_AbsorbeProjectiles:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
+			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
 			tutoObjects [1].SetActive (true);
 			for (int i = 0; i < tutoObjects [1].transform.childCount; ++i) {
 				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().isEnemy = true;

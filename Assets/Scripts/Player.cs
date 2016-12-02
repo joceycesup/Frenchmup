@@ -15,7 +15,8 @@ public class Player : Character {
 		Chain		 = 0x0080,
 		GoSupport	 = 0x0100,
 		GoDPS		 = 0x0200,
-		All			 = 0x03FF
+		TakeDamage	 = 0x0400,
+		All			 = 0x07FF
 	}
 
 	public enum PlayerState {
@@ -80,6 +81,9 @@ public class Player : Character {
 	public GameObject fx_Cancel;
 
 	protected override void AwakeCharacter () {
+		if (invincible) {
+			SetAbilities (Ability.TakeDamage, false);
+		}
 		dash = false;
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
 		_isEnemy = false;
@@ -110,8 +114,9 @@ public class Player : Character {
 
 	private void Reset () {
 		speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
-		health = maxHealth;/*
-		if (!((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : true)) {
+		health = maxHealth;
+		UpdateGauges ();//*
+		if (!((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : false)) {
 			laserLoad = maxLaserLoad;
 			SetAbilities (Ability.All, true);
 		}/*/
@@ -230,6 +235,7 @@ public class Player : Character {
 		}
 		if (Input.GetButtonDown ("DPS_P" + playerNumber) && CheckAbility (Ability.GoDPS)) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
+				UpdateGauges ();
 				speed = dpsSpeed;
 				state = PlayerState.DPS;
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
@@ -237,6 +243,7 @@ public class Player : Character {
 			}
 		} else if (Input.GetButtonDown ("Support_P" + playerNumber) && CheckAbility (Ability.GoSupport)) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
+				UpdateGauges ();
 				SetCanShoot (false);
 				if (!dash)
 					speed = supportSpeed;
@@ -291,12 +298,24 @@ public class Player : Character {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 			player.SetInvincible ();
 			alivePlayer++;
+			UpdateGauges ();
 			//Debug.Log ("respawned!");
 		}
 	}
 
 	public override bool TakeDamage (float value, bool activeInvincibility = true) {
-		return dash ? false : base.TakeDamage (value * (state == PlayerState.Support ? supportDamageReduction : 1f), activeInvincibility);
+		if (dash || !CheckAbility (Ability.TakeDamage))
+			return false;
+		bool res = base.TakeDamage (value * (state == PlayerState.Support ? supportDamageReduction : 1f), activeInvincibility);
+		UpdateGauges ();
+		return res;
+	}
+
+	void UpdateGauges () {
+		Debug.Log (gameObject + " health : " + health);
+		healthGauge.transform.localScale = new Vector3 (health / maxHealth, 1f, 1f);
+		laserGauge.transform.localScale = new Vector3 (laserLoad / maxLaserLoad, 1f, 1f);
+		specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
 	}
 
 	public void SetAbilities (Ability ability, bool value) {

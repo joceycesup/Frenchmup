@@ -36,6 +36,10 @@ public class SmartBomb : MonoBehaviour {
 		}
 	}
 
+	public float GetLoad () {
+		return Mathf.Clamp01 ((IngameTime.time - startTime) / maxLifeSpan);
+	}
+
 	void OnTriggerEnter2D (Collider2D other) {
 		//Debug.Log (gameObject + " : " + other.gameObject);
 		if (other.gameObject == transform.parent.gameObject)
