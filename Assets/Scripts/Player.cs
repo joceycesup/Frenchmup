@@ -107,11 +107,14 @@ public class Player : Character {
 
 	private void Reset () {
 		speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
-		health = maxHealth;
+		health = maxHealth;/*
 		if (!((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : true)) {
 			laserLoad = maxLaserLoad;
 			SetAbilities (Ability.All, true);
-		}
+		}/*/
+		laserLoad = maxLaserLoad;
+		SetAbilities (Ability.All, true);
+		//*/
 		magnet.SetActive (false);
 		SetCanShoot (false);
 	}

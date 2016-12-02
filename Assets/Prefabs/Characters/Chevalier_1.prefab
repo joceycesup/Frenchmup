@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010570500188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.87, y: -6.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011010620592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22, y: 0.85, z: 0}
+  m_LocalPosition: {x: 0.19, y: 0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -166,7 +166,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0, y: 0}
   serializedVersion: 2
   m_Radius: 0.18
 --- !u!82 &82000012964718358
@@ -275,6 +275,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 1
   invincible: 0
+  blood: {fileID: 0}
   playerNumber: 2
   state: 0
   switchStateCooldown: 0
@@ -282,9 +283,9 @@ MonoBehaviour:
   bulletTimeDuration: 2
   bulletTimeFactor: 0.25
   bulletTimeCooldown: 1
-  dashDistance: 0.5
+  dashDistance: 2
   dashSpeed: 32
-  dashCooldown: 0.25
+  dashCooldown: 0.5
   supportDamageReduction: 0.25
   supportSpeed: 8
   dpsSpeed: 4
@@ -314,7 +315,7 @@ MonoBehaviour:
   - 10
   - 60
   - 0.4
-  firingRate: 2
+  firingRate: 6
   keepTracking: 0
 --- !u!114 &114000013613928874
 MonoBehaviour:

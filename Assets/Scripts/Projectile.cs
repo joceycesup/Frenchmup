@@ -134,7 +134,7 @@ public class Projectile : MonoBehaviour {
 
 	public void Remove () {
 		if(fx_Cancel!=null)
-			Instantiate (fx_Cancel,transform.position-Vector3.forward,Quaternion.identity);
+			Instantiate (Resources.Load<GameObject>("Particules/Cancel"),transform.position-Vector3.forward*0.1f,Quaternion.identity);
 		if (this.enabled)
 			Destroy (gameObject);
 
