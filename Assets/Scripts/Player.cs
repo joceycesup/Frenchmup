@@ -255,8 +255,7 @@ public class Player : Character {
 				laserLoad = maxLaserLoad;
 		}
 		if (dash) {
-			if(fx_Cancel!=null)
-				Instantiate (Resources.Load<GameObject>("Particules/Cancel"),transform.position-Vector3.forward*0.1f,Quaternion.identity);
+			Instantiate (Resources.Load<GameObject>("Particules/Cancel"),pos-Vector3.forward*0.1f,Quaternion.identity,ViewportHandler.viewport.transform);
 			projectilesAbsorbed++;
 		}
 	}

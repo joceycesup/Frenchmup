@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012114268326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7398824, y: -4.0529366, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -242,7 +242,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   links: {fileID: 1000013597516700}
   retractSpeed: 0.5
-  turnRate: 60
+  turnRate: 90
   damage: 2
 --- !u!212 &212000010830015902
 SpriteRenderer:

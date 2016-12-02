@@ -506,6 +506,7 @@ MonoBehaviour:
   damageTakenOnCollision: 1
   invincibilityTime: 1
   invincible: 0
+  blood: {fileID: 0}
   playerNumber: 1
   state: 0
   switchStateCooldown: 0
@@ -525,6 +526,7 @@ MonoBehaviour:
   laserGauge: {fileID: 160828881}
   specialGauge: {fileID: 1326637104}
   healthGauge: {fileID: 39158636}
+  fx_Cancel: {fileID: 0}
 --- !u!95 &165041588
 Animator:
   serializedVersion: 3
@@ -823,6 +825,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0.5
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 1
   patternArgsO:
@@ -1453,6 +1456,7 @@ MonoBehaviour:
   damageTakenOnCollision: 1
   invincibilityTime: 1
   invincible: 0
+  blood: {fileID: 0}
   playerNumber: 2
   state: 0
   switchStateCooldown: 0
@@ -1472,6 +1476,7 @@ MonoBehaviour:
   laserGauge: {fileID: 1782353450}
   specialGauge: {fileID: 1609487837}
   healthGauge: {fileID: 1544096471}
+  fx_Cancel: {fileID: 0}
 --- !u!95 &374112433
 Animator:
   serializedVersion: 3
@@ -4020,6 +4025,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0.5
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 1
   patternArgsO:
@@ -4596,6 +4602,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0.5
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 1
   patternArgsO:
@@ -5519,6 +5526,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0.5
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 1
   patternArgsO:

@@ -26,6 +26,7 @@ public class Chain : MonoBehaviour {
 	}
 
 	void Update () {
+		transform.position = Vector3.zero;
 		links.SetActive (player1.GetComponent<Player> ().state != player2.GetComponent<Player> ().state && player1.GetComponent<Player> ().CheckAbility(Player.Ability.Chain) && player2.GetComponent<Player> ().CheckAbility(Player.Ability.Chain));
 		float tmpLength = Vector3.Distance (player1.transform.position, player2.transform.position) / 2f;
 		if (tmpLength > length) {
