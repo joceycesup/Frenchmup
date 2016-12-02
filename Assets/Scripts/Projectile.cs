@@ -45,8 +45,6 @@ public class Projectile : MonoBehaviour {
 	public float behaviourStartTime = 0.0f;
 	public GameObject nextProjectile;
 
-	//FXs
-	public GameObject fx_Cancel;
 
 	void Awake () {
 		switch (pattern) {
@@ -133,8 +131,6 @@ public class Projectile : MonoBehaviour {
 	}//*/
 
 	public void Remove () {
-		if(fx_Cancel!=null)
-			Instantiate (Resources.Load<GameObject>("Particules/Cancel"),transform.position-Vector3.forward*0.1f,Quaternion.identity);
 		if (this.enabled)
 			Destroy (gameObject);
 

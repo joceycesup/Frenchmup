@@ -76,6 +76,9 @@ public class Player : Character {
 	 * Je vais désactiver les animations pour l'instant pour plus de clarté, faudras revoir comment les implémenter pour la gold
 	*/
 
+	//FXs
+	public GameObject fx_Cancel;
+
 	protected override void AwakeCharacter () {
 		dash = false;
 		//gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("Sprites/Rocket"+playerNumber);
@@ -246,13 +249,16 @@ public class Player : Character {
 		}
 	}
 
-	public void EatBullet () {
+	public void EatBullet (Vector3 pos) {
 		if (state == PlayerState.Support) {
 			if (++laserLoad > maxLaserLoad)
 				laserLoad = maxLaserLoad;
 		}
-		if (dash)
+		if (dash) {
+			if(fx_Cancel!=null)
+				Instantiate (Resources.Load<GameObject>("Particules/Cancel"),transform.position-Vector3.forward*0.1f,Quaternion.identity);
 			projectilesAbsorbed++;
+		}
 	}
 
 	protected override void Death () {

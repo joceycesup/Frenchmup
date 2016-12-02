@@ -275,7 +275,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 1
   invincible: 0
-  blood: {fileID: 0}
+  blood: {fileID: 1000013019042578, guid: 136b8d54d0803a549be9bf7c042cbc82, type: 2}
   playerNumber: 2
   state: 0
   switchStateCooldown: 0
