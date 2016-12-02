@@ -28,7 +28,6 @@ public class ProjectileEmitterEditor : Editor {
 		if (myTarget.enabled)
 			myTarget.enabled = false;
 		//*/
-		//*
 		if (myTarget.gameObject.GetComponent<Character> () != null) {
 			GameObject child = new GameObject ();
 			child.name = "ProjectileEmitter";
@@ -40,7 +39,6 @@ public class ProjectileEmitterEditor : Editor {
 		} else {
 			myTarget.enabled = false;
 		}//*/
-
 		EditorGUILayout.HelpBox ("Fire Rate in frames " + Mathf.RoundToInt( 60f / myTarget.firingRate) + " frames", MessageType.Info);
 
 		switch (myTarget.behaviour) {
