@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
+
 [CustomEditor(typeof(Projectile))]
 [CanEditMultipleObjects]
 public class ProjectileEditor : Editor {

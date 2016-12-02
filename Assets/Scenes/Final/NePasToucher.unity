@@ -1194,13 +1194,13 @@ Prefab:
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     - target: {fileID: 114000014146678390, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93e2b47812098ea4091dad0ce0b1e7e2, type: 2}
@@ -2000,6 +2000,26 @@ Prefab:
       value: 
       objectReference: {fileID: 1000014027521058, guid: 0e5683504b0eba54c9671f257315c06f,
         type: 2}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: specialGauge
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: healthGauge
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: laserGauge
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: invincible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4655d6dbec804649bd4e82d921e8d49, type: 2}
   m_IsPrefabParent: 0
@@ -2804,7 +2824,7 @@ Prefab:
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     - target: {fileID: 114000013558408324, guid: 8f69057d5fd651e46b6cde7714e459e1,
         type: 2}
@@ -3312,7 +3332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &710760848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5709,9 +5729,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354cbcf29d5991c409a473bd6586d651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   startSection: {fileID: 0}
   tutoSection: {fileID: 0}
+  currentSection: {fileID: 0}
+  nextSection: {fileID: 0}
 --- !u!4 &1414768817
 Transform:
   m_ObjectHideFlags: 0
@@ -7051,25 +7073,25 @@ Prefab:
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     - target: {fileID: 114000010322179752, guid: 370f0c63b81b2e141a26f42112bdc372,
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     - target: {fileID: 114000012116718260, guid: 370f0c63b81b2e141a26f42112bdc372,
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     - target: {fileID: 114000010468049818, guid: 370f0c63b81b2e141a26f42112bdc372,
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     - target: {fileID: 114000010342562562, guid: 370f0c63b81b2e141a26f42112bdc372,
         type: 2}
@@ -7175,6 +7197,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
         type: 3}
+    - target: {fileID: 4000014067819500, guid: 370f0c63b81b2e141a26f42112bdc372, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 370f0c63b81b2e141a26f42112bdc372, type: 2}
   m_IsPrefabParent: 0
@@ -7732,7 +7758,7 @@ Prefab:
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     - target: {fileID: 114000011658356704, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
         type: 2}
@@ -9268,7 +9294,7 @@ Prefab:
         type: 2}
       propertyPath: blood
       value: 
-      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+      objectReference: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b,
         type: 2}
     - target: {fileID: 114000013496766112, guid: 1639e8aa561882f41846f327aafba5bd,
         type: 2}

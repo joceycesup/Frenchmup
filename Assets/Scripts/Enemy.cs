@@ -161,6 +161,7 @@ public class Enemy : Character {
 		return "Enemy";
 	}
 
+
 	void OnDrawGizmosSelected () {
 		if (Application.isPlaying)
 			return;/*

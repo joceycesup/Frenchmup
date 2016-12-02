@@ -119,14 +119,13 @@ MonoBehaviour:
   - 0
   behaviour: 1
   behaviourArgs:
-  - 10
+  - 5
   - 30
   - 0
   behaviourTime: 0
   behaviourStartTime: 0
   nextProjectile: {fileID: 1000012064495708, guid: 5b585dcd62d13a74caf4c92c5d3c21ff,
     type: 2}
-  fx_Cancel: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
 --- !u!212 &212000013014548622
 SpriteRenderer:
   m_ObjectHideFlags: 1

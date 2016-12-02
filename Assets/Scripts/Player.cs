@@ -115,7 +115,7 @@ public class Player : Character {
 	private void Reset () {
 		speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 		health = maxHealth;
-		UpdateGauges ();//*
+		UpdateGauges ();/*
 		if (!((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : false)) {
 			laserLoad = maxLaserLoad;
 			SetAbilities (Ability.All, true);
@@ -313,9 +313,11 @@ public class Player : Character {
 
 	void UpdateGauges () {
 		Debug.Log (gameObject + " health : " + health);
-		healthGauge.transform.localScale = new Vector3 (health / maxHealth, 1f, 1f);
-		laserGauge.transform.localScale = new Vector3 (laserLoad / maxLaserLoad, 1f, 1f);
-		specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
+		if (healthGauge != null) {
+			healthGauge.transform.localScale = new Vector3 (health / maxHealth, 1f, 1f);
+			laserGauge.transform.localScale = new Vector3 (laserLoad / maxLaserLoad, 1f, 1f);
+			specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
+		}
 	}
 
 	public void SetAbilities (Ability ability, bool value) {

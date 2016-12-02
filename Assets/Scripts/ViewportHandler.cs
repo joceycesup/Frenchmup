@@ -7,11 +7,8 @@ public class ViewportHandler : MonoBehaviour {
 	public float speed = 1.0f;
 	public GameObject startSection;
 	public GameObject tutoSection;
-	public GameObject currentSection {
-		get;
-		private set;
-	}
-	private GameObject nextSection;
+	public GameObject currentSection;
+	public GameObject nextSection;
 	private GameObject sections;
 
 	public static GameObject viewport {
