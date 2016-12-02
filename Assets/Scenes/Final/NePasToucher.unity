@@ -403,6 +403,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 0
   patternArgsO:
@@ -719,10 +720,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:
@@ -1137,18 +1139,69 @@ Prefab:
     - target: {fileID: 212000013228051646, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000013228051646, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000013228051646, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212000013228051646, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 114000012787586672, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010847276774, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010515668794, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012787586672, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010847276774, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010515668794, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011745272712, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000014146678390, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93e2b47812098ea4091dad0ce0b1e7e2, type: 2}
   m_IsPrefabParent: 0
@@ -1210,7 +1263,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2232812ced9486548ae827d5dc3f68ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc7c8548395b4b241a4fd99bee41b1da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1435,10 +1488,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:
@@ -1838,18 +1892,24 @@ Prefab:
     - target: {fileID: 212000011003827196, guid: f0aa6c3f31bebb14ea32f67098f05d20,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000011003827196, guid: f0aa6c3f31bebb14ea32f67098f05d20,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000011003827196, guid: f0aa6c3f31bebb14ea32f67098f05d20,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212000011003827196, guid: f0aa6c3f31bebb14ea32f67098f05d20,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0aa6c3f31bebb14ea32f67098f05d20, type: 2}
   m_IsPrefabParent: 0
@@ -2309,6 +2369,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 0
   patternArgsO:
@@ -2535,17 +2596,205 @@ Prefab:
     - target: {fileID: 212000010303973912, guid: 8f69057d5fd651e46b6cde7714e459e1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000010303973912, guid: 8f69057d5fd651e46b6cde7714e459e1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000010303973912, guid: 8f69057d5fd651e46b6cde7714e459e1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010303973912, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 114000013558408324, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012120070730, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012258662354, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000014281158802, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012080886368, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011855489616, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011584069368, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012537664928, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012636008164, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011125765100, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012696467080, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012849355370, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011810775574, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012496652558, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013103919552, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011434433972, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013346977190, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013558408324, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012120070730, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012258662354, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014281158802, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012080886368, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011855489616, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011584069368, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012537664928, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012636008164, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011125765100, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012696467080, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012849355370, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011810775574, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012496652558, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013103919552, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011434433972, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f69057d5fd651e46b6cde7714e459e1, type: 2}
@@ -2722,10 +2971,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:
@@ -2880,7 +3130,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1001 &701820485
 Prefab:
   m_ObjectHideFlags: 0
@@ -2923,18 +3173,24 @@ Prefab:
     - target: {fileID: 212000013341858810, guid: 4d8ccd9c4c6db0140b6168de9e815430,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000013341858810, guid: 4d8ccd9c4c6db0140b6168de9e815430,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000013341858810, guid: 4d8ccd9c4c6db0140b6168de9e815430,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212000013341858810, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
   m_IsPrefabParent: 0
@@ -3028,7 +3284,7 @@ RectTransform:
   - {fileID: 1496350556}
   - {fileID: 1531745316}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3341,8 +3597,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c34a0f4493f753c40ba208d2607217f5, type: 3}
-  m_Color: {r: 0.6544118, g: 0.6544118, b: 0.6544118, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &800154420
@@ -3465,10 +3721,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:
@@ -3630,10 +3887,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:
@@ -3918,17 +4176,45 @@ Prefab:
     - target: {fileID: 212000010895757250, guid: d428c4ee369578e4e86027f8bfc8d1e8,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000010895757250, guid: d428c4ee369578e4e86027f8bfc8d1e8,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000010895757250, guid: d428c4ee369578e4e86027f8bfc8d1e8,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010895757250, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 114000013332282058, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013941061738, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013332282058, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013941061738, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d428c4ee369578e4e86027f8bfc8d1e8, type: 2}
@@ -5166,7 +5452,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407687358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5339,7 +5625,7 @@ Transform:
   - {fileID: 1407687359}
   - {fileID: 1784798590}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1422361106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5543,17 +5829,56 @@ Prefab:
     - target: {fileID: 212000013621432418, guid: d069e6292724ff842b2236d54c1c5702,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000013621432418, guid: d069e6292724ff842b2236d54c1c5702,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000013621432418, guid: d069e6292724ff842b2236d54c1c5702,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000013621432418, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 114000011578715140, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010598602526, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011599188534, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011578715140, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010598602526, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011599188534, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d069e6292724ff842b2236d54c1c5702, type: 2}
@@ -5678,10 +6003,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:
@@ -5914,18 +6240,24 @@ Prefab:
     - target: {fileID: 212000011781430016, guid: 831d404de807f4147ac43c9ea2ebd2c4,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000011781430016, guid: 831d404de807f4147ac43c9ea2ebd2c4,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000011781430016, guid: 831d404de807f4147ac43c9ea2ebd2c4,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212000011781430016, guid: 831d404de807f4147ac43c9ea2ebd2c4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
   m_IsPrefabParent: 0
@@ -6049,10 +6381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:
@@ -6181,8 +6514,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2232812ced9486548ae827d5dc3f68ec, type: 3}
-  m_Color: {r: 0.6544118, g: 0.6544118, b: 0.6544118, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fc7c8548395b4b241a4fd99bee41b1da, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &1531745315
@@ -6546,17 +6879,176 @@ Prefab:
     - target: {fileID: 212000013378776314, guid: 370f0c63b81b2e141a26f42112bdc372,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000013378776314, guid: 370f0c63b81b2e141a26f42112bdc372,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000013378776314, guid: 370f0c63b81b2e141a26f42112bdc372,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000013378776314, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 114000011449253204, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010780958090, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011416023856, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011792500024, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011449253204, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010780958090, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011416023856, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011792500024, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011160492848, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011160492848, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010322179752, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012116718260, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010468049818, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010342562562, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010613490470, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013258347376, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013857532998, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012324783610, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011614233890, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010907493016, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013832206300, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011200480112, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013261264788, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012658718808, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010104487272, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010449439220, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012593402800, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011062270598, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013837103280, guid: 370f0c63b81b2e141a26f42112bdc372,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 370f0c63b81b2e141a26f42112bdc372, type: 2}
@@ -6912,10 +7404,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:
@@ -7092,17 +7585,74 @@ Prefab:
     - target: {fileID: 212000010887105834, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000010887105834, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000010887105834, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010887105834, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 114000010961489808, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011658356704, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012325305468, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010172123608, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010111243106, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012720900644, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011852211712, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011400059324, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012876783908, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011501549860, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf, type: 2}
@@ -7355,8 +7905,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2232812ced9486548ae827d5dc3f68ec, type: 3}
-  m_Color: {r: 0.6544118, g: 0.6544118, b: 0.6544118, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fc7c8548395b4b241a4fd99bee41b1da, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &1782793207
@@ -7639,6 +8189,88 @@ Transform:
   m_PrefabParentObject: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd,
     type: 2}
   m_PrefabInternal: {fileID: 1984640485}
+--- !u!1001 &1883174024
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012375089164, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012375089164, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 19.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012375089164, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012375089164, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012375089164, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012375089164, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012375089164, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012375089164, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000012066266814, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+      propertyPath: ShapeModule.type
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000012066266814, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1886758625
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000012066266814, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+      propertyPath: ShapeModule.radius
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000012066266814, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+      propertyPath: ShapeModule.arc
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000012066266814, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+      propertyPath: ShapeModule.randomDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000012066266814, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000012066266814, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000012066266814, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1885264624 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013651217042, guid: a914e4ada4153c54f869531b4d9eace9,
@@ -7861,6 +8493,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 0
   patternArgsO:
@@ -8123,17 +8756,405 @@ Prefab:
     - target: {fileID: 212000011362344740, guid: a914e4ada4153c54f869531b4d9eace9,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000011362344740, guid: a914e4ada4153c54f869531b4d9eace9,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000011362344740, guid: a914e4ada4153c54f869531b4d9eace9,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011362344740, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 212000013719908210, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 212000011931441116, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 212000010480306624, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 114000013195211910, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012744662074, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010337743696, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013392196170, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010571014874, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010266687424, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012821698188, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010178647134, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012624772472, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011209852674, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013198813864, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000014221798064, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011971936070, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011238148744, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011049762976, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011738883210, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013941291004, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012416951906, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012366850544, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012541465450, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012116225466, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011770643156, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011543017670, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000010531763292, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013233603254, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013125162146, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011820450708, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000011007542334, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013593506036, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012024654894, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013436220900, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012753948464, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012656839328, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000012848047140, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013195211910, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012744662074, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010337743696, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013392196170, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010571014874, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010266687424, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012821698188, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010178647134, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011209852674, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013198813864, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014221798064, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011971936070, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011238148744, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011049762976, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011738883210, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013941291004, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012416951906, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012366850544, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012541465450, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012116225466, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011770643156, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011543017670, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010531763292, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013233603254, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013125162146, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011820450708, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011007542334, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012024654894, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013436220900, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012753948464, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012656839328, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012848047140, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a914e4ada4153c54f869531b4d9eace9, type: 2}
@@ -8249,17 +9270,74 @@ Prefab:
     - target: {fileID: 212000012273302250, guid: 1639e8aa561882f41846f327aafba5bd,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000012273302250, guid: 1639e8aa561882f41846f327aafba5bd,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000012273302250, guid: 1639e8aa561882f41846f327aafba5bd,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012273302250, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
+    - target: {fileID: 114000011924970708, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b,
+        type: 2}
+    - target: {fileID: 114000013496766112, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012589877390, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010888321818, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012243968980, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011422870250, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013072806286, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012128201634, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340972924, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013807056758, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
@@ -8337,8 +9415,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c34a0f4493f753c40ba208d2607217f5, type: 3}
-  m_Color: {r: 0.6544118, g: 0.6544118, b: 0.6544118, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &2021342643
@@ -8429,8 +9507,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 76077fd1ac0678f42a0dcdd5d5cf9b77, type: 3}
-  m_Color: {r: 0.6544118, g: 0.6544118, b: 0.6544118, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &2028166063
@@ -8475,18 +9553,24 @@ Prefab:
     - target: {fileID: 212000011216635318, guid: 843510f73f4dde74d9d4b8b4801170ab,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000011216635318, guid: 843510f73f4dde74d9d4b8b4801170ab,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000011216635318, guid: 843510f73f4dde74d9d4b8b4801170ab,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.6544118
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212000011216635318, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 843510f73f4dde74d9d4b8b4801170ab, type: 2}
   m_IsPrefabParent: 0
@@ -8610,10 +9694,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 1
   pattern: 4
   patternArgsO:

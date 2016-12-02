@@ -14,6 +14,8 @@ public class Character : MonoBehaviour {
 	private float invincibilityStartTime = 0f;
 	public bool invincible = false;
 
+	public GameObject blood;
+
 	protected bool _isEnemy;
 
 	public bool isEnemy {
@@ -74,6 +76,9 @@ public class Character : MonoBehaviour {
 		if (activeInvincibility) {
 			SetInvincible ();
 		}
+		Debug.Log ("Ouch");
+		if(blood != null)
+			Instantiate (blood, transform.position - Vector3.forward, Quaternion.identity);
 		if ((health -= value) <= 0) {
 			Death ();
 		}
