@@ -85,7 +85,7 @@ public class Character : MonoBehaviour {
 		}
 		Debug.Log ("Ouch");
 		if (blood != null) {
-			if (name == "Boss") {
+			if (name == "Boss") {// ou alors pour faire plus propre et eviter de dependre du nom -> if (GetComponent<Boss>() != null) {
 				//Heu ?
 			}
 			else
