@@ -43,6 +43,9 @@ public class ProjectileEmitter : MonoBehaviour {
 	}//*/
 
 	void Start () {
+		if (tag == "BossWeapon") {
+			isEnemy = true;
+		}
 		firingDelay = 1.0f / firingRate;
 		if (gameObject.transform.parent.gameObject.GetComponent<Character> ()) {
 			isEnemy = gameObject.transform.parent.gameObject.GetComponent<Character> ().isEnemy;

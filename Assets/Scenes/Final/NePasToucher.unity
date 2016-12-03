@@ -2018,7 +2018,17 @@ Prefab:
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: invincible
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4655d6dbec804649bd4e82d921e8d49, type: 2}
@@ -3312,6 +3322,16 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
         type: 3}
+    - target: {fileID: 61000013683854054, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000013683854054, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
   m_IsPrefabParent: 0
@@ -3332,7 +3352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &710760848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3671,9 +3691,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 10}
+  m_Offset: {x: 0, y: 20}
   serializedVersion: 2
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 20, y: 40}
 --- !u!114 &756834205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5729,7 +5749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354cbcf29d5991c409a473bd6586d651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 3
   startSection: {fileID: 0}
   tutoSection: {fileID: 0}
   currentSection: {fileID: 0}
@@ -6381,6 +6401,32 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b,
         type: 3}
+    - target: {fileID: 4000013312691158, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.17177786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013312691158, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9851357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011118101426, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.18032336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011118101426, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9836074
+      objectReference: {fileID: 0}
+    - target: {fileID: 33000013638900282, guid: 831d404de807f4147ac43c9ea2ebd2c4,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 33000011195137800, guid: 831d404de807f4147ac43c9ea2ebd2c4,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
   m_IsPrefabParent: 0

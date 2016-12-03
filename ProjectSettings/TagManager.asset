@@ -9,6 +9,7 @@ TagManager:
   - CharHitbox
   - Section
   - EnemyGroup
+  - BossWeapon
   layers:
   - Default
   - TransparentFX

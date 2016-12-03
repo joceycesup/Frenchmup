@@ -37,7 +37,8 @@ public class ProjectileEmitterEditor : Editor {
 			pe.SetProperties (myTarget);
 			DestroyImmediate (myTarget);
 		} else {
-			myTarget.enabled = false;
+			if(myTarget.tag != "BossWeapon")
+				myTarget.enabled = false;
 		}//*/
 		EditorGUILayout.HelpBox ("Fire Rate in frames " + Mathf.RoundToInt( 60f / myTarget.firingRate) + " frames", MessageType.Info);
 

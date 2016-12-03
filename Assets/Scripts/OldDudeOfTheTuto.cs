@@ -273,10 +273,10 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			}
 			break;
 		case State.S_12_UtiliseMagnet:
-			if (player1.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted >= 3) {
+			if (player1.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted) {
 				conditions &= ~0x01;
 			}
-			if (player2.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted >= 3) {
+			if (player2.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted) {
 				conditions &= ~0x02;
 			}
 			break;

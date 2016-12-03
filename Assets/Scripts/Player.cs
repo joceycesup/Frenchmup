@@ -128,6 +128,7 @@ public class Player : Character {
 		SetAbilities (Ability.All, true);
 		//*/
 		magnet.SetActive (false);
+		laser.GetComponent<Laser> ().Stop ();
 		SetCanShoot (false);
 	}
 
@@ -244,6 +245,7 @@ public class Player : Character {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
 				speed = dpsSpeed;
 				state = PlayerState.DPS;
+				magnet.SetActive (false);
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
 				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
 			}
@@ -252,8 +254,7 @@ public class Player : Character {
 				SetCanShoot (false);
 				if (!dash)
 					speed = supportSpeed;
-				if (laser != null)
-					laser.GetComponent<Laser> ().Stop ();
+				laser.GetComponent<Laser> ().Stop ();
 				state = PlayerState.Support;
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
 				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
@@ -264,6 +265,8 @@ public class Player : Character {
 	}
 
 	public void SetLaserMaxLoad (float value) {
+		if (value <= 0f)
+			return;
 		maxLaserLoad = value;
 		if (laserLoad > value)
 			laserLoad = value;
