@@ -17,16 +17,16 @@ public class WwiseSettings
 	public string SoundbankPath;
     public bool CreateWwiseGlobal = true;
     public bool CreateWwiseListener = true;
-    public string WwiseInstallationPathWindows;
-    public string WwiseInstallationPathMac;
-    public bool CreatedPicker = false;
-
+	public bool OldProject = false; //True if the project dates from before integration 2013.2.8
+	
 	public const string WwiseSettingsFilename = "WwiseSettings.xml";
 	
 	static WwiseSettings s_Instance = null;    
 
     public WwiseSettings()
     {
+        //Check if this is an old project (pre-2013.2.8) to be migrated
+        OldProject = Directory.Exists(Application.dataPath + Path.DirectorySeparatorChar + "Wwise" + Path.DirectorySeparatorChar + "Deployment" + Path.DirectorySeparatorChar + "Examples" );		
     }
 
 	// Save the WwiseSettings structure to a serialized XML file
@@ -97,342 +97,45 @@ public class WwiseSettings
 		
 		return Settings;
 	}
+	
 }
 
 public partial class AkUtilities
 {
-    public static bool IsMigrating = false;
-
-    // Unity platform enum to Wwise soundbank reference platform name mapping.
-    private static IDictionary<BuildTarget, string[]> platformMapping = new Dictionary<BuildTarget, string[]>()
-    {
-        { BuildTarget.StandaloneOSXUniversal, new string[] { "Mac" } },
-        { BuildTarget.StandaloneOSXIntel, new string[] { "Mac" } },
-        { BuildTarget.StandaloneWindows, new string[] { "Windows" } },
-        // { BuildTarget.WebPlayer, null },
-        // { BuildTarget.WebPlayerStreamed, null },
-        { BuildTarget.iOS, new string[] { "iOS" } },
-        { BuildTarget.PS3, new string[] { "PS3" } },
-        { BuildTarget.XBOX360, new string[] { "Xbox360" } },
-        { BuildTarget.Android, new string[] { "Android" } },
-        // { BuildTarget.StandaloneGLESEmu, null },
-        { BuildTarget.StandaloneLinux, new string[] { "Linux" } },
-        { BuildTarget.StandaloneWindows64, new string[] { "Windows" } },
-        // { BuildTarget.WebGL, null },
-        { BuildTarget.WSAPlayer, new string[] { "Windows" } },
-        { BuildTarget.StandaloneLinux64, new string[] { "Linux" } },
-        { BuildTarget.StandaloneLinuxUniversal, new string[] { "Linux" } },
-        // { BuildTarget.WP8Player, new string[] { "Windows" } },
-        { BuildTarget.StandaloneOSXIntel64, new string[] { "Mac" } },
-        // { BuildTarget.BlackBerry, null },
-        // { BuildTarget.Tizen, null },
-        { BuildTarget.PSP2, new string[] { "VitaHW", "VitaSW" } },
-        { BuildTarget.PS4, new string[] { "PS4" } },
-        // { BuildTarget.PSM, null },
-        { BuildTarget.XboxOne, new string[] { "XboxOne" } },
-        // { BuildTarget.SamsungTV, null },
-        // { BuildTarget.Nintendo3DS, new string[] { "3DS" } },
-    };
-
-    public static bool IsSoundbankGenerationAvailable()
-    {
-        return (GetWwiseCLI() != null);
-    }
-
-    // Executes a command-line. Blocks the caller thread until the new process has completed. Returns the logged stdout in one big string.
-    public static string ExecuteCommandLine(string command, string arguments)
-    {
-        string output = "";
-
-        System.Diagnostics.Process process = new System.Diagnostics.Process();
-
-        process.StartInfo.FileName = command;
-        process.StartInfo.UseShellExecute = false;
-        process.StartInfo.RedirectStandardOutput = true;
-        process.StartInfo.CreateNoWindow = true;
-        process.StartInfo.Arguments = arguments;
-        process.Start();
-
-        // Synchronously read the standard output of the spawned process. 
-        StreamReader reader = process.StandardOutput;
-        output = reader.ReadToEnd();
-
-        // Waiting for the process to exit directly in the UI thread. Similar cases are working that way too.
-
-        // TODO: Is it better to provide a timeout avoid any issues of forever blocking the UI thread? If so, what is
-        // a relevant timeout value for soundbank generation?
-        process.WaitForExit();
-        process.Close();
-
-        return output;
-    }
-
-    private static string GetWwiseCLI()
-    {
-        string result = null;
-
-        WwiseSettings settings = WwiseSettings.LoadSettings();
-
-#if UNITY_EDITOR_WIN
-
-        if (!String.IsNullOrEmpty(settings.WwiseInstallationPathWindows))
-        {
-            result = Path.Combine(settings.WwiseInstallationPathWindows, @"Authoring\x64\Release\bin\WwiseCLI.exe");
-
-            if (!File.Exists(result))
-            {
-                result = Path.Combine(settings.WwiseInstallationPathWindows, @"Authoring\Win32\Release\bin\WwiseCLI.exe");
-            }
-        }
-
-#elif UNITY_EDITOR_OSX
-        if (!String.IsNullOrEmpty(settings.WwiseInstallationPathMac))
-        {
-            result = Path.Combine(settings.WwiseInstallationPathMac, "Contents/Tools/WwiseCLI.sh");
-        }
-#endif
-
-        if (result != null && File.Exists(result))
-        {
-            return result;
-        }
-
-        return null;
-    }
-    
-    // Generate all the SoundBanks for all the supported platforms in the Wwise project. This effectively calls Wwise for the project
-    // that is configured in the UnityWwise integration.
-    public static void GenerateSoundbanks()
-    {
-        WwiseSettings Settings = WwiseSettings.LoadSettings();
-        string wwiseProjectFullPath = GetFullPath(Application.dataPath, Settings.WwiseProjectPath);
-        
-        if (IsSoundbankOverrideEnabled(wwiseProjectFullPath))
-        {
-            Debug.LogWarning("The SoundBank generation process ignores the SoundBank Settings' Overrides currently enabled in the User settings. The project's SoundBank settings will be used.");
-        }
-
-        string wwiseCli = GetWwiseCLI();
-
-        if (wwiseCli == null)
-        {
-            Debug.LogError("Couldn't locate WwiseCLI, unable to generate SoundBanks.");
-            return;
-        }
-
-        string command;
-        string arguments;
-
-#if UNITY_EDITOR_WIN
-        command = wwiseCli;
-        arguments = "";
-#elif UNITY_EDITOR_OSX
-        command = "/bin/sh";
-        arguments = "\"" + wwiseCli + "\"";
-#endif
-        
-        arguments += " \"" + wwiseProjectFullPath + "\" -GenerateSoundBanks";
-        
-        string output = ExecuteCommandLine(command, arguments);
-
-        bool success = output.Contains("Process completed successfully.");
-        bool warning = output.Contains("Process completed with warning");
-
-        string message = "WwiseUnity: SoundBanks generation " + (success ? "successful" : (warning ? "has warning(s)" : "error")) + ":\n" + output;
-
-        if (success)
-        {
-            Debug.Log(message);
-        }
-        else if (warning)
-        {
-            Debug.LogWarning(message);
-        }
-        else
-        {
-            Debug.LogError(message);
-        }
-
-        AssetDatabase.Refresh();
-    }
-
-    // Reads the user settings (not the project settings) to check if there is an override currently defined for the soundbank generation folders.
-    public static bool IsSoundbankOverrideEnabled(string wwiseProjectPath)
-    {
-        string userConfigFile = Path.Combine(Path.GetDirectoryName(wwiseProjectPath), Path.GetFileNameWithoutExtension(wwiseProjectPath) + "." + Environment.UserName + ".wsettings");
-
-        if (!File.Exists(userConfigFile))
-        {
-            return false;
-        }
-
-        XmlDocument userConfigDoc = new XmlDocument();
-        userConfigDoc.Load(userConfigFile);
-        XPathNavigator userConfigNavigator = userConfigDoc.CreateNavigator();
-
-        XPathNavigator userConfigNode = userConfigNavigator.SelectSingleNode(XPathExpression.Compile("//Property[@Name='SoundBankPathUserOverride' and @Value = 'True']"));
-
-        return (userConfigNode != null);
-    }
-
-    // For a list of platform targets, gather all the required folder names for the generated soundbanks. The goal is to know the list of required
-    // folder names for a list of platforms. The size of the returned array is not guaranteed to be the safe size at the targets array since
-    // a single platform is no guaranteed to output a single soundbank folder.
-    public static bool GetWwiseSoundBankDestinationFoldersByUnityPlatform(BuildTarget target, string WwiseProjectPath, out string[] paths, out string[] platformNames)
-    {
-        paths = null;
-        platformNames = null;
-
-        try
-        {
-            if (WwiseProjectPath.Length == 0)
-            {
-                return false;
-            }
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(WwiseProjectPath);
-            XPathNavigator configNavigator = doc.CreateNavigator();
-
-            List<string> pathsList = new List<string>();
-            List<string> platformNamesList = new List<string>();
-
-            if (platformMapping.ContainsKey(target))
-            {
-                string[] referencePlatforms = platformMapping[target];
-
-                // For each valid reference platform name for the provided Unity platform enum, list all the valid platform names
-                // defined in the Wwise project XML, and for each of those accumulate the sound bank folders. In the end,
-                // resultList will contain a list of soundbank folders that are generated for the provided unity platform enum.
-
-                foreach (string reference in referencePlatforms)
-                {
-                    XPathExpression expression = XPathExpression.Compile(string.Format("//Platforms/Platform[@ReferencePlatform='{0}']", reference));
-                    XPathNodeIterator nodes = configNavigator.Select(expression);
-
-                    while (nodes.MoveNext())
-                    {
-                        string platform = nodes.Current.GetAttribute("Name", "");
-
-                        // If the sound bank path information was located either in the user configuration or the project configuration, acquire the paths
-                        // for the provided platform.
-                        string sbPath = null;
-                        if (s_ProjectBankPaths.TryGetValue(platform, out sbPath))
-                        {
-#if UNITY_EDITOR_OSX
-                            sbPath = sbPath.Replace('\\', Path.DirectorySeparatorChar);
-#endif
-                            pathsList.Add(sbPath);
-                            platformNamesList.Add(platform);
-                        }
-                    }
-                }
-            }
-
-            if (pathsList.Count != 0)
-            {
-                paths = pathsList.ToArray();
-                platformNames = platformNamesList.ToArray();
-                return true;
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogException(e);
-        }
-
-        return false;
-    }
-
-
-    static Dictionary<string, string> s_ProjectBankPaths = new Dictionary<string, string>();
-    static DateTime s_LastBankPathUpdate = DateTime.MinValue;
-    static Dictionary<string, HashSet<string>> s_BaseToCustomPF = new Dictionary<string, HashSet<string>>();
-
-    static public IDictionary<string, HashSet<string>> GetPlatformMapping()
-    {
-        return s_BaseToCustomPF;
-    }
-    
-    static public IDictionary<string, string> GetAllBankPaths()
-    {
-        WwiseSettings Settings = WwiseSettings.LoadSettings();
-        string WwiseProjectFullPath = AkUtilities.GetFullPath(Application.dataPath, Settings.WwiseProjectPath);
-        UpdateSoundbanksDestinationFolders(WwiseProjectFullPath);
-        return s_ProjectBankPaths;
-    }
-
-    private static void UpdateSoundbanksDestinationFolders(string WwiseProjectPath)
-    {
-        try
-        {
-            if (WwiseProjectPath.Length == 0)
-                return;
-
-            if (!File.Exists(WwiseProjectPath))
-                return;
-
-            DateTime t = File.GetLastWriteTime(WwiseProjectPath);
-            if (t <= s_LastBankPathUpdate)
-                return;
-
-            s_LastBankPathUpdate = t;
-            s_ProjectBankPaths.Clear();
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(WwiseProjectPath);
-            XPathNavigator Navigator = doc.CreateNavigator();
-
-            // Gather the mapping of Custom platform to Base platform
-            XPathNodeIterator itpf = Navigator.Select("//Platform");
-            s_BaseToCustomPF.Clear();
-            foreach (XPathNavigator node in itpf)
-            {
-                HashSet<string> customList = null;
-                string basePF = node.GetAttribute("ReferencePlatform", "");
-                if (!s_BaseToCustomPF.TryGetValue(basePF, out customList))
-                {
-                    customList = new HashSet<string>();
-                    s_BaseToCustomPF[basePF] = customList;
-                }
-
-                customList.Add(node.GetAttribute("Name", ""));
-            }
-
-            // Navigate the wproj file (XML format) to where generated soundbank paths are stored
-            XPathNodeIterator it = Navigator.Select("//Property[@Name='SoundBankPaths']/ValueList/Value");
-            foreach (XPathNavigator node in it)
-            {
-                string path = "";
-                path = node.Value;
-                AkBasePathGetter.FixSlashes(ref path);
-                string pf = node.GetAttribute("Platform", "");
-                s_ProjectBankPaths[pf] = path;
-            }
-        }
-        catch (Exception ex)
-        {
-            // Error happened, return empty string
-            Debug.LogError("Wwise: Error while reading project " + WwiseProjectPath + ".  Exception: " + ex.Message);
-        }
-    }
-    
-    // Parses the .wproj to find out where soundbanks are generated for the given path.
-    public static string GetWwiseSoundBankDestinationFolder(string Platform, string WwiseProjectPath)
+	// Parses the .wproj to find out where soundbanks are generated for the given path
+	public static string GetWwiseSoundBankDestinationFolder(string Platform, string WwiseProjectPath)
 	{
 		try
 		{
-            UpdateSoundbanksDestinationFolders(WwiseProjectPath);
-            return s_ProjectBankPaths[Platform];
+			if (WwiseProjectPath.Length == 0)
+			{
+				return "";
+			}
+			
+			XmlDocument doc = new XmlDocument();
+			doc.Load(WwiseProjectPath);
+			XPathNavigator Navigator = doc.CreateNavigator();
+			
+			// Navigate the wproj file (XML format) to where generated soundbank paths are stored
+			string PathExpression = string.Format("//Property[@Name='SoundBankPaths']/ValueList/Value[@Platform='{0}']", Platform);
+			XPathExpression expression = XPathExpression.Compile(PathExpression);
+			XPathNavigator node = Navigator.SelectSingleNode(expression);
+			string Path = "";
+			if( node != null )
+			{
+				Path = node.Value;
+				AkBasePathGetter.FixSlashes(ref Path);
+			}
+			
+			return Path;
 		}
 		catch( Exception )
 		{
+			// Error happened, return empty string
+			return "";
 		}
-        // Error happened, return empty string
-        return "";
 	}
-
-	// Set soundbank-related bool settings in the wproj file.
+		// Set soundbank-related bool settings in the wproj file.
 	public static bool EnableBoolSoundbankSettingInWproj(string SettingName, string WwiseProjectPath)
 	{
 		try

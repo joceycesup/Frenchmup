@@ -66,18 +66,6 @@ public class AkOutputSettings : IDisposable {
     } 
   }
 
-  public uint audioDeviceShareset {
-    set {
-      AkSoundEnginePINVOKE.CSharp_AkOutputSettings_audioDeviceShareset_set(swigCPtr, value);
-
-    } 
-    get {
-      uint ret = AkSoundEnginePINVOKE.CSharp_AkOutputSettings_audioDeviceShareset_get(swigCPtr);
-
-      return ret;
-    } 
-  }
-
   public AkOutputSettings() : this(AkSoundEnginePINVOKE.CSharp_new_AkOutputSettings(), true) {
 
   }

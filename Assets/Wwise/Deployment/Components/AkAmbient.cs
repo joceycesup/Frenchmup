@@ -139,7 +139,7 @@ public class AkAmbient : AkEvent
 			if (enableActionOnEvent) 
 				AkSoundEngine.ExecuteActionOnEvent ((uint)eventID, actionOnEventType, multiPositionSoundEmitter.list[0].gameObject, (int)transitionDuration * 1000, curveInterpolation);
 			else 
-				playingId = AkSoundEngine.PostEvent	(	(uint)eventID, 
+				AkSoundEngine.PostEvent	(	(uint)eventID, 
 				                         	multiPositionSoundEmitter.list[0].gameObject,
 				                         	(uint)AkCallbackType.AK_EndOfEvent,
 				                        	multiPositionSoundEmitter.FinishedPlaying,
@@ -162,7 +162,7 @@ public class AkAmbient : AkEvent
 
 		for (int i = 0; i < eventPosList.list.Count; i++) 
 		{
-			positionArray.Add (eventPosList.list [i].transform.position, eventPosList.list [i].transform.forward, eventPosList.list [i].transform.up);
+			positionArray.Add (eventPosList.list [i].transform.position, eventPosList.list [i].transform.forward);
 		}
 
 		return positionArray;
@@ -174,7 +174,7 @@ public class AkAmbient : AkEvent
 
 		for (int i = 0; i < multiPositionArray.Count; i++)
 		{
-			positionArray.Add( transform.position + multiPositionArray[i], transform.forward, transform.up);
+			positionArray.Add( transform.position + multiPositionArray[i], transform.forward);
 		}
 
 		return positionArray;

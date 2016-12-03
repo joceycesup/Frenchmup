@@ -10,7 +10,8 @@ using System;
 using System.Collections.Generic;
 
 
-/// @brief Use this component to define an area that straddles two different AkEnvironments zones and allow mixing between both zones. \ref unity_use_AkEvironment_AkEvironmentPortal
+/// @brief Use this component to define an area that straddles two different AkEnvironments zones and allow mixing between both zones.
+/// - \ref unity_use_AkEvironment_AkEvironmentPortal
 [AddComponentMenu("Wwise/AkEnvironmentPortal")]
 [RequireComponent (typeof(BoxCollider))]
 [RequireComponent (typeof(Rigidbody))]

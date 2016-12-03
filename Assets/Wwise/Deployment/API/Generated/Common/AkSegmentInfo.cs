@@ -101,54 +101,6 @@ public class AkSegmentInfo : IDisposable {
     } 
   }
 
-  public float fBeatDuration {
-    set {
-      AkSoundEnginePINVOKE.CSharp_AkSegmentInfo_fBeatDuration_set(swigCPtr, value);
-
-    } 
-    get {
-      float ret = AkSoundEnginePINVOKE.CSharp_AkSegmentInfo_fBeatDuration_get(swigCPtr);
-
-      return ret;
-    } 
-  }
-
-  public float fBarDuration {
-    set {
-      AkSoundEnginePINVOKE.CSharp_AkSegmentInfo_fBarDuration_set(swigCPtr, value);
-
-    } 
-    get {
-      float ret = AkSoundEnginePINVOKE.CSharp_AkSegmentInfo_fBarDuration_get(swigCPtr);
-
-      return ret;
-    } 
-  }
-
-  public float fGridDuration {
-    set {
-      AkSoundEnginePINVOKE.CSharp_AkSegmentInfo_fGridDuration_set(swigCPtr, value);
-
-    } 
-    get {
-      float ret = AkSoundEnginePINVOKE.CSharp_AkSegmentInfo_fGridDuration_get(swigCPtr);
-
-      return ret;
-    } 
-  }
-
-  public float fGridOffset {
-    set {
-      AkSoundEnginePINVOKE.CSharp_AkSegmentInfo_fGridOffset_set(swigCPtr, value);
-
-    } 
-    get {
-      float ret = AkSoundEnginePINVOKE.CSharp_AkSegmentInfo_fGridOffset_get(swigCPtr);
-
-      return ret;
-    } 
-  }
-
   public AkSegmentInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkSegmentInfo(), true) {
 
   }

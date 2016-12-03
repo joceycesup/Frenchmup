@@ -461,11 +461,6 @@ public class TreeViewControl
     {
         try
         {
-#if UNITY_EDITOR_MAC
-			TextureImporter importer = AssetImporter.GetAtPath(texturePath) as TextureImporter;
-            importer.textureType=TextureImporterType.Cursor;
-            AssetDatabase.WriteImportSettingsIfDirty(texturePath);
-#endif
             Texture2D item = (Texture2D)AssetDatabase.LoadAssetAtPath(texturePath, typeof(Texture2D));
             return item;
         }

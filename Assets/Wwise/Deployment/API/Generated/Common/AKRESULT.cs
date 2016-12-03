@@ -86,7 +86,6 @@ public enum AKRESULT {
   AK_MustBeVirtualized = 80,
   AK_CommandTooLarge = 81,
   AK_RejectedByFilter = 82,
-  AK_InvalidCustomPlatformName = 83,
-  AK_DLLCannotLoad = 84
+  AK_InvalidCustomPlatformName = 83
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

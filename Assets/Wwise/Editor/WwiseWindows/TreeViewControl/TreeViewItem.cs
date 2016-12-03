@@ -489,19 +489,24 @@ public class TreeViewItem
         Event evt = Event.current;
         EventType currentEventType = evt.type;
 
-        if (currentEventType == EventType.MouseDrag)
+
+        if (currentEventType == EventType.DragExited) DragAndDrop.PrepareStartDrag();
+
+        if (currentEventType == EventType.MouseDown)
         {
-			if (null != Dragged)
-			{
-				try{
-				DragAndDrop.PrepareStartDrag();
+            DragAndDrop.PrepareStartDrag(); // reset data
+        }
+        else if (currentEventType == EventType.MouseDrag)
+        {
+            if (null != Dragged)
+            {
                 Dragged.Invoke(ParentControl.SelectedItem, new DragEventArgs());
                 evt.Use();
-				}
-				catch (Exception e) {
-					Debug.Log (e);
-				}
             }
-		}
+        }
+
     }
+
+
+
 }

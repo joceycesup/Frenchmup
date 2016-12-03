@@ -10,7 +10,6 @@
 
 public enum PreparationType {
   Preparation_Load,
-  Preparation_Unload,
-  Preparation_LoadAndDecode
+  Preparation_Unload
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

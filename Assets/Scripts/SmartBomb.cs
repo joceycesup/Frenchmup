@@ -42,6 +42,8 @@ public class SmartBomb : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 		//Debug.Log (gameObject + " : " + other.gameObject);
+		if (transform.parent == null)
+			return;
 		if (other.gameObject == transform.parent.gameObject)
 			return;
 		//Debug.Log (transform.parent.gameObject.ToString () + " got triggered by " + other.gameObject.ToString ());

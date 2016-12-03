@@ -102,13 +102,11 @@ public class AkEnvironmentInspector : AkBaseInspector
 	
 	void ReplaceEnvironment()
 	{
+		Vector3 temp = m_AkEnvironment.transform.position;
+		temp.x /= 1.0000001f;
+		m_AkEnvironment.transform.position = temp;
+		
 		EditorApplication.update -= ReplaceEnvironment;
-        if (m_AkEnvironment && m_AkEnvironment.transform)
-        {
-            Vector3 temp = m_AkEnvironment.transform.position;
-            temp.x /= 1.0000001f;
-            m_AkEnvironment.transform.position = temp;
-        }
 	}
 }
 #endif

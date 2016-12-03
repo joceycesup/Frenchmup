@@ -18,9 +18,6 @@ public enum AkWwiseMenuOrder : int
     IosDebug,
     IosProfile,
     IosRelease,
-    tvOSDebug,
-    tvOSProfile,
-    tvOSRelease,
     Linux32Debug,
     Linux32Profile,
     Linux32Release,
@@ -65,7 +62,8 @@ public enum AkWwiseMenuOrder : int
     XboxOneRelease,
 
     ConvertIDs = 200,
-    Reinstall
+    Reinstall,
+    Uninstall
 }
 
 public enum AkWwiseWindowOrder : int

@@ -58,43 +58,27 @@ public class AkTerminator : MonoBehaviour
 		if (ms_Instance == null || ms_Instance != this || !AkSoundEngine.IsInitialized())
 			return; //Don't term twice        
 				
-				
-		// Stop everything, and make sure the callback buffer is empty. We try emptying as much as possible, and wait 10 ms before retrying.
-		// Callbacks can take a long time to be posted after the call to RenderAudio().
-        AkCallbackManager.SetMonitoringCallback(0, null);
-		AkSoundEngine.StopAll();
-        AkSoundEngine.ClearBanks();
-		AkSoundEngine.RenderAudio();
-        int retry = 5;
-        do
-        {
-            int numCB = 0;
-			do
-			{
-				numCB = AkCallbackManager.PostCallbacks();
-				
-				// This is a WSA-friendly sleep
-	            using (EventWaitHandle tmpEvent = new ManualResetEvent(false))
-	            {
-	                tmpEvent.WaitOne(System.TimeSpan.FromMilliseconds(1));
-	            }
-			}
-			while(numCB > 0);
+		// Mop up the last callbacks that will be sent from Term with blocking.  
+		// It may happen that the term sends so many callbacks that it will use up 
+		// all the callback memory buffer and lock the calling thread. 
 
-			// This is a WSA-friendly sleep
-            using (EventWaitHandle tmpEvent = new ManualResetEvent(false))
-            {
-                tmpEvent.WaitOne(System.TimeSpan.FromMilliseconds(10));
-            }
-            retry--;
-        }
-        while (retry > 0);
+		// WG-25356 Thread is unsupported in Windows Store App API.
+
+		AkSoundEngine.StopAll();
+		AkSoundEngine.RenderAudio();
+		const double IdleMs = 1.0;
+		const uint IdleTryCount = 50;
+		for(uint i=0; i<IdleTryCount; i++)
+		{
+			AkCallbackManager.PostCallbacks();
+			using (EventWaitHandle tmpEvent = new ManualResetEvent(false)) {
+				tmpEvent.WaitOne(System.TimeSpan.FromMilliseconds(IdleMs));
+			}
+		}
 
 		AkSoundEngine.Term();
-
-		// Make sure we have no callbacks left after Term. Some might be posted during termination.
-        AkCallbackManager.PostCallbacks();
-        ms_Instance = null;
+	
+		ms_Instance = null;
 
 		AkCallbackManager.Term();
 		AkBankManager.Reset ();

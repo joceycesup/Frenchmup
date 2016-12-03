@@ -9,9 +9,10 @@
 
 
 public enum AkAudioAPI {
-  AkAPI_Wasapi = 1 << 0,
-  AkAPI_XAudio2 = 1 << 1,
-  AkAPI_DirectSound = 1 << 2,
-  AkAPI_Default = AkAPI_Wasapi|AkAPI_XAudio2|AkAPI_DirectSound
+  AkAPI_XAudio2 = 1 << 0,
+  AkAPI_DirectSound = 1 << 1,
+  AkAPI_Wasapi = 1 << 2,
+  AkAPI_Default = AkAPI_Wasapi|AkAPI_XAudio2|AkAPI_DirectSound,
+  AkAPI_Dummy = 1 << 3
 }
 #endif // #if (UNITY_STANDALONE_WIN && !UNITY_EDITOR) || UNITY_EDITOR_WIN

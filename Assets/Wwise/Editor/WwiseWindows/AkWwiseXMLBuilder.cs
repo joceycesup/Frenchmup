@@ -29,6 +29,9 @@ public class AkWwiseXMLBuilder
         if (!File.Exists(filename))
         {
             FullSoundbankPath = Path.Combine(Application.streamingAssetsPath, WwiseSetupWizard.Settings.SoundbankPath);
+#if UNITY_EDITOR_OSX
+			FullSoundbankPath = FullSoundbankPath.Replace('\\', '/');
+#endif
             string[] foundFiles = Directory.GetFiles(FullSoundbankPath, "SoundbanksInfo.xml", SearchOption.AllDirectories);
             if (foundFiles.Length > 0)
             {

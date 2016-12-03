@@ -64,12 +64,6 @@ public class AkCallbackSerializer : IDisposable {
 
   }
 
-  public static AKRESULT AudioSourceChangeCallbackFunc(bool in_bOtherAudioPlaying, object in_pCookie) {
-    AKRESULT ret = (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkCallbackSerializer_AudioSourceChangeCallbackFunc(in_bOtherAudioPlaying, in_pCookie != null ? (IntPtr)in_pCookie.GetHashCode() : (IntPtr)0);
-
-    return ret;
-  }
-
   public AkCallbackSerializer() : this(AkSoundEnginePINVOKE.CSharp_new_AkCallbackSerializer(), true) {
 
   }

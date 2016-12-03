@@ -8,16 +8,258 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84a8132dee679224f872bcf1010c5d9a, type: 3}
+  m_Script: {fileID: 11500000, guid: bc41d1b32d0067f4085784d47c7688fe, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  CurrentPluginConfig: 
-  EventWwu: []
-  AuxBusWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  BankWwu: []
-  ExpandedItems: []
+  CurrentPluginConfig: Profile
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{1DC4E41F-65EF-4055-8E1A-D2329665E104}'
+    m_lastTimePsrt1: -1339970816
+    m_lastTimePart2: -1999365528
+    List:
+    - Name: boss_open_eyes
+      Path: Default Work Unit\SFX\boss_open_eyes
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: boss_open_eyes
+        ObjectType: 3
+      ID: -473845874
+      Guid: 7f9e5b8c9059324dbb60f6bb70cbd7ce
+      maxAttenuation: 0
+    - Name: character_hit
+      Path: Default Work Unit\SFX\character_hit
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: character_hit
+        ObjectType: 3
+      ID: -1440802284
+      Guid: 11841b41a3202e49b74ec087f1c66a81
+      maxAttenuation: 0
+    - Name: dash
+      Path: Default Work Unit\SFX\dash
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: dash
+        ObjectType: 3
+      ID: 1942692385
+      Guid: ec9eb6d1a1d24c4d9406dcf462b43394
+      maxAttenuation: 0
+    - Name: death
+      Path: Default Work Unit\SFX\death
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: death
+        ObjectType: 3
+      ID: 779278001
+      Guid: 761c5c7f8f5a9e4e9b141ae61f5fa7bb
+      maxAttenuation: 0
+    - Name: dumb_bomb
+      Path: Default Work Unit\SFX\dumb_bomb
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: dumb_bomb
+        ObjectType: 3
+      ID: 496145148
+      Guid: 460f25b1f4cf914d9b206176df291901
+      maxAttenuation: 0
+    - Name: game_over
+      Path: Default Work Unit\SFX\game_over
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: game_over
+        ObjectType: 3
+      ID: 1432716332
+      Guid: 7096a9d56c5f6b4c92f93926933a6767
+      maxAttenuation: 0
+    - Name: laser_cast
+      Path: Default Work Unit\SFX\laser_cast
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: laser_cast
+        ObjectType: 3
+      ID: -1126034320
+      Guid: a5496bf193a7e94eb1e11a9f18f140c1
+      maxAttenuation: 0
+    - Name: laser_empty
+      Path: Default Work Unit\SFX\laser_empty
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: laser_empty
+        ObjectType: 3
+      ID: -639787260
+      Guid: 7017a12faef70f4b8501752ac7458c02
+      maxAttenuation: 0
+    - Name: laser_loaded
+      Path: Default Work Unit\SFX\laser_loaded
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: laser_loaded
+        ObjectType: 3
+      ID: -972067198
+      Guid: 25d9f9fc7c388e44b8f324aad941159a
+      maxAttenuation: 0
+    - Name: magnet
+      Path: Default Work Unit\SFX\magnet
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: magnet
+        ObjectType: 3
+      ID: -111345533
+      Guid: 6da1d1e36f6bd348929265850ee08c01
+      maxAttenuation: 0
+    - Name: switch_to_dps
+      Path: Default Work Unit\SFX\switch_to_dps
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: switch_to_dps
+        ObjectType: 3
+      ID: 1038301749
+      Guid: 4e194ca77405874f80635dbeffcca084
+      maxAttenuation: 0
+    - Name: switch_to_support
+      Path: Default Work Unit\SFX\switch_to_support
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: switch_to_support
+        ObjectType: 3
+      ID: -268589669
+      Guid: 0947b82190df3341a1d1154a7f86a9c3
+      maxAttenuation: 0
+    - Name: ulti_available
+      Path: Default Work Unit\SFX\ulti_available
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: ulti_available
+        ObjectType: 3
+      ID: 1306937039
+      Guid: 60e1e9fd927e9245a9e56348db91dc93
+      maxAttenuation: 0
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{3AAE0E57-27F8-4F4F-8730-48BCCA077D76}'
+    m_lastTimePsrt1: -1339970816
+    m_lastTimePart2: -1999365528
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{664F5768-5C2A-4F7F-AC74-C80956C68563}'
+    m_lastTimePsrt1: -1079970816
+    m_lastTimePart2: -1999365528
+    List:
+    - Name: current_zone
+      Path: Default Work Unit\current_zone
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: current_zone
+        ObjectType: 9
+      ID: 666707221
+      Guid: 57fc1130a2e27e4fa6beac8cf1bfc390
+      values:
+      - boss_phase_1
+      - boss_phase_2
+      - mid_boss
+      - None
+      - tuto
+      - zone_1
+      - zone_2
+      ValueIcons:
+      - ElementName: boss_phase_1
+        ObjectType: 8
+      - ElementName: boss_phase_2
+        ObjectType: 8
+      - ElementName: mid_boss
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: tuto
+        ObjectType: 8
+      - ElementName: zone_1
+        ObjectType: 8
+      - ElementName: zone_2
+        ObjectType: 8
+      valueIDs: ea99cfe9e999cfe9c7651988db3ba32c47f104b5e725989de425989d
+      ValueGuids:
+      - bytes: 5ff66a5ac14f2246bb000ed94d923f6e
+      - bytes: 012dbe781b90d3448686e0f449257454
+      - bytes: 417b6895632a8a41bcb0e8920a234687
+      - bytes: 4bb53071eac5a641a5f890e0e22356e3
+      - bytes: 73197d30b8dd98469215659eb506634d
+      - bytes: 128704f3206a0a4fad52665acfa52a18
+      - bytes: f587debbea5589459fc3b984fbef0f8b
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{4CFC13E5-BD1B-4E5A-984B-D5888D55BACD}'
+    m_lastTimePsrt1: -1079970816
+    m_lastTimePart2: -1999365528
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{78FD01A8-289F-4572-9E03-3FF8A2222C9C}'
+    m_lastTimePsrt1: -1079970816
+    m_lastTimePart2: -1999365528
+    List:
+    - Name: full_soundbank
+      Path: Default Work Unit\full_soundbank
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: full_soundbank
+        ObjectType: 7
+      ID: -859319504
+      Guid: 6b6f5be276f2d4408fe14ac1870c1ee0
+  ExpandedItems:
+  - /frenchmup
+  - /frenchmup/Events
+  - /frenchmup/Events/Default Work Unit
+  - /frenchmup/Events/Default Work Unit/SFX
+  - /frenchmup/SoundBanks
+  - /frenchmup/SoundBanks/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
@@ -26,5 +268,4 @@ MonoBehaviour:
   defaultPoolSize: 4096
   lowerPoolSize: 2048
   streamingPoolSize: 1024
-  preparePoolSize: 0
   memoryCutoffThreshold: 0.95

@@ -39,16 +39,11 @@ public class AkSwitchInspector : AkBaseInspector
 
 	public override void OnInspectorGUI()
 	{
-		object[] DDInfo = (object[])DragAndDrop.GetGenericData("AKWwiseDDInfo");
-		if(DDInfo != null&& DDInfo.Length >= 4)
+		if(Event.current.type == EventType.DragExited && m_isInDropArea && DragAndDrop.paths.Length >= 4 && DragAndDrop.paths[3].Equals(m_typeName))
 		{
-			string DDTypeName = (string)DDInfo[3];
-			if(Event.current.type == EventType.DragExited && m_isInDropArea && DDTypeName.Equals(m_typeName))
-			{
-				Guid DDGuid = (Guid)DDInfo[4];
-				AkUtilities.SetByteArrayProperty(m_guidProperty[1], DDGuid.ToByteArray());
-			}
+			AkUtilities.SetByteArrayProperty(m_guidProperty[1], new Guid(DragAndDrop.paths[4]).ToByteArray());
 		}
+		
 		base.OnInspectorGUI ();
 	}
 

@@ -15,15 +15,10 @@ using System.Collections.Generic;
 
 
 public class Postprocessor : AssetPostprocessor
-{
-    //This function will be called before script compilation and will save the picker's expantion 
+{	
+	//This function will be called before script compilation and will save the picker's expantion 
 	static void OnPostprocessAllAssets(	string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)		
-    {
-        if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling)
-        {
-            return;
-        }
- 
+	{
 		AkWwisePicker.treeView.SaveExpansionStatus ();	
 	}	
 }
@@ -76,26 +71,6 @@ class AkWwisePicker : EditorWindow
                 PopulateTreeview(); 
         }
         
-        if (GUILayout.Button("Generate SoundBanks", GUILayout.Width(200)))
-        {
-            if (AkUtilities.IsSoundbankGenerationAvailable())
-            {
-                AkUtilities.GenerateSoundbanks();
-            }
-            else
-            {
-                string errorMessage;
-
-#if UNITY_EDITOR_WIN
-                errorMessage = "Access to Wwise is required to generate the SoundBanks. Please select the Wwise Windows Installation Path from the Edit > Wwise Settings... menu.";
-#elif UNITY_EDITOR_OSX
-				errorMessage = "Access to Wwise is required to generate the SoundBanks. Please select the Wwise Application from the Edit > Wwise Settings... menu.";
-#endif
-
-                Debug.LogError(errorMessage);
-            }
-        }
-
         GUILayout.EndHorizontal();
 
         GUILayout.Space(5);

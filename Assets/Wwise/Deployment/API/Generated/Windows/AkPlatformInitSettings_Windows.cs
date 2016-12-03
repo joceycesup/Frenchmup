@@ -128,18 +128,6 @@ public class AkPlatformInitSettings : IDisposable {
     } 
   }
 
-  public AkAudioAPI eAudioAPI {
-    set {
-      AkSoundEnginePINVOKE.CSharp_AkPlatformInitSettings_eAudioAPI_set(swigCPtr, (int)value);
-
-    } 
-    get {
-      AkAudioAPI ret = (AkAudioAPI)AkSoundEnginePINVOKE.CSharp_AkPlatformInitSettings_eAudioAPI_get(swigCPtr);
-
-      return ret;
-    } 
-  }
-
   public bool bGlobalFocus {
     set {
       AkSoundEnginePINVOKE.CSharp_AkPlatformInitSettings_bGlobalFocus_set(swigCPtr, value);
@@ -147,18 +135,6 @@ public class AkPlatformInitSettings : IDisposable {
     } 
     get {
       bool ret = AkSoundEnginePINVOKE.CSharp_AkPlatformInitSettings_bGlobalFocus_get(swigCPtr);
-
-      return ret;
-    } 
-  }
-
-  public uint idAudioDevice {
-    set {
-      AkSoundEnginePINVOKE.CSharp_AkPlatformInitSettings_idAudioDevice_set(swigCPtr, value);
-
-    } 
-    get {
-      uint ret = AkSoundEnginePINVOKE.CSharp_AkPlatformInitSettings_idAudioDevice_get(swigCPtr);
 
       return ret;
     } 

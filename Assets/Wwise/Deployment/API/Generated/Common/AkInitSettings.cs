@@ -56,6 +56,18 @@ public class AkInitSettings : IDisposable {
     } 
   }
 
+  public uint uMaxNumTransitions {
+    set {
+      AkSoundEnginePINVOKE.CSharp_AkInitSettings_uMaxNumTransitions_set(swigCPtr, value);
+
+    } 
+    get {
+      uint ret = AkSoundEnginePINVOKE.CSharp_AkInitSettings_uMaxNumTransitions_get(swigCPtr);
+
+      return ret;
+    } 
+  }
+
   public uint uDefaultPoolSize {
     set {
       AkSoundEnginePINVOKE.CSharp_AkInitSettings_uDefaultPoolSize_set(swigCPtr, value);
@@ -164,6 +176,18 @@ public class AkInitSettings : IDisposable {
     } 
   }
 
+  public AkAudioAPI eMainOutputType {
+    set {
+      AkSoundEnginePINVOKE.CSharp_AkInitSettings_eMainOutputType_set(swigCPtr, (int)value);
+
+    } 
+    get {
+      AkAudioAPI ret = (AkAudioAPI)AkSoundEnginePINVOKE.CSharp_AkInitSettings_eMainOutputType_get(swigCPtr);
+
+      return ret;
+    } 
+  }
+
   public AkOutputSettings settingsMainOutput {
     set {
       AkSoundEnginePINVOKE.CSharp_AkInitSettings_settingsMainOutput_set(swigCPtr, AkOutputSettings.getCPtr(value));
@@ -211,11 +235,6 @@ public class AkInitSettings : IDisposable {
 
       return ret;
     } 
-  }
-
-  public string szPluginDLLPath {	set { AkSoundEnginePINVOKE.CSharp_AkInitSettings_szPluginDLLPath_set(swigCPtr, value);
- }  get { return AkSoundEnginePINVOKE.CSharp_AkInitSettings_szPluginDLLPath_get(swigCPtr);
- } 
   }
 
   public AkInitSettings() : this(AkSoundEnginePINVOKE.CSharp_new_AkInitSettings(), true) {

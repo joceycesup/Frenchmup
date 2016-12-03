@@ -16,8 +16,6 @@ public class AkBankInspector : AkBaseInspector
 {
 	SerializedProperty bankName;
 	SerializedProperty loadAsync;
-	SerializedProperty decode;
-	SerializedProperty saveDecoded;
 
 	AkUnityEventHandlerInspector m_LoadBankEventHandlerInspector = new AkUnityEventHandlerInspector();
 	AkUnityEventHandlerInspector m_UnloadBankEventHandlerInspector = new AkUnityEventHandlerInspector();
@@ -29,8 +27,6 @@ public class AkBankInspector : AkBaseInspector
 
 		bankName	= serializedObject.FindProperty("bankName");
 		loadAsync	= serializedObject.FindProperty("loadAsynchronous");
-		decode	= serializedObject.FindProperty("decodeBank");
-		saveDecoded	= serializedObject.FindProperty("saveDecodedBank");
 		
 		m_guidProperty		= new SerializedProperty[1];
 		m_guidProperty[0]	= serializedObject.FindProperty("valueGuid.Array");
@@ -51,32 +47,7 @@ public class AkBankInspector : AkBaseInspector
 
 		GUILayout.BeginVertical("Box");
 		{
-			bool oldDecodeValue = decode.boolValue;
-            bool oldSaveDecodedValue = saveDecoded.boolValue;
 			EditorGUILayout.PropertyField(loadAsync, new GUIContent("Asynchronous:"));
-			EditorGUILayout.PropertyField(decode, new GUIContent("Decode compressed data:"));
-
-            if (decode.boolValue)
-            {
-                if (decode.boolValue != oldDecodeValue && AkWwiseProjectInfo.GetData().preparePoolSize == 0)
-                {
-                    EditorUtility.DisplayDialog("Warning", "You will need to define a prepare pool size in the AkInitializer component options.", "Ok");
-                }
-                EditorGUILayout.PropertyField(saveDecoded, new GUIContent("Save decoded bank:"));
-                if (oldSaveDecodedValue == true && saveDecoded.boolValue == false)
-                {
-                    string decodedBankPath = System.IO.Path.Combine(AkInitializer.GetDecodedBankFullPath(), bankName.stringValue + ".bnk");
-					try
-					{
-						System.IO.File.Delete(decodedBankPath);
-					}
-					catch(Exception e)
-					{
-						Debug.Log("WwiseUnity: Could not delete existing decoded SoundBank. Please delete it manually. " + e.ToString());
-					}
-                }
-            
-            }
 		}
 		GUILayout.EndVertical ();
 

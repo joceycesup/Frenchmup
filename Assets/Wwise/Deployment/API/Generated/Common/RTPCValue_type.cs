@@ -12,7 +12,6 @@ public enum RTPCValue_type {
   RTPCValue_Default,
   RTPCValue_Global,
   RTPCValue_GameObject,
-  RTPCValue_PlayingID,
   RTPCValue_Unavailable
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

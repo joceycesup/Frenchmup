@@ -25,7 +25,7 @@ public enum AkCallbackType {
   AK_MusicSyncUserCue = 0x2000,
   AK_MusicSyncPoint = 0x4000,
   AK_MusicSyncAll = 0x7f00,
-  AK_MIDIEvent = 0x10000,
+  AK_MidiEvent = 0x10000,
   AK_CallbackBits = 0xfffff,
   AK_EnableGetSourcePlayPosition = 0x100000,
   AK_EnableGetMusicPlayPosition = 0x200000,

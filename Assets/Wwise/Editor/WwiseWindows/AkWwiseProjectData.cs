@@ -378,7 +378,6 @@ public class AkWwiseProjectData : ScriptableObject
 	public int defaultPoolSize = AkInitializer.c_DefaultPoolSize;
 	public int lowerPoolSize = AkInitializer.c_LowerPoolSize;
 	public int streamingPoolSize = AkInitializer.c_StreamingPoolSize;
-	public int preparePoolSize = AkInitializer.c_PreparePoolSize;
 	public float memoryCutoffThreshold = AkInitializer.c_MemoryCutoffThreshold;
 
 	public void SaveInitSettings(AkInitializer in_AkInit)
@@ -389,54 +388,42 @@ public class AkWwiseProjectData : ScriptableObject
 		}
 		if (!CompareInitSettings(in_AkInit))
 		{
-#if UNITY_5_3_OR_NEWER
-			Undo.RecordObject(this, "Save Init Settings");
-#endif
-			basePath = in_AkInit.basePath;
-			language = in_AkInit.language;
-			defaultPoolSize = in_AkInit.defaultPoolSize;
-			lowerPoolSize = in_AkInit.lowerPoolSize;
-			streamingPoolSize = in_AkInit.streamingPoolSize;
-			preparePoolSize = in_AkInit.preparePoolSize;
-			memoryCutoffThreshold = in_AkInit.memoryCutoffThreshold;
-#if !UNITY_5_3_OR_NEWER
-			EditorUtility.SetDirty(this);
-#endif
+            basePath = in_AkInit.basePath;
+			language =              in_AkInit.language;
+			defaultPoolSize =       in_AkInit.defaultPoolSize;
+			lowerPoolSize =         in_AkInit.lowerPoolSize;
+			streamingPoolSize =     in_AkInit.streamingPoolSize;
+            memoryCutoffThreshold = in_AkInit.memoryCutoffThreshold;
+            EditorUtility.SetDirty(this);
 		}
 	}
-
+	
 	public void CopyInitSettings(AkInitializer in_AkInit)
 	{
 		if (!CompareInitSettings(in_AkInit))
 		{
-#if UNITY_5_3_OR_NEWER
-			Undo.RecordObject(in_AkInit, "Copy Init Settings");
-#endif
-			in_AkInit.basePath = basePath;
-			in_AkInit.language = language;
-			in_AkInit.defaultPoolSize = defaultPoolSize;
-			in_AkInit.lowerPoolSize = lowerPoolSize;
-			in_AkInit.streamingPoolSize = streamingPoolSize;
-			in_AkInit.preparePoolSize = preparePoolSize;
-			in_AkInit.memoryCutoffThreshold = memoryCutoffThreshold;
-#if !UNITY_5_3_OR_NEWER
-			EditorUtility.SetDirty(in_AkInit);
-#endif
+			in_AkInit.basePath = 				basePath;				
+			in_AkInit.language =                language;              
+			in_AkInit.defaultPoolSize =         defaultPoolSize;
+			in_AkInit.lowerPoolSize =           lowerPoolSize;        
+			in_AkInit.streamingPoolSize =       streamingPoolSize;
+            in_AkInit.memoryCutoffThreshold = memoryCutoffThreshold;
+            EditorUtility.SetDirty(in_AkInit);
 		}
 	}
 
 	private bool CompareInitSettings(AkInitializer in_AkInit)
 	{
-		return basePath == in_AkInit.basePath &&
-			language == in_AkInit.language &&
-			defaultPoolSize == in_AkInit.defaultPoolSize &&
-			lowerPoolSize == in_AkInit.lowerPoolSize &&
-			streamingPoolSize == in_AkInit.streamingPoolSize &&
-			preparePoolSize == in_AkInit.preparePoolSize &&
-			memoryCutoffThreshold == in_AkInit.memoryCutoffThreshold;
+        return basePath == in_AkInit.basePath &&
+            language == in_AkInit.language &&
+            defaultPoolSize == in_AkInit.defaultPoolSize &&
+            lowerPoolSize == in_AkInit.lowerPoolSize &&
+            streamingPoolSize == in_AkInit.streamingPoolSize &&
+            memoryCutoffThreshold == in_AkInit.memoryCutoffThreshold;
 	}
 
-	public float GetEventMaxAttenuation(int in_eventID)
+
+    public float GetEventMaxAttenuation(int in_eventID)
     {
 		for(int i = 0; i < EventWwu.Count; i++)
 		{

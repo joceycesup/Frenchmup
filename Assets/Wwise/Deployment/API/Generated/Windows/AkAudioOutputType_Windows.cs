@@ -9,12 +9,10 @@
 
 
 public enum AkAudioOutputType {
-  AkOutput_None = 0,
-  AkOutput_Dummy,
-  AkOutput_MergeToMain,
-  AkOutput_Main,
-  AkOutput_Secondary,
-  AkOutput_NumBuiltInOutputs,
-  AkOutput_Plugin
+  AkOutput_Dummy = 1 << 3,
+  AkOutput_MergeToMain = 1 << 4,
+  AkOutput_Main = 1 << 5,
+  AkOutput_Secondary = 1 << 6,
+  AkOutput_NumOutputs = 1 << 7
 }
 #endif // #if (UNITY_STANDALONE_WIN && !UNITY_EDITOR) || UNITY_EDITOR_WIN

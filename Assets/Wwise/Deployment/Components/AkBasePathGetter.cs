@@ -65,8 +65,6 @@ public class AkBasePathGetter
 		platformSubDir = "XBoxOne";
 #elif UNITY_IOS
 		platformSubDir = "iOS";
-#elif UNITY_TVOS
-        platformSubDir = "iOS";
 #elif UNITY_ANDROID
 		platformSubDir = "Android";
 #elif UNITY_PS3
@@ -129,7 +127,7 @@ public class AkBasePathGetter
         try
         {
             WwiseSettings Settings = WwiseSettings.LoadSettings();
-            string platformSubDir = GetPlatformName();
+            string platformSubDir = Path.DirectorySeparatorChar == '/' ? "Mac" : "Windows";
             string WwiseProjectFullPath = AkUtilities.GetFullPath(Application.dataPath, Settings.WwiseProjectPath);
             string SoundBankDest = AkUtilities.GetWwiseSoundBankDestinationFolder(platformSubDir, WwiseProjectFullPath);
             if (Path.GetPathRoot(SoundBankDest) == "")
@@ -162,9 +160,6 @@ public class AkBasePathGetter
 
     public static void FixSlashes(ref string path)
     {
-        if (string.IsNullOrEmpty(path))
-            return;
-
 #if !UNITY_WSA
         string seperatorChar = Path.DirectorySeparatorChar.ToString();
         string badChar = string.Empty;
@@ -210,8 +205,6 @@ public class AkBasePathGetter
 
         if (basePathToSet == string.Empty || InitBnkFound == false)
         {
-	        Debug.Log("WwiseUnity: Looking for SoundBanks in " + basePathToSet);
-	
 #if !UNITY_EDITOR
             Debug.LogError("WwiseUnity: Could not locate the SoundBanks. Did you make sure to copy them to the StreamingAssets folder?");
 #else
@@ -219,6 +212,8 @@ public class AkBasePathGetter
 #endif
             return string.Empty;
         }
+
+        Debug.Log("WwiseUnity: Setting base SoundBank path to " + basePathToSet);
 
         return basePathToSet;
     }

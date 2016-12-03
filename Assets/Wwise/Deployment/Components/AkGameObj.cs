@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 
 [AddComponentMenu("Wwise/AkGameObj")]
-///@brief This component represents a sound emitter in your scene.  See \ref unity_use_AkGameObj. It will track its position and other game syncs such as Switches, RTPC and environment values.  You can add this to any object that will emit sound.  Note that if it is not present, Wwise will add it automatically, with the default values, to any Unity Game Object that is passed to Wwise.  
+///@brief This component represents a sound emitter in your scene.  It will track its position and other game syncs such as Switches, RTPC and environment values.  You can add this to any object that will emit sound.  Note that if it is not present, Wwise will add it automatically, with the default values, to any Unity Game Object that is passed to Wwise API (see AkSoundEngine.cs).  
 /// \sa
 /// - \ref soundengine_gameobj
 /// - \ref soundengine_events
@@ -37,24 +37,16 @@ public class AkGameObj : MonoBehaviour
 	private bool isStaticObject = false;
 	private AkGameObjPositionData m_posData = null;
 
-    /// Cache the bounds to avoid calls to GetComponent()
-    private Collider m_Collider;
-
-    void Awake()
+	/// Cache the bounds to avoid calls to GetComponent()
+	private Bounds GameObjColliderBounds;
+	
+	void Awake()
     {			
-#if UNITY_EDITOR
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-#endif
-
 		// If the object was marked as static, don't update its position to save cycles.
 #if UNITY_EDITOR
 		if (!UnityEditor.EditorApplication.isPlaying)	
 		{
 			UnityEditor.EditorApplication.update += this.CheckStaticStatus;
-			return;
 		}
 #endif 
 		if(!isStaticObject)
@@ -63,7 +55,7 @@ public class AkGameObj : MonoBehaviour
 		}		
 		
 		// Cache the bounds to avoid calls to GetComponent()
-		m_Collider = GetComponent<Collider>();
+		GameObjColliderBounds = GetComponent<Collider2D>().bounds;
 	
         //Register a Game Object in the sound engine, with its name.		
         AKRESULT res = AkSoundEngine.RegisterGameObj(gameObject, gameObject.name, (uint)(listenerMask & ALL_LISTENER_MASK));
@@ -80,10 +72,7 @@ public class AkGameObj : MonoBehaviour
                 position.z,
                 transform.forward.x,
                 transform.forward.y,
-                transform.forward.z,
-				transform.up.x,
-				transform.up.y,
-				transform.up.z);
+                transform.forward.z);
 
             if (isEnvironmentAware)
             {
@@ -97,12 +86,6 @@ public class AkGameObj : MonoBehaviour
 	private void CheckStaticStatus()
 	{
 #if UNITY_EDITOR
-
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-
 		if (gameObject != null && isStaticObject != gameObject.isStatic)
 		{
 			isStaticObject = gameObject.isStatic;
@@ -113,13 +96,6 @@ public class AkGameObj : MonoBehaviour
 	
 	void OnEnable()
 	{ 
-#if UNITY_EDITOR
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-#endif
-
 		//if enabled is set to false, then the update function wont be called
 		enabled = !isStaticObject;
 	}
@@ -127,12 +103,6 @@ public class AkGameObj : MonoBehaviour
     void OnDestroy()
     {
 #if UNITY_EDITOR
-
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-
 		if (!UnityEditor.EditorApplication.isPlaying)	
 		{
 			UnityEditor.EditorApplication.update -= this.CheckStaticStatus;
@@ -163,12 +133,6 @@ public class AkGameObj : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-
 		if (!UnityEditor.EditorApplication.isPlaying)
 		{
 			return;
@@ -183,25 +147,21 @@ public class AkGameObj : MonoBehaviour
 	    Vector3 position = GetPosition();
 
 		//Didn't move.  Do nothing.
-		if (m_posData.position == position && m_posData.forward == transform.forward && m_posData.up == transform.up)
+		if (m_posData.position == position && m_posData.forward == transform.forward)
 	        return;
 
 		m_posData.position = position;
 		m_posData.forward = transform.forward;            
-		m_posData.up = transform.up;            
 
 	    //Update position
-            AkSoundEngine.SetObjectPosition(
-                gameObject,
-                position.x,
-                position.y,
-                position.z,
-                transform.forward.x,
-                transform.forward.y,
-                transform.forward.z,
-				transform.up.x,
-				transform.up.y,
-				transform.up.z);
+	    AkSoundEngine.SetObjectPosition(
+	        gameObject,
+	        position.x,
+	        position.y,
+	        position.z,
+	        transform.forward.x,
+	        transform.forward.y,
+	        transform.forward.z);
 
 		if (isEnvironmentAware)
 		{
@@ -227,12 +187,6 @@ public class AkGameObj : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 #if UNITY_EDITOR
-
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-
 		if (!UnityEditor.EditorApplication.isPlaying)
 		{
 			return;
@@ -247,15 +201,6 @@ public class AkGameObj : MonoBehaviour
 
     void AddAuxSend(GameObject in_AuxSendObject)
     {
-#if UNITY_EDITOR
-
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-
-#endif
-
 		AkEnvironmentPortal akPortal = in_AuxSendObject.GetComponent<AkEnvironmentPortal>();
 		if(akPortal != null)
 		{
@@ -298,12 +243,6 @@ public class AkGameObj : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
 #if UNITY_EDITOR
-
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-
 		if (!UnityEditor.EditorApplication.isPlaying)
 		{
 			return;
@@ -320,7 +259,7 @@ public class AkGameObj : MonoBehaviour
 					if(akPortal.environments[i] != null)
 					{
 						//We just exited a portal so we remove its environments only if we're not inside of them
-						if(!m_Collider.bounds.Intersects(akPortal.environments[i].GetCollider().bounds))
+						if(!GameObjColliderBounds.Intersects(akPortal.environments[i].GetComponent<Collider>().bounds))
 						{
 							m_envData.activeEnvironments.Remove(akPortal.environments[i]);
 						}
@@ -363,15 +302,6 @@ public class AkGameObj : MonoBehaviour
 
     void UpdateAuxSend()
     {
-#if UNITY_EDITOR
-
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-
-#endif
-
 		if (m_envData.auxSendValues == null)
         {
 #if UNITY_PS4
@@ -444,52 +374,9 @@ public class AkGameObj : MonoBehaviour
 #if UNITY_EDITOR
 	public void OnDrawGizmosSelected()
 	{
-        if (AkUtilities.IsMigrating)
-        {
-            return;
-        }
-
 		Vector3 position = GetPosition();
 		Gizmos.DrawIcon(position, "WwiseAudioSpeaker.png", false);
 	}
 #endif
-
-#region WwiseMigration
-
-#pragma warning disable 0414 // private field assigned but not used.
-
-	[SerializeField]
-	private AkGameObjPosOffsetData m_posOffsetData = null;
-
-#pragma warning restore 0414 // private field assigned but not used.
-
-
-#if UNITY_EDITOR
-
-    public void Migrate9()
-	{
-        Debug.Log("WwiseUnity: AkGameObj.Migrate9");
-
-		if ((listenerMask & ALL_LISTENER_MASK) == ALL_LISTENER_MASK)
-		{
-			listenerMask = 1;
-		}
-	}
-	
-	public void Migrate10()
-	{
-        Debug.Log("WwiseUnity: AkGameObj.Migrate10");
-
-		if (m_posOffsetData != null)
-		{
-			m_positionOffsetData = new AkGameObjPositionOffsetData(true);
-			m_positionOffsetData.positionOffset = m_posOffsetData.positionOffset;
-            m_posOffsetData = null;
-		}
-	}
-
-#endif
-
-#endregion
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.
