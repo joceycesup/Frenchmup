@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class OldDudeOfTheTuto : MonoBehaviour {
 
@@ -121,6 +124,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		3 //25
 	};
 	public GameObject[] tutoObjects;
+	private float[] tmpValues = { 0f, 0f, 0f };
 	private int currentStateSentence = 0;
 	private int currentSentence = 0;
 	private int currentSentenceLength = 0;
@@ -144,33 +148,32 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			Destroy (gameObject);
 			return;
 		}
+
 		if (currentSentenceLength <= sentences [currentSentence].Length) {
-			Debug.ClearDeveloperConsole ();
 			sentence = sentences [currentSentence].Substring (0, currentSentenceLength);
 			if (++currentSentenceLength > sentences [currentSentence].Length) {
+				#if UNITY_EDITOR
+				//Debug.Log (currentState + " reached end of sentence, awaiting = "+awaitingAction);
+				//EditorApplication.isPaused = true;
+				#endif
+				if (++currentStateSentence >= sentencesPerState [(int)currentState]) {
+					SetWaitAction ();
+				}
 				GetComponent<Animator> ().Play ("vieux_idle");
 			}
 		} else {
-			if (awaitingAction) {
-				WaitAction ();
-				if (conditions == 0) {
+			//Debug.Log (currentState + " : "+awaitingAction+":"+conditions.ToString("X")+":"+ currentSentenceLength);
+			if (WaitAction () || (awaitingAction ? false : Input.GetKeyDown (KeyCode.Return))) {
+				if (currentStateSentence >= sentencesPerState [(int)currentState]) {
 					ResetState ();
 					awaitingAction = false;
 					currentStateSentence = 0;
 					currentState++;
-					currentSentenceLength = 0;
-					currentSentence++;
-					GetComponent<Animator> ().Play ("vieux_parle");
 					SetState ();
 				}
-			} else if (Input.GetKeyDown (KeyCode.Return)) {
-				if (++currentStateSentence >= sentencesPerState [(int)currentState]) {
-					SetWaitAction ();
-				} else {
-					currentSentenceLength = 0;
-					currentSentence++;
-					GetComponent<Animator> ().Play ("vieux_parle");
-				}
+				currentSentenceLength = 0;
+				currentSentence++;
+				GetComponent<Animator> ().Play ("vieux_parle");
 			}/*
 			if (Input.GetKeyDown (KeyCode.Backspace)) {
 				currentSentence = 0;
@@ -183,26 +186,19 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		}
 	}
 
-	void SetWaitAction () {
-		awaitingAction = true;
+	bool SetWaitAction () {
 		switch (currentState) {
 		case State.S_01_Deplacement:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
 			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move, true);
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move, true);
-			break;
-		case State.S_02_JaugesVie:
-			//player1.GetComponent<Player> ().SetAbilities (Player.Ability.Bomb | Player.Ability.BulletTime | Player.Ability.Chain | Player.Ability.Dash | Player.Ability.GoDPS | Player.Ability.GoSupport | Player.Ability.Laser | Player.Ability.Magnet | Player.Ability.Move | Player.Ability.Shotgun, true);
-			break;
-		case State.S_03_Roles:
-			break;
-		case State.S_04_BasesDPS:
+			conditions = 0x03;
 			break;
 		case State.S_05_TueMouches:
-			break;
-		case State.S_06_BasesSupport:
+			conditions = 0x01;
 			break;
 		case State.S_07_PassageSupport:
+			conditions = 0x03;
 			break;
 		case State.S_08_UtiliseDash:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
@@ -210,12 +206,34 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
 			conditions = 0x03;
 			break;
+		case State.S_10_AbsorbeProjectiles:
+			conditions = 0x03;
+			break;
+		case State.S_12_UtiliseMagnet:
+			conditions = 0x03;
+			break;
+		case State.S_16_RemplitLaser:
+			conditions = 0x03;
+			break;
+		case State.S_18_UtiliseLaser:
+			conditions = 0x01;
+			break;
+		case State.S_21_J2PasseSupport:
+			conditions = 0x01;
+			break;
+		case State.S_25_UtiliseSpecial:
+			conditions = 0x01;
+			break;
 		default:
 			break;
 		}
+		return awaitingAction = (conditions != 0);
 	}
 
-	void WaitAction () {
+	bool WaitAction () {
+		if (!awaitingAction)
+			return false;
+		//Debug.Log ("wait action");
 		switch (currentState) {
 		case State.S_01_Deplacement:
 			if (Input.GetAxis ("Horizontal_P1") != 0f || Input.GetAxis ("Vertical_P1") != 0f) {
@@ -254,22 +272,50 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 				conditions &= ~0x02;
 			}
 			break;
+		case State.S_12_UtiliseMagnet:
+			if (player1.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted >= 3) {
+				conditions &= ~0x01;
+			}
+			if (player2.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted >= 3) {
+				conditions &= ~0x02;
+			}
+			break;
+		case State.S_16_RemplitLaser:
+			if (player1.GetComponent<Player> ().LaserLoad () >= 1f) {
+				conditions &= ~0x01;
+			}
+			if (player2.GetComponent<Player> ().LaserLoad () >= 1f) {
+				conditions &= ~0x02;
+			}
+			break;
+		case State.S_18_UtiliseLaser:
+			if (tutoObjects [2] == null) {
+				conditions &= ~0x01;
+			}
+			break;
 		case State.S_21_J2PasseSupport:
 			if (player2.GetComponent<Player> ().state == Player.PlayerState.Support) {
+				conditions &= ~0x01;
+			}
+			break;
+		case State.S_25_UtiliseSpecial:
+			if (tutoObjects [3] == null) {
 				conditions &= ~0x01;
 			}
 			break;
 		default:
 			break;
 		}
+		return conditions == 0;
 	}
 
 	void SetState () {
-		Debug.Log ("current state : " + currentState);
+		//Debug.Log ("current state : " + currentState);
 		switch (currentState) {
 		case State.S_01_Deplacement:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			conditions = 0x03;
+			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
 			break;
 		case State.S_02_JaugesVie:
 			{
@@ -294,7 +340,6 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Shotgun | Player.Ability.Move, true);
 			tutoObjects [0].SetActive (true);
 			tutoObjects [0].GetComponent<EnemyGroup> ().Unleash ();
-			conditions = 0x01;
 			break;
 		case State.S_06_BasesSupport:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
@@ -303,7 +348,6 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
 			player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport, true);
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport, true);
-			conditions = 0x03;
 			break;
 		case State.S_08_UtiliseDash:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
@@ -320,13 +364,19 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().isEnemy = true;
 				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().enabled = true;
 			}
-			conditions = 0x03;
 			break;
 		case State.S_11_PresMagnet:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
 			break;
 		case State.S_12_UtiliseMagnet:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Magnet, true);
+			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Magnet, true);
+			tutoObjects [1].SetActive (true);
+			for (int i = 0; i < tutoObjects [1].transform.childCount; ++i) {
+				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().isEnemy = true;
+				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().enabled = true;
+			}
 			break;
 		case State.S_13_TransitionLaser:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
@@ -347,12 +397,30 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			break;
 		case State.S_16_RemplitLaser:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser, true);
+			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser, true);
+			tmpValues [0] = tutoObjects [2].transform.childCount;
+			tmpValues [1] = tutoObjects.Length;
+			tmpValues [2] = player1.GetComponent<Player> ().maxLaserLoad;
+			player1.GetComponent<Player> ().SetLaserMaxLoad (3f);
+			player2.GetComponent<Player> ().SetLaserMaxLoad (3f);
+			System.Array.Resize (ref tutoObjects, tutoObjects.Length + tutoObjects [2].transform.childCount);
+			for (int i = 0; i < tmpValues [0]; ++i) {
+				tutoObjects [i + (int)tmpValues [1]] = tutoObjects [2].transform.GetChild (i).gameObject;
+			}
+			tutoObjects [2].SetActive (true);
+			tutoObjects [2].GetComponent<EnemyGroup> ().Unleash ();
 			break;
 		case State.S_17_LaserPasseDPS:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
 			break;
 		case State.S_18_UtiliseLaser:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoSupport | Player.Ability.GoDPS | Player.Ability.Laser | Player.Ability.LoadLaser, true);
+			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoSupport | Player.Ability.GoDPS | Player.Ability.Laser | Player.Ability.LoadLaser, true);
+			for (int i = 0; i < tmpValues [0]; ++i) {
+				tutoObjects [i + (int)tmpValues [1]].GetComponent<Enemy> ().enabled = true;
+			}
 			break;
 		case State.S_19_WarningLaser:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
@@ -364,7 +432,6 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport | Player.Ability.Chain, true);
 			player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoDPS | Player.Ability.Chain, true);
-			conditions = 0x01;
 			break;
 		case State.S_22_UtiliseChaine:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
@@ -385,6 +452,10 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			break;
 		case State.S_25_UtiliseSpecial:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Bomb | Player.Ability.Move, true);
+			player2.GetComponent<Player> ().SetAbilities (Player.Ability.BulletTime | Player.Ability.Move, true);
+			tutoObjects [3].SetActive (true);
+			tutoObjects [3].GetComponent<EnemyGroup> ().Unleash ();
 			break;
 		case State.S_26_FinTuto:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
@@ -425,10 +496,12 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		case State.S_10_AbsorbeProjectiles:
 			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+			tutoObjects [1].SetActive (false);
 			break;
 		case State.S_12_UtiliseMagnet:
 			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+			tutoObjects [1].SetActive (false);
 			break;
 		case State.S_14_JaugesLaser:
 			{
@@ -443,6 +516,9 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		case State.S_16_RemplitLaser:
 			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+			for (int i = 0; i < tmpValues [0]; ++i) {
+				tutoObjects [i + (int)tmpValues [1]].GetComponent<Enemy> ().enabled = false;
+			}
 			break;
 		case State.S_18_UtiliseLaser:
 			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
@@ -471,6 +547,10 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		case State.S_26_FinTuto:
 			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, true);
 			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, true);
+			player1.GetComponent<Player> ().SetLaserMaxLoad (tmpValues [2]);
+			player2.GetComponent<Player> ().SetLaserMaxLoad (tmpValues [2]);
+			player1.GetComponent<Player> ().Reset ();
+			player2.GetComponent<Player> ().Reset ();
 			break;
 		default:
 			break;

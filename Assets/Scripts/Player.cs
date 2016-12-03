@@ -16,7 +16,8 @@ public class Player : Character {
 		GoSupport	 = 0x0100,
 		GoDPS		 = 0x0200,
 		TakeDamage	 = 0x0400,
-		All			 = 0x07FF
+		LoadLaser	 = 0x0800,
+		All			 = 0x0FFF
 	}
 
 	public enum PlayerState {
@@ -64,7 +65,10 @@ public class Player : Character {
 
 	private int abilities;
 
-	private GameObject magnet;
+	public GameObject magnet {
+		get;
+		private set;
+	}
 	private GameObject smartBomb;
 	private GameObject laser;
 
@@ -112,7 +116,7 @@ public class Player : Character {
 		Reset ();
 	}
 
-	private void Reset () {
+	public void Reset () {
 		speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 		health = maxHealth;
 		UpdateGauges ();/*
@@ -128,6 +132,7 @@ public class Player : Character {
 	}
 
 	protected override void UpdateCharacter () {
+		//------------------------------ Gestion des mouvements ----------------------------------------
 		float dx = Input.GetAxis ("Horizontal_P" + playerNumber);
 		float dy = Input.GetAxis ("Vertical_P" + playerNumber);
 
@@ -155,6 +160,7 @@ public class Player : Character {
 			//.GetComponent<Animator> ().Play ("idle");
 		}
 
+		//------------------------------ Gestion des capacites ----------------------------------------
 		if (bulletTime) {
 			if (IngameTime.globalTime >= bulletTimeEndTime) {
 				bulletTime = false;
@@ -165,7 +171,6 @@ public class Player : Character {
 			speed = dashSpeed;
 			if (IngameTime.time >= dashEndTime) {
 				dash = false;
-				//transform.GetChild(1).GetComponent<CircleCollider2D> ().radius = 0.18f;
 				transform.GetChild(1).localScale = Vector3.one;
 				speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 			}
@@ -178,6 +183,8 @@ public class Player : Character {
 				speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 			}
 		}
+
+		//------------------------------ Gestion des inputs de capacites ----------------------------------------
 		switch (state) {
 		case PlayerState.DPS:
 			if (Input.GetButtonDown ("Fire1_P" + playerNumber) && CheckAbility (Ability.Laser)) {
@@ -235,7 +242,6 @@ public class Player : Character {
 		}
 		if (Input.GetButtonDown ("DPS_P" + playerNumber) && CheckAbility (Ability.GoDPS)) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
-				UpdateGauges ();
 				speed = dpsSpeed;
 				state = PlayerState.DPS;
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
@@ -243,7 +249,6 @@ public class Player : Character {
 			}
 		} else if (Input.GetButtonDown ("Support_P" + playerNumber) && CheckAbility (Ability.GoSupport)) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
-				UpdateGauges ();
 				SetCanShoot (false);
 				if (!dash)
 					speed = supportSpeed;
@@ -254,12 +259,26 @@ public class Player : Character {
 				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
 			}
 		}
+
+		UpdateGauges ();
+	}
+
+	public void SetLaserMaxLoad (float value) {
+		maxLaserLoad = value;
+		if (laserLoad > value)
+			laserLoad = value;
+	}
+
+	public float LaserLoad () {
+		return Mathf.Clamp01 (laserLoad / maxLaserLoad);
 	}
 
 	public void EatBullet (Vector3 pos) {
 		if (state == PlayerState.Support) {
-			if (++laserLoad > maxLaserLoad)
-				laserLoad = maxLaserLoad;
+			if (CheckAbility (Ability.LoadLaser)) {
+				if (++laserLoad > maxLaserLoad)
+					laserLoad = maxLaserLoad;
+			}
 		}
 		if (dash) {
 			Instantiate (Resources.Load<GameObject>("Particules/Cancel"),pos-Vector3.forward*0.1f,Quaternion.identity,ViewportHandler.viewport.transform);
@@ -298,7 +317,6 @@ public class Player : Character {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 			player.SetInvincible ();
 			alivePlayer++;
-			UpdateGauges ();
 			//Debug.Log ("respawned!");
 		}
 	}
@@ -307,15 +325,14 @@ public class Player : Character {
 		if (dash || !CheckAbility (Ability.TakeDamage))
 			return false;
 		bool res = base.TakeDamage (value * (state == PlayerState.Support ? supportDamageReduction : 1f), activeInvincibility);
-		UpdateGauges ();
 		return res;
 	}
 
 	void UpdateGauges () {
-		Debug.Log (gameObject + " health : " + health);
+		//Debug.Log (gameObject + " health : " + health);
 		if (healthGauge != null) {
 			healthGauge.transform.localScale = new Vector3 (health / maxHealth, 1f, 1f);
-			laserGauge.transform.localScale = new Vector3 (laserLoad / maxLaserLoad, 1f, 1f);
+			laserGauge.transform.localScale = new Vector3 (LaserLoad (), 1f, 1f);
 			specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
 		}
 	}

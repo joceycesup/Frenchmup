@@ -4,7 +4,7 @@ using System.Collections;
 public class CharHitbox : MonoBehaviour {
 	private Character character;
 
-	void Start () {
+	void Awake () {
 		character = transform.parent.gameObject.GetComponent<Character> ();
 	}
 

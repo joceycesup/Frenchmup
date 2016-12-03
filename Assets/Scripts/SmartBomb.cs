@@ -47,7 +47,7 @@ public class SmartBomb : MonoBehaviour {
 		//Debug.Log (transform.parent.gameObject.ToString () + " got triggered by " + other.gameObject.ToString ());
 		if (other.gameObject.tag == "Projectile") {
 			Projectile pro = other.gameObject.GetComponent<Projectile> ();
-			if (pro.isEnemy) {
+			if (pro != null && pro.isEnemy) {
 				pro.desintegrateTime = 0.1f;
 				Instantiate (Resources.Load<GameObject>("Particules/Cancel"),pro.transform.position-Vector3.forward*0.1f,Quaternion.identity,ViewportHandler.viewport.transform);
 				pro.Disintegrate ();
