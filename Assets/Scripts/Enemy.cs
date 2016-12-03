@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections;
 
 public class Enemy : Character {
@@ -160,13 +162,11 @@ public class Enemy : Character {
 	public override string ToString() {
 		return "Enemy";
 	}
-
-
+	/*
+	#if UNITY_EDITOR
 	void OnDrawGizmosSelected () {
 		if (Application.isPlaying)
-			return;/*
-		else
-			this.enabled = false;//*/
+			return;
 		if (this.enabled)
 			return;
 		if (gameObject.GetComponent<Collider2D> ().enabled) {
@@ -203,4 +203,6 @@ public class Enemy : Character {
 			}
 		}
 	}
+	#endif
+	//*/
 }
