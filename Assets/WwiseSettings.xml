@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WwiseSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WwiseProjectPath>../../../../../Downloads/Wwise_02-12 14-12-20161203T033254Z/Wwise_02-12 14_12/frenchmup.wproj</WwiseProjectPath>
+  <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
+  <CreateWwiseGlobal>true</CreateWwiseGlobal>
+  <CreateWwiseListener>true</CreateWwiseListener>
+  <WwiseInstallationPathWindows>E:\Program Files\Audiokinetic\Wwise 2016.2.0.5972</WwiseInstallationPathWindows>
+  <WwiseInstallationPathMac />
+  <CreatedPicker>true</CreatedPicker>
+</WwiseSettings>
