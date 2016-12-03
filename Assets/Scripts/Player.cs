@@ -265,6 +265,8 @@ public class Player : Character {
 	}
 
 	public void SetLaserMaxLoad (float value) {
+		if (value <= 0f)
+			return;
 		maxLaserLoad = value;
 		if (laserLoad > value)
 			laserLoad = value;

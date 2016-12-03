@@ -13,6 +13,9 @@ public class SmartBomb : MonoBehaviour {
 	}
 
 	void Start () {
+		if (gameObject.transform.parent.gameObject.GetComponent<Character> () == null) {
+			GetComponent<SpriteRenderer> ().enabled = false;
+		}
 	}
 
 	void OnEnable () {
@@ -24,10 +27,18 @@ public class SmartBomb : MonoBehaviour {
 
 	void Update () {
 		float scaleFactor = (IngameTime.time - startTime) / maxLifeSpan;
+		/*
+		if (gameObject.transform.parent.gameObject.GetComponent<Character> () == null) {
+			gameObject.transform.localScale = new Vector3 (scaleFactor*maxLifeSpan, scaleFactor*maxLifeSpan, 0);
+		}
+		else*/
 		gameObject.transform.localScale = new Vector3 (scaleFactor, scaleFactor, 0);
 		if (IngameTime.time >= desintegrateStartTime) {
 			if (IngameTime.time >= desintegrateStartTime + desintegrateTime) {
-				gameObject.SetActive (false);
+				if (gameObject.transform.parent.gameObject.GetComponent<Character> () == null)
+					Destroy (gameObject);
+				else
+					gameObject.SetActive (false);
 			} else {
 				Color tmpColor = gameObject.GetComponent<SpriteRenderer> ().color;
 				tmpColor.a = 1.0f - (IngameTime.time - desintegrateStartTime) / desintegrateTime;
