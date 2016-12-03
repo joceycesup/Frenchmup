@@ -11,6 +11,10 @@ public class ViewportHandler : MonoBehaviour {
 	public GameObject nextSection;
 	private GameObject sections;
 
+	public GameObject[] musicSections;
+	public string[] musics = {"tuto", "zone_1", "mid_boss", "zone_2", "boss_phase_1"};
+	private int musicIndex = 0;
+
 	public static GameObject viewport {
 		get { return _viewport; }
 	}
@@ -44,10 +48,13 @@ public class ViewportHandler : MonoBehaviour {
 				gameObject.transform.position = new Vector3 (0, tutoSection.transform.position.y + gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y);
 				SetCurrentSection (tutoSection);
 			}
-		} else if (startSection != null) {
-			Destroy (tutoSection);
-			gameObject.transform.position = new Vector3 (0, startSection.transform.position.y + gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y);
-			SetCurrentSection (startSection);
+		} else {
+			musicIndex = 1;
+			if (startSection != null) {
+				Destroy (tutoSection);
+				gameObject.transform.position = new Vector3 (0, startSection.transform.position.y + gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y);
+				SetCurrentSection (startSection);
+			}
 		}
 	}
 
@@ -110,8 +117,13 @@ public class ViewportHandler : MonoBehaviour {
 	}//*/
 
 	void SetCurrentSection (GameObject section) {
-		if (currentSection == null)
+		if (currentSection == null) {
 			nextSection = section;
+		}
+		if (section == musicSections [musicIndex]) {
+			Debug.Log ("setting music " + musics [musicIndex]);
+			AkSoundEngine.SetState ("current_zone", musics [musicIndex++]);
+		}
 		currentSection = section;
 		section.transform.parent = null;
 		if (currentSection.GetComponent<LevelSection> ().behaviour != LevelSection.LevelBehaviour.Static || currentSection.GetComponent<LevelSection> ().behaviourLock == null) {

@@ -13,6 +13,7 @@ public class Chain : MonoBehaviour {
 	private GameObject transformObject;
 
 	public float damage = 2f;
+	private bool linksActive = true;
 
 	void Awake () {
 		transformObject = new GameObject ("TransformObject");
@@ -26,8 +27,14 @@ public class Chain : MonoBehaviour {
 	}
 
 	void Update () {
-		transform.position = Vector3.zero;
-		links.SetActive (player1.GetComponent<Player> ().state != player2.GetComponent<Player> ().state && player1.GetComponent<Player> ().CheckAbility(Player.Ability.Chain) && player2.GetComponent<Player> ().CheckAbility(Player.Ability.Chain));
+		bool tmpActive = linksActive;
+		linksActive = (player1.GetComponent<Player> ().state != player2.GetComponent<Player> ().state) && player1.GetComponent<Player> ().CheckAbility (Player.Ability.Chain) && player2.GetComponent<Player> ().CheckAbility (Player.Ability.Chain);
+		if (!linksActive) {
+			links.SetActive (false);
+		}
+		if (!linksActive)
+			return;
+		transform.parent.position = Vector3.zero;
 		float tmpLength = Vector3.Distance (player1.transform.position, player2.transform.position) / 2f;
 		if (tmpLength > length) {
 			length = tmpLength;
@@ -50,5 +57,6 @@ public class Chain : MonoBehaviour {
 			spline.points [2] = player2.transform.position + transformObject.transform.TransformDirection (Vector3.Normalize (spline.points [2] - spline.points [3])) * length;
 			spline.points [3] = player2.transform.position;
 		}
+		links.SetActive (tmpActive && linksActive);
 	}
 }

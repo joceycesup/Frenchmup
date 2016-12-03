@@ -43,6 +43,7 @@ public class SplineDecorator : MonoBehaviour
 			GameObject item;
 			if (links.Count <= n) {
 				item = Instantiate (items [i]);
+				item.transform.parent = transform;
 				links.Add (item);
 				linksT.Add (t);
 			} else {
@@ -54,35 +55,13 @@ public class SplineDecorator : MonoBehaviour
 				item.transform.rotation = tmpRot;
 			}
 			item.transform.position = position;
-			/*
-			d = extents [i].y;
-			float tmp = t;
-			//Vector3 dCurve = new Vector3 ();
-			for (int j = 0; j < precision; ++j) {
-				Vector3 velocity = spline.GetVelocity (tmp);
-				//dCurve += Vector3.Normalize (velocity);
-				tmp += (d / velocity.magnitude) / precision;
-			}
-			t = tmp;//*/
 			t = spline.GetT (t, extents [i].y, 10);
 
 			n++;
 			i++;
 			i %= items.Length;
-			item.transform.parent = spline.transform;
-		}//*/
-	}
-	/*
-	void Update () {
-		for (int i = 0; i < links.Count; ++i) {
-			Vector3 position = spline.GetPoint (linksT [i]);
-			if (lookForward) {
-				Quaternion tmpRot = Quaternion.FromToRotation (Vector3.up, spline.GetDirection (linksT [i]));
-				links [i].transform.rotation = tmpRot;
-			}
-			links [i].transform.position = position;
 		}
-	}//*/
+	}
 
 	void Update () {
 		if (precision <= 0 || items == null || items.Length == 0 || overlap <= 0.0f) {
@@ -98,6 +77,7 @@ public class SplineDecorator : MonoBehaviour
 			GameObject item;
 			if (links.Count <= n) {
 				item = Instantiate (items [i]);
+				item.transform.parent = transform;
 				links.Add (item);
 				linksT.Add (t);
 			} else {
@@ -110,22 +90,11 @@ public class SplineDecorator : MonoBehaviour
 				item.transform.rotation = tmpRot;
 			}
 			item.transform.position = position;
-			/*
-			d = extents [i].y;
-			float tmp = t;
-			//Vector3 dCurve = new Vector3 ();
-			for (int j = 0; j < precision; ++j) {
-				Vector3 velocity = spline.GetVelocity (tmp);
-				//dCurve += Vector3.Normalize (velocity);
-				tmp += (d / velocity.magnitude) / precision;
-			}
-			t = tmp;//*/
 			t = spline.GetT (t, extents [i].y, 10);
 
 			n++;
 			i++;
 			i %= items.Length;
-			item.transform.parent = spline.transform;
 		}//*/
 		for (; n < links.Count; ++n)
 			links [n].SetActive (false);

@@ -119,7 +119,7 @@ public class Player : Character {
 	public void Reset () {
 		speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 		health = maxHealth;
-		UpdateGauges ();/*
+		UpdateGauges ();//*
 		if (!((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : false)) {
 			laserLoad = maxLaserLoad;
 			SetAbilities (Ability.All, true);
@@ -180,6 +180,7 @@ public class Player : Character {
 			speed = laserSpeed;
 			if ((laserLoad -= maxLaserLoad * IngameTime.deltaTime / laserUnloadTime) <= 0f) {
 				laserLoad = 0f;
+				AkSoundEngine.PostEvent ("laser_empty", gameObject);
 				laser.GetComponent<Laser> ().Stop ();
 				speed = state == PlayerState.DPS ? dpsSpeed : supportSpeed;
 			}
@@ -218,7 +219,7 @@ public class Player : Character {
 			if (Input.GetButtonUp ("Fire1_P" + playerNumber)) {
 				magnet.SetActive (false);
 			}
-			if (Input.GetButtonDown ("Fire2_P" + playerNumber) && Input.GetButton ("Fire1_P" + playerNumber) && CheckAbility (Ability.Dash)) {
+			if (Input.GetButtonDown ("Fire2_P" + playerNumber) && CheckAbility (Ability.Dash)) {
 				if (!dash) {
 					if (IngameTime.time > dashEndTime + dashCooldown) {
 						dash = true;
@@ -227,6 +228,7 @@ public class Player : Character {
 						dashEndTime = IngameTime.time + dashDistance / dashSpeed;
 						speed = dashSpeed;
 						dashVector = deltaPos;
+						AkSoundEngine.PostEvent ("dash", gameObject);
 					}
 				}
 			}
@@ -241,15 +243,16 @@ public class Player : Character {
 			}
 			break;
 		}
-		if (Input.GetButtonDown ("DPS_P" + playerNumber) && CheckAbility (Ability.GoDPS)) {
+		if (Input.GetButtonDown ("DPS_P" + playerNumber) && CheckAbility (Ability.GoDPS) && state != PlayerState.DPS) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
 				speed = dpsSpeed;
 				state = PlayerState.DPS;
 				magnet.SetActive (false);
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
 				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
+				AkSoundEngine.PostEvent ("switch_to_dps", gameObject);
 			}
-		} else if (Input.GetButtonDown ("Support_P" + playerNumber) && CheckAbility (Ability.GoSupport)) {
+		} else if (Input.GetButtonDown ("Support_P" + playerNumber) && CheckAbility (Ability.GoSupport) && state != PlayerState.Support) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
 				SetCanShoot (false);
 				if (!dash)
@@ -258,6 +261,7 @@ public class Player : Character {
 				state = PlayerState.Support;
 				gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
 				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
+				AkSoundEngine.PostEvent ("switch_to_support", gameObject);
 			}
 		}
 
@@ -279,7 +283,9 @@ public class Player : Character {
 	public void EatBullet (Vector3 pos) {
 		if (state == PlayerState.Support) {
 			if (CheckAbility (Ability.LoadLaser)) {
-				if (++laserLoad > maxLaserLoad)
+				if (laserLoad < maxLaserLoad && ++laserLoad > maxLaserLoad)
+					AkSoundEngine.PostEvent ("laser_loaded", gameObject);
+				if (laserLoad > maxLaserLoad)
 					laserLoad = maxLaserLoad;
 			}
 		}
@@ -290,7 +296,9 @@ public class Player : Character {
 	}
 
 	protected override void Death () {
+		AkSoundEngine.PostEvent ("death", gameObject);
 		if (--alivePlayer <= 0) {
+			AkSoundEngine.PostEvent ("game_over", gameObject);
 		} else {
 			StartCoroutine ("RespawnPlayer", this);
 		}
@@ -327,6 +335,7 @@ public class Player : Character {
 	public override bool TakeDamage (float value, bool activeInvincibility = true) {
 		if (dash || !CheckAbility (Ability.TakeDamage))
 			return false;
+		AkSoundEngine.PostEvent ("character_hit", gameObject);
 		bool res = base.TakeDamage (value * (state == PlayerState.Support ? supportDamageReduction : 1f), activeInvincibility);
 		return res;
 	}

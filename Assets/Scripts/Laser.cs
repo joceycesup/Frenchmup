@@ -8,6 +8,8 @@ public class Laser : MonoBehaviour {
 	private float beamHeight;
 	private BoxCollider2D b2d;
 
+	private uint playingID;
+
 	void Awake () {
 		b2d = GetComponent<BoxCollider2D> ();
 		beamHeight = parts [1].GetComponent<SpriteRenderer> ().bounds.size.y;
@@ -46,6 +48,15 @@ public class Laser : MonoBehaviour {
 				parts [1].transform.localScale = new Vector3 (1f, (boxHeight - parts [1].transform.localPosition.y) / beamHeight);
 			}
 		}//*/
+	}
+
+	void OnEnable () {
+		playingID = AkSoundEngine.PostEvent ("laser_cast", gameObject);
+	}
+
+	void OnDisable () {
+		if (playingID != 0)
+			AkSoundEngine.StopPlayingID (playingID);
 	}
 
 	void SetHeight (float height) {

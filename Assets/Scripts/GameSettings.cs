@@ -14,6 +14,11 @@ public class GameSettings : MonoBehaviour {
 		tutorial = true;
 	}
 
+	void Start () {
+		//AkSoundEngine.PostEvent ("start_game", gameObject);
+		AkSoundEngine.PostEvent("switch_to_support", gameObject);
+	}
+
 	public void LoadGame (bool tuto) {
 		tutorial = tuto;
 		Destroy (gameObject.GetComponent<Menu> ());

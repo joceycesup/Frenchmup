@@ -163,7 +163,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			}
 		} else {
 			//Debug.Log (currentState + " : "+awaitingAction+":"+conditions.ToString("X")+":"+ currentSentenceLength);
-			if (WaitAction () || (awaitingAction ? false : Input.GetKeyDown (KeyCode.Return))) {
+			if (WaitAction () || (awaitingAction ? false : Input.GetButtonDown ("SkipSentence"))) {
 				if (currentStateSentence >= sentencesPerState [(int)currentState]) {
 					ResetState ();
 					awaitingAction = false;
@@ -289,7 +289,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			}
 			break;
 		case State.S_18_UtiliseLaser:
-			if (tutoObjects [2] == null) {
+			if (tutoObjects [2] == null || (player1.GetComponent<Player> ().LaserLoad () <= 0f && player2.GetComponent<Player> ().LaserLoad () <= 0f)) {
 				conditions &= ~0x01;
 			}
 			break;
@@ -416,8 +416,8 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			break;
 		case State.S_18_UtiliseLaser:
 			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoSupport | Player.Ability.GoDPS | Player.Ability.Laser | Player.Ability.LoadLaser, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoSupport | Player.Ability.GoDPS | Player.Ability.Laser | Player.Ability.LoadLaser, true);
+			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoDPS | Player.Ability.Laser, true);
+			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoDPS | Player.Ability.Laser, true);
 			for (int i = 0; i < tmpValues [0]; ++i) {
 				tutoObjects [i + (int)tmpValues [1]].GetComponent<Enemy> ().enabled = true;
 			}

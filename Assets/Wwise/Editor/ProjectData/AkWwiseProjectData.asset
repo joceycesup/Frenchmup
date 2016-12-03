@@ -16,9 +16,21 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1DC4E41F-65EF-4055-8E1A-D2329665E104}'
-    m_lastTimePsrt1: -1339970816
-    m_lastTimePart2: -1999365528
+    m_lastTimePsrt1: -576631296
+    m_lastTimePart2: -1999365273
     List:
+    - Name: back_to_menu
+      Path: Default Work Unit\musique\back_to_menu
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: musique
+        ObjectType: 4
+      - ElementName: back_to_menu
+        ObjectType: 3
+      ID: 1110175026
+      Guid: c259d8853edb6446ba4bea4cdcedd2eb
+      maxAttenuation: 0
     - Name: boss_open_eyes
       Path: Default Work Unit\SFX\boss_open_eyes
       PathAndIcons:
@@ -139,6 +151,42 @@ MonoBehaviour:
       ID: -111345533
       Guid: 6da1d1e36f6bd348929265850ee08c01
       maxAttenuation: 0
+    - Name: not_tuto
+      Path: Default Work Unit\musique\not_tuto
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: musique
+        ObjectType: 4
+      - ElementName: not_tuto
+        ObjectType: 3
+      ID: -1038900571
+      Guid: 5aefbb9d6cbf8d459d176b48f12ea1c8
+      maxAttenuation: 0
+    - Name: respawn
+      Path: Default Work Unit\musique\respawn
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: musique
+        ObjectType: 4
+      - ElementName: respawn
+        ObjectType: 3
+      ID: -15125961
+      Guid: 912c7644eab6494cbe64c1bb64dfc4e6
+      maxAttenuation: 0
+    - Name: start_game
+      Path: Default Work Unit\musique\start_game
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: musique
+        ObjectType: 4
+      - ElementName: start_game
+        ObjectType: 3
+      ID: 1114964412
+      Guid: fd9cc7dfe660f14499b616ad3a2df211
+      maxAttenuation: 0
     - Name: switch_to_dps
       Path: Default Work Unit\SFX\switch_to_dps
       PathAndIcons:
@@ -163,6 +211,18 @@ MonoBehaviour:
       ID: -268589669
       Guid: 0947b82190df3341a1d1154a7f86a9c3
       maxAttenuation: 0
+    - Name: tuto
+      Path: Default Work Unit\musique\tuto
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: musique
+        ObjectType: 4
+      - ElementName: tuto
+        ObjectType: 3
+      ID: -1257967289
+      Guid: e6263589a3ffe64abf8e77a734924161
+      maxAttenuation: 0
     - Name: ulti_available
       Path: Default Work Unit\SFX\ulti_available
       PathAndIcons:
@@ -179,15 +239,15 @@ MonoBehaviour:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{3AAE0E57-27F8-4F4F-8730-48BCCA077D76}'
-    m_lastTimePsrt1: -1339970816
-    m_lastTimePart2: -1999365528
+    m_lastTimePsrt1: -516631296
+    m_lastTimePart2: -1999365273
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{664F5768-5C2A-4F7F-AC74-C80956C68563}'
-    m_lastTimePsrt1: -1079970816
-    m_lastTimePart2: -1999365528
+    m_lastTimePsrt1: 183368704
+    m_lastTimePart2: -1999365272
     List:
     - Name: current_zone
       Path: Default Work Unit\current_zone
@@ -201,8 +261,10 @@ MonoBehaviour:
       values:
       - boss_phase_1
       - boss_phase_2
+      - menu
       - mid_boss
       - None
+      - post_boss
       - tuto
       - zone_1
       - zone_2
@@ -211,9 +273,13 @@ MonoBehaviour:
         ObjectType: 8
       - ElementName: boss_phase_2
         ObjectType: 8
+      - ElementName: menu
+        ObjectType: 8
       - ElementName: mid_boss
         ObjectType: 8
       - ElementName: None
+        ObjectType: 8
+      - ElementName: post_boss
         ObjectType: 8
       - ElementName: tuto
         ObjectType: 8
@@ -221,12 +287,14 @@ MonoBehaviour:
         ObjectType: 8
       - ElementName: zone_2
         ObjectType: 8
-      valueIDs: ea99cfe9e999cfe9c7651988db3ba32c47f104b5e725989de425989d
+      valueIDs: ea99cfe9e999cfe9f0256c9bc7651988db3ba32c01567c6547f104b5e725989de425989d
       ValueGuids:
       - bytes: 5ff66a5ac14f2246bb000ed94d923f6e
       - bytes: 012dbe781b90d3448686e0f449257454
+      - bytes: f8d58745da32d549afc46c8e66f83e21
       - bytes: 417b6895632a8a41bcb0e8920a234687
       - bytes: 4bb53071eac5a641a5f890e0e22356e3
+      - bytes: 1a6ef27e05f183438d8b97960fbdcab8
       - bytes: 73197d30b8dd98469215659eb506634d
       - bytes: 128704f3206a0a4fad52665acfa52a18
       - bytes: f587debbea5589459fc3b984fbef0f8b
@@ -234,15 +302,15 @@ MonoBehaviour:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{4CFC13E5-BD1B-4E5A-984B-D5888D55BACD}'
-    m_lastTimePsrt1: -1079970816
-    m_lastTimePart2: -1999365528
+    m_lastTimePsrt1: 183368704
+    m_lastTimePart2: -1999365272
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{78FD01A8-289F-4572-9E03-3FF8A2222C9C}'
-    m_lastTimePsrt1: -1079970816
-    m_lastTimePart2: -1999365528
+    m_lastTimePsrt1: 183368704
+    m_lastTimePart2: -1999365272
     List:
     - Name: full_soundbank
       Path: Default Work Unit\full_soundbank
@@ -257,9 +325,12 @@ MonoBehaviour:
   - /frenchmup
   - /frenchmup/Events
   - /frenchmup/Events/Default Work Unit
+  - /frenchmup/Events/Default Work Unit/musique
   - /frenchmup/Events/Default Work Unit/SFX
   - /frenchmup/SoundBanks
   - /frenchmup/SoundBanks/Default Work Unit
+  - /frenchmup/States
+  - /frenchmup/States/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

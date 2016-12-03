@@ -9,6 +9,8 @@ public class Magnet : MonoBehaviour {
 		private set;
 	}
 
+	private uint playingID;
+
 	void Start () {
 		projectilesAttracted = false;
 	}
@@ -30,5 +32,14 @@ public class Magnet : MonoBehaviour {
 				other.gameObject.transform.rotation = Quaternion.Euler (new Vector3 (0f, 0f, Mathf.LerpAngle(other.gameObject.transform.rotation.eulerAngles.z, angle, factor)));//*/
 			}
 		}
+	}
+
+	void OnEnable () {
+		playingID = AkSoundEngine.PostEvent ("magnet", gameObject);
+	}
+
+	void OnDisable () {
+		if (playingID != 0)
+			AkSoundEngine.StopPlayingID (playingID);
 	}
 }

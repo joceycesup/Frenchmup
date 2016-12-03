@@ -107,6 +107,9 @@ public class AkInitializer : MonoBehaviour
         AkInitSettings initSettings = new AkInitSettings();
         AkSoundEngine.GetDefaultInitSettings(initSettings);
         initSettings.uDefaultPoolSize = (uint)defaultPoolSize * 1024;
+#if UNITY_STANDALONE_WIN
+		initSettings.eMainOutputType = AkAudioAPI.AkAPI_Wasapi;
+#endif
 
         AkPlatformInitSettings platformSettings = new AkPlatformInitSettings();
         AkSoundEngine.GetDefaultPlatformInitSettings(platformSettings);
