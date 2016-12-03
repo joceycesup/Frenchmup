@@ -4,6 +4,9 @@ using System.Collections;
 public class Boss : Enemy {
 	bool phase2 = false;
 
+	public GameObject Pḧase_1;
+	public GameObject Phase_2;
+
 	protected override void StartCharacter () {
 		base.StartCharacter ();
 		// Mets ce que tu veux ici pour l'initialisation

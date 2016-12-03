@@ -24,7 +24,7 @@ GameObject:
   - 60: {fileID: 60000011592019420}
   - 50: {fileID: 50000010012160396}
   m_Layer: 8
-  m_Name: Mouche
+  m_Name: MoucheG
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   invincible: 0
   blood: {fileID: 1000013019042578, guid: 15b855a6753ccaa4aa48249b3a46eb8b, type: 2}
   maxSpeed: 4
-  pattern: 1
+  pattern: 4
   patternArgsO:
   - {fileID: 1000014128689972}
   patternArgsF:
