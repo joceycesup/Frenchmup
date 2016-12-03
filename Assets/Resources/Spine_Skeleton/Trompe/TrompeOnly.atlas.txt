@@ -1,0 +1,62 @@
+
+TrompeOnly.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Morgenstein
+  rotate: false
+  xy: 0, 16
+  size: 120, 93
+  orig: 120, 93
+  offset: 0, 0
+  index: -1
+Trompe_1
+  rotate: false
+  xy: 120, 16
+  size: 79, 93
+  orig: 79, 93
+  offset: 0, 0
+  index: -1
+Trompe_2
+  rotate: true
+  xy: 298, 35
+  size: 74, 76
+  orig: 74, 76
+  offset: 0, 0
+  index: -1
+Trompe_3
+  rotate: false
+  xy: 374, 45
+  size: 49, 64
+  orig: 49, 64
+  offset: 0, 0
+  index: -1
+Trompe_4
+  rotate: false
+  xy: 423, 54
+  size: 55, 55
+  orig: 55, 55
+  offset: 0, 0
+  index: -1
+Trompe_5
+  rotate: true
+  xy: 199, 0
+  size: 47, 55
+  orig: 47, 55
+  offset: 0, 0
+  index: -1
+Trompe_6
+  rotate: true
+  xy: 423, 7
+  size: 47, 55
+  orig: 47, 55
+  offset: 0, 0
+  index: -1
+Trompe_7
+  rotate: true
+  xy: 199, 47
+  size: 62, 99
+  orig: 62, 99
+  offset: 0, 0
+  index: -1
