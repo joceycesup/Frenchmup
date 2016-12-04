@@ -35,6 +35,16 @@ public class Boss : Enemy {
 	}
 
 	void OnDestroy(){
+		if (m_group != null) {
+			m_group.RemoveEnemy ();
+		} else {
+			Debug.LogWarningFormat("{0} was destroyed but has no group", gameObject);
+		}
+		if (pattern == PatternType.Path || pattern == PatternType.Bezier) {
+			if (patternArgsO.Length > 0 && patternArgsO [0] != null) {
+				Destroy (patternArgsO [0]);
+			}
+		}
 		GameObject smartBomb = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/SmartBomb"));
 		smartBomb.transform.parent = ViewportHandler.viewport.transform;
 		smartBomb.transform.position = transform.position;

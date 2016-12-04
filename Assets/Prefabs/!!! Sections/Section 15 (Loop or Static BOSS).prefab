@@ -852,7 +852,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011579617778}
-  m_LocalRotation: {x: -0, y: -0, z: 0.18032338, w: 0.9836075}
+  m_LocalRotation: {x: -0, y: -0, z: 0.18032336, w: 0.9836074}
   m_LocalPosition: {x: 1.213, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1227,7 +1227,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010503079232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 80, z: 0}
+  m_LocalPosition: {x: 0, y: 530, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1825,7 +1825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourLock: {fileID: 1000013976330420}
-  behaviour: 0
+  behaviour: 2
 --- !u!114 &114000011394903738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2050,6 +2050,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fc0e7bf6143be4ea7bd7a10700f876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parCycle: 3
+  Cooldown: 3
+  StartTime: 0
   enemy: {fileID: 1000010136690006, guid: 0cc3135cb26478c49800e1c810ed605c, type: 2}
   emittingRate: 1
 --- !u!114 &114000012582888062
@@ -2093,6 +2096,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fc0e7bf6143be4ea7bd7a10700f876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parCycle: 3
+  Cooldown: 3
+  StartTime: 0
   enemy: {fileID: 1000010136690006, guid: 0cc3135cb26478c49800e1c810ed605c, type: 2}
   emittingRate: 1
 --- !u!114 &114000012836647254
