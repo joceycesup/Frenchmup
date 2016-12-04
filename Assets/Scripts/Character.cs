@@ -85,11 +85,9 @@ public class Character : MonoBehaviour {
 		}
 		Debug.Log ("Ouch");
 		if (blood != null) {
-			if (name == "Boss") {// ou alors pour faire plus propre et eviter de dependre du nom -> if (GetComponent<Boss>() != null) {
-				//Heu ?
-			}
-			else
+			//if (GetComponent<Boss> () == null) {
 				Instantiate (blood, transform.position - Vector3.forward, Quaternion.identity);
+		//	}
 		}
 		if ((health -= value) <= 0) {
 			Death ();

@@ -18,7 +18,7 @@ public class CharHitbox : MonoBehaviour {
 				character.gameObject.GetComponent<Player> ().EatBullet (other.transform.position);
 			}
 			character.TakeDamage (1f, !character.isEnemy);
-			if (character.name == "Boss") {
+			if (character.GetComponent<Boss>()!=null) {
 				Instantiate (Resources.Load ("Particules/MiniBlood"), other.transform.position - Vector3.forward, Quaternion.identity, ViewportHandler.viewport.transform);
 			}
 			other.gameObject.GetComponent<Projectile> ().Remove ();

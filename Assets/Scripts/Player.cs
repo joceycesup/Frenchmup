@@ -83,6 +83,8 @@ public class Player : Character {
 
 	//FXs
 	public GameObject fx_Cancel;
+	public Sprite DPS;
+	public Sprite Support;
 
 	protected override void AwakeCharacter () {
 		if (invincible) {
@@ -248,7 +250,8 @@ public class Player : Character {
 				speed = dpsSpeed;
 				state = PlayerState.DPS;
 				magnet.SetActive (false);
-				gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
+				//gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
+				gameObject.GetComponent<SpriteRenderer>().sprite = DPS;
 				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
 				AkSoundEngine.PostEvent ("switch_to_dps", gameObject);
 			}
@@ -259,7 +262,8 @@ public class Player : Character {
 					speed = supportSpeed;
 				laser.GetComponent<Laser> ().Stop ();
 				state = PlayerState.Support;
-				gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
+				//gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
+				gameObject.GetComponent<SpriteRenderer>().sprite = Support;
 				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
 				AkSoundEngine.PostEvent ("switch_to_support", gameObject);
 			}
