@@ -96,7 +96,7 @@ MonoBehaviour:
   desintegrateStartTime: 0
   speed: 3
   maxSpeed: 3
-  acceleration: -1.5
+  acceleration: -1.25
   curveAngle: 0
   waveLenght: 0
   pattern: 0
