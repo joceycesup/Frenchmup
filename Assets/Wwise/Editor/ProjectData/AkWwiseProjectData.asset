@@ -351,7 +351,6 @@ MonoBehaviour:
   - /frenchmup/SoundBanks/Default Work Unit
   - /frenchmup/States
   - /frenchmup/States/Default Work Unit
-  - /frenchmup/States/Default Work Unit/current_zone
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

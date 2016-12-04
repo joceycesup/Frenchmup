@@ -2323,7 +2323,7 @@ MonoBehaviour:
   patternArgsF: []
   Phase1: {fileID: 1344586816}
   Phase2: {fileID: 1490602647}
-  jauge: {fileID: 1427849338}
+  jauge: {fileID: 0}
 --- !u!1 &702986584
 GameObject:
   m_ObjectHideFlags: 0
@@ -8108,8 +8108,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fc7c8548395b4b241a4fd99bee41b1da, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: fe1bbaa6e2a6b214aa7aad9ee4bf0c9b, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

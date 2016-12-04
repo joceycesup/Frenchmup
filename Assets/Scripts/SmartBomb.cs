@@ -15,12 +15,15 @@ public class SmartBomb : MonoBehaviour {
 	void Start () {
 		if (gameObject.transform.parent == null)
 			return;
+		/*
 		if (gameObject.transform.parent.gameObject.GetComponent<Character> () == null) {
 			GetComponent<SpriteRenderer> ().enabled = false;
 		}
+		*/
 	}
 
 	void OnEnable () {
+		Debug.Log ("bomb enable");
 		startTime = IngameTime.time;
 		desintegrateStartTime = startTime + maxLifeSpan - desintegrateTime;
 		transform.localScale = new Vector3 ();
@@ -28,12 +31,8 @@ public class SmartBomb : MonoBehaviour {
 	}
 
 	void Update () {
+		Debug.Log ("bomb update");
 		float scaleFactor = (IngameTime.time - startTime) / maxLifeSpan;
-		/*
-		if (gameObject.transform.parent.gameObject.GetComponent<Character> () == null) {
-			gameObject.transform.localScale = new Vector3 (scaleFactor*maxLifeSpan, scaleFactor*maxLifeSpan, 0);
-		}
-		else*/
 		gameObject.transform.localScale = new Vector3 (scaleFactor, scaleFactor, 0);
 		if (IngameTime.time >= desintegrateStartTime) {
 			if (IngameTime.time >= desintegrateStartTime + desintegrateTime) {
