@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameSettings : MonoBehaviour {
+	private static GameObject _game_settings;
+
+	public static GameObject game_settings {
+		get { return _game_settings; }
+	}
 	
 	public static bool tutorial {
 		get;
@@ -10,13 +15,13 @@ public class GameSettings : MonoBehaviour {
 	}
 
 	void Awake () {
+		_game_settings = gameObject;
+		AkSoundEngine.PostEvent ("start_game", gameObject);
 		DontDestroyOnLoad (gameObject);
 		tutorial = true;
 	}
 
 	void Start () {
-		//AkSoundEngine.PostEvent ("start_game", gameObject);
-		AkSoundEngine.PostEvent("switch_to_support", gameObject);
 	}
 
 	public void LoadGame (bool tuto) {

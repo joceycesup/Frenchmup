@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1DC4E41F-65EF-4055-8E1A-D2329665E104}'
-    m_lastTimePsrt1: -576631296
-    m_lastTimePart2: -1999365273
+    m_lastTimePsrt1: 535727104
+    m_lastTimePart2: -1999365047
     List:
     - Name: back_to_menu
       Path: Default Work Unit\musique\back_to_menu
@@ -42,6 +42,26 @@ MonoBehaviour:
         ObjectType: 3
       ID: -473845874
       Guid: 7f9e5b8c9059324dbb60f6bb70cbd7ce
+      maxAttenuation: 0
+    - Name: bullet_time_off
+      Path: Default Work Unit\bullet_time_off
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: bullet_time_off
+        ObjectType: 3
+      ID: -732658435
+      Guid: a1d086c0522a0844a0ceb9e4f00ef47b
+      maxAttenuation: 0
+    - Name: bullet_time_on
+      Path: Default Work Unit\bullet_time_on
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: bullet_time_on
+        ObjectType: 3
+      ID: -405178927
+      Guid: bc82bdfa385ad94cb30a360544d4498e
       maxAttenuation: 0
     - Name: character_hit
       Path: Default Work Unit\SFX\character_hit
@@ -246,8 +266,8 @@ MonoBehaviour:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{664F5768-5C2A-4F7F-AC74-C80956C68563}'
-    m_lastTimePsrt1: 183368704
-    m_lastTimePart2: -1999365272
+    m_lastTimePsrt1: -769505536
+    m_lastTimePart2: -1999365208
     List:
     - Name: current_zone
       Path: Default Work Unit\current_zone
@@ -309,8 +329,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{78FD01A8-289F-4572-9E03-3FF8A2222C9C}'
-    m_lastTimePsrt1: 183368704
-    m_lastTimePart2: -1999365272
+    m_lastTimePsrt1: -1832491443
+    m_lastTimePart2: -1999365046
     List:
     - Name: full_soundbank
       Path: Default Work Unit\full_soundbank

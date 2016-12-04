@@ -53,10 +53,11 @@ public class IngameTime : MonoBehaviour {
 		if (factor > 0f) {
 			_timeFactor *= factor;
 			if (_timeFactor < 1f) {
-				gameObject.GetComponent<AudioLowPassFilter> ().cutoffFrequency = _timeFactor * maxCutoffFrequency;
-				gameObject.GetComponent<AudioLowPassFilter> ().enabled = true;
+				AkSoundEngine.PostEvent ("bullet_time_on", GameSettings.game_settings);
+				Debug.Log ("bellette time!!");
 			} else {
-				gameObject.GetComponent<AudioLowPassFilter> ().enabled = false;
+				AkSoundEngine.PostEvent ("bullet_time_off", GameSettings.game_settings);
+				Debug.Log ("bellette time au feu!!");
 			}
 			//AudioListener.volume = _timeFactor;
 		}
