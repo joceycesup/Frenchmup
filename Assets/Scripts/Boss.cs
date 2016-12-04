@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Spine.Unity;
 
 public class Boss : Enemy {
 	bool phase2 = false;
@@ -10,8 +11,27 @@ public class Boss : Enemy {
 
 	public Image jauge;
 
+	SkeletonAnimation skel;
+	public SkeletonAnimation trompe2;
+
+	[SpineAttachment (currentSkinOnly: true, slotField: "Paupiere")]
+	public string eyesOpen;
+
+	[SpineAttachment (currentSkinOnly: true, slotField: "Paupiere")]
+	public string eyesClosed;
+
+
 	protected override void StartCharacter () {
 		base.StartCharacter ();
+		skel = GetComponent<SkeletonAnimation> ();
+		if (skel != null) {
+			skel.skeleton.SetAttachment ("Paupiere", eyesClosed);
+
+			skel.AnimationState.TimeScale = 0.75f;
+			//On met une animation sur un track, 0 prenant la priorité sur toutes les autres animations, le nom de l'animation puis si ça loop ou pas
+			skel.AnimationState.SetAnimation (1, "FlapAiles", true);
+			skel.AnimationState.SetAnimation (0, "Testing", true);
+		}
 		// Mets ce que tu veux ici pour l'initialisation
 		if (Phase1 != null)
 			Phase1.SetActive (true);
@@ -34,7 +54,16 @@ public class Boss : Enemy {
 			phase2 = true;
 			// Mise en place de la phase 2
 			Debug.Log("Phase2");
-			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"));
+
+			skel.skeleton.SetAttachment ("Paupiere", eyesOpen);
+
+			trompe2.gameObject.SetActive (true);
+			skel.AnimationState.SetAnimation (0, "Testing", true);
+			trompe2.AnimationState.SetAnimation (0, "Starting", false);
+			trompe2.timeScale = 0.75f;
+			trompe2.AnimationState.AddAnimation (0, "Testing", true, 0);
+
+			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBombEnemy"));
 			smartBomb.transform.parent = ViewportHandler.viewport.transform;
 			smartBomb.transform.position = transform.position;
 			smartBomb.SetActive (true);
@@ -64,7 +93,7 @@ public class Boss : Enemy {
         if (health <= 0f)
         {
 			Debug.Log("Say hello to my little friend");
-			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"), ViewportHandler.viewport.transform);
+			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBombEnemy"), ViewportHandler.viewport.transform);
             smartBomb.transform.position = transform.position;
 			smartBomb.SetActive (true);
 			//Debug.Break ();
