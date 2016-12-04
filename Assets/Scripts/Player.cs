@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : Character {
 	private static int alivePlayer = 0;
@@ -72,9 +73,9 @@ public class Player : Character {
 	private GameObject smartBomb;
 	private GameObject laser;
 
-	public GameObject laserGauge;
-	public GameObject specialGauge;
-	public GameObject healthGauge;
+	public Image laserGauge;
+	public Image specialGauge;
+	public Image healthGauge;
 
 	/*================Message de KV====================
 	 * 
@@ -285,15 +286,15 @@ public class Player : Character {
 	}
 
 	public void EatBullet (Vector3 pos) {
-		if (state == PlayerState.Support) {
-			if (CheckAbility (Ability.LoadLaser)) {
-				if (laserLoad < maxLaserLoad && ++laserLoad > maxLaserLoad)
-					AkSoundEngine.PostEvent ("laser_loaded", gameObject);
-				if (laserLoad > maxLaserLoad)
-					laserLoad = maxLaserLoad;
-			}
-		}
 		if (dash) {
+			if (state == PlayerState.Support) {
+				if (CheckAbility (Ability.LoadLaser)) {
+					if (laserLoad < maxLaserLoad && ++laserLoad > maxLaserLoad)
+						AkSoundEngine.PostEvent ("laser_loaded", gameObject);
+					if (laserLoad > maxLaserLoad)
+						laserLoad = maxLaserLoad;
+				}
+			}
 			Instantiate (Resources.Load<GameObject>("Particules/Cancel"),pos-Vector3.forward*0.1f,Quaternion.identity,ViewportHandler.viewport.transform);
 			projectilesAbsorbed++;
 		}
@@ -346,10 +347,13 @@ public class Player : Character {
 
 	void UpdateGauges () {
 		//Debug.Log (gameObject + " health : " + health);
-		if (healthGauge != null) {
-			healthGauge.transform.localScale = new Vector3 (health / maxHealth, 1f, 1f);
-			laserGauge.transform.localScale = new Vector3 (LaserLoad (), 1f, 1f);
-			specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
+		if(laserGauge!=null)
+			laserGauge.fillAmount = LaserLoad ();
+		if(healthGauge!=null)
+			healthGauge.fillAmount = health / maxHealth;
+		if (specialGauge != null) {
+			specialGauge.fillAmount = state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown);
+		//	specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
 		}
 	}
 
