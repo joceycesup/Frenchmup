@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
+using UnityEngine.UI;
 #if UNITY_EDITOR
-using UnityEditor;
 #endif
 
 public class OldDudeOfTheTuto : MonoBehaviour {
@@ -37,6 +36,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 
 	public GameObject player1;
 	public GameObject player2;
+	public Text text;
 	public GameObject grayZone;
 	public State currentState;
 	public string[] sentences = {
@@ -134,7 +134,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 
 	void Start () {
 		for (int i = 0; i < (int)currentState; ++i) {
-			currentSentence += sentencesPerState [i];
+			currentSentence += sentencesPerState[i];
 		}
 		SetState ();
 		GetComponent<Animator> ().Play ("vieux_parle");
@@ -149,14 +149,15 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			return;
 		}
 
-		if (currentSentenceLength <= sentences [currentSentence].Length) {
-			sentence = sentences [currentSentence].Substring (0, currentSentenceLength);
-			if (++currentSentenceLength > sentences [currentSentence].Length) {
-				#if UNITY_EDITOR
+		if (currentSentenceLength <= sentences[currentSentence].Length) {
+			sentence = sentences[currentSentence].Substring (0, currentSentenceLength);
+			UpdateText ();
+			if (++currentSentenceLength > sentences[currentSentence].Length) {
+#if UNITY_EDITOR
 				//Debug.Log (currentState + " reached end of sentence, awaiting = "+awaitingAction);
 				//EditorApplication.isPaused = true;
-				#endif
-				if (++currentStateSentence >= sentencesPerState [(int)currentState]) {
+#endif
+				if (++currentStateSentence >= sentencesPerState[(int)currentState]) {
 					SetWaitAction ();
 				}
 				GetComponent<Animator> ().Play ("vieux_idle");
@@ -164,7 +165,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		} else {
 			//Debug.Log (currentState + " : "+awaitingAction+":"+conditions.ToString("X")+":"+ currentSentenceLength);
 			if (WaitAction () || (awaitingAction ? false : Input.GetButtonDown ("SkipSentence"))) {
-				if (currentStateSentence >= sentencesPerState [(int)currentState]) {
+				if (currentStateSentence >= sentencesPerState[(int)currentState]) {
 					ResetState ();
 					awaitingAction = false;
 					currentStateSentence = 0;
@@ -186,46 +187,50 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		}
 	}
 
+	void UpdateText () {
+		text.text = sentence;
+	}
+
 	bool SetWaitAction () {
 		switch (currentState) {
-		case State.S_01_Deplacement:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move, true);
-			conditions = 0x03;
-			break;
-		case State.S_05_TueMouches:
-			conditions = 0x01;
-			break;
-		case State.S_07_PassageSupport:
-			conditions = 0x03;
-			break;
-		case State.S_08_UtiliseDash:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
-			conditions = 0x03;
-			break;
-		case State.S_10_AbsorbeProjectiles:
-			conditions = 0x03;
-			break;
-		case State.S_12_UtiliseMagnet:
-			conditions = 0x03;
-			break;
-		case State.S_16_RemplitLaser:
-			conditions = 0x03;
-			break;
-		case State.S_18_UtiliseLaser:
-			conditions = 0x01;
-			break;
-		case State.S_21_J2PasseSupport:
-			conditions = 0x01;
-			break;
-		case State.S_25_UtiliseSpecial:
-			conditions = 0x01;
-			break;
-		default:
-			break;
+			case State.S_01_Deplacement:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move, true);
+				conditions = 0x03;
+				break;
+			case State.S_05_TueMouches:
+				conditions = 0x01;
+				break;
+			case State.S_07_PassageSupport:
+				conditions = 0x03;
+				break;
+			case State.S_08_UtiliseDash:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
+				conditions = 0x03;
+				break;
+			case State.S_10_AbsorbeProjectiles:
+				conditions = 0x03;
+				break;
+			case State.S_12_UtiliseMagnet:
+				conditions = 0x03;
+				break;
+			case State.S_16_RemplitLaser:
+				conditions = 0x03;
+				break;
+			case State.S_18_UtiliseLaser:
+				conditions = 0x01;
+				break;
+			case State.S_21_J2PasseSupport:
+				conditions = 0x01;
+				break;
+			case State.S_25_UtiliseSpecial:
+				conditions = 0x01;
+				break;
+			default:
+				break;
 		}
 		return awaitingAction = (conditions != 0);
 	}
@@ -235,76 +240,76 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			return false;
 		//Debug.Log ("wait action");
 		switch (currentState) {
-		case State.S_01_Deplacement:
-			if (Input.GetAxis ("Horizontal_P1") != 0f || Input.GetAxis ("Vertical_P1") != 0f) {
-				conditions &= ~0x01;
-			}
-			if (Input.GetAxis ("Horizontal_P2") != 0f || Input.GetAxis ("Vertical_P2") != 0f) {
-				conditions &= ~0x02;
-			}
-			break;
-		case State.S_05_TueMouches:
-			if (tutoObjects [0] == null) {
-				conditions &= ~0x01;
-			}
-			break;
-		case State.S_07_PassageSupport:
-			if (player1.GetComponent<Player> ().state == Player.PlayerState.Support) {
-				conditions &= ~0x01;
-			}
-			if (player2.GetComponent<Player> ().state == Player.PlayerState.Support) {
-				conditions &= ~0x02;
-			}
-			break;
-		case State.S_08_UtiliseDash:
-			if (player1.GetComponent<Player> ().dash) {
-				conditions &= ~0x01;
-			}
-			if (player2.GetComponent<Player> ().dash) {
-				conditions &= ~0x02;
-			}
-			break;
-		case State.S_10_AbsorbeProjectiles:
-			if (player1.GetComponent<Player> ().projectilesAbsorbed >= 3) {
-				conditions &= ~0x01;
-			}
-			if (player2.GetComponent<Player> ().projectilesAbsorbed >= 3) {
-				conditions &= ~0x02;
-			}
-			break;
-		case State.S_12_UtiliseMagnet:
-			if (player1.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted) {
-				conditions &= ~0x01;
-			}
-			if (player2.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted) {
-				conditions &= ~0x02;
-			}
-			break;
-		case State.S_16_RemplitLaser:
-			if (player1.GetComponent<Player> ().LaserLoad () >= 1f) {
-				conditions &= ~0x01;
-			}
-			if (player2.GetComponent<Player> ().LaserLoad () >= 1f) {
-				conditions &= ~0x02;
-			}
-			break;
-		case State.S_18_UtiliseLaser:
-			if (tutoObjects [2] == null || (player1.GetComponent<Player> ().LaserLoad () <= 0f && player2.GetComponent<Player> ().LaserLoad () <= 0f)) {
-				conditions &= ~0x01;
-			}
-			break;
-		case State.S_21_J2PasseSupport:
-			if (player2.GetComponent<Player> ().state == Player.PlayerState.Support) {
-				conditions &= ~0x01;
-			}
-			break;
-		case State.S_25_UtiliseSpecial:
-			if (tutoObjects [3] == null) {
-				conditions &= ~0x01;
-			}
-			break;
-		default:
-			break;
+			case State.S_01_Deplacement:
+				if (Input.GetAxis ("Horizontal_P1") != 0f || Input.GetAxis ("Vertical_P1") != 0f) {
+					conditions &= ~0x01;
+				}
+				if (Input.GetAxis ("Horizontal_P2") != 0f || Input.GetAxis ("Vertical_P2") != 0f) {
+					conditions &= ~0x02;
+				}
+				break;
+			case State.S_05_TueMouches:
+				if (tutoObjects[0] == null) {
+					conditions &= ~0x01;
+				}
+				break;
+			case State.S_07_PassageSupport:
+				if (player1.GetComponent<Player> ().state == Player.PlayerState.Support) {
+					conditions &= ~0x01;
+				}
+				if (player2.GetComponent<Player> ().state == Player.PlayerState.Support) {
+					conditions &= ~0x02;
+				}
+				break;
+			case State.S_08_UtiliseDash:
+				if (player1.GetComponent<Player> ().dash) {
+					conditions &= ~0x01;
+				}
+				if (player2.GetComponent<Player> ().dash) {
+					conditions &= ~0x02;
+				}
+				break;
+			case State.S_10_AbsorbeProjectiles:
+				if (player1.GetComponent<Player> ().projectilesAbsorbed >= 3) {
+					conditions &= ~0x01;
+				}
+				if (player2.GetComponent<Player> ().projectilesAbsorbed >= 3) {
+					conditions &= ~0x02;
+				}
+				break;
+			case State.S_12_UtiliseMagnet:
+				if (player1.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted) {
+					conditions &= ~0x01;
+				}
+				if (player2.GetComponent<Player> ().magnet.GetComponent<Magnet> ().projectilesAttracted) {
+					conditions &= ~0x02;
+				}
+				break;
+			case State.S_16_RemplitLaser:
+				if (player1.GetComponent<Player> ().LaserLoad () >= 1f) {
+					conditions &= ~0x01;
+				}
+				if (player2.GetComponent<Player> ().LaserLoad () >= 1f) {
+					conditions &= ~0x02;
+				}
+				break;
+			case State.S_18_UtiliseLaser:
+				if (tutoObjects[2] == null || (player1.GetComponent<Player> ().LaserLoad () <= 0f && player2.GetComponent<Player> ().LaserLoad () <= 0f)) {
+					conditions &= ~0x01;
+				}
+				break;
+			case State.S_21_J2PasseSupport:
+				if (player2.GetComponent<Player> ().state == Player.PlayerState.Support) {
+					conditions &= ~0x01;
+				}
+				break;
+			case State.S_25_UtiliseSpecial:
+				if (tutoObjects[3] == null) {
+					conditions &= ~0x01;
+				}
+				break;
+			default:
+				break;
 		}
 		return conditions == 0;
 	}
@@ -312,257 +317,251 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	void SetState () {
 		//Debug.Log ("current state : " + currentState);
 		switch (currentState) {
-		case State.S_01_Deplacement:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			break;
-		case State.S_02_JaugesVie:
-			{
+			case State.S_01_Deplacement:
 				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-				Transform hg1 = player1.GetComponent<Player> ().healthGauge.transform.parent;
-				Transform hg2 = player2.GetComponent<Player> ().healthGauge.transform.parent;
-				for (int i = 0; i < hg1.childCount; ++i) {
-					hg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
-					hg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				break;
+			case State.S_02_JaugesVie: {
+					grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+					Transform hg1 = player1.GetComponent<Player> ().healthGauge.transform.parent;
+					Transform hg2 = player2.GetComponent<Player> ().healthGauge.transform.parent;
+					for (int i = 0; i < hg1.childCount; ++i) {
+						hg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+						hg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+					}
 				}
-			}
-			break;
-		case State.S_03_Roles:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_04_BasesDPS:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_05_TueMouches:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Shotgun | Player.Ability.Move, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Shotgun | Player.Ability.Move, true);
-			tutoObjects [0].SetActive (true);
-			tutoObjects [0].GetComponent<EnemyGroup> ().Unleash ();
-			break;
-		case State.S_06_BasesSupport:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_07_PassageSupport:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport, true);
-			break;
-		case State.S_08_UtiliseDash:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_09_PresSupport:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_10_AbsorbeProjectiles:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
-			tutoObjects [1].SetActive (true);
-			for (int i = 0; i < tutoObjects [1].transform.childCount; ++i) {
-				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().isEnemy = true;
-				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().enabled = true;
-			}
-			break;
-		case State.S_11_PresMagnet:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_12_UtiliseMagnet:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Magnet, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Magnet, true);
-			tutoObjects [1].SetActive (true);
-			for (int i = 0; i < tutoObjects [1].transform.childCount; ++i) {
-				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().isEnemy = true;
-				tutoObjects [1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().enabled = true;
-			}
-			break;
-		case State.S_13_TransitionLaser:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_14_JaugesLaser:
-			{
+				break;
+			case State.S_03_Roles:
 				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-				Transform lg1 = player1.GetComponent<Player> ().laserGauge.transform.parent;
-				Transform lg2 = player2.GetComponent<Player> ().laserGauge.transform.parent;
-				for (int i = 0; i < lg1.childCount; ++i) {
-					lg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
-					lg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
-				}
-			}
-			break;
-		case State.S_15_PresLaser:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_16_RemplitLaser:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser, true);
-			tmpValues [0] = tutoObjects [2].transform.childCount;
-			tmpValues [1] = tutoObjects.Length;
-			tmpValues [2] = player1.GetComponent<Player> ().maxLaserLoad;
-			player1.GetComponent<Player> ().SetLaserMaxLoad (3f);
-			player2.GetComponent<Player> ().SetLaserMaxLoad (3f);
-			System.Array.Resize (ref tutoObjects, tutoObjects.Length + tutoObjects [2].transform.childCount);
-			for (int i = 0; i < tmpValues [0]; ++i) {
-				tutoObjects [i + (int)tmpValues [1]] = tutoObjects [2].transform.GetChild (i).gameObject;
-			}
-			tutoObjects [2].SetActive (true);
-			tutoObjects [2].GetComponent<EnemyGroup> ().Unleash ();
-			break;
-		case State.S_17_LaserPasseDPS:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_18_UtiliseLaser:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoDPS | Player.Ability.Laser, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoDPS | Player.Ability.Laser, true);
-			for (int i = 0; i < tmpValues [0]; ++i) {
-				tutoObjects [i + (int)tmpValues [1]].GetComponent<Enemy> ().enabled = true;
-			}
-			break;
-		case State.S_19_WarningLaser:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_20_Complementaires:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_21_J2PasseSupport:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport | Player.Ability.Chain, true);
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoDPS | Player.Ability.Chain, true);
-			break;
-		case State.S_22_UtiliseChaine:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_23_JaugesSpecial:
-			{
+				break;
+			case State.S_04_BasesDPS:
 				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-				Transform sg1 = player1.GetComponent<Player> ().specialGauge.transform.parent;
-				Transform sg2 = player2.GetComponent<Player> ().specialGauge.transform.parent;
-				for (int i = 0; i < sg1.childCount; ++i) {
-					sg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
-					sg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+				break;
+			case State.S_05_TueMouches:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Shotgun | Player.Ability.Move, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Shotgun | Player.Ability.Move, true);
+				tutoObjects[0].SetActive (true);
+				tutoObjects[0].GetComponent<EnemyGroup> ().Unleash ();
+				break;
+			case State.S_06_BasesSupport:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_07_PassageSupport:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport, true);
+				break;
+			case State.S_08_UtiliseDash:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_09_PresSupport:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_10_AbsorbeProjectiles:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Dash, true);
+				tutoObjects[1].SetActive (true);
+				for (int i = 0; i < tutoObjects[1].transform.childCount; ++i) {
+					tutoObjects[1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().isEnemy = true;
+					tutoObjects[1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().enabled = true;
 				}
-			}
-			break;
-		case State.S_24_PresSpecial:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		case State.S_25_UtiliseSpecial:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = false;
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Bomb | Player.Ability.Move, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.BulletTime | Player.Ability.Move, true);
-			tutoObjects [3].SetActive (true);
-			tutoObjects [3].GetComponent<EnemyGroup> ().Unleash ();
-			break;
-		case State.S_26_FinTuto:
-			grayZone.GetComponent<SpriteRenderer> ().enabled = true;
-			break;
-		default:
-			break;
+				break;
+			case State.S_11_PresMagnet:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_12_UtiliseMagnet:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Magnet, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.Magnet, true);
+				tutoObjects[1].SetActive (true);
+				for (int i = 0; i < tutoObjects[1].transform.childCount; ++i) {
+					tutoObjects[1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().isEnemy = true;
+					tutoObjects[1].transform.GetChild (i).GetComponent<ProjectileEmitter> ().enabled = true;
+				}
+				break;
+			case State.S_13_TransitionLaser:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_14_JaugesLaser: {
+					grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+					Transform lg1 = player1.GetComponent<Player> ().laserGauge.transform.parent;
+					Transform lg2 = player2.GetComponent<Player> ().laserGauge.transform.parent;
+					for (int i = 0; i < lg1.childCount; ++i) {
+						lg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+						lg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+					}
+				}
+				break;
+			case State.S_15_PresLaser:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_16_RemplitLaser:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser, true);
+				tmpValues[0] = tutoObjects[2].transform.childCount;
+				tmpValues[1] = tutoObjects.Length;
+				tmpValues[2] = player1.GetComponent<Player> ().maxLaserLoad;
+				player1.GetComponent<Player> ().SetLaserMaxLoad (3f);
+				player2.GetComponent<Player> ().SetLaserMaxLoad (3f);
+				System.Array.Resize (ref tutoObjects, tutoObjects.Length + tutoObjects[2].transform.childCount);
+				for (int i = 0; i < tmpValues[0]; ++i) {
+					tutoObjects[i + (int)tmpValues[1]] = tutoObjects[2].transform.GetChild (i).gameObject;
+				}
+				tutoObjects[2].SetActive (true);
+				tutoObjects[2].GetComponent<EnemyGroup> ().Unleash ();
+				break;
+			case State.S_17_LaserPasseDPS:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_18_UtiliseLaser:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoDPS | Player.Ability.Laser, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.GoDPS | Player.Ability.Laser, true);
+				for (int i = 0; i < tmpValues[0]; ++i) {
+					tutoObjects[i + (int)tmpValues[1]].GetComponent<Enemy> ().enabled = true;
+				}
+				break;
+			case State.S_19_WarningLaser:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_20_Complementaires:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_21_J2PasseSupport:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport | Player.Ability.Chain, true);
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoDPS | Player.Ability.Chain, true);
+				break;
+			case State.S_22_UtiliseChaine:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_23_JaugesSpecial: {
+					grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+					Transform sg1 = player1.GetComponent<Player> ().specialGauge.transform.parent;
+					Transform sg2 = player2.GetComponent<Player> ().specialGauge.transform.parent;
+					for (int i = 0; i < sg1.childCount; ++i) {
+						sg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+						sg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder += 4;
+					}
+				}
+				break;
+			case State.S_24_PresSpecial:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			case State.S_25_UtiliseSpecial:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = false;
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Bomb | Player.Ability.Move, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.BulletTime | Player.Ability.Move, true);
+				tutoObjects[3].SetActive (true);
+				tutoObjects[3].GetComponent<EnemyGroup> ().Unleash ();
+				break;
+			case State.S_26_FinTuto:
+				grayZone.GetComponent<SpriteRenderer> ().enabled = true;
+				break;
+			default:
+				break;
 		}
 	}
 
 	void ResetState () {
 		switch (currentState) {
-		case State.S_01_Deplacement:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			break;
-		case State.S_02_JaugesVie:
-			{
-				Transform hg1 = player1.GetComponent<Player> ().healthGauge.transform.parent;
-				Transform hg2 = player2.GetComponent<Player> ().healthGauge.transform.parent;
-				for (int i = 0; i < hg1.childCount; ++i) {
-					hg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
-					hg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+			case State.S_01_Deplacement:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				break;
+			case State.S_02_JaugesVie: {
+					Transform hg1 = player1.GetComponent<Player> ().healthGauge.transform.parent;
+					Transform hg2 = player2.GetComponent<Player> ().healthGauge.transform.parent;
+					for (int i = 0; i < hg1.childCount; ++i) {
+						hg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+						hg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+					}
 				}
-			}
-			break;
-		case State.S_05_TueMouches:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			break;
-		case State.S_07_PassageSupport:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			break;
-		case State.S_08_UtiliseDash:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			break;
-		case State.S_10_AbsorbeProjectiles:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			tutoObjects [1].SetActive (false);
-			break;
-		case State.S_12_UtiliseMagnet:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			tutoObjects [1].SetActive (false);
-			break;
-		case State.S_14_JaugesLaser:
-			{
-				Transform lg1 = player1.GetComponent<Player> ().laserGauge.transform.parent;
-				Transform lg2 = player2.GetComponent<Player> ().laserGauge.transform.parent;
-				for (int i = 0; i < lg1.childCount; ++i) {
-					lg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
-					lg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+				break;
+			case State.S_05_TueMouches:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				break;
+			case State.S_07_PassageSupport:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				break;
+			case State.S_08_UtiliseDash:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				break;
+			case State.S_10_AbsorbeProjectiles:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				tutoObjects[1].SetActive (false);
+				break;
+			case State.S_12_UtiliseMagnet:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				tutoObjects[1].SetActive (false);
+				break;
+			case State.S_14_JaugesLaser: {
+					Transform lg1 = player1.GetComponent<Player> ().laserGauge.transform.parent;
+					Transform lg2 = player2.GetComponent<Player> ().laserGauge.transform.parent;
+					for (int i = 0; i < lg1.childCount; ++i) {
+						lg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+						lg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+					}
 				}
-			}
-			break;
-		case State.S_16_RemplitLaser:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			for (int i = 0; i < tmpValues [0]; ++i) {
-				tutoObjects [i + (int)tmpValues [1]].GetComponent<Enemy> ().enabled = false;
-			}
-			break;
-		case State.S_18_UtiliseLaser:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			break;
-		case State.S_21_J2PasseSupport:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoDPS, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport, false);
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.Chain, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.Chain, true);
-			break;
-		case State.S_23_JaugesSpecial:
-			{
-				Transform sg1 = player1.GetComponent<Player> ().specialGauge.transform.parent;
-				Transform sg2 = player2.GetComponent<Player> ().specialGauge.transform.parent;
-				for (int i = 0; i < sg1.childCount; ++i) {
-					sg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
-					sg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+				break;
+			case State.S_16_RemplitLaser:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				for (int i = 0; i < tmpValues[0]; ++i) {
+					tutoObjects[i + (int)tmpValues[1]].GetComponent<Enemy> ().enabled = false;
 				}
-			}
-			break;
-		case State.S_25_UtiliseSpecial:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
-			break;
-		case State.S_26_FinTuto:
-			player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, true);
-			player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, true);
-			player1.GetComponent<Player> ().SetLaserMaxLoad (tmpValues [2]);
-			player2.GetComponent<Player> ().SetLaserMaxLoad (tmpValues [2]);
-			player1.GetComponent<Player> ().Reset ();
-			player2.GetComponent<Player> ().Reset ();
-			break;
-		default:
-			break;
+				break;
+			case State.S_18_UtiliseLaser:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				break;
+			case State.S_21_J2PasseSupport:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoDPS, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport, false);
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Chain, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Chain, true);
+				break;
+			case State.S_23_JaugesSpecial: {
+					Transform sg1 = player1.GetComponent<Player> ().specialGauge.transform.parent;
+					Transform sg2 = player2.GetComponent<Player> ().specialGauge.transform.parent;
+					for (int i = 0; i < sg1.childCount; ++i) {
+						sg1.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+						sg2.GetChild (i).gameObject.GetComponent<SpriteRenderer> ().sortingOrder -= 4;
+					}
+				}
+				break;
+			case State.S_25_UtiliseSpecial:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, false);
+				break;
+			case State.S_26_FinTuto:
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.All, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.All, true);
+				player1.GetComponent<Player> ().SetLaserMaxLoad (tmpValues[2]);
+				player2.GetComponent<Player> ().SetLaserMaxLoad (tmpValues[2]);
+				player1.GetComponent<Player> ().Reset ();
+				player2.GetComponent<Player> ().Reset ();
+				break;
+			default:
+				break;
 		}
 	}
-
+	/*
 	void OnGUI () {
 		if (currentSentence >= sentences.Length)
 			return;
 		GUIStyle style = new GUIStyle ();
 		style.normal.textColor = Color.white;
 		style.fontSize = 15;
-		GUI.TextArea (new Rect (Camera.main.WorldToScreenPoint( transform.position - GetComponent<SpriteRenderer> ().bounds.extents).x, Screen.height - Camera.main.WorldToScreenPoint( transform.position + GetComponent<SpriteRenderer> ().bounds.extents).y - 60, 150, 60), sentence, style);
-	}
+		GUI.TextArea (new Rect (Camera.main.WorldToScreenPoint (transform.position - GetComponent<SpriteRenderer> ().bounds.extents).x, Screen.height - Camera.main.WorldToScreenPoint (transform.position + GetComponent<SpriteRenderer> ().bounds.extents).y - 60, 150, 60), sentence, style);
+	}//*/
 }
