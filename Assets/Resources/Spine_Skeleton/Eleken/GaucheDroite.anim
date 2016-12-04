@@ -18,22 +18,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: -9.299999, z: 0}
+        value: {x: 0, y: 0, z: 0}
         inSlope: {x: -1.5, y: 0, z: 0}
         outSlope: {x: -1.5, y: 0, z: 0}
         tangentMode: 0
       - time: 0.6666667
-        value: {x: -1, y: -9.299999, z: 0}
+        value: {x: -1, y: 0, z: 0}
         inSlope: {x: 0.000000059604645, y: 0, z: 0}
         outSlope: {x: 0.000000059604645, y: 0, z: 0}
         tangentMode: 0
       - time: 2
-        value: {x: 1, y: -9.299999, z: 0}
+        value: {x: 1, y: 0, z: 0}
         inSlope: {x: 0.00000011920929, y: 0, z: 0}
         outSlope: {x: 0.00000011920929, y: 0, z: 0}
         tangentMode: 0
       - time: 2.6666667
-        value: {x: 0, y: -9.299999, z: 0}
+        value: {x: 0, y: 0, z: 0}
         inSlope: {x: -1.4999999, y: 0, z: 0}
         outSlope: {x: -1.4999999, y: 0, z: 0}
         tangentMode: 0
@@ -106,56 +106,6 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -9.299999
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.6666667
-        value: -9.299999
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.6666667
-        value: -9.299999
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.y
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.6666667
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.6666667
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.z
     path: 
     classID: 4
     script: {fileID: 0}

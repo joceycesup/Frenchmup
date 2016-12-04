@@ -22,10 +22,21 @@ public class Boss : Enemy {
 		base.UpdateCharacter ();
 		if(jauge!=null)
 			jauge.fillAmount = health/maxHealth;
+
+
+		if (Input.GetKeyDown (KeyCode.K)) {
+			Debug.Log ("Kill");
+			health -= 75;
+		}
+
 		// Mets ce que tu veux ici
 		if (Phase1 != null && !phase2 && health < maxHealth / 2f) {
 			phase2 = true;
 			// Mise en place de la phase 2
+
+			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"));
+			smartBomb.transform.parent = ViewportHandler.viewport.transform;
+			smartBomb.transform.position = transform.position;
 
 			Destroy (Phase1);
 			Phase2.SetActive (true);

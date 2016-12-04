@@ -270,6 +270,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 1
   patternArgsO:

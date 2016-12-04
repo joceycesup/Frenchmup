@@ -312,6 +312,16 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010896216858, guid: 0798716efcbce234796f192a9efebd14,
+        type: 2}
+      propertyPath: retractSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010896216858, guid: 0798716efcbce234796f192a9efebd14,
+        type: 2}
+      propertyPath: damage
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0798716efcbce234796f192a9efebd14, type: 2}
   m_IsPrefabParent: 0
