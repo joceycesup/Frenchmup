@@ -37,6 +37,7 @@ public class Boss : Enemy {
 			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"));
 			smartBomb.transform.parent = ViewportHandler.viewport.transform;
 			smartBomb.transform.position = transform.position;
+			smartBomb.SetActive (true);
 
 			Destroy (Phase1);
 			Phase2.SetActive (true);
@@ -65,6 +66,8 @@ public class Boss : Enemy {
 			Debug.Log("Say hello to my little friend");
 			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"), ViewportHandler.viewport.transform);
             smartBomb.transform.position = transform.position;
+			smartBomb.SetActive (true);
+			//Debug.Break ();
         }
 	}
 

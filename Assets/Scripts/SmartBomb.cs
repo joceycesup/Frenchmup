@@ -15,11 +15,9 @@ public class SmartBomb : MonoBehaviour {
 	void Start () {
 		if (gameObject.transform.parent == null)
 			return;
-		/*
 		if (gameObject.transform.parent.gameObject.GetComponent<Character> () == null) {
 			GetComponent<SpriteRenderer> ().enabled = false;
 		}
-		*/
 	}
 
 	void OnEnable () {
