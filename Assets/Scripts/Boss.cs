@@ -26,14 +26,14 @@ public class Boss : Enemy {
 
 		if (Input.GetKeyDown (KeyCode.K)) {
 			Debug.Log ("Kill");
-			health -= 75;
+			TakeDamage (75, false);
 		}
 
 		// Mets ce que tu veux ici
 		if (Phase1 != null && !phase2 && health < maxHealth / 2f) {
 			phase2 = true;
 			// Mise en place de la phase 2
-
+			Debug.Log("Phase2");
 			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"));
 			smartBomb.transform.parent = ViewportHandler.viewport.transform;
 			smartBomb.transform.position = transform.position;
@@ -62,8 +62,8 @@ public class Boss : Enemy {
 		}
         if (health <= 0f)
         {
-            GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"));
-            smartBomb.transform.parent = ViewportHandler.viewport.transform;
+			Debug.Log("Say hello to my little friend");
+			GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"), ViewportHandler.viewport.transform);
             smartBomb.transform.position = transform.position;
         }
 	}

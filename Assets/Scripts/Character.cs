@@ -90,6 +90,7 @@ public class Character : MonoBehaviour {
 		//	}
 		}
 		if ((health -= value) <= 0) {
+			health = 0;
 			Death ();
 		}
 		return true;
