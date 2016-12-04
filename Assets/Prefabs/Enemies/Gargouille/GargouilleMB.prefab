@@ -55,7 +55,6 @@ GameObject:
   - 114: {fileID: 114000010714127194}
   - 60: {fileID: 60000011236998262}
   - 50: {fileID: 50000011851994806}
-  - 114: {fileID: 114000012273435080}
   m_Layer: 8
   m_Name: GargouilleMB
   m_TagString: Enemy
@@ -373,20 +372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cfb3aa40215cc49ab09ca769055c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000012273435080
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011118069292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5a37b76b6e69c4d8f4451b71f3f7b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Anchor: {fileID: 0}
-  maxDistance: 0.5
-  Target: {fileID: 0}
 --- !u!114 &114000012427437670
 MonoBehaviour:
   m_ObjectHideFlags: 1

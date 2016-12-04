@@ -57,22 +57,28 @@ public class ProjectileEmitter : MonoBehaviour {
 	}
 
 	void Update () {
+		if (transform.parent.gameObject.GetComponent<GargScript> () != null)
+			transform.parent.gameObject.GetComponent<GargScript> ().Aiming =  (IngameTime.time < volleyStartTime);
 		int tmpVolleyCounter = volleyCounter;
-		if (IngameTime.time < volleyStartTime)
+		if (IngameTime.time < volleyStartTime) {
 			return;
+		}
 		if (IngameTime.time > nextShot) {
 			if (projectile != null) {
 				switch (behaviour) {
 				case EmitterBehaviour.TargetAdversary:
-					Character[] chars = GameObject.FindObjectsOfType (typeof(Character)) as Character[];
+					Player[] chars = GameObject.FindObjectsOfType (typeof(Player)) as Player[];
+					Debug.Log ("target players : " + chars.Length);
 					float targetDistance = float.MaxValue;
 					target = null;
 					for (int i = 0; i < chars.Length; ++i) {
 						float tmpDistance = Vector3.Distance (transform.position, chars [i].transform.position);
 						if (chars[i].isEnemy != isEnemy && tmpDistance < targetDistance && tmpDistance < behaviourArgs[0]) {
+							targetDistance = tmpDistance;
 							target = chars [i].gameObject;
 						}
 					}
+					Debug.Log ("target players : " + chars.Length + " ; target is " + target);
 					if (target != null) {
 						GameObject pro = (GameObject) Instantiate (projectile, gameObject.transform.position, Quaternion.identity);
 						pro.gameObject.GetComponent<Projectile>().isEnemy = isEnemy;
