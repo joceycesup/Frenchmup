@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{664F5768-5C2A-4F7F-AC74-C80956C68563}" SchemaVersion="70">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{664F5768-5C2A-4F7F-AC74-C80956C68563}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="current_zone" ID="{3011FC57-E2A2-4F7E-A6BE-AC8CF1BFC390}">
+					<ChildrenList>
+						<State Name="None" ID="{7130B54B-C5EA-41A6-A5F8-90E0E22356E3}"/>
+						<State Name="zone_1" ID="{F3048712-6A20-4F0A-AD52-665ACFA52A18}"/>
+						<State Name="mid_boss" ID="{95687B41-2A63-418A-BCB0-E8920A234687}"/>
+						<State Name="zone_2" ID="{BBDE87F5-55EA-4589-9FC3-B984FBEF0F8B}"/>
+						<State Name="tuto" ID="{307D1973-DDB8-4698-9215-659EB506634D}"/>
+						<State Name="boss_phase_1" ID="{5A6AF65F-4FC1-4622-BB00-0ED94D923F6E}"/>
+						<State Name="boss_phase_2" ID="{78BE2D01-901B-44D3-8686-E0F449257454}"/>
+						<State Name="post_boss" ID="{7EF26E1A-F105-4383-8D8B-97960FBDCAB8}"/>
+						<State Name="menu" ID="{4587D5F8-32DA-49D5-AFC4-6C8E66F83E21}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

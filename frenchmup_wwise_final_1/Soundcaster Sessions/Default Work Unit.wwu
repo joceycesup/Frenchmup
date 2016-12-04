@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{28694CEF-23DE-4835-BADF-2061B257EE1A}" SchemaVersion="70">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{28694CEF-23DE-4835-BADF-2061B257EE1A}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Full soundcaster" ID="{F0A051E6-D225-4B85-8873-D4AF9A54EDD6}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="character_hit" ID="{411B8411-20A3-492E-B74E-C087F1C66A81}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="game_over" ID="{D5A99670-5F6C-4C6B-92F9-3926933A6767}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="magnet" ID="{E3D1A16D-6B6F-48D3-9292-65850EE08C01}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="bullet_time_on" ID="{FABD82BC-5A38-4CD9-B30A-360544D4498E}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="dash" ID="{D1B69EEC-D2A1-4D4C-9406-DCF462B43394}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="laser_cast" ID="{F16B49A5-A793-4EE9-B1E1-1A9F18F140C1}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="switch_to_dps" ID="{A74C194E-0574-4F87-8063-5DBEFFCCA084}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="bullet_time_off" ID="{C086D0A1-2A52-4408-A0CE-B9E4F00EF47B}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="1" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="death" ID="{7F5C1C76-5A8F-4E9E-9B14-1AE61F5FA7BB}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="laser_empty" ID="{2FA11770-F7AE-4B0F-8501-752AC7458C02}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="switch_to_support" ID="{21B84709-DF90-4133-A1D1-154A7F86A9C3}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="dumb_bomb" ID="{B1250F46-CFF4-4D91-9B20-6176DF291901}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="laser_loaded" ID="{FCF9D925-387C-448E-B8F3-24AAD941159A}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="ulti_available" ID="{FDE9E160-7E92-4592-A9E5-6348DB91DC93}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="3" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="current_zone" ID="{88CB3F5F-7808-4F27-88E4-439AF86B96E7}" WorkUnitID="{6E410508-D563-4574-A664-454785A306E3}"/>
+							<Position X="4" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="boss_open_eyes" ID="{8C5B9E7F-5990-4D32-BB60-F6BB70CBD7CE}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="4" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="not_tuto" ID="{9DBBEF5A-BF6C-458D-9D17-6B48F12EA1C8}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="4" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="tuto" ID="{893526E6-FFA3-4AE6-BF8E-77A734924161}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="4" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="respawn" ID="{44762C91-B6EA-4C49-BE64-C1BB64DFC4E6}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="5" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="start_game" ID="{DFC79CFD-60E6-44F1-99B6-16AD3A2DF211}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="5" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="back_to_menu" ID="{85D859C2-DB3E-4664-BA4B-EA4CDCEDD2EB}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}"/>
+							<Position X="5" Y="3"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_Turbulence" ID="{EDA87B19-73AA-40A0-9F19-2073606DB710}"/>
+							<Value>6</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_Presence" ID="{E3B7811A-7B2F-490F-B44F-5FE51B468041}"/>
+							<Value>75</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_TimeOfDay" ID="{536FA72C-8C7E-4C8B-AE03-EF34FDADC314}"/>
+							<Value>6</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_Freefall" ID="{2F2DFE37-4F9E-4D94-83D8-53CCA39781AD}"/>
+							<Value>75</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_Month" ID="{09E2B445-C4A3-447F-B3CA-818A1D925EF7}"/>
+							<Value>6</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_Fear" ID="{F72E0659-4346-4E1C-A1B1-DAB46A05101E}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_RPM" ID="{A34890AB-B9D5-4526-A64D-5290C43EF2DC}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_Storm" ID="{E93F8CDB-06D1-4737-ACAF-7CD44BBED783}"/>
+							<Value>75</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_Fury" ID="{A2AE79DC-CA3A-46BA-9652-9986C322A87B}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SS_Air_Size" ID="{1329EBEF-A193-472E-A38C-64668B494879}"/>
+							<Value>50</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="zone_1" ID="{F3048712-6A20-4F0A-AD52-665ACFA52A18}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>

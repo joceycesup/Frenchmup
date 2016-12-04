@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationCache Version="1" SchemaVersion="70">
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3750980961" DateHigh="30559783"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Attenuations\Default Work Unit.wwu" DateLow="4197068812" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Control Surface Sessions\Default Work Unit.wwu" DateLow="4197093831" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Conversion Settings\Default Work Unit.wwu" DateLow="4197043797" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Conversion Settings\Factory Conversion Settings.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Dynamic Dialogue\Default Work Unit.wwu" DateLow="4197018778" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Effects\Default Work Unit.wwu" DateLow="4197813243" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Effects\Factory Effects.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Events\Default Work Unit.wwu" DateLow="3944972421" DateHigh="30559643"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\frenchmup.user.wsettings" DateLow="2176754572" DateHigh="30559784"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\frenchmup.wproj" DateLow="4196598162" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Game Parameters\Default Work Unit.wwu" DateLow="4196743588" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="3751106285" DateHigh="30559783"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="4196773617" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Mixing Sessions\Default Work Unit.wwu" DateLow="4197637074" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Modulators\Default Work Unit.wwu" DateLow="4197118845" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Presets\Default Work Unit.wwu" DateLow="4197672096" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Queries\Default Work Unit.wwu" DateLow="4197143864" DateHigh="30558584"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Queries\Factory Queries.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\SoundBanks\Default Work Unit.wwu" DateLow="2103444970" DateHigh="30559784"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Soundcaster Sessions\Default Work Unit.wwu" DateLow="3751026217" DateHigh="30559783"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\States\Default Work Unit.wwu" DateLow="2934416977" DateHigh="30559633"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Switches\Default Work Unit.wwu" DateLow="22423074" DateHigh="30558592"/>
+	<ValidationCacheItem File="C:\Users\user\Documents\WwiseProjects\frenchmup\Triggers\Default Work Unit.wwu" DateLow="4196988754" DateHigh="30558584"/>
+</ValidationCache>

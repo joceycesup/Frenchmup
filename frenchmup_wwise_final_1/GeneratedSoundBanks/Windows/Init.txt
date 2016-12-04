@@ -1,0 +1,18 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	666707221	current_zone			\Default Work Unit\current_zone	
+
+State	ID	Name	State Group			Notes
+	748895195	None	current_zone			
+	1702647297	post_boss	current_zone			
+	2283365831	mid_boss	current_zone			
+	2607556080	menu	current_zone			
+	2643994084	zone_2	current_zone			
+	2643994087	zone_1	current_zone			
+	3037000007	tuto	current_zone			
+	3922696681	boss_phase_2	current_zone			
+	3922696682	boss_phase_1	current_zone			
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	805203703	Master Secondary Bus			\Default Work Unit\Master Secondary Bus	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+

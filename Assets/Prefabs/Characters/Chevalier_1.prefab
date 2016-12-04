@@ -274,11 +274,11 @@ MonoBehaviour:
   maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 1
-  invincible: 0
+  invincible: 1
   blood: {fileID: 1000013019042578, guid: 136b8d54d0803a549be9bf7c042cbc82, type: 2}
   playerNumber: 2
   state: 0
-  switchStateCooldown: 0
+  switchStateCooldown: 3
   respawnDelay: 10
   bulletTimeDuration: 2
   bulletTimeFactor: 0.25
@@ -295,6 +295,7 @@ MonoBehaviour:
   laserGauge: {fileID: 0}
   specialGauge: {fileID: 0}
   healthGauge: {fileID: 0}
+  fx_Cancel: {fileID: 1000014027521058, guid: 0e5683504b0eba54c9671f257315c06f, type: 2}
 --- !u!114 &114000013352770526
 MonoBehaviour:
   m_ObjectHideFlags: 1

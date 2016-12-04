@@ -259,8 +259,8 @@ MonoBehaviour:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{3AAE0E57-27F8-4F4F-8730-48BCCA077D76}'
-    m_lastTimePsrt1: -516631296
-    m_lastTimePart2: -1999365273
+    m_lastTimePsrt1: 491187968
+    m_lastTimePart2: -1999366256
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -322,14 +322,14 @@ MonoBehaviour:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{4CFC13E5-BD1B-4E5A-984B-D5888D55BACD}'
-    m_lastTimePsrt1: 183368704
-    m_lastTimePart2: -1999365272
+    m_lastTimePsrt1: 606416896
+    m_lastTimePart2: -1999366249
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{78FD01A8-289F-4572-9E03-3FF8A2222C9C}'
-    m_lastTimePsrt1: -1832491443
+    m_lastTimePsrt1: -1814207488
     m_lastTimePart2: -1999365046
     List:
     - Name: full_soundbank
@@ -351,6 +351,7 @@ MonoBehaviour:
   - /frenchmup/SoundBanks/Default Work Unit
   - /frenchmup/States
   - /frenchmup/States/Default Work Unit
+  - /frenchmup/States/Default Work Unit/current_zone
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
