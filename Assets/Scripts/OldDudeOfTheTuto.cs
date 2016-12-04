@@ -189,6 +189,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 
 	void UpdateText () {
 		text.text = sentence;
+		Debug.Log (LayoutUtility.GetPreferredHeight (text.rectTransform));
 	}
 
 	bool SetWaitAction () {
