@@ -15,6 +15,10 @@ public class GameSettings : MonoBehaviour {
 	}
 
 	void Awake () {
+		if (GameObject.FindObjectsOfType<GameSettings> ().Length > 1) {
+			Destroy (gameObject);
+			return;
+		}
 		_game_settings = gameObject;
 		AkSoundEngine.PostEvent ("start_game", gameObject);
 		DontDestroyOnLoad (gameObject);
