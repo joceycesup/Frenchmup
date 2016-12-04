@@ -1,0 +1,68 @@
+Event	ID	Name			Wwise Object Path	Notes
+	496145148	dumb_bomb			\Default Work Unit\SFX\dumb_bomb	
+	779278001	death			\Default Work Unit\SFX\death	
+	1038301749	switch_to_dps			\Default Work Unit\SFX\switch_to_dps	
+	1110175026	back_to_menu			\Default Work Unit\musique\back_to_menu	
+	1114964412	start_game			\Default Work Unit\musique\start_game	
+	1306937039	ulti_available			\Default Work Unit\SFX\ulti_available	
+	1432716332	game_over			\Default Work Unit\SFX\game_over	
+	1942692385	dash			\Default Work Unit\SFX\dash	
+	2854165012	character_hit			\Default Work Unit\SFX\character_hit	
+	3037000007	tuto			\Default Work Unit\musique\tuto	
+	3168932976	laser_cast			\Default Work Unit\SFX\laser_cast	
+	3256066725	not_tuto			\Default Work Unit\musique\not_tuto	
+	3322900098	laser_loaded			\Default Work Unit\SFX\laser_loaded	
+	3562308861	bullet_time_off			\Default Work Unit\bullet_time_off	
+	3655180036	laser_empty			\Default Work Unit\SFX\laser_empty	
+	3821121422	boss_open_eyes			\Default Work Unit\SFX\boss_open_eyes	
+	3889788369	bullet_time_on			\Default Work Unit\bullet_time_on	
+	4026377627	switch_to_support			\Default Work Unit\SFX\switch_to_support	
+	4183621763	magnet			\Default Work Unit\SFX\magnet	
+	4279841335	respawn			\Default Work Unit\musique\respawn	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	666707221	current_zone			\Default Work Unit\current_zone	
+
+State	ID	Name	State Group			Notes
+	748895195	None	current_zone			
+	1702647297	post_boss	current_zone			
+	2283365831	mid_boss	current_zone			
+	2607556080	menu	current_zone			
+	2643994084	zone_2	current_zone			
+	2643994087	zone_1	current_zone			
+	3037000007	tuto	current_zone			
+	3922696681	boss_phase_2	current_zone			
+	3922696682	boss_phase_1	current_zone			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	7194974	post_boss	current_zone	\Interactive Music Hierarchy\Default Work Unit\current_zone\boss_phase_02\boss_phase_2\boss_phase_2		
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	1664601	laser_cast_oneshot	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\laser_cast_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\laser_cast\laser_cast_oneshot		2881584
+	130286480	laser_empty	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\laser_empty_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\laser_empty		391744
+	136389507	ulti_available	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\ulti_available_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ulti_available		659916
+	154632633	boss_phase_1	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\boss_phase_1_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\boss_phase_01\boss_phase_1\boss_phase_1		5461396
+	172573248	tuto	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\tuto_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\tuto\tuto\tuto		23040064
+	179377008	loop_zone_01	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\loop_zone_01_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\zone_01\loop_zone_01\loop_zone_01		16384064
+	201151713	death	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\death_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\death		424384
+	285292488	dash_02	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\dash_02_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\dash\dash_02		96064
+	292730515	switch_support	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\switch_support_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\switch_support		209280
+	295570259	loop_mid_boss	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\loop_mid_boss_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\mid_boss\mid_boss_loop\loop_mid_boss		6826732
+	342483335	boss_phase_2	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\boss_phase_2_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\boss_phase_02\boss_phase_2\boss_phase_2		5461396
+	388825939	laser_loop	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\laser_loop_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\laser_cast\laser_loop		96064
+	456838805	choeur	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\choeur_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\boss_phase_02\boss_phase_2\choeur		5461396
+	461499980	dash_03	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\dash_03_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\dash\dash_03		96064
+	590902654	tambour_transition	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\tambour_transition_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\tambour_transition\tambour_transition		1728064
+	600375021	game_over	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\game_over_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\game_over		1225560
+	652868663	magnet_on	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\magnet_on_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\magnet\magnet_on		3840064
+	696703683	boss_open_eyes	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\boss_open_eyes_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\boss_open_eyes		576064
+	730863947	switch_dps	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\switch_dps_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\switch_dps		137004
+	771745312	dash_01	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\dash_01_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\dash\dash_01		96064
+	809269787	character_hit	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\character_hit_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\character_hit		132228
+	900952935	magnet_loop	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\magnet_loop_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\magnet\magnet_loop		3648064
+	917281456	dash_04	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\dash_04_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\dash\dash_04		96064
+	930569412	menu	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\menu_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\menu\menu\menu		9792064
+	981422140	intro_zone_01	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\intro_zone_01_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\current_zone\zone_01\intro_zone_01\intro_zone_01		5461396
+	984213874	laser_loaded	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\laser_loaded_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\laser_loaded		128956
+	1044390877	dumb bomb	D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\.cache\Windows\SFX\dumb bomb_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\dumb bomb		347220
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationCache Version="1" SchemaVersion="70">
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3762143232" DateHigh="30559783"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Attenuations\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Control Surface Sessions\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Conversion Settings\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Conversion Settings\Factory Conversion Settings.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Dynamic Dialogue\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Effects\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Effects\Factory Effects.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Events\Default Work Unit.wwu" DateLow="4252470272" DateHigh="30559793"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\frenchmup.wproj" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Game Parameters\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="4252470272" DateHigh="30559793"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Mixing Sessions\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Modulators\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Presets\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Queries\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Queries\Factory Queries.wwu" DateLow="3168936192" DateHigh="30449148"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\SoundBanks\Default Work Unit.wwu" DateLow="2107175936" DateHigh="30559784"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Soundcaster Sessions\Default Work Unit.wwu" DateLow="4252470272" DateHigh="30559793"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\States\Default Work Unit.wwu" DateLow="2947237632" DateHigh="30559633"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Switches\Default Work Unit.wwu" DateLow="28192768" DateHigh="30558592"/>
+	<ValidationCacheItem File="D:\Downloads\Wwise_02-12 14-12-20161203T033254Z\frenchmup_wwise_final_1\Triggers\Default Work Unit.wwu" DateLow="4207931136" DateHigh="30558584"/>
+</ValidationCache>

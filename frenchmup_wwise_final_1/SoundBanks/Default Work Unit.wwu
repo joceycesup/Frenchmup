@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{78FD01A8-289F-4572-9E03-3FF8A2222C9C}" SchemaVersion="70">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{78FD01A8-289F-4572-9E03-3FF8A2222C9C}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="full_soundbank" ID="{E25B6F6B-F276-40D4-8FE1-4AC1870C1EE0}">
+					<ObjectInclusionList>
+						<ObjectRef Name="current_zone" ID="{88CB3F5F-7808-4F27-88E4-439AF86B96E7}" WorkUnitID="{6E410508-D563-4574-A664-454785A306E3}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="musique" ID="{8ACF0A9E-C981-4943-8B8C-663798FDA07E}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="bullet_time_off" ID="{C086D0A1-2A52-4408-A0CE-B9E4F00EF47B}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="SFX" ID="{D5361EBC-00D7-4085-BFC8-83C98A711B53}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="bullet_time_on" ID="{FABD82BC-5A38-4CD9-B30A-360544D4498E}" WorkUnitID="{1DC4E41F-65EF-4055-8E1A-D2329665E104}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

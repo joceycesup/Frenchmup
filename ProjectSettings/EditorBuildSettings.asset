@@ -8,6 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestsThibault/Menu.unity
   - enabled: 1
-    path: Assets/Scenes/TestsThibault/Game.unity
-  - enabled: 1
     path: Assets/Scenes/Final/NePasToucher.unity
+  - enabled: 1
+    path: Assets/Scenes/TestsThibault/Game.unity

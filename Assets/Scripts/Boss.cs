@@ -34,7 +34,11 @@ public class Boss : Enemy {
 		}
 	}
 
-	void OnDestroy(){
+	void OnDestroy () {
+        if (Phase1 != null)
+        {
+            AkSoundEngine.SetState("current_zone", "post_boss");
+        }
 		if (m_group != null) {
 			m_group.RemoveEnemy ();
 		} else {
@@ -45,9 +49,12 @@ public class Boss : Enemy {
 				Destroy (patternArgsO [0]);
 			}
 		}
-		GameObject smartBomb = (GameObject)Instantiate (Resources.Load<GameObject> ("Prefabs/SmartBomb"));
-		smartBomb.transform.parent = ViewportHandler.viewport.transform;
-		smartBomb.transform.position = transform.position;
+        if (health <= 0f)
+        {
+            GameObject smartBomb = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/SmartBomb"));
+            smartBomb.transform.parent = ViewportHandler.viewport.transform;
+            smartBomb.transform.position = transform.position;
+        }
 	}
 
 	public override string ToString() {
