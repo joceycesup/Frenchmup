@@ -40,7 +40,7 @@ public class ProjectileEmitterEditor : Editor {
 			if(myTarget.tag != "BossWeapon")
 				myTarget.enabled = false;
 		}//*/
-		EditorGUILayout.HelpBox ("Fire Rate in frames " + Mathf.RoundToInt( 60f / myTarget.firingRate) + " frames", MessageType.Info);
+		EditorGUILayout.HelpBox ("Fire Rate in frames " + Mathf.RoundToInt( 60f / myTarget.firingRate) + " frames" + "\nDurée Phase : " + myTarget.volleyCount/myTarget.firingRate, MessageType.Info);
 
 		switch (myTarget.behaviour) {
 		case ProjectileEmitter.EmitterBehaviour.Static:
