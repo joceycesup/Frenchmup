@@ -2635,10 +2635,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -2657,10 +2658,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -2841,6 +2843,7 @@ MonoBehaviour:
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 1000013019042578, guid: ac0fff41029af1049bd7468ecfb8258b, type: 2}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -2915,10 +2918,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -2975,10 +2979,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -3026,10 +3031,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -3077,10 +3083,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -3177,10 +3184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -3210,10 +3218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -3263,10 +3272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
+  blood: {fileID: 0}
   maxSpeed: 4
   pattern: 4
   patternArgsO:
@@ -3469,7 +3479,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c34a0f4493f753c40ba208d2607217f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
