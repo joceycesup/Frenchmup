@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 75
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -1186,7 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -2064,6 +2064,21 @@ Prefab:
     - target: {fileID: 4000014169710720, guid: 93e2b47812098ea4091dad0ce0b1e7e2, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010515668794, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010847276774, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012787586672, guid: 93e2b47812098ea4091dad0ce0b1e7e2,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93e2b47812098ea4091dad0ce0b1e7e2, type: 2}
@@ -4182,7 +4197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -4679,7 +4694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -5394,7 +5409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -5977,7 +5992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 40
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -6690,7 +6705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 75
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -6875,7 +6890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -7750,6 +7765,86 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012496652558, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011810775574, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012849355370, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012696467080, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011125765100, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012636008164, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012537664928, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011584069368, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011855489616, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012080886368, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014281158802, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012258662354, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012120070730, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013558408324, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013103919552, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011434433972, guid: 8f69057d5fd651e46b6cde7714e459e1,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f69057d5fd651e46b6cde7714e459e1, type: 2}
   m_IsPrefabParent: 0
@@ -8476,7 +8571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -8739,7 +8834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -9189,6 +9284,86 @@ Prefab:
     - target: {fileID: 4000013364200324, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012333285086, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012185188338, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010437536314, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014093338698, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011803679244, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011490730148, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012204336964, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014226279090, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010831168448, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014029387810, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010782052982, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011726671718, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014171157452, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011764667488, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012598951180, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012356015912, guid: 4d8ccd9c4c6db0140b6168de9e815430,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
@@ -10312,7 +10487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -10571,7 +10746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -10943,7 +11118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -11155,6 +11330,11 @@ Prefab:
         type: 2}
       propertyPath: behaviour
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011328060996, guid: 3446e8a57c71a65469a88eb86eeafb64,
+        type: 2}
+      propertyPath: maxHealth
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3446e8a57c71a65469a88eb86eeafb64, type: 2}
@@ -11967,6 +12147,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013941061738, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013332282058, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010858264352, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013433328090, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012678228116, guid: d428c4ee369578e4e86027f8bfc8d1e8,
+        type: 2}
+      propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d428c4ee369578e4e86027f8bfc8d1e8, type: 2}
   m_IsPrefabParent: 0
@@ -12289,7 +12494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -12648,7 +12853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -13203,11 +13408,88 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &1089984740 stripped
+--- !u!1 &1089984740
 GameObject:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 1000010503079232, guid: 831d404de807f4147ac43c9ea2ebd2c4,
     type: 2}
-  m_PrefabInternal: {fileID: 1517912627}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1685917036}
+  - 212: {fileID: 1089984743}
+  - 114: {fileID: 1089984742}
+  - 61: {fileID: 1089984741}
+  m_Layer: 12
+  m_Name: Section 15 (Loop or Static BOSS)
+  m_TagString: Section
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1089984741
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 61000014081570508, guid: 831d404de807f4147ac43c9ea2ebd2c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089984740}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 10}
+  serializedVersion: 2
+  m_Size: {x: 20, y: 20}
+--- !u!114 &1089984742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000011311882410, guid: 831d404de807f4147ac43c9ea2ebd2c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089984740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc14da104b9e42e4ca4db805639137ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviourLock: {fileID: 0}
+  behaviour: 2
+--- !u!212 &1089984743
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 212000011781430016, guid: 831d404de807f4147ac43c9ea2ebd2c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089984740}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 400b66050406741439505ff1fe7d330b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1 &1092133265
 GameObject:
   m_ObjectHideFlags: 0
@@ -14582,7 +14864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -15749,7 +16031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -16552,6 +16834,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011599188534, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010598602526, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011578715140, guid: d069e6292724ff842b2236d54c1c5702,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d069e6292724ff842b2236d54c1c5702, type: 2}
   m_IsPrefabParent: 0
@@ -16920,7 +17217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -16966,6 +17263,98 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &1472096133
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1685917036}
+    m_Modifications:
+    - target: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 21.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 33000010546446044, guid: 26ae9da0c3ed61f45bc227ba56d65658,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013954350554, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.12476
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013954350554, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.99218696
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010104182020, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.07491635
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010104182020, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9971898
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013996986862, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.18032336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013996986862, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9836074
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010761045252, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.20993799
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010761045252, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9777148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011521890270, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.01106669
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011521890270, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.99993885
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1472096134 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000013187545336, guid: 26ae9da0c3ed61f45bc227ba56d65658,
+    type: 2}
+  m_PrefabInternal: {fileID: 1472096133}
 --- !u!1 &1477743350
 GameObject:
   m_ObjectHideFlags: 0
@@ -17325,7 +17714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -17746,106 +18135,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &1517912627
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1770880104}
-    m_Modifications:
-    - target: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013312691158, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.47017956
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013312691158, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.8825708
-      objectReference: {fileID: 0}
-    - target: {fileID: 33000013638900282, guid: 831d404de807f4147ac43c9ea2ebd2c4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 33000011195137800, guid: 831d404de807f4147ac43c9ea2ebd2c4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011118101426, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.9532362
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011118101426, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.30222648
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013817064516, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.8028797
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013817064516, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.5961411
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012337377394, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.63897127
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012337377394, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7692306
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011855861666, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.25878102
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011855861666, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.96593606
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010705980546, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.12476
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010705980546, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.99218696
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 831d404de807f4147ac43c9ea2ebd2c4, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1525183759
 GameObject:
   m_ObjectHideFlags: 0
@@ -18096,7 +18385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -19287,7 +19576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -19666,7 +19955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 40
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -19828,11 +20117,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cfb3aa40215cc49ab09ca769055c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1685917036 stripped
+--- !u!4 &1685917036
 Transform:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 4000014083571526, guid: 831d404de807f4147ac43c9ea2ebd2c4,
     type: 2}
-  m_PrefabInternal: {fileID: 1517912627}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089984740}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 500, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1472096134}
+  m_Father: {fileID: 1770880104}
+  m_RootOrder: 16
 --- !u!1 &1698884562
 GameObject:
   m_ObjectHideFlags: 0
@@ -20314,6 +20613,51 @@ Prefab:
     - target: {fileID: 4000010911202692, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011501549860, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012876783908, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011400059324, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011852211712, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012720900644, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010111243106, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010172123608, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012325305468, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011658356704, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06ba9d9ef1f40c14495e78b3e4fd8bcf, type: 2}
@@ -20938,7 +21282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -21413,7 +21757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -21592,7 +21936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 40
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -22457,7 +22801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 75
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -22975,6 +23319,196 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012579765766, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010643896718, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011861925516, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010258695236, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012848047140, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012656839328, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012753948464, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013436220900, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012024654894, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013593506036, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011007542334, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011820450708, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013125162146, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013233603254, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010531763292, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011543017670, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011770643156, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012116225466, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012541465450, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012366850544, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012416951906, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013941291004, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011738883210, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011049762976, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011238148744, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011971936070, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014221798064, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013198813864, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011209852674, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012624772472, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010178647134, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012821698188, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010266687424, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010571014874, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013392196170, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010337743696, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012744662074, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013195211910, guid: a914e4ada4153c54f869531b4d9eace9,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a914e4ada4153c54f869531b4d9eace9, type: 2}
   m_IsPrefabParent: 0
@@ -23117,7 +23651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -23201,6 +23735,51 @@ Prefab:
     - target: {fileID: 4000013023958510, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013807056758, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013340972924, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012128201634, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013072806286, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011422870250, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012243968980, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010888321818, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012589877390, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013496766112, guid: 1639e8aa561882f41846f327aafba5bd,
+        type: 2}
+      propertyPath: maxHealth
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1639e8aa561882f41846f327aafba5bd, type: 2}
@@ -23465,7 +24044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -23875,6 +24454,126 @@ Prefab:
     - target: {fileID: 4000011916041144, guid: 843510f73f4dde74d9d4b8b4801170ab, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013963018292, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013385375400, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011677579868, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011583280432, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011233511228, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011853665474, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012994558806, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010172412474, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011939096144, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013892048822, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014187754504, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011514020092, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010893164914, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012833161064, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010025539920, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013154142868, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014159020172, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010128738596, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011548603800, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013149687638, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013924090106, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010785246864, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010225346436, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014165792888, guid: 843510f73f4dde74d9d4b8b4801170ab,
+        type: 2}
+      propertyPath: maxHealth
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 843510f73f4dde74d9d4b8b4801170ab, type: 2}
@@ -24305,7 +25004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -24734,7 +25433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 40
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
@@ -24919,7 +25618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063eb8a847efd1c498b22c0c57c96f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   damageTakenOnCollision: 0
   invincibilityTime: 0
   invincible: 0
