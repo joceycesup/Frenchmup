@@ -1535,9 +1535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e52caaa5eb93294a91a66d03cf06816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  gameOver: {fileID: 0}
-  credit: {fileID: 0}
+  mainMenu: {fileID: 843770532}
+  gameOver: {fileID: 1911032274}
+  credit: {fileID: 530640820}
 --- !u!1 &1424008574
 GameObject:
   m_ObjectHideFlags: 0

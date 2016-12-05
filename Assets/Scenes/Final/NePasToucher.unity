@@ -1133,6 +1133,7 @@ GameObject:
   - 212: {fileID: 84522386}
   - 114: {fileID: 84522385}
   - 60: {fileID: 84522384}
+  - 50: {fileID: 84522387}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -1164,7 +1165,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 84522382}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1287,6 +1288,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &84522387
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 84522382}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &85396059
 GameObject:
   m_ObjectHideFlags: 0
@@ -4543,6 +4561,7 @@ GameObject:
   - 212: {fileID: 260904802}
   - 114: {fileID: 260904801}
   - 60: {fileID: 260904800}
+  - 50: {fileID: 260904803}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -4574,7 +4593,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 260904798}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4697,6 +4716,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &260904803
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 260904798}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &262018846
 GameObject:
   m_ObjectHideFlags: 0
@@ -6274,7 +6310,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 390544980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 28.7, z: 0}
+  m_LocalPosition: {x: 0, y: 28.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -9427,6 +9463,7 @@ GameObject:
   - 212: {fileID: 639334072}
   - 114: {fileID: 639334071}
   - 60: {fileID: 639334070}
+  - 50: {fileID: 639334073}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -9458,7 +9495,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 639334068}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -9581,6 +9618,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &639334073
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 639334068}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &646777048
 GameObject:
   m_ObjectHideFlags: 0
@@ -10742,34 +10796,66 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010120197550, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000011603992306, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000010295071534, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000010980420860, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000013555197426, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000013052869954, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000013170138522, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000012546879754, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013104930018, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011967261030, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012979101242, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010384388178, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010674371552, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010665763536, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013800724328, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010220978266, guid: 4d8ccd9c4c6db0140b6168de9e815430, type: 2}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12327,6 +12413,7 @@ GameObject:
   - 212: {fileID: 800154424}
   - 114: {fileID: 800154423}
   - 60: {fileID: 800154422}
+  - 50: {fileID: 800154425}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -12358,7 +12445,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800154420}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -12481,6 +12568,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &800154425
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 800154420}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &803920767
 GameObject:
   m_ObjectHideFlags: 0
@@ -13100,6 +13204,7 @@ GameObject:
   - 212: {fileID: 842746440}
   - 114: {fileID: 842746439}
   - 60: {fileID: 842746438}
+  - 50: {fileID: 842746441}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -13131,7 +13236,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842746436}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -13254,6 +13359,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &842746441
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842746436}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &843675296
 GameObject:
   m_ObjectHideFlags: 0
@@ -22277,6 +22399,11 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0.9996133
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012259754450, guid: 26ae9da0c3ed61f45bc227ba56d65658,
+        type: 2}
+      propertyPath: maxHealth
+      value: 3000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
   m_IsPrefabParent: 0
@@ -22697,6 +22824,7 @@ GameObject:
   - 212: {fileID: 1490254341}
   - 114: {fileID: 1490254340}
   - 60: {fileID: 1490254339}
+  - 50: {fileID: 1490254342}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -22851,6 +22979,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &1490254342
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1490254337}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1495039693
 GameObject:
   m_ObjectHideFlags: 0
@@ -23645,6 +23790,7 @@ GameObject:
   - 212: {fileID: 1527468517}
   - 114: {fileID: 1527468516}
   - 60: {fileID: 1527468515}
+  - 50: {fileID: 1527468518}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -23676,7 +23822,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1527468513}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -23799,6 +23945,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &1527468518
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1527468513}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1528187671
 GameObject:
   m_ObjectHideFlags: 0
@@ -25438,6 +25601,7 @@ GameObject:
   - 212: {fileID: 1603745910}
   - 114: {fileID: 1603745909}
   - 60: {fileID: 1603745908}
+  - 50: {fileID: 1603745911}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -25469,7 +25633,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1603745906}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -25592,6 +25756,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &1603745911
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1603745906}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1606355713
 GameObject:
   m_ObjectHideFlags: 0
@@ -29381,7 +29562,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1918188948}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: -6.01, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -31745,6 +31926,11 @@ Prefab:
       propertyPath: bulletTimeCooldown
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4655d6dbec804649bd4e82d921e8d49, type: 2}
   m_IsPrefabParent: 0
@@ -32154,6 +32340,7 @@ GameObject:
   - 212: {fileID: 2050964742}
   - 114: {fileID: 2050964741}
   - 60: {fileID: 2050964740}
+  - 50: {fileID: 2050964743}
   m_Layer: 8
   m_Name: Mouche
   m_TagString: Enemy
@@ -32185,7 +32372,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2050964738}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -32308,6 +32495,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!50 &2050964743
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050964738}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2051786965
 GameObject:
   m_ObjectHideFlags: 0
