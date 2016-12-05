@@ -28,7 +28,7 @@ public class Chain : MonoBehaviour {
 
 	void Update () {
 		bool tmpActive = linksActive;
-		linksActive = (player1.GetComponent<Player> ().state != player2.GetComponent<Player> ().state) && player1.GetComponent<Player> ().CheckAbility (Player.Ability.Chain) && player2.GetComponent<Player> ().CheckAbility (Player.Ability.Chain);
+		linksActive = player1.GetComponent<Player> ().isActiveAndEnabled && player2.GetComponent<Player> ().isActiveAndEnabled && (player1.GetComponent<Player> ().state != player2.GetComponent<Player> ().state) && player1.GetComponent<Player> ().CheckAbility (Player.Ability.Chain) && player2.GetComponent<Player> ().CheckAbility (Player.Ability.Chain);
 		if (!linksActive) {
 			links.SetActive (false);
 		}

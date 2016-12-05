@@ -303,7 +303,8 @@ public class Player : Character {
 	protected override void Death () {
 		AkSoundEngine.PostEvent ("death", gameObject);
 		if (--alivePlayer <= 0) {
-			AkSoundEngine.PostEvent ("game_over", gameObject);
+			AkSoundEngine.PostEvent ("game_over", ViewportHandler.viewport);
+			GameSettings.SetState (GameSettings.GameState.GameOver);
 		} else {
 			StartCoroutine ("RespawnPlayer", this);
 		}
