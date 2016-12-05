@@ -150,10 +150,10 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			return;
 		}
 
-		Debug.Log (currentState + " ; " + currentStateSentence + " ; " + currentSentence+ " ; " +awaitingEnter + " ; " +awaitingAction);
+		Debug.Log (currentState + " ; " + currentStateSentence + " ; " + currentSentence + " ; " + awaitingEnter + " ; " + awaitingAction);
 		if (awaitingEnter) {
 			bulle.SetActive (true);
-			if (Input.GetButtonDown ("SkipSentence") || (awaitingAction?false:Input.anyKeyDown)) {
+			if (Input.GetButtonDown ("SkipSentence") || (GetWaitAction () ? Input.anyKeyDown : false)) {
 				awaitingEnter = false;
 				currentSentenceLength = 0;
 				if (++currentStateSentence >= sentencesPerState[(int)currentState]) {
@@ -200,6 +200,45 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	void UpdateText () {
 		text.text = sentence;
 		//Debug.Log (LayoutUtility.GetPreferredHeight (text.rectTransform));
+	}
+
+	bool GetWaitAction () {
+		bool res = false;
+		switch (currentState) {
+			case State.S_01_Deplacement:
+				res = true;
+				break;
+			case State.S_05_TueMouches:
+				res = true;
+				break;
+			case State.S_07_PassageSupport:
+				res = true;
+				break;
+			case State.S_08_UtiliseDash:
+				res = true;
+				break;
+			case State.S_10_AbsorbeProjectiles:
+				res = true;
+				break;
+			case State.S_12_UtiliseMagnet:
+				res = true;
+				break;
+			case State.S_16_RemplitLaser:
+				res = true;
+				break;
+			case State.S_18_UtiliseLaser:
+				res = true;
+				break;
+			case State.S_21_J2PasseSupport:
+				res = true;
+				break;
+			case State.S_25_UtiliseSpecial:
+				res = true;
+				break;
+			default:
+				break;
+		}
+		return res;
 	}
 
 	bool SetWaitAction () {
@@ -415,8 +454,8 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 				break;
 			case State.S_16_RemplitLaser:
 				grayZone.GetComponent<Image> ().enabled = false;
-				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser, true);
-				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser, true);
+				player1.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser | Player.Ability.Dash, true);
+				player2.GetComponent<Player> ().SetAbilities (Player.Ability.Move | Player.Ability.LoadLaser | Player.Ability.Dash, true);
 				tmpValues[0] = tutoObjects[2].transform.childCount;
 				tmpValues[1] = tutoObjects.Length;
 				tmpValues[2] = player1.GetComponent<Player> ().maxLaserLoad;
@@ -452,7 +491,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 				player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoDPS | Player.Ability.Chain, true);
 				break;
 			case State.S_22_UtiliseChaine:
-				grayZone.GetComponent<Image> ().enabled = true;
+				grayZone.GetComponent<Image> ().enabled = false;
 				break;
 			case State.S_23_JaugesSpecial: {
 					grayZone.GetComponent<Image> ().enabled = true;
