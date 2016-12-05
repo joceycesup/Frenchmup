@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class IngameTime : MonoBehaviour {
-	public float maxCutoffFrequency = 5000f;
 
 	public static bool pause {
 		get;
@@ -15,11 +14,7 @@ public class IngameTime : MonoBehaviour {
 	}
 	public static float deltaTime {
 		get { return ingameTime!=null?ingameTime._deltaTime:Time.deltaTime; }
-	}/*
-	public static float factor {
-		get { return _ingameTime!=null?_ingameTime._timeFactor:Time.deltaTime; }
-		private set { if (_ingameTime != null) { _ingameTime._timeFactor = value; } }
-	}//*/
+	}
 	public static float time {
 		get { return ingameTime!=null?ingameTime._time:Time.time; }
 	}
@@ -31,6 +26,8 @@ public class IngameTime : MonoBehaviour {
 	private float _globalTime;
 	private float _deltaTime;
 	private float _timeFactor = 1.0f;
+	private float _pauseFactor = 1.0f;
+	public GameObject pauseObject;
 
 	void Awake () {
 		pause = false;
@@ -38,6 +35,8 @@ public class IngameTime : MonoBehaviour {
 	}
 
 	void Update () {
+		if (Input.GetButtonDown ("Pause"))
+			TogglePause ();
 		if (!pause) {
 			_deltaTime = Time.deltaTime * _timeFactor;
 			_time += _deltaTime;
@@ -47,6 +46,17 @@ public class IngameTime : MonoBehaviour {
 
 	public static void MultiplyFactor (float factor) {
 		ingameTime.MultiplyFactorInstance (factor);
+	}
+
+	public static void TogglePause () {
+		pause = !pause;
+		ingameTime.pauseObject.SetActive (pause);
+		if (pause) {
+			ingameTime._pauseFactor = ingameTime._timeFactor;
+			ingameTime._timeFactor = 0f;
+		} else {
+			ingameTime._timeFactor = ingameTime._pauseFactor;
+		}
 	}
 
 	private void MultiplyFactorInstance (float factor) {

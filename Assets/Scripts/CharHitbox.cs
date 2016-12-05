@@ -28,17 +28,11 @@ public class CharHitbox : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D (Collider2D other) {
-		if (gameObject.name == "TestHitbox") {
-			Debug.Log ("stay  " + other.gameObject + " ; " + (other.gameObject.tag == "Projectile") +" ; " +(character.isEnemy) +" ; " + (other.transform.parent.gameObject.name));
-		}
 		if (other.gameObject == transform.parent.gameObject)
 			return;
 		if (!character.isActiveAndEnabled)
 			return;
-		//Debug.Log (other.gameObject);
 		if (other.gameObject.tag == "Projectile" && character.isEnemy && other.transform.parent != null && other.transform.parent.gameObject.name == "Links") {
-		//if (other.gameObject.tag == "Projectile" && character.isEnemy && other.transform.parent != null && other.transform.parent.gameObject.GetComponent<Chain> () != null) {
-				Debug.Log ("ELLE MARCHE CETTE FOUTUE CHAINE");
 			character.TakeDamage (other.transform.parent.parent.FindChild("Path").gameObject.GetComponent<Chain> ().damage * IngameTime.deltaTime, false);
 		}
 	}
