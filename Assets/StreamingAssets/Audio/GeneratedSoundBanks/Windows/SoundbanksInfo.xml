@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="10" SoundbankVersion="113">
+	<RootPaths>
+		<ProjectRoot>C:\Users\user\Desktop\frenchmup_wwise_final_2\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\user\Desktop\frenchmup_wwise_final_2\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\user\Desktop\frenchmup_wwise_final_2\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\user\Desktop\frenchmup_wwise_final_2\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3435647792" Language="SFX">
+			<ShortName>full_soundbank</ShortName>
+			<Path>full_soundbank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1110175026" Name="back_to_menu"/>
+				<Event Id="3821121422" Name="boss_open_eyes"/>
+				<Event Id="3562308861" Name="bullet_time_off"/>
+				<Event Id="3889788369" Name="bullet_time_on"/>
+				<Event Id="2854165012" Name="character_hit"/>
+				<Event Id="1942692385" Name="dash"/>
+				<Event Id="779278001" Name="death"/>
+				<Event Id="496145148" Name="dumb_bomb"/>
+				<Event Id="1432716332" Name="game_over"/>
+				<Event Id="3168932976" Name="laser_cast"/>
+				<Event Id="3655180036" Name="laser_empty"/>
+				<Event Id="3322900098" Name="laser_loaded"/>
+				<Event Id="4183621763" Name="magnet"/>
+				<Event Id="1302406690" Name="menu_clicked"/>
+				<Event Id="4203375351" Name="menu_select"/>
+				<Event Id="3256066725" Name="not_tuto"/>
+				<Event Id="4279841335" Name="respawn"/>
+				<Event Id="1114964412" Name="start_game"/>
+				<Event Id="1038301749" Name="switch_to_dps"/>
+				<Event Id="4026377627" Name="switch_to_support"/>
+				<Event Id="3037000007" Name="tuto"/>
+				<Event Id="1306937039" Name="ulti_available"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="1664601" Language="SFX">
+					<ShortName>laser_cast.wav</ShortName>
+					<Path>SFX\laser_cast_9E69E797.wem</Path>
+				</File>
+				<File Id="130286480" Language="SFX">
+					<ShortName>laser_empty.wav</ShortName>
+					<Path>SFX\laser_empty_9E69E797.wem</Path>
+				</File>
+				<File Id="136389507" Language="SFX">
+					<ShortName>ulti_available.wav</ShortName>
+					<Path>SFX\ulti_available_9E69E797.wem</Path>
+				</File>
+				<File Id="137544546" Language="SFX">
+					<ShortName>menu_selected_4.wav</ShortName>
+					<Path>SFX\menu_selected_4_9E69E797.wem</Path>
+				</File>
+				<File Id="139868662" Language="SFX">
+					<ShortName>menu_selected.wav</ShortName>
+					<Path>SFX\menu_selected_9E69E797.wem</Path>
+				</File>
+				<File Id="154632633" Language="SFX">
+					<ShortName>boss_phase_1.wav</ShortName>
+					<Path>SFX\boss_phase_1_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="172573248" Language="SFX">
+					<ShortName>tuto.wav</ShortName>
+					<Path>SFX\tuto_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="179377008" Language="SFX">
+					<ShortName>loop_zone_01.wav</ShortName>
+					<Path>SFX\loop_zone_01_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="201151713" Language="SFX">
+					<ShortName>death.wav</ShortName>
+					<Path>SFX\death_9E69E797.wem</Path>
+				</File>
+				<File Id="285292488" Language="SFX">
+					<ShortName>dash_02.wav</ShortName>
+					<Path>SFX\dash_02_9E69E797.wem</Path>
+				</File>
+				<File Id="292730515" Language="SFX">
+					<ShortName>switch_support.wav</ShortName>
+					<Path>SFX\switch_support_9E69E797.wem</Path>
+				</File>
+				<File Id="295570259" Language="SFX">
+					<ShortName>loop_mid_boss.wav</ShortName>
+					<Path>SFX\loop_mid_boss_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="342483335" Language="SFX">
+					<ShortName>boss_phase_2.wav</ShortName>
+					<Path>SFX\boss_phase_2_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="365152383" Language="SFX">
+					<ShortName>menu_selected_5.wav</ShortName>
+					<Path>SFX\menu_selected_5_9E69E797.wem</Path>
+				</File>
+				<File Id="388825939" Language="SFX">
+					<ShortName>laser_loop.wav</ShortName>
+					<Path>SFX\laser_loop_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="456838805" Language="SFX">
+					<ShortName>choeur.wav</ShortName>
+					<Path>SFX\choeur_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="461499980" Language="SFX">
+					<ShortName>dash_03.wav</ShortName>
+					<Path>SFX\dash_03_9E69E797.wem</Path>
+				</File>
+				<File Id="590902654" Language="SFX">
+					<ShortName>tambour_transition.wav</ShortName>
+					<Path>SFX\tambour_transition_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="600375021" Language="SFX">
+					<ShortName>game_over.wav</ShortName>
+					<Path>SFX\game_over_9E69E797.wem</Path>
+				</File>
+				<File Id="612590216" Language="SFX">
+					<ShortName>menu_selected_3.wav</ShortName>
+					<Path>SFX\menu_selected_3_9E69E797.wem</Path>
+				</File>
+				<File Id="652868663" Language="SFX">
+					<ShortName>magnet_on.wav</ShortName>
+					<Path>SFX\magnet_on_9E69E797.wem</Path>
+				</File>
+				<File Id="696703683" Language="SFX">
+					<ShortName>boss_open_eyes.wav</ShortName>
+					<Path>SFX\boss_open_eyes_9E69E797.wem</Path>
+				</File>
+				<File Id="730863947" Language="SFX">
+					<ShortName>switch_dps.wav</ShortName>
+					<Path>SFX\switch_dps_9E69E797.wem</Path>
+				</File>
+				<File Id="748781645" Language="SFX">
+					<ShortName>menu_clicked.wav</ShortName>
+					<Path>SFX\menu_clicked_9E69E797.wem</Path>
+				</File>
+				<File Id="771745312" Language="SFX">
+					<ShortName>dash_01.wav</ShortName>
+					<Path>SFX\dash_01_9E69E797.wem</Path>
+				</File>
+				<File Id="809269787" Language="SFX">
+					<ShortName>character_hit.wav</ShortName>
+					<Path>SFX\character_hit_9E69E797.wem</Path>
+				</File>
+				<File Id="900952935" Language="SFX">
+					<ShortName>magnet_loop.wav</ShortName>
+					<Path>SFX\magnet_loop_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="917281456" Language="SFX">
+					<ShortName>dash_04.wav</ShortName>
+					<Path>SFX\dash_04_9E69E797.wem</Path>
+				</File>
+				<File Id="930569412" Language="SFX">
+					<ShortName>menu.wav</ShortName>
+					<Path>SFX\menu_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="951742866" Language="SFX">
+					<ShortName>menu_selected_2.wav</ShortName>
+					<Path>SFX\menu_selected_2_9E69E797.wem</Path>
+				</File>
+				<File Id="981422140" Language="SFX">
+					<ShortName>intro_zone_01.wav</ShortName>
+					<Path>SFX\intro_zone_01_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="984213874" Language="SFX">
+					<ShortName>laser_loaded.wav</ShortName>
+					<Path>SFX\laser_loaded_9E69E797.wem</Path>
+				</File>
+				<File Id="1044390877" Language="SFX">
+					<ShortName>dumb bomb.wav</ShortName>
+					<Path>SFX\dumb bomb_9E69E797.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

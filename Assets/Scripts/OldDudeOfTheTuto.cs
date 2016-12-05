@@ -137,6 +137,10 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	private string sentence = "";
 
 	void Start () {
+		if (!((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : false)) {
+			Destroy (grayZone.transform.parent.gameObject);
+			Destroy (gameObject);
+		}
 		for (int i = 0; i < (int)currentState; ++i) {
 			currentSentence += sentencesPerState[i];
 		}
