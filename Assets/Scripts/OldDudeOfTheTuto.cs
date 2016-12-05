@@ -486,16 +486,20 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 					tutoObjects[i + (int)tmpValues[1]].GetComponent<Enemy> ().enabled = true;
 				}
 				break;
-			case State.S_19_WarningLaser:
-				grayZone.GetComponent<Image> ().enabled = true;
+		case State.S_19_WarningLaser:
+			grayZone.GetComponent<Image> ().enabled = true;
+			if (player1.GetComponent<Player> ().state == Player.PlayerState.Support)
+				player1.GetComponent<Player> ().SetState (Player.PlayerState.DPS);
+			if (player2.GetComponent<Player> ().state == Player.PlayerState.Support)
+				player2.GetComponent<Player> ().SetState (Player.PlayerState.DPS);
 				break;
 			case State.S_20_Complementaires:
 				grayZone.GetComponent<Image> ().enabled = true;
 				break;
 			case State.S_21_J2PasseSupport:
 				grayZone.GetComponent<Image> ().enabled = false;
-				player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport | Player.Ability.Chain, true);
-				player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoDPS | Player.Ability.Chain, true);
+			player2.GetComponent<Player> ().SetAbilities (Player.Ability.GoSupport | Player.Ability.Chain, true);
+			player1.GetComponent<Player> ().SetAbilities (Player.Ability.GoDPS | Player.Ability.Chain, true);
 				break;
 			case State.S_22_UtiliseChaine:
 				grayZone.GetComponent<Image> ().enabled = false;

@@ -248,29 +248,37 @@ public class Player : Character {
 		}
 		if (Input.GetButtonDown ("DPS_P" + playerNumber) && CheckAbility (Ability.GoDPS) && state != PlayerState.DPS) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
-				speed = dpsSpeed;
-				state = PlayerState.DPS;
-				magnet.SetActive (false);
-				//gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
-				gameObject.GetComponent<SpriteRenderer>().sprite = DPS;
-				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
-				AkSoundEngine.PostEvent ("switch_to_dps", gameObject);
+				SetState (PlayerState.DPS);
 			}
 		} else if (Input.GetButtonDown ("Support_P" + playerNumber) && CheckAbility (Ability.GoSupport) && state != PlayerState.Support) {
 			if (IngameTime.globalTime > nextSwitchStateTime) {
-				SetCanShoot (false);
-				if (!dash)
-					speed = supportSpeed;
-				laser.GetComponent<Laser> ().Stop ();
-				state = PlayerState.Support;
-				//gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
-				gameObject.GetComponent<SpriteRenderer>().sprite = Support;
-				nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
-				AkSoundEngine.PostEvent ("switch_to_support", gameObject);
+				SetState (PlayerState.Support);
 			}
 		}
 
 		UpdateGauges ();
+	}
+
+	public void SetState (PlayerState nstate) {
+		if (nstate == PlayerState.DPS) {
+			speed = dpsSpeed;
+			state = PlayerState.DPS;
+			magnet.SetActive (false);
+			//gameObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
+			gameObject.GetComponent<SpriteRenderer>().sprite = DPS;
+			nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
+			AkSoundEngine.PostEvent ("switch_to_dps", gameObject);
+		} else {
+			SetCanShoot (false);
+			if (!dash)
+				speed = supportSpeed;
+			laser.GetComponent<Laser> ().Stop ();
+			state = PlayerState.Support;
+			//gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
+			gameObject.GetComponent<SpriteRenderer>().sprite = Support;
+			nextSwitchStateTime = IngameTime.globalTime + switchStateCooldown;
+			AkSoundEngine.PostEvent ("switch_to_support", gameObject);
+		}
 	}
 
 	public void SetLaserMaxLoad (float value) {
