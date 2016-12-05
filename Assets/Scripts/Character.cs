@@ -41,6 +41,8 @@ public class Character : MonoBehaviour {
 	}
 
 	void Update () {
+		if (IngameTime.pause)
+			return;
 		if (invincible) {
 			if (IngameTime.time >= invincibilityStartTime + invincibilityTime) {
 				invincible = false;//*
@@ -66,6 +68,8 @@ public class Character : MonoBehaviour {
 	}
 	//*
 	void OnCollisionEnter2D (Collision2D other) {
+		if (IngameTime.pause)
+			return;
 		if (damageTakenOnCollision > 0f) {
 			if (other.gameObject.GetComponent<Character> () != null && other.gameObject.GetComponent<Character> ().isEnemy != _isEnemy) {
 				TakeDamage (damageTakenOnCollision);

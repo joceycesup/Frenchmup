@@ -70,6 +70,8 @@ public class Projectile : MonoBehaviour {
 		gameObject.transform.Translate (getDeltaPosition ());
 	}/*/
 	void Update () {
+		if (IngameTime.pause)
+			return;
 		if (IngameTime.time >= desintegrateStartTime) {
 			if (IngameTime.time >= desintegrateStartTime + desintegrateTime) {
 				Destroy (gameObject);
@@ -133,7 +135,6 @@ public class Projectile : MonoBehaviour {
 	public void Remove () {
 		if (this.enabled)
 			Destroy (gameObject);
-
 	}
 
 	public void SetRotation (Quaternion q) {
@@ -163,6 +164,8 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnBecameInvisible () {
+		if (IngameTime.pause)
+			return;
 		Destroy (gameObject);
 	}
 }

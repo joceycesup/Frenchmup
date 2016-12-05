@@ -22,6 +22,8 @@ public class EnemyEmitter : MonoBehaviour {
 	}
 
 	void Update () {
+		if (IngameTime.pause)
+			return;
 		if (compteur < parCycle) {
 			if (IngameTime.time > nextEnemyTime) {
 				if (enemy != null) {

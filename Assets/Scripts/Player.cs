@@ -214,7 +214,7 @@ public class Player : Character {
 			}
 			if (Input.GetButtonDown ("Fire3_P" + playerNumber) && CheckAbility (Ability.Bomb)) {
 					if (!smartBomb.GetComponent<SmartBomb>().bombing) {
-						if (Time.time > smartBombEndTime + bulletTimeCooldown) {
+						if (IngameTime.globalTime > smartBombEndTime + bulletTimeCooldown) {
 							smartBomb.SetActive (true);
 							smartBombEndTime = IngameTime.globalTime + smartBomb.GetComponent<SmartBomb> ().maxLifeSpan;
 						}
@@ -243,7 +243,7 @@ public class Player : Character {
 			}
 			if (Input.GetButtonDown ("Fire3_P" + playerNumber) && CheckAbility (Ability.BulletTime)) {
 				if (!bulletTime) {
-					if (Time.time > bulletTimeEndTime + bulletTimeCooldown) {
+					if (IngameTime.globalTime > bulletTimeEndTime + bulletTimeCooldown) {
 						bulletTime = true;
 						bulletTimeEndTime = IngameTime.globalTime + bulletTimeDuration;
 						IngameTime.MultiplyFactor (bulletTimeFactor);

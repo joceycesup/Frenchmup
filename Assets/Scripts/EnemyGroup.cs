@@ -41,12 +41,12 @@ public class EnemyGroup : MonoBehaviour {
 	void OnDestroy () {
 		enemyCount += 1337; // prevents this object from getting destroyed multiple times because of RemoveEnemy
 	}
-
+	//*
 	void OnDrawGizmos () {
 		if (gameObject.GetComponent<BoxCollider2D> () != null) {
 			Gizmos.color = Color.red;
 			Gizmos.DrawWireCube(transform.position - new Vector3 (0f, gameObject.GetComponent<BoxCollider2D>().bounds.extents.y+9f),
 				new Vector3(32f, 18f));
 		}
-	}
+	}//*/
 }

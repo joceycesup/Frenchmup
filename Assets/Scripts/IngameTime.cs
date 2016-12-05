@@ -64,12 +64,9 @@ public class IngameTime : MonoBehaviour {
 			_timeFactor *= factor;
 			if (_timeFactor < 1f) {
 				AkSoundEngine.PostEvent ("bullet_time_on", GameSettings.game_settings);
-				Debug.Log ("bellette time!!");
 			} else {
 				AkSoundEngine.PostEvent ("bullet_time_off", GameSettings.game_settings);
-				Debug.Log ("bellette time au feu!!");
 			}
-			//AudioListener.volume = _timeFactor;
 		}
 	}
 }

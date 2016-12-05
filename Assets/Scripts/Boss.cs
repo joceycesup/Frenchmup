@@ -19,8 +19,7 @@ public class Boss : Enemy {
 
 	[SpineAttachment (currentSkinOnly: true, slotField: "Paupiere")]
 	public string eyesClosed;
-
-
+	
 	protected override void StartCharacter () {
 		base.StartCharacter ();
 		skel = GetComponent<SkeletonAnimation> ();

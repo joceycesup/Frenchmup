@@ -144,6 +144,8 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	}
 
 	void Update () {
+		if (IngameTime.pause)
+			return;
 		if (currentSentence >= sentences.Length) {
 			Destroy (grayZone.transform.parent.gameObject);
 			Destroy (gameObject);

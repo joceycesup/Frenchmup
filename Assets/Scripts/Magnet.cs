@@ -16,6 +16,8 @@ public class Magnet : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D (Collider2D other) {
+		if (IngameTime.pause)
+			return;
 		//Debug.Log (gameObject + " : " + other.gameObject);
 		if (other.gameObject == transform.parent.gameObject)
 			return;

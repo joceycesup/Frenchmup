@@ -30,6 +30,8 @@ public class SmartBomb : MonoBehaviour {
 	}
 
 	void Update () {
+		if (IngameTime.pause)
+			return;
 		float scaleFactor = (IngameTime.time - startTime) / maxLifeSpan;
 		/*
 		if (gameObject.transform.parent.gameObject.GetComponent<Character> () == null) {
@@ -57,6 +59,8 @@ public class SmartBomb : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
+		if (IngameTime.pause)
+			return;
 		//Debug.Log (gameObject + " : " + other.gameObject);
 		if (transform.parent == null)
 			return;

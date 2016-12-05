@@ -59,6 +59,8 @@ public class ViewportHandler : MonoBehaviour {
 	}
 
 	void Update () {
+		if (IngameTime.pause)
+			return;
 		if (currentSection == null)
 			return;
 		if (currentSection.GetComponent<LevelSection> ().behaviour != LevelSection.LevelBehaviour.Static || currentSection.GetComponent<LevelSection> ().behaviourLock == null) {
@@ -67,6 +69,8 @@ public class ViewportHandler : MonoBehaviour {
 	}//*
 
 	void OnTriggerEnter2D (Collider2D other) {
+		if (IngameTime.pause)
+			return;
 		//Debug.Log ("collision enter " + other.gameObject);
 		if (other.gameObject.tag == "Section") {
 			if (currentSection == null) {
@@ -97,6 +101,8 @@ public class ViewportHandler : MonoBehaviour {
 	}
 
 	void OnTriggerExit2D (Collider2D other) {
+		if (IngameTime.pause)
+			return;
 		if (other.gameObject.tag == "Section") {
 			if (nextSection != null) {
 				SetCurrentSection (nextSection);
@@ -121,7 +127,7 @@ public class ViewportHandler : MonoBehaviour {
 			nextSection = section;
 		}
 		if (section == musicSections [musicIndex]) {
-			Debug.Log ("setting music " + musics [musicIndex]);
+			//Debug.Log ("setting music " + musics [musicIndex]);
 			AkSoundEngine.SetState ("current_zone", musics [musicIndex++]);
 		}
 		currentSection = section;

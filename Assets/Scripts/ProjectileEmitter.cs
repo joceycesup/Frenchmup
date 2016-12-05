@@ -57,6 +57,8 @@ public class ProjectileEmitter : MonoBehaviour {
 	}
 
 	void Update () {
+		if (IngameTime.pause)
+			return;
 		if (transform.parent.gameObject.GetComponent<GargScript> () != null)
 			transform.parent.gameObject.GetComponent<GargScript> ().Aiming =  (IngameTime.time < volleyStartTime);
 		int tmpVolleyCounter = volleyCounter;

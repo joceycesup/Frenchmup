@@ -16,6 +16,8 @@ public class Laser : MonoBehaviour {
 	}
 
 	void Update () {//*
+		if (IngameTime.pause)
+			return;
 		float boxHeight = ViewportHandler.viewport.transform.position.y + ViewportHandler.viewport.GetComponent<BoxCollider2D> ().bounds.extents.y - transform.position.y;
 		parts [0].GetComponent<SpriteRenderer> ().enabled = (boxHeight != (boxHeight = Mathf.Min (b2d.size.y+beamSpeed*IngameTime.deltaTime, boxHeight)));
 		SetHeight (boxHeight);

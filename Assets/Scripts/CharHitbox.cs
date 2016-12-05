@@ -9,6 +9,8 @@ public class CharHitbox : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
+		if (IngameTime.pause)
+			return;
 		if (gameObject.name == "TestHitbox")
 			Debug.Log ("enter " + other.gameObject);
 		if (other.gameObject == transform.parent.gameObject)
@@ -28,6 +30,8 @@ public class CharHitbox : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D (Collider2D other) {
+		if (IngameTime.pause)
+			return;
 		if (other.gameObject == transform.parent.gameObject)
 			return;
 		if (!character.isActiveAndEnabled)
