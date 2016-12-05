@@ -34,7 +34,7 @@ InputManager:
     sensitivity: 1000
     snap: 1
     invert: 0
-    type: 0
+    type: 2
     axis: 0
     joyNum: 0
   - serializedVersion: 3
@@ -538,7 +538,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: escape
+    positiveButton: space
     altNegativeButton: 
     altPositiveButton: joystick button 0
     gravity: 1000
