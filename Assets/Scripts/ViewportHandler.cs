@@ -32,7 +32,7 @@ public class ViewportHandler : MonoBehaviour {
 			GameObject wall = new GameObject ();
 			wall.layer = LayerMask.NameToLayer ("Wall");
 			wall.AddComponent<BoxCollider2D> ();
-			wall.GetComponent<BoxCollider2D> ().size = new Vector2 ((i % 2) == 1 ? wallThickness : (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.x + wallThickness) * 2.0f, (i % 2) == 0 ? wallThickness : gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y * 2.0f);
+			wall.GetComponent<BoxCollider2D> ().size = new Vector2 ((i % 2) == 1 ? wallThickness : (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.x + wallThickness) * 3.0f, (i % 2) == 0 ? wallThickness : gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y * 3.0f);
 			wall.transform.position = new Vector3 (
 				transform.position.x + (((i % 2) == 0 ? 0.0f : ((i < 2 ? 1.0f : -1.0f) * (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.x + wallThickness / 2f)))),
 				transform.position.y + (((i % 2) == 1 ? 0.0f : ((i < 2 ? 1.0f : -1.0f) * (gameObject.GetComponent<BoxCollider2D> ().bounds.extents.y + wallThickness / 2f)))));
