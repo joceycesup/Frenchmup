@@ -32,6 +32,7 @@ public class CharHitbox : MonoBehaviour {
 			return;
 		//Debug.Log (other.gameObject);
 		if (other.gameObject.tag == "Projectile" && character.isEnemy && other.transform.parent != null && other.transform.parent.gameObject.GetComponent<Chain> () != null) {
+			Debug.Log ("ELLE MARCHE CETTE FOUTUE CHAINE");
 			character.TakeDamage (other.transform.parent.gameObject.GetComponent<Chain> ().damage * IngameTime.deltaTime, false);
 		}
 	}

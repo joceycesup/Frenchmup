@@ -54,6 +54,7 @@ public class Boss : Enemy {
 			phase2 = true;
 			// Mise en place de la phase 2
 			Debug.Log("Phase2");
+			AkSoundEngine.PostEvent ("boss_open_eyes", GameSettings.game_settings);
 
 			skel.skeleton.SetAttachment ("Paupiere", eyesOpen);
 
