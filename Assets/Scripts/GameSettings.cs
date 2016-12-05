@@ -34,7 +34,7 @@ public class GameSettings : MonoBehaviour {
 			return;
 		}
 		_game_settings = gameObject;
-		AkSoundEngine.PostEvent ("start_game", gameObject);
+		AkSoundEngine.PostEvent ("start_game", _game_settings);
 		DontDestroyOnLoad (gameObject);
 		tutorial = true;
 	}
@@ -54,6 +54,7 @@ public class GameSettings : MonoBehaviour {
 	}
 
 	public void LoadMenu () {
+		AkSoundEngine.PostEvent ("start_game", _game_settings);
 		SceneManager.LoadScene (0);
 		//SceneManager.LoadScene ("Game");
 	}
