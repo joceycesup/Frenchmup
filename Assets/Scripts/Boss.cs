@@ -14,6 +14,8 @@ public class Boss : Enemy {
 	SkeletonAnimation skel;
 	public SkeletonAnimation trompe2;
 
+	public GameObject LifeJauge;
+
 	[SpineAttachment (currentSkinOnly: true, slotField: "Paupiere")]
 	public string eyesOpen;
 
@@ -22,6 +24,7 @@ public class Boss : Enemy {
 	
 	protected override void StartCharacter () {
 		base.StartCharacter ();
+		LifeJauge.SetActive (true);
 		skel = GetComponent<SkeletonAnimation> ();
 		if (skel != null) {
 			skel.skeleton.SetAttachment ("Paupiere", eyesClosed);
@@ -90,6 +93,7 @@ public class Boss : Enemy {
 				Destroy (patternArgsO [0]);
 			}
 		}
+		LifeJauge.SetActive (false);
         if (health <= 0f)
         {
 			Debug.Log("Say hello to my little friend");

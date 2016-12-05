@@ -419,7 +419,7 @@ Prefab:
     - target: {fileID: 114000010896216858, guid: 0798716efcbce234796f192a9efebd14,
         type: 2}
       propertyPath: damage
-      value: 500
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0798716efcbce234796f192a9efebd14, type: 2}
@@ -1780,7 +1780,7 @@ MonoBehaviour:
   text: {fileID: 98639351}
   grayZone: {fileID: 113314714}
   bulle: {fileID: 803920767}
-  currentState: 25
+  currentState: 0
   sentences:
   - Pour commencer, on va apprendre les bases
   - "D\xE9placez votre destrier en utilisant le stick directionnel gauche"
@@ -2605,7 +2605,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3023,7 +3023,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4192,7 +4192,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4545,7 +4545,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6808,6 +6808,11 @@ Prefab:
       propertyPath: healthGauge
       value: 
       objectReference: {fileID: 1893709289}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: dashDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4655d6dbec804649bd4e82d921e8d49, type: 2}
   m_IsPrefabParent: 0
@@ -10698,7 +10703,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14416,7 +14421,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15210,7 +15215,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8275a71c30ad3f840aafaa0446aaf6eb, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16261,7 +16266,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16859,7 +16864,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17405,7 +17410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourLock: {fileID: 1472096135}
-  behaviour: 2
+  behaviour: 1
 --- !u!212 &1089984743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19817,7 +19822,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20562,7 +20567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1347392432
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22772,6 +22777,24 @@ Prefab:
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012259754450, guid: 26ae9da0c3ed61f45bc227ba56d65658,
+        type: 2}
+      propertyPath: jauge
+      value: 
+      objectReference: {fileID: 972279034}
+    - target: {fileID: 4000013074695332, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.8795753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013074695332, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.47575969
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012259754450, guid: 26ae9da0c3ed61f45bc227ba56d65658,
+        type: 2}
+      propertyPath: LifeJauge
+      value: 
+      objectReference: {fileID: 2109084387}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
   m_IsPrefabParent: 0
@@ -23964,7 +23987,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -30336,7 +30359,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -32386,6 +32409,11 @@ Prefab:
       propertyPath: playerNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
+        type: 2}
+      propertyPath: dashDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4655d6dbec804649bd4e82d921e8d49, type: 2}
   m_IsPrefabParent: 0
@@ -32653,7 +32681,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454876985
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f57c662d3c0af845a30cdad0422bedb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d692d73cb10f224ea140a5d90bc78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -33813,7 +33841,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8275a71c30ad3f840aafaa0446aaf6eb, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1

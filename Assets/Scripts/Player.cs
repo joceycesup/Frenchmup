@@ -216,7 +216,7 @@ public class Player : Character {
 					if (!smartBomb.GetComponent<SmartBomb>().bombing) {
 						if (IngameTime.globalTime > smartBombEndTime + bulletTimeCooldown) {
 							smartBomb.SetActive (true);
-							smartBombEndTime = IngameTime.globalTime + smartBomb.GetComponent<SmartBomb> ().maxLifeSpan;
+						smartBombEndTime = IngameTime.globalTime + smartBomb.GetComponent<SmartBomb> ().maxLifeSpan;
 						}
 					}
 			}
@@ -359,7 +359,7 @@ public class Player : Character {
 		if(healthGauge!=null)
 			healthGauge.fillAmount = health / maxHealth;
 		if (specialGauge != null) {
-			specialGauge.fillAmount = state == PlayerState.DPS ? Mathf.Clamp01 ((smartBombEndTime - IngameTime.time) / bulletTimeCooldown) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown);
+			specialGauge.fillAmount = state == PlayerState.DPS ? 1-Mathf.Clamp01 ((smartBombEndTime - IngameTime.time + bulletTimeCooldown) / bulletTimeCooldown) : 1-Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time + bulletTimeCooldown)/bulletTimeCooldown);
 		//	specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
 		}
 	}
