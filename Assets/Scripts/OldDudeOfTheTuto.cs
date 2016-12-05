@@ -136,6 +136,13 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	private bool awaitingEnter = false;
 	private string sentence = "";
 
+	void Awake () {
+		if (!GameSettings.tutorial) {
+			Destroy (grayZone.transform.parent.gameObject);
+			Destroy (gameObject);
+		}
+	}
+
 	void Start () {
 		for (int i = 0; i < (int)currentState; ++i) {
 			currentSentence += sentencesPerState[i];
