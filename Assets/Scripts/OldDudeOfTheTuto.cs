@@ -150,7 +150,6 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			return;
 		}
 
-		Debug.Log (currentState + " ; " + currentStateSentence + " ; " + currentSentence + " ; " + awaitingEnter + " ; " + awaitingAction);
 		if (awaitingEnter) {
 			bulle.SetActive (true);
 			if (Input.GetButtonDown ("SkipSentence") || (GetWaitAction () ? Input.anyKeyDown : false)) {
@@ -199,7 +198,6 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 
 	void UpdateText () {
 		text.text = sentence;
-		//Debug.Log (LayoutUtility.GetPreferredHeight (text.rectTransform));
 	}
 
 	bool GetWaitAction () {
@@ -288,7 +286,6 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	bool WaitAction () {
 		if (!awaitingAction)
 			return false;
-		//Debug.Log ("wait action");
 		switch (currentState) {
 			case State.S_01_Deplacement:
 				if (Input.GetAxis ("Horizontal_P1") != 0f || Input.GetAxis ("Vertical_P1") != 0f) {
@@ -365,7 +362,6 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	}
 
 	void SetState () {
-		//Debug.Log ("current state : " + currentState);
 		switch (currentState) {
 			case State.S_01_Deplacement:
 				grayZone.GetComponent<Image> ().enabled = true;

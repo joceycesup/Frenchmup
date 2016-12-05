@@ -9,6 +9,8 @@ public class CharHitbox : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
+		if (gameObject.name == "TestHitbox")
+			Debug.Log ("enter " + other.gameObject);
 		if (other.gameObject == transform.parent.gameObject)
 			return;
 		if (!character.isActiveAndEnabled)
@@ -30,10 +32,8 @@ public class CharHitbox : MonoBehaviour {
 			return;
 		if (!character.isActiveAndEnabled)
 			return;
-		//Debug.Log (other.gameObject);
-		if (other.gameObject.tag == "Projectile" && character.isEnemy && other.transform.parent != null && other.transform.parent.gameObject.GetComponent<Chain> () != null) {
-			Debug.Log ("ELLE MARCHE CETTE FOUTUE CHAINE");
-			character.TakeDamage (other.transform.parent.gameObject.GetComponent<Chain> ().damage * IngameTime.deltaTime, false);
+		if (other.gameObject.tag == "Projectile" && character.isEnemy && other.transform.parent != null && other.transform.parent.gameObject.name == "Links") {
+			character.TakeDamage (other.transform.parent.parent.FindChild("Path").gameObject.GetComponent<Chain> ().damage * IngameTime.deltaTime, false);
 		}
 	}
 }
