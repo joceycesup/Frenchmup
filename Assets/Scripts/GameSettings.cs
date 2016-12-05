@@ -28,8 +28,12 @@ public class GameSettings : MonoBehaviour {
 	void Start () {
 	}
 
-	public void LoadGame (bool tuto) {
+	public static void SetTuto (bool tuto) {
 		tutorial = tuto;
+	}
+
+	public void LoadGame (bool tuto) {
+		SetTuto (tuto);
 		Destroy (gameObject.GetComponent<Menu> ());
 		SceneManager.LoadScene (1);
 		//SceneManager.LoadScene ("Game");
