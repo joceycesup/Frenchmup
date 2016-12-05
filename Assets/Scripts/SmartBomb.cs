@@ -7,6 +7,7 @@ public class SmartBomb : MonoBehaviour {
 	public float desintegrateTime = 0.3f;
 	private float startTime = 0.0f;
 	private float desintegrateStartTime = 0.0f;
+	public bool bombing = false;
 
 	void Awake () {
 		gameObject.transform.localScale = new Vector3 (0, 0, 0);
@@ -21,7 +22,7 @@ public class SmartBomb : MonoBehaviour {
 	}
 
 	void OnEnable () {
-		Debug.Log ("bomb enable");
+		bombing = true;
 		startTime = IngameTime.time;
 		desintegrateStartTime = startTime + maxLifeSpan - desintegrateTime;
 		transform.localScale = new Vector3 ();
@@ -29,8 +30,12 @@ public class SmartBomb : MonoBehaviour {
 	}
 
 	void Update () {
-		Debug.Log ("bomb update");
 		float scaleFactor = (IngameTime.time - startTime) / maxLifeSpan;
+		/*
+		if (gameObject.transform.parent.gameObject.GetComponent<Character> () == null) {
+			gameObject.transform.localScale = new Vector3 (scaleFactor*maxLifeSpan, scaleFactor*maxLifeSpan, 0);
+		}
+		else*/
 		gameObject.transform.localScale = new Vector3 (scaleFactor, scaleFactor, 0);
 		if (IngameTime.time >= desintegrateStartTime) {
 			if (IngameTime.time >= desintegrateStartTime + desintegrateTime) {
@@ -38,6 +43,7 @@ public class SmartBomb : MonoBehaviour {
 					Destroy (gameObject);
 				else
 					gameObject.SetActive (false);
+				bombing = false;
 			} else {
 				Color tmpColor = gameObject.GetComponent<SpriteRenderer> ().color;
 				tmpColor.a = 1.0f - (IngameTime.time - desintegrateStartTime) / desintegrateTime;

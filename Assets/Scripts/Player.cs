@@ -71,6 +71,7 @@ public class Player : Character {
 		private set;
 	}
 	private GameObject smartBomb;
+	private float smartBombEndTime;
 	private GameObject laser;
 
 	public Image laserGauge;
@@ -212,7 +213,12 @@ public class Player : Character {
 				SetCanShoot (false);
 			}
 			if (Input.GetButtonDown ("Fire3_P" + playerNumber) && CheckAbility (Ability.Bomb)) {
-				smartBomb.SetActive (true);
+					if (!smartBomb.GetComponent<SmartBomb>().bombing) {
+						if (Time.time > smartBombEndTime + bulletTimeCooldown) {
+							smartBomb.SetActive (true);
+							smartBombEndTime = IngameTime.globalTime + smartBomb.GetComponent<SmartBomb> ().maxLifeSpan;
+						}
+					}
 			}
 			break;
 		case PlayerState.Support:
@@ -361,7 +367,7 @@ public class Player : Character {
 		if(healthGauge!=null)
 			healthGauge.fillAmount = health / maxHealth;
 		if (specialGauge != null) {
-			specialGauge.fillAmount = state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown);
+			specialGauge.fillAmount = state == PlayerState.DPS ? Mathf.Clamp01 ((smartBombEndTime - IngameTime.time) / bulletTimeCooldown) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown);
 		//	specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
 		}
 	}
