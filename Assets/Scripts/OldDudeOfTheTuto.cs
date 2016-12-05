@@ -153,7 +153,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		Debug.Log (currentState + " ; " + currentStateSentence + " ; " + currentSentence+ " ; " +awaitingEnter + " ; " +awaitingAction);
 		if (awaitingEnter) {
 			bulle.SetActive (true);
-			if (Input.GetButtonDown ("SkipSentence")) {
+			if (Input.GetButtonDown ("SkipSentence") || (awaitingAction?false:Input.anyKeyDown)) {
 				awaitingEnter = false;
 				currentSentenceLength = 0;
 				if (++currentStateSentence >= sentencesPerState[(int)currentState]) {
