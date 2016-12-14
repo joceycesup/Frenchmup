@@ -108,9 +108,12 @@ MonoBehaviour:
   isEnemy: 0
   maxLifeSpan: 10
   desintegrateTime: 0.3
+  desintegrateStartTime: 0
   speed: 4
+  maxSpeed: 0
   acceleration: 0
   curveAngle: 0
+  waveLenght: 0
   pattern: 2
   patternArgs:
   - 1
@@ -123,6 +126,7 @@ MonoBehaviour:
   - 5
   - 10
   behaviourTime: 1
+  behaviourStartTime: 0
   nextProjectile: {fileID: 0}
 --- !u!212 &212000013419866146
 SpriteRenderer:
@@ -153,7 +157,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1396505009
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 035b9e2a8630e6c49b6484e9adf94a53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45cc918344d11fb4cae9e105de68d8e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

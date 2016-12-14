@@ -341,16 +341,7 @@ MonoBehaviour:
         ObjectType: 7
       ID: -859319504
       Guid: 6b6f5be276f2d4408fe14ac1870c1ee0
-  ExpandedItems:
-  - /frenchmup
-  - /frenchmup/Events
-  - /frenchmup/Events/Default Work Unit
-  - /frenchmup/Events/Default Work Unit/musique
-  - /frenchmup/Events/Default Work Unit/SFX
-  - /frenchmup/SoundBanks
-  - /frenchmup/SoundBanks/Default Work Unit
-  - /frenchmup/States
-  - /frenchmup/States/Default Work Unit
+  ExpandedItems: []
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
