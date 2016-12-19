@@ -359,7 +359,6 @@ public class Player : Character {
 			healthGauge.fillAmount = health / maxHealth;
 		if (specialGauge != null) {
 			specialGauge.fillAmount = 1 - Mathf.Clamp01 ((specialEndTime - IngameTime.time + specialCooldown) / specialCooldown);
-		//	specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
 		}
 	}
 
