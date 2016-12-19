@@ -87,7 +87,7 @@ public class Character : MonoBehaviour {
 		if (activeInvincibility) {
 			SetInvincible ();
 		}
-		Debug.Log ("Ouch");
+		//Debug.Log ("Ouch");
 		if (blood != null) {
 			//if (GetComponent<Boss> () == null) {
 				Instantiate (blood, transform.position - Vector3.forward, Quaternion.identity);

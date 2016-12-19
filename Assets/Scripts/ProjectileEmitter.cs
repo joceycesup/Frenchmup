@@ -42,6 +42,10 @@ public class ProjectileEmitter : MonoBehaviour {
 		this.firingRate = other.firingRate;
 	}//*/
 
+	void Awake() {
+		Debug.Log (projectile + " : " + projectile.GetInstanceID ());
+	}
+
 	void Start () {
 		if (tag == "BossWeapon") {
 			isEnemy = true;
@@ -70,7 +74,7 @@ public class ProjectileEmitter : MonoBehaviour {
 				switch (behaviour) {
 				case EmitterBehaviour.TargetAdversary:
 					Player[] chars = GameObject.FindObjectsOfType (typeof(Player)) as Player[];
-					Debug.Log ("target players : " + chars.Length);
+					//Debug.Log ("target players : " + chars.Length);
 					float targetDistance = float.MaxValue;
 					target = null;
 					for (int i = 0; i < chars.Length; ++i) {
@@ -80,7 +84,7 @@ public class ProjectileEmitter : MonoBehaviour {
 							target = chars [i].gameObject;
 						}
 					}
-					Debug.Log ("target players : " + chars.Length + " ; target is " + target);
+					//Debug.Log ("target players : " + chars.Length + " ; target is " + target);
 					if (target != null) {
 						GameObject pro = (GameObject) Instantiate (projectile, gameObject.transform.position, Quaternion.identity);
 						pro.gameObject.GetComponent<Projectile>().isEnemy = isEnemy;

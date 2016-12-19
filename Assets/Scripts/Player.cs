@@ -37,9 +37,9 @@ public class Player : Character {
 
 	public float bulletTimeDuration = 2f;
 	public float bulletTimeFactor = 0.5f;
-	public float bulletTimeCooldown = 1f;
+	public float specialCooldown = 1f;
 	private bool bulletTime = false;
-	private float bulletTimeEndTime;
+	private float specialEndTime;
 
 	public float dashDistance = 0.5f;
 	public float dashSpeed = 16f;
@@ -71,7 +71,6 @@ public class Player : Character {
 		private set;
 	}
 	private GameObject smartBomb;
-	private float smartBombEndTime;
 	private GameObject laser;
 
 	public Image laserGauge;
@@ -167,7 +166,7 @@ public class Player : Character {
 
 		//------------------------------ Gestion des capacites ----------------------------------------
 		if (bulletTime) {
-			if (IngameTime.globalTime >= bulletTimeEndTime) {
+			if (IngameTime.globalTime >= specialEndTime) {
 				bulletTime = false;
 				IngameTime.MultiplyFactor (1f / bulletTimeFactor);
 			}
@@ -214,9 +213,9 @@ public class Player : Character {
 			}
 			if (Input.GetButtonDown ("Fire3_P" + playerNumber) && CheckAbility (Ability.Bomb)) {
 					if (!smartBomb.GetComponent<SmartBomb>().bombing) {
-						if (IngameTime.globalTime > smartBombEndTime + bulletTimeCooldown) {
+					if (IngameTime.globalTime > specialEndTime + specialCooldown) {
 							smartBomb.SetActive (true);
-						smartBombEndTime = IngameTime.globalTime + smartBomb.GetComponent<SmartBomb> ().maxLifeSpan;
+						specialEndTime = IngameTime.globalTime + smartBomb.GetComponent<SmartBomb> ().maxLifeSpan;
 						}
 					}
 			}
@@ -243,9 +242,9 @@ public class Player : Character {
 			}
 			if (Input.GetButtonDown ("Fire3_P" + playerNumber) && CheckAbility (Ability.BulletTime)) {
 				if (!bulletTime) {
-					if (IngameTime.globalTime > bulletTimeEndTime + bulletTimeCooldown) {
+					if (IngameTime.globalTime > specialEndTime + specialCooldown) {
 						bulletTime = true;
-						bulletTimeEndTime = IngameTime.globalTime + bulletTimeDuration;
+						specialEndTime = IngameTime.globalTime + bulletTimeDuration;
 						IngameTime.MultiplyFactor (bulletTimeFactor);
 					}
 				}
@@ -359,7 +358,7 @@ public class Player : Character {
 		if(healthGauge!=null)
 			healthGauge.fillAmount = health / maxHealth;
 		if (specialGauge != null) {
-			specialGauge.fillAmount = state == PlayerState.DPS ? 1-Mathf.Clamp01 ((smartBombEndTime - IngameTime.time + bulletTimeCooldown) / bulletTimeCooldown) : 1-Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time + bulletTimeCooldown)/bulletTimeCooldown);
+			specialGauge.fillAmount = 1 - Mathf.Clamp01 ((specialEndTime - IngameTime.time + specialCooldown) / specialCooldown);
 		//	specialGauge.transform.localScale = new Vector3 (state == PlayerState.DPS ? (smartBomb.GetComponent<SmartBomb> ().GetLoad ()) : Mathf.Clamp01 ((bulletTimeEndTime - IngameTime.time) / bulletTimeCooldown), 1f, 1f);
 		}
 	}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 #if UNITY_EDITOR
 #endif
 
@@ -127,6 +128,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		3 //25
 	};
 	public GameObject[] tutoObjects;
+	public float actionDelay = 0.5f;
 	private float[] tmpValues = { 0f, 0f, 0f };
 	private int currentStateSentence = 0;
 	private int currentSentence = 0;
@@ -134,6 +136,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	private int conditions = 0;
 	private bool awaitingAction = false;
 	private bool awaitingEnter = false;
+	private bool skipUpdate = false;
 	private string sentence = "";
 
 	void Start () {
@@ -148,7 +151,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 	}
 
 	void Update () {
-		if (IngameTime.pause)
+		if (IngameTime.pause || skipUpdate)
 			return;
 		if (currentSentence >= sentences.Length) {
 			Destroy (grayZone.transform.parent.gameObject);
@@ -181,15 +184,8 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 		if (awaitingAction) {
 			bulle.SetActive (false);
 			if (WaitAction ()) {
-				awaitingEnter = false;
-				bulle.SetActive (true);
-				ResetState ();
-				awaitingAction = false;
-				currentStateSentence = 0;
-				currentState++;
-				SetState ();
-				currentSentenceLength = 0;
-				currentSentence++;
+				skipUpdate = true;
+				StartCoroutine ("ActionPerformed");
 			}
 			return;
 		}
@@ -200,6 +196,23 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 				awaitingEnter = true;
 			}
 		}
+	}
+
+	IEnumerator ActionPerformed () {
+		float endTime = IngameTime.time + actionDelay;
+		while (IngameTime.time < endTime) {
+			yield return null;
+		}
+		awaitingEnter = false;
+		bulle.SetActive (true);
+		ResetState ();
+		awaitingAction = false;
+		currentStateSentence = 0;
+		currentState++;
+		SetState ();
+		currentSentenceLength = 0;
+		currentSentence++;
+		skipUpdate = false;
 	}
 
 	void UpdateText () {

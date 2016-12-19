@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ViewportHandler : MonoBehaviour {
 	private static GameObject _viewport;
@@ -117,7 +120,12 @@ public class ViewportHandler : MonoBehaviour {
 			Projectile pro = other.gameObject.GetComponent<Projectile> ();
 			pro.desintegrateTime = 0.5f / pro.speed;
 			pro.Disintegrate ();
-		} else if (other.gameObject.tag == "Enemy") {
+		} else if (other.gameObject.tag == "Enemy" && other.gameObject.layer != LayerMask.NameToLayer ("CharHitbox")) {/*
+			#if UNITY_EDITOR
+			Debug.Log ("Destroying " + other.gameObject + " from viewportHandler");
+			other.gameObject.name += "coucou";
+			EditorApplication.isPaused = true;
+			#endif//*/
 			Destroy (other.gameObject);
 		}
 	}//*/

@@ -144,13 +144,15 @@ public class Enemy : Character {
 		if (targetPosition.x != float.MaxValue && transform.position != targetPosition) {
 			transform.position = Vector3.Lerp (transform.position, targetPosition, speed * IngameTime.deltaTime / Vector3.Distance (transform.position, targetPosition));
 		}
-
+		/*
 		bool hasHitbox = false;
 		for (int i = 0; i < transform.childCount; ++i) {
 			hasHitbox |= transform.GetChild(i).GetComponent<CharHitbox>() != null;
 		}
-		if (!hasHitbox)
+		if (!hasHitbox) {
+			Debug.Log (gameObject + " has no hitbox");
 			Destroy (gameObject);
+		}//*/
 	}
 
 	void OnDestroy () {
