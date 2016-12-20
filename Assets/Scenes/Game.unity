@@ -1435,7 +1435,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bonne chance !
+  m_Text: 'Bonne <size=45><b>chance</b></size> !
+
+    <color=blue><b>(X)</b></color>'
 --- !u!222 &98639352
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1651,7 +1653,7 @@ GameObject:
   - 222: {fileID: 113314717}
   - 114: {fileID: 113314716}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: BGHider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7345,10 +7347,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 457994844}
-  - 222: {fileID: 457994846}
-  - 114: {fileID: 457994845}
   m_Layer: 5
-  m_Name: Image
+  m_Name: TutoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7375,39 +7375,6 @@ RectTransform:
   m_AnchoredPosition: {x: -793.7168, y: -490.3098}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &457994845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 457994843}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &457994846
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 457994843}
 --- !u!1 &465443903
 GameObject:
   m_ObjectHideFlags: 0
@@ -12956,7 +12923,7 @@ GameObject:
   - 222: {fileID: 803920770}
   - 114: {fileID: 803920769}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BulleTuto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27457,7 +27424,7 @@ GameObject:
   - 222: {fileID: 1718941007}
   - 114: {fileID: 1718941006}
   m_Layer: 5
-  m_Name: Image
+  m_Name: OldDude
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

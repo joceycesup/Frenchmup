@@ -377,6 +377,7 @@ public class OldDudeOfTheTuto : MonoBehaviour {
 			default:
 				break;
 		}
+
 		return conditions == 0;
 	}
 
