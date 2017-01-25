@@ -6927,17 +6927,17 @@ Prefab:
         type: 2}
       propertyPath: laserGauge
       value: 
-      objectReference: {fileID: 785960972}
+      objectReference: {fileID: 1155132141}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: specialGauge
       value: 
-      objectReference: {fileID: 398565721}
+      objectReference: {fileID: 537059558}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: healthGauge
       value: 
-      objectReference: {fileID: 1893709289}
+      objectReference: {fileID: 1126361752}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: dashDistance
@@ -8459,7 +8459,7 @@ RectTransform:
   m_GameObject: {fileID: 544941129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1531745316}
@@ -8488,7 +8488,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8807c9d77f6e6a4dab35d9e4b2acdd9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76424ea16241bad4fa8723e2da587093, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -14993,7 +14993,7 @@ RectTransform:
   m_GameObject: {fileID: 950778607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1496350556}
@@ -15022,7 +15022,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 76424ea16241bad4fa8723e2da587093, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8807c9d77f6e6a4dab35d9e4b2acdd9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -32780,17 +32780,17 @@ Prefab:
         type: 2}
       propertyPath: laserGauge
       value: 
-      objectReference: {fileID: 1155132141}
+      objectReference: {fileID: 785960972}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: healthGauge
       value: 
-      objectReference: {fileID: 1126361752}
+      objectReference: {fileID: 1893709289}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: specialGauge
       value: 
-      objectReference: {fileID: 537059558}
+      objectReference: {fileID: 398565721}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: dashCooldown
