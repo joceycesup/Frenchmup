@@ -8,7 +8,8 @@ public class GameSettings : MonoBehaviour {
 		MainMenu,
 		Credit,
 		GameOver,
-		Playing
+		Playing,
+		GameStart
 	}
 
 	private static GameObject _game_settings;
@@ -21,25 +22,34 @@ public class GameSettings : MonoBehaviour {
 		get;
 		private set;
 	}
-
+	//*
 	public static GameState state {
 		get;
 		private set;
 	}
 
 	void Awake () {
-		state = GameState.MainMenu;
-		if (GameObject.FindObjectsOfType<GameSettings> ().Length > 1) {
-			Destroy (gameObject);
-			return;
+		GameSettings[] gs = GameObject.FindObjectsOfType<GameSettings> ();
+		if (gs.Length > 1) {
+			Destroy (_game_settings);
+			_game_settings = gameObject;
+		} else {
+			state = GameState.GameStart;
+			_game_settings = gameObject;
+			tutorial = true;
 		}
-		_game_settings = gameObject;
-		AkSoundEngine.PostEvent ("start_game", _game_settings);
 		DontDestroyOnLoad (gameObject);
-		tutorial = true;
 	}
 
-	void Start () {
+	void Start () {//*
+		if (state == GameState.GameStart) {
+			state = GameState.MainMenu;
+			AkSoundEngine.PostEvent ("start_game", SoundBank.bank);
+			Menu menu = GameObject.FindObjectOfType<Menu> ();
+			if (menu != null) {
+				menu.SetState ();
+			}//*/
+		}
 	}
 
 	public static void SetTuto (bool tuto) {
@@ -48,13 +58,17 @@ public class GameSettings : MonoBehaviour {
 
 	public void LoadGame (bool tuto) {
 		SetTuto (tuto);
+		Cursor.visible = false;
 		Destroy (gameObject.GetComponent<Menu> ());
+		AkSoundEngine.PostEvent (tuto?"tuto":"not_tuto", SoundBank.bank);
 		SceneManager.LoadScene (1);
 		//SceneManager.LoadScene ("Game");
 	}
 
 	public void LoadMenu () {
-		AkSoundEngine.PostEvent ("start_game", _game_settings);
+		Cursor.visible = true;
+		AkSoundEngine.PostEvent ("game_over", SoundBank.bank);
+		AkSoundEngine.PostEvent ("start_game", SoundBank.bank);
 		SceneManager.LoadScene (0);
 		//SceneManager.LoadScene ("Game");
 	}
@@ -63,16 +77,15 @@ public class GameSettings : MonoBehaviour {
 		Application.Quit ();
 	}
 
-	public void GameOver () {
-		Destroy (gameObject.GetComponent<Menu> ());
-		SceneManager.LoadScene (1);
-		//SceneManager.LoadScene ("Game");
+	public void TogglePause () {
+		IngameTime.TogglePause ();
 	}
 
 	public static void SetState (GameState newState) {
 		state = newState;
 		switch (state) {
-			case GameState.MainMenu: {
+			case GameState.MainMenu:
+				{
 					Menu menu = GameObject.FindObjectOfType<Menu> ();
 					if (menu != null) {
 						menu.SetState ();
@@ -81,7 +94,8 @@ public class GameSettings : MonoBehaviour {
 					}
 				}
 				break;
-			case GameState.Credit: {
+			case GameState.Credit:
+				{
 					Menu menu = GameObject.FindObjectOfType<Menu> ();
 					if (menu != null) {
 						menu.SetState ();
@@ -92,7 +106,8 @@ public class GameSettings : MonoBehaviour {
 				break;
 			case GameState.Playing:
 				break;
-			case GameState.GameOver: {
+			case GameState.GameOver:
+				{
 					Menu menu = GameObject.FindObjectOfType<Menu> ();
 					if (menu != null) {
 						menu.SetState ();

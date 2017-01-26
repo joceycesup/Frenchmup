@@ -1674,8 +1674,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.713257, y: 490.3092}
-  m_SizeDelta: {x: 1928, y: 1079.4}
+  m_AnchoredPosition: {x: 0, y: 540}
+  m_SizeDelta: {x: 3000, y: 3000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &113314716
 MonoBehaviour:
@@ -5399,12 +5399,12 @@ GameObject:
   - 114: {fileID: 291528320}
   - 114: {fileID: 291528319}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &291528318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5422,8 +5422,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -298}
-  m_SizeDelta: {x: 498, y: 103}
+  m_AnchoredPosition: {x: -0.0146484375, y: -336.99762}
+  m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &291528319
 MonoBehaviour:
@@ -5465,8 +5465,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 478299533}
-        m_MethodName: LoadMenu
+      - m_Target: {fileID: 0}
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5499,7 +5499,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 874a96c721349c241beb2b04dd2eb0ab, type: 3}
-  m_Type: 2
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6927,17 +6927,17 @@ Prefab:
         type: 2}
       propertyPath: laserGauge
       value: 
-      objectReference: {fileID: 1155132141}
+      objectReference: {fileID: 785960972}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: specialGauge
       value: 
-      objectReference: {fileID: 537059558}
+      objectReference: {fileID: 398565721}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: healthGauge
       value: 
-      objectReference: {fileID: 1126361752}
+      objectReference: {fileID: 1893709289}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: dashDistance
@@ -7536,12 +7536,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9228819c748d3f247b4aeb6de59f6460, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &478299533 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000011077222920, guid: 9228819c748d3f247b4aeb6de59f6460,
-    type: 2}
-  m_PrefabInternal: {fileID: 478299532}
-  m_Script: {fileID: 11500000, guid: c767a342ced2e6d44a0e7e745b004f68, type: 3}
 --- !u!1 &478732941
 GameObject:
   m_ObjectHideFlags: 0
@@ -8465,7 +8459,7 @@ RectTransform:
   m_GameObject: {fileID: 544941129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1531745316}
@@ -8494,7 +8488,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 76424ea16241bad4fa8723e2da587093, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8807c9d77f6e6a4dab35d9e4b2acdd9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -14999,7 +14993,7 @@ RectTransform:
   m_GameObject: {fileID: 950778607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1496350556}
@@ -15028,7 +15022,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8807c9d77f6e6a4dab35d9e4b2acdd9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76424ea16241bad4fa8723e2da587093, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -20808,6 +20802,286 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cfb3aa40215cc49ab09ca769055c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1349815660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1349815663}
+  - 212: {fileID: 1349815662}
+  - 114: {fileID: 1349815661}
+  m_Layer: 0
+  m_Name: "gobeli\xE8vre \xE0 javelines"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1349815661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1349815660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b504942e6ece2264a861191a55a28a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  text: {fileID: 98639351}
+  grayZone: {fileID: 0}
+  bulle: {fileID: 0}
+  sentences:
+  - Pour commencer, on va apprendre les bases
+  - "D\xE9placez votre destrier en utilisant le stick directionnel gauche"
+  - "\xC7a vous permettra de ne pas tomber au combat tout de suite..."
+  - "\xC7a, c\u2019est votre jauge de vie"
+  - Pas besoin de vous dire ce qui arrivera si elle se vide...
+  - Si vous voulez gagner cette bataille,
+  - Il est indispensable de se battre,
+  - "Mais aussi de se d\xE9fendre !"
+  - "Je vais vous apprendre deux r\xF4les : Assaillant et Protecteur."
+  - "Pour l\u2019instant, vous \xEAtes en r\xF4le d\u2019Assaillant."
+  - "Dans l\u2019id\xE9al, il faut que chacun d\u2019entre vous ait un r\xF4le diff\xE9rent."
+  - "Vous \xEAtes libres de choisir"
+  - "Mais \xE7a vous aiderait \xE0 survivre plus de quelques secondes..."
+  - "En tant qu\u2019Assaillant, vous pouvez tirer des lances avec (A)"
+  - "Voici quelques ennemis que nos gardes ont r\xE9ussi \xE0 capturer."
+  - "Essayez de les an\xE9antir !"
+  - "Vous avez bien compris comment utiliser les bases du r\xF4le d\u2019Assaillant."
+  - "Maintenant, passez au r\xF4le Protecteur avec (L1)"
+  - "Tr\xE8s bien ! Votre r\xF4le de Protecteur est d\u2019emp\xEAcher l\u2019Assaillant
+    de mourir"
+  - "Son armure est beaucoup moins r\xE9sistante que la v\xF4tre,"
+  - "Alors il faut l\u2019aider un peu."
+  - En tant que Protecteur, vous ne pouvez pas tirer,
+  - "Mais vous pouvez faire avancer votre destrier plus rapidement \navec (A)"
+  - "Et en vous d\xE9pla\xE7ant avec le stick directionnel gauche"
+  - En chargeant sur les projectiles ennemis
+  - Vous pouvez les absorber
+  - "Vous commencez \xE0 comprendre l\u2019importance du Protecteur, c\u2019est bien
+    !"
+  - "L\u2019armure du Protecteur a une particularit\xE9,"
+  - "Elle peut attirer les projectiles \xE0 elle en maintenant (X)"
+  - Bien ! Vous connaissez toutes les techniques du Protecteur.
+  - "Je pense qu\u2019il y a un moyen de les combiner..."
+  - Ceci est la jauge de rayon magique de votre destrier.
+  - "Quand vous \xEAtes le Protecteur, vous pouvez la remplir"
+  - En absorbant les projectiles ennemis avec (A)
+  - "N'oubliez pas qu'il mettra plus de temps \xE0 charger sur le champ de bataille
+    !"
+  - "Voil\xE0 ! Maintenant vous pouvez passer en r\xF4le d\u2019Assaillant avec (R1)"
+  - "Maintenez (X) et an\xE9antissez vos ennemis !"
+  - Parfait ! Attention, quand cette jauge sera vide,
+  - "Vous devrez repasser en r\xF4le de Protecteur pour la remplir de nouveau."
+  - "Il y a un avantage \xE0 avoir chacun un r\xF4le diff\xE9rent."
+  - "J2, passe en r\xF4le de Protecteur !"
+  - "Voil\xE0 ! Vous \xEAtes maintenant li\xE9s."
+  - "Cette cha\xEEne va blesser les ennemis qu\u2019elle touche,"
+  - Ce qui sera utile pour les moments difficiles...
+  - "Pour finir, cette jauge repr\xE9sente le chargement de votre coup sp\xE9cial"
+  - "Quand elle est remplie, appuyez sur (B) pour l\u2019utiliser."
+  - Le Protecteur pourra ralentir le temps,
+  - "L\u2019Assaillant pourra faire dispara\xEEtre les projectiles ennemis"
+  - "Et faire des d\xE9g\xE2ts dans une zone limit\xE9e."
+  - Essentiel en cas de danger !
+  - Rappelez-vous, (B) !
+  - "Voil\xE0, votre entra\xEEnement est termin\xE9."
+  - "Vous \xEAtes pr\xEAts pour le combat (je pense...)"
+  - Bonne chance !
+  tutoPhases:
+  - phaseName: 01 - Introduction
+    initAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 113314714}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 713480079}
+          m_MethodName: 
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    predicateCheck:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    resetAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - phaseName: 
+    initAction:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    predicateCheck:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    resetAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - phaseName: 
+    initAction:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    predicateCheck:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    resetAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - phaseName: 
+    initAction:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    predicateCheck:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    resetAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  actionDelay: 0.5
+--- !u!212 &1349815662
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1349815660}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -482780277
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 96ab67aff4c9ae642a8607386dc67d96, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &1349815663
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1349815660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.08, y: 10.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1349999018
 GameObject:
   m_ObjectHideFlags: 0
@@ -21277,14 +21551,13 @@ GameObject:
   - 222: {fileID: 1365157308}
   - 114: {fileID: 1365157307}
   - 114: {fileID: 1365157306}
-  - 114: {fileID: 1365157310}
   m_Layer: 5
   m_Name: Retour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1365157306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21325,8 +21598,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 478299533}
-        m_MethodName: TogglePause
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21359,7 +21654,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 874a96c721349c241beb2b04dd2eb0ab, type: 3}
-  m_Type: 2
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21390,20 +21685,9 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -182}
-  m_SizeDelta: {x: 498, y: 103}
+  m_AnchoredPosition: {x: -0.0146484375, y: -243.99762}
+  m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1365157310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1365157305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d003221efd2c3a4f8b941781293d0ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1371735009
 GameObject:
   m_ObjectHideFlags: 0
@@ -23058,11 +23342,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013996986862, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.82725173
+      value: -0.9532362
       objectReference: {fileID: 0}
     - target: {fileID: 4000013996986862, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.5618314
+      value: 0.30222648
       objectReference: {fileID: 0}
     - target: {fileID: 4000010761045252, guid: 26ae9da0c3ed61f45bc227ba56d65658, type: 2}
       propertyPath: m_LocalRotation.z
@@ -25610,7 +25894,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Menu Principal
+  m_Text: Quitter
 --- !u!222 &1573184862
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32776,17 +33060,17 @@ Prefab:
         type: 2}
       propertyPath: laserGauge
       value: 
-      objectReference: {fileID: 785960972}
+      objectReference: {fileID: 1155132141}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: healthGauge
       value: 
-      objectReference: {fileID: 1893709289}
+      objectReference: {fileID: 1126361752}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: specialGauge
       value: 
-      objectReference: {fileID: 398565721}
+      objectReference: {fileID: 537059558}
     - target: {fileID: 114000010550163478, guid: d4655d6dbec804649bd4e82d921e8d49,
         type: 2}
       propertyPath: dashCooldown

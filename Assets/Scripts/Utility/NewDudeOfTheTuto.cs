@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections.Generic;
 #if UNITY_EDITOR
 #endif
 
 public class NewDudeOfTheTuto : MonoBehaviour {
-
-	public GameObject player1;
-	public GameObject player2;
 	public Text text;
 	public GameObject grayZone;
 	public GameObject bulle;
+	public delegate void testDelegate ();
 
 	//public GameObject grayZone;
 	private GameObject[] bars = { null, null };
 	public string[] sentences = {
-		"Pour commencer, on va apprendre les bases",
+/*S_01*/"Pour commencer, on va apprendre les bases",
 		"Déplacez votre destrier en utilisant le stick directionnel gauche",
 		"Ça vous permettra de ne pas tomber au combat tout de suite...",
-		"Ça, c’est votre jauge de vie",
+/*S_02*/"Ça, c’est votre jauge de vie",
 		"Pas besoin de vous dire ce qui arrivera si elle se vide...",
-		"Si vous voulez gagner cette bataille,",
+/*S_03*/"Si vous voulez gagner cette bataille,",
 		"Il est indispensable de se battre,",
 		"Mais aussi de se défendre !",
 		"Je vais vous apprendre deux rôles : Assaillant et Protecteur.",
@@ -28,22 +26,22 @@ public class NewDudeOfTheTuto : MonoBehaviour {
 		"Dans l’idéal, il faut que chacun d’entre vous ait un rôle différent.",
 		"Vous êtes libres de choisir",
 		"Mais ça vous aiderait à survivre plus de quelques secondes...",
-		"En tant qu’Assaillant, vous pouvez tirer des lances avec (A)",
+/*S_04*/"En tant qu’Assaillant, vous pouvez tirer des lances avec (A)",
 		"Voici quelques ennemis que nos gardes ont réussi à capturer.",
-		"Essayez de les anéantir !",
-		"Vous avez bien compris comment utiliser les bases du rôle d’Assaillant.",
-		"Maintenant, passez au rôle Protecteur avec (L1)",
-		"Très bien ! Votre rôle de Protecteur est d’empêcher l’Assaillant de mourir",
+/*S_05*/"Essayez de les anéantir !",
+/*S_06*/"Vous avez bien compris comment utiliser les bases du rôle d’Assaillant.",
+/*S_07*/"Maintenant, passez au rôle Protecteur avec (L1)",
+/*S_08*/"Très bien ! Votre rôle de Protecteur est d’empêcher l’Assaillant de mourir",
 		"Son armure est beaucoup moins résistante que la vôtre,",
 		"Alors il faut l’aider un peu.",
 		"En tant que Protecteur, vous ne pouvez pas tirer,",
 		"Mais vous pouvez faire avancer votre destrier plus rapidement \navec (A)",
 		"Et en vous déplaçant avec le stick directionnel gauche",
-		"En chargeant sur les projectiles ennemis",
-		"Vous pouvez les absorber",
-		"Vous commencez à comprendre l’importance du Protecteur, c’est bien !",
+/*S_09*/"En chargeant sur les projectiles ennemis",
+/*S_10*/"Vous pouvez les absorber",
+/*S_10*/"Vous commencez à comprendre l’importance du Protecteur, c’est bien !",
 		"L’armure du Protecteur a une particularité,",
-		"Elle peut attirer les projectiles à elle en maintenant (X)",
+/*S_10*/"Elle peut attirer les projectiles à elle en maintenant (X)",
 		"Bien ! Vous connaissez toutes les techniques du Protecteur.",
 		"Je pense qu’il y a un moyen de les combiner...",
 		"Ceci est la jauge de rayon magique de votre destrier.",
@@ -71,7 +69,7 @@ public class NewDudeOfTheTuto : MonoBehaviour {
 		"Bonne chance !",
 	};
 
-	public TutoPhase[] tutoPhases;
+	public List<TutoPhase> tutoPhases;
 	public float actionDelay = 0.5f;
 	private float[] tmpValues = { 0f, 0f, 0f };
 	private int currentStateSentence = 0;
@@ -82,6 +80,10 @@ public class NewDudeOfTheTuto : MonoBehaviour {
 	private bool awaitingEnter = false;
 	private bool skipUpdate = false;
 	private string sentence = "";
+
+	void Awake () {
+		tutoPhases = new List<TutoPhase> ();
+	}
 
 	void Start () {
 		if (!((GameObject.FindObjectOfType<GameSettings> () != null) ? GameSettings.tutorial : false)) {

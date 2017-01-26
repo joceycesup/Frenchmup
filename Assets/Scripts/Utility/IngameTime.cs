@@ -51,6 +51,7 @@ public class IngameTime : MonoBehaviour {
 	public static void TogglePause () {
 		pause = !pause;
 		ingameTime.pauseObject.SetActive (pause);
+		Cursor.visible = pause;
 		if (pause) {
 			ingameTime._pauseFactor = ingameTime._timeFactor;
 			ingameTime._timeFactor = 0f;

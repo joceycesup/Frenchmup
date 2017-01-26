@@ -88,6 +88,7 @@ public class Player : Character {
 	public Sprite Support;
 
 	protected override void AwakeCharacter () {
+		alivePlayer = 0;
 		if (invincible) {
 			SetAbilities (Ability.TakeDamage, false);
 		}
@@ -308,7 +309,6 @@ public class Player : Character {
 	protected override void Death () {
 		AkSoundEngine.PostEvent ("death", gameObject);
 		if (--alivePlayer <= 0) {
-			AkSoundEngine.PostEvent ("game_over", GameSettings.game_settings);
 			GameSettings.SetState (GameSettings.GameState.GameOver);
 		} else {
 			StartCoroutine ("RespawnPlayer", this);
@@ -368,6 +368,10 @@ public class Player : Character {
 		} else {
 			abilities &= ~((int)ability);
 		}
+	}
+
+	public void SetAbilitieTrue (Ability ability) {
+		abilities |= (int)ability;
 	}
 
 	public bool CheckAbility (Ability ability) {

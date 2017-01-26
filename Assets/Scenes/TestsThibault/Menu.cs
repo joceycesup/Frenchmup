@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour {
 	public GameObject gameOver;
 	public GameObject credit;
 
-	void Awake () {
+	void Start () {
 		SetState ();
 	}
 

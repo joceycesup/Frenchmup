@@ -41,10 +41,10 @@ public class ProjectileEmitter : MonoBehaviour {
 		other.behaviourArgs.CopyTo (this.behaviourArgs, 0);
 		this.firingRate = other.firingRate;
 	}//*/
-
+	/*
 	void Awake() {
 		Debug.Log (projectile + " : " + projectile.GetInstanceID ());
-	}
+	}//*/
 
 	void Start () {
 		if (tag == "BossWeapon") {
